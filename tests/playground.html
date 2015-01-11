@@ -86,6 +86,20 @@ function fromXml() {
   Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xml);
 }
 
+function toJson() {
+  var output = document.getElementById('importExport');
+  var json = Blockly.Json.workspaceToObject(Blockly.mainWorkspace);
+  output.value = Blockly.Json.objectToText(json);
+  output.focus();
+  output.select();
+}
+
+function fromJson() {
+  var input = document.getElementById('importExport');
+  var json = Blockly.Json.textToObject(input.value);
+  Blockly.Json.objectToWorkspace(Blockly.mainWorkspace, json);
+}
+
 function toCode(lang) {
   var output = document.getElementById('importExport');
   output.value = Blockly[lang].workspaceToCode();
@@ -374,6 +388,10 @@ h1 {
     <input type="button" value="Export to XML" onclick="toXml()">
     &nbsp;
     <input type="button" value="Import from XML" onclick="fromXml()">
+    <br>
+    <input type="button" value="Export to JSON" onclick="toJson()">
+    &nbsp;
+    <input type="button" value="Import from JSON" onclick="fromJson()">
     <br>
     <input type="button" value="To JavaScript" onclick="toCode('JavaScript')">
     &nbsp;
