@@ -1,8 +1,8 @@
 # Blockly
 
-Google's Blockly is a web-based, visual programming editor.  Users can drag
-blocks together to build programs.  All code is free and open source.
+[Google's Blockly](https://developers.google.com/blockly/) is a web-based, 
+visual programming editor.  Users can drag blocks together to build programs.  
+All code is free and open source.
 
-**The project page is https://developers.google.com/blockly/**
-
-![](https://developers.google.com/blockly/sample.png)
+This fork adds the Kiwifroot generator, which adds supported for creating 
+[Kiwi.js](http://www.kiwijs.org/) components using blocks.
