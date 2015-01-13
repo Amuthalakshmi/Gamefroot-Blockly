@@ -102,8 +102,10 @@ Blockly.Toolbox.prototype.CONFIG_ = {
 
 /**
  * Initializes the toolbox.
+ * @param {!Blockly.Workspace} workspace The workspace in which to create new
+ *     blocks.
  */
-Blockly.Toolbox.prototype.init = function() {
+Blockly.Toolbox.prototype.init = function(workspace) {
   this.CONFIG_['cleardotPath'] = Blockly.pathToMedia + '1x1.gif';
   this.CONFIG_['cssCollapsedFolderIcon'] =
       'blocklyTreeIconClosed' + (Blockly.RTL ? 'Rtl' : 'Ltr');
@@ -115,7 +117,7 @@ Blockly.Toolbox.prototype.init = function() {
   tree.setSelectedItem(null);
 
   this.HtmlDiv.style.display = 'block';
-  this.flyout_.init(Blockly.mainWorkspace);
+  this.flyout_.init(workspace);
   this.populate_();
   tree.render(this.HtmlDiv);
 
@@ -259,7 +261,7 @@ Blockly.Toolbox.TreeControl.prototype.handleTouchEvent_ = function(e) {
   if (node && e.type === goog.events.EventType.TOUCHSTART) {
     // Fire asynchronously since onMouseDown takes long enough that the browser
     // would fire the default mouse event before this method returns.
-    window.setTimeout(function() {
+    setTimeout(function() {
       node.onMouseDown(e);  // Same behaviour for click and touch.
     }, 1);
   }
