@@ -43,8 +43,8 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	}
 	var code = 'function ' + funcName + '() {\n' + branch + '}';
 	code = Blockly.Kiwifroot.scrub_(block, code);
-	Blockly.Kiwifroot.definitions_[funcName] = code;
-	var callCode = funcName + '();\n';
-	Blockly.Kiwifroot.constructorAdditions_.push(callCode);
+	var constructorCode = funcName + '();\n';
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code)
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
 	return null;
 };
