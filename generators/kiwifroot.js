@@ -50,10 +50,10 @@ Blockly.Kiwifroot = Blockly.JavaScript;
  */
 Blockly.Kiwifroot.defaultTemplate =
   'function [[CLASS]](){\n'+
-  '{{CONSTRUCTOR}}'+
+  '{{-CONSTRUCTOR-}}'+
   '}\n\n' +
   'Kiwi.extend([[CLASS]],Kiwifroot.GameObject,\"[[CLASS]]\");\n\n'+
-  '{{DEFINITIONS}}';
+  '{{DEFINITIONS--}}';
 
 /**
  * The default macro properties to use when compiling for Kiwifroot
@@ -157,14 +157,40 @@ Blockly.Kiwifroot.generateFromTemplate_ = function(){
   var macroEnd = Blockly.Kiwifroot.closeMacroDelimeter_;
   var sectionStart = Blockly.Kiwifroot.openSectionDelimeter_;
   var sectionEnd = Blockly.Kiwifroot.closeSectionDelimeter_;
+
+  // Calculate the indent for each section of the template
+  var indent = {};
+  var newlines = {};
+  var sectionsWithIndent = str.match(new RegExp(sectionStart+".*?"+sectionEnd,'g'));
+  for (var i = 0, n = sectionsWithIndent.length; i < n; i++) {
+    var sectionNameWithSymbols = sectionsWithIndent[i];
+    var sectionName = sectionNameWithSymbols.slice(
+        sectionStart.length,sectionNameWithSymbols.length-sectionEnd.length);
+    var indentForSection = 0;
+    while (sectionName.charAt(0) === '-' && sectionName.length > 0) {
+      sectionName = sectionName.slice(1);
+      indentForSection++;
+    }
+    var newlinesForSection = 0;
+    while (sectionName.charAt(sectionName.length-1) === '-' && sectionName.length > 0) {
+      sectionName = sectionName.slice(0,sectionName.length-1);
+      newlinesForSection++;
+    }
+    indent[sectionName] = indentForSection;
+    newlines[sectionName] = newlinesForSection;
+  }
   // Replace all the macro values
   for (var macro in symbols){
     str = replaceAll(str, macroStart+macro+macroEnd, symbols[macro]);
   }
   // Replace all the sections with their code
   for (var section in Blockly.Kiwifroot.sections_) {
-    var code = Blockly.Kiwifroot.generateSection_(section);
-    str = replaceAll(str, sectionStart+section+sectionEnd, code);
+    var prefix = '';
+    var suffix = '';
+    for (var j = 0; j < indent[section]; j++) prefix += Blockly.Kiwifroot.INDENT;
+    for (var j = 0; j < newlines[section]; j++) suffix += '\n';
+    var code = Blockly.Kiwifroot.generateSection_(section,prefix,suffix);
+    str = str.replace(new RegExp(sectionStart+"-*?"+section+"-*?"+sectionEnd,'g'),code);
   }
   // TODO remove all unused macros and sections
   return str;
@@ -175,13 +201,12 @@ Blockly.Kiwifroot.generateFromTemplate_ = function(){
  * @param {string} section The name of the section to generate
  * @return The section of the code 
  */
-Blockly.Kiwifroot.generateSection_ = function(section){
-  // TODO indentation
+Blockly.Kiwifroot.generateSection_ = function(section,prefix,suffix){
   var code = '';
   var arr = Blockly.Kiwifroot.sections_[section];
   if (arr) {
     for (var i=0, n=arr.length; i < n; i++){
-      code += arr[i];
+      code += prefix + arr[i] + suffix;
     }
   }
   return code;

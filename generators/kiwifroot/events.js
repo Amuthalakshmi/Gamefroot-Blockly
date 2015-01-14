@@ -43,7 +43,7 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	}
 	var code = 'function ' + funcName + '() {\n' + branch + '}';
 	code = Blockly.Kiwifroot.scrub_(block, code);
-	var constructorCode = funcName + '();\n';
+	var constructorCode = funcName + '();';
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code)
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
 	return null;
