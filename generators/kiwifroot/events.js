@@ -31,7 +31,7 @@ goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	var funcName = defineFunctionFromBranch('onCreate',block);
-	var constructorCode = funcName + '();';
+	var constructorCode = 'this.'+funcName + '();';
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
 	return null;
 };
@@ -64,7 +64,7 @@ function defineFunctionFromBranch(desiredName, block){
 		branch = Blockly.Kiwifroot.INFINITE_LOOP_TRAP.replace(/%1/g,
 			'\'' + block.id + '\'') + branch;
 	}
-	var code = 'function ' + funcName + '() {\n' + branch + '}';
+	var code = funcName + ' = function() {\n' + branch + '}';
 	code = Blockly.Kiwifroot.scrub_(block, code);
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code)
 	return funcName;
