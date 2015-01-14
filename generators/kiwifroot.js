@@ -43,16 +43,26 @@ goog.require('Blockly.JavaScript.variables');
  */
 Blockly.Kiwifroot = Blockly.JavaScript;
 
+Blockly.Kiwifroot.INDENT = '\t';
+
 /**
  * The default template to use when compiling for Kiwifroot
  * @const
  * @type {string}
  */
 Blockly.Kiwifroot.defaultTemplate =
-  'function [[CLASS]](){\n'+
+  'Kiwi.Plugins.[[PLUGIN_NAME]] = {\n'+
+  '\tname:\'[[PLUGIN_NAME]]\',\n'+
+  '\tversion:\'[[PLUGIN_VERSION]]\',\n'+
+  '\tminimumKiwiVersion:\'[[MIN_KIWI_VERSION]]\',\n'+
+  '\tkiwifrootPlugins:[[KIWIFROOT_PLUGINS]]\n'+
+  '};\n\n'+
+  'Kiwi.PluginManager.register(Kiwi.Plugins.[[PLUGIN_NAME]]);\n\n'+
+  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]](gameObject){\n'+
+  '\tKiwi.Component.call(this, gameObject, \'[[PLUGIN_NAME]]\');\n\n'+
   '{{-CONSTRUCTOR-}}'+
   '}\n\n' +
-  'Kiwi.extend([[CLASS]],Kiwifroot.GameObject,\"[[CLASS]]\");\n\n'+
+  'Kiwi.extend([[CLASS_NAME]],Kiwifroot.GameObject,\"[[CLASS_NAME]]\");\n\n'+
   '{{DEFINITIONS--}}';
 
 /**
@@ -61,7 +71,11 @@ Blockly.Kiwifroot.defaultTemplate =
  * @type {object}
  */
 Blockly.Kiwifroot.defaultMacros = {
-  'CLASS':'MyClass'
+  'PLUGIN_NAME':'MyClass',
+  'CLASS_NAME':'Component',
+  'PLUGIN_VERSION':'0.5.0',
+  'MIN_KIWI_VERSION':'1.1.1',
+  'KIWIFROOT_PLUGINS':'[]'
 }
 
 /** 
