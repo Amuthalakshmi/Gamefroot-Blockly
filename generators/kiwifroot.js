@@ -81,7 +81,7 @@ Blockly.Kiwifroot.init = function(workspace) {
 Blockly.Kiwifroot.finish = function(code) {
   // Convert the definitions dictionary into a list.
   var definitions = [];
-  definitions.push(Blockly.Kiwifroot.generateConstructor());
+  definitions.push(Blockly.Kiwifroot.generateConstructor_());
   for (var name in Blockly.Kiwifroot.definitions_) {
     definitions.push(Blockly.Kiwifroot.definitions_[name]);
   }
@@ -90,9 +90,10 @@ Blockly.Kiwifroot.finish = function(code) {
 
 /**
  * Generates the constructor code for this entity
+ * @private
  * @return {string} The constructor code
  */
-Blockly.Kiwifroot.generateConstructor = function(){
+Blockly.Kiwifroot.generateConstructor_ = function(){
   var className = 'TestEntity'
   var code = '';
   for (var i=0, n=Blockly.Kiwifroot.constructorAdditions_.length; i < n; i++){

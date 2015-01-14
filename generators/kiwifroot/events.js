@@ -41,11 +41,8 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 		branch = Blockly.Kiwifroot.INFINITE_LOOP_TRAP.replace(/%1/g,
 			'\'' + block.id + '\'') + branch;
 	}
-	console.log(branch);
 	var code = 'function ' + funcName + '() {\n' + branch + '}';
-	console.log(code);
 	code = Blockly.Kiwifroot.scrub_(block, code);
-	console.log(code);
 	Blockly.Kiwifroot.definitions_[funcName] = code;
 	var callCode = funcName + '();\n';
 	Blockly.Kiwifroot.constructorAdditions_.push(callCode);
