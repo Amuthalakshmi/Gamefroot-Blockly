@@ -19,18 +19,17 @@
  */
 
 /**
- * @fileoverview Generating Kiwifroot Javascript for transforms of the game object.
- * @author rani_sputnik@hotmail.com (Ryan Loader)
+ * @fileoverview Generating Kiwifroot Javascript that resolves instance tokens
+ * @author rani_sputnik@hotmail.com
  */
 'use strict';
 
-goog.provide('Blockly.Kiwifroot.transforms');
+goog.provide('Blockly.Kiwifroot.instances');
 
 goog.require('Blockly.Kiwifroot');
 
-Blockly.Kiwifroot['kiwi_transform_set_position'] = function(block) {
-	var axis = block.getFieldValue('AXIS');
-	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 'null'; // TODO what order is this?
-	var pos = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-	return inst + '.transform.position.'+axis+' = '+pos+';\n';
+
+Blockly.Kiwifroot['kiwi_instance_self'] = function(block) {
+	var code = 'this'; // TODO we may want to change this to self if there are any async functions
+  	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };

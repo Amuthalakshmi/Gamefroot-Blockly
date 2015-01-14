@@ -1100,17 +1100,24 @@ Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only 
 
 
 /// The Kiwifroot create event messages
+/// All events begin with an upper case letter, like the beginning of a sentence
+/// All functions will be lowercase - the final part of the sentence
 Blockly.Msg.KF_EVENT_CREATE_MESSAGE = 'When created';
 Blockly.Msg.KF_EVENT_CREATE_TOOLTIP = 'The event triggered when this game object is created'; 
 Blockly.Msg.KF_EVENT_CREATE_HELPURL = '';
-// The kiwifroot stage event messages
+/// The kiwifroot stage event messages
 Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = 'When stage is pressed';
-Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP = "The event triggered when the player presses a click/touch down anywhere in the game scene";
+Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP = "The event triggered when the player presses a click/touch down anywhere in the game scene.";
 Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL = '';
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE = 'When stage is released';
-Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = "The event triggered when the player releases a click/touch anywhere in the game scene";
+Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = "The event triggered when the player releases a click/touch anywhere in the game scene.";
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
 
-// THe Kiwifroot set position block
-Blockly.Msg.KF_TRANSFORM_SET_POSITION_TOOLTIP = 'Sets the position of a game object to a given value';
+/// THe Kiwifroot set position block
+Blockly.Msg.KF_TRANSFORM_SET_POSITION_TOOLTIP = 'Sets the position of a game object to a given value.';
 Blockly.Msg.KF_TRANSFORM_SET_POSITION_HELPURL = '';
+
+/// The kiwifroot 'self' block
+Blockly.Msg.KF_INSTANCE_SELF_MESSAGE = 'myself';
+Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP = 'The game object that this script is attached to.';
+Blockly.Msg.KF_INSTANCE_SELF_HELPURL = '';

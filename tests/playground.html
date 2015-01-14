@@ -34,6 +34,7 @@
 <script src="../generators/kiwifroot.js"></script>
 <script src="../generators/kiwifroot/events.js"></script>
 <script src="../generators/kiwifroot/transforms.js"></script>
+<script src="../generators/kiwifroot/instances.js"></script>
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
 <script src="../blocks/loops.js"></script>
@@ -45,6 +46,7 @@
 <script src="../blocks/procedures.js"></script>
 <script src="../blocks/kiwifroot/events.js"></script>
 <script src="../blocks/kiwifroot/transforms.js"></script>
+<script src="../blocks/kiwifroot/instances.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -379,7 +381,19 @@ h1 {
         <block type="kiwi_event_stage_release"></block>
       </category>
       <category name="Transforms">
-        <block type="kiwi_transform_set_position"></block>
+        <block type="kiwi_transform_set_position">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+          <value name="VALUE">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+      </category>
+      <category name="Instances">
+        <block type="kiwi_instance_self"></block>
       </category>
     </category>
     <hr>

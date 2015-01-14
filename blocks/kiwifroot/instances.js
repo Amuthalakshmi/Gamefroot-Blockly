@@ -1,6 +1,6 @@
 /**
  * @license
- * Visual Blocks Language
+ * Visual Blocks Editor
  *
  * Copyright 2012 Google Inc.
  * https://developers.google.com/blockly/
@@ -19,18 +19,24 @@
  */
 
 /**
- * @fileoverview Generating Kiwifroot Javascript for transforms of the game object.
+ * @fileoverview Transformation blocks for Kiwifroot.
  * @author rani_sputnik@hotmail.com (Ryan Loader)
  */
 'use strict';
 
-goog.provide('Blockly.Kiwifroot.transforms');
+goog.provide('Blockly.Blocks.Kiwifroot.instances');
 
-goog.require('Blockly.Kiwifroot');
+goog.require('Blockly.Blocks');
 
-Blockly.Kiwifroot['kiwi_transform_set_position'] = function(block) {
-	var axis = block.getFieldValue('AXIS');
-	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 'null'; // TODO what order is this?
-	var pos = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-	return inst + '.transform.position.'+axis+' = '+pos+';\n';
+
+Blockly.Blocks['kiwi_instance_self'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
+    this.setColour(0);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_INSTANCE_SELF_MESSAGE);
+    this.setInputsInline(true);
+    this.setOutput(true, "instance");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
+  }
 };
