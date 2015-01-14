@@ -166,47 +166,58 @@ Blockly.Kiwifroot.finish = function(code) {
  */
 Blockly.Kiwifroot.generateFromTemplate_ = function(){
   var str = Blockly.Kiwifroot.template_;
+  // Gather the identifiers used in the template
   var symbols = Blockly.Kiwifroot.macros_;
   var macroStart = Blockly.Kiwifroot.openMacroDelimeter_;
   var macroEnd = Blockly.Kiwifroot.closeMacroDelimeter_;
   var sectionStart = Blockly.Kiwifroot.openSectionDelimeter_;
   var sectionEnd = Blockly.Kiwifroot.closeSectionDelimeter_;
+  // Prepare the delimeters for use in regexp
+  var safeMacroStart = regexpQuote(macroStart);
+  var safeMacroEnd = regexpQuote(macroEnd);
+  var safeSectionStart = regexpQuote(sectionStart);
+  var safeSectionEnd = regexpQuote(sectionEnd);
 
-  // Calculate the indent for each section of the template
-  var indent = {};
-  var newlines = {};
-  var sectionsWithIndent = str.match(new RegExp(sectionStart+".*?"+sectionEnd,'g'));
-  for (var i = 0, n = sectionsWithIndent.length; i < n; i++) {
-    var sectionNameWithSymbols = sectionsWithIndent[i];
-    var sectionName = sectionNameWithSymbols.slice(
-        sectionStart.length,sectionNameWithSymbols.length-sectionEnd.length);
-    var indentForSection = 0;
-    while (sectionName.charAt(0) === '-' && sectionName.length > 0) {
-      sectionName = sectionName.slice(1);
-      indentForSection++;
+  // Find all the macros in the template
+  var MACRO_RE = safeMacroStart+".*?"+safeMacroEnd;
+  var macrosInTemplate = str.match(new RegExp(MACRO_RE,'g'));
+  if (macrosInTemplate) {
+    for (var i = 0, n = macrosInTemplate.length; i < n; i++){
+      var macroNameWithSymbols = macrosInTemplate[i];
+      var macroName = macroNameWithSymbols.slice(
+          macroStart.length,macroNameWithSymbols.length-macroEnd.length);
+      // TODO if = is present, set the symbol to a new value
+      str = str.replace(new RegExp(safeMacroStart+macroName+safeMacroEnd),
+        symbols[macroName] || 'MACRO_NOT_SUPPLIED');
     }
-    var newlinesForSection = 0;
-    while (sectionName.charAt(sectionName.length-1) === '-' && sectionName.length > 0) {
-      sectionName = sectionName.slice(0,sectionName.length-1);
-      newlinesForSection++;
+  }
+
+  // Find all the sections in the template
+  var SECTION_RE = safeSectionStart+".*?"+safeSectionEnd
+  var sectionsInTemplate = str.match(new RegExp(SECTION_RE,'g'));
+  if (sectionsInTemplate) {
+    for (var i = 0, n = sectionsInTemplate.length; i < n; i++) {
+      var sectionNameWithSymbols = sectionsInTemplate[i];
+      var sectionName = sectionNameWithSymbols.slice(
+          sectionStart.length,sectionNameWithSymbols.length-sectionEnd.length);
+      // Calculate the indent prefix for this section
+      var prefix = '';
+      while (sectionName.charAt(0) === '-' && sectionName.length > 0) {
+        sectionName = sectionName.slice(1);
+        prefix += Blockly.Kiwifroot.INDENT;
+      }
+      // Find out the newline suffix for this section
+      var suffix = '';
+      while (sectionName.charAt(sectionName.length-1) === '-' && sectionName.length > 0) {
+        sectionName = sectionName.slice(0,sectionName.length-1);
+        suffix += '\n';
+      }
+      // Generate the code for this section
+      var code = Blockly.Kiwifroot.generateSection_(sectionName,prefix,suffix);
+      var re = safeSectionStart+"-*?"+sectionName+"-*?"+safeSectionEnd;
+      str = str.replace(new RegExp(re),code);
     }
-    indent[sectionName] = indentForSection;
-    newlines[sectionName] = newlinesForSection;
   }
-  // Replace all the macro values
-  for (var macro in symbols){
-    str = replaceAll(str, macroStart+macro+macroEnd, symbols[macro]);
-  }
-  // Replace all the sections with their code
-  for (var section in Blockly.Kiwifroot.sections_) {
-    var prefix = '';
-    var suffix = '';
-    for (var j = 0; j < indent[section]; j++) prefix += Blockly.Kiwifroot.INDENT;
-    for (var j = 0; j < newlines[section]; j++) suffix += '\n';
-    var code = Blockly.Kiwifroot.generateSection_(section,prefix,suffix);
-    str = str.replace(new RegExp(sectionStart+"-*?"+section+"-*?"+sectionEnd,'g'),code);
-  }
-  // TODO remove all unused macros and sections
   return str;
 };
 
@@ -239,6 +250,13 @@ Blockly.Kiwifroot.generateConstructor_ = function(){
   }
   return 'function ' + className + '() {\n' + code + '}';
 }
+
+
+
+
+var regexpQuote = function(str) {
+     return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
+ };
 
 /**
  * Helper function for replacing all occurances of a word
