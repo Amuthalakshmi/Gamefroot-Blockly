@@ -28,10 +28,32 @@ goog.provide('Blockly.Kiwifroot.events');
 
 goog.require('Blockly.Kiwifroot');
 
+
 Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
+	var funcName = defineFunctionFromBranch('onCreate',block);
+	var constructorCode = funcName + '();';
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	return null;
+};
+
+Blockly.Kiwifroot['kiwi_event_stage_press'] = function(block) {
+	var funcName = defineFunctionFromBranch('onStagePress',block);
+	var constructorCode = 'this.game.input.onDown.add(this.'+funcName+', this);';
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	return null;
+};
+
+Blockly.Kiwifroot['kiwi_event_stage_release'] = function(block) {
+	var funcName = defineFunctionFromBranch('onStageRelease',block);
+	var constructorCode = 'this.game.input.onUp.add(this.'+funcName+', this);';
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	return null;
+};
+
+
+function defineFunctionFromBranch(desiredName, block){
 	// Define a procedure with a return value.
-	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onCreate', Blockly.Procedures.NAME_TYPE);
-	console.log(Blockly.Kiwifroot.variableDB_);
+	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName(desiredName, Blockly.Procedures.NAME_TYPE);
 	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
 	if (Blockly.Kiwifroot.STATEMENT_PREFIX) {
 		branch = Blockly.Kiwifroot.prefixLines(
@@ -44,8 +66,6 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	}
 	var code = 'function ' + funcName + '() {\n' + branch + '}';
 	code = Blockly.Kiwifroot.scrub_(block, code);
-	var constructorCode = funcName + '();';
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code)
-	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
-	return null;
-};
+	return funcName;
+}

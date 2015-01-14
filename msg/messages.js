@@ -1097,3 +1097,16 @@ Blockly.Msg.PROCEDURES_CREATE_DO = 'Create "%1"';
 Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then return a second value.';
 /// warning - This appears if the user tries to use this block outside of a function definition.
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
+
+
+/// The Kiwifroot create event messages
+Blockly.Msg.KF_EVENT_CREATE_MESSAGE = 'When created';
+Blockly.Msg.KF_EVENT_CREATE_TOOLTIP = 'The event triggered when this game object is created'; 
+Blockly.Msg.KF_EVENT_CREATE_HELPURL = '';
+// The kiwifroot stage event messages
+Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = 'When stage is pressed';
+Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP = "The event triggered when the player presses a click/touch down anywhere in the game scene";
+Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL = '';
+Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE = 'When stage is released';
+Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = "The event triggered when the player releases a click/touch anywhere in the game scene";
+Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';

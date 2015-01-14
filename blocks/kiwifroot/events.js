@@ -28,14 +28,37 @@ goog.provide('Blockly.Blocks.Kiwifroot.events');
 
 goog.require('Blockly.Blocks');
 
+var EVENT_HUE = 195;
 
 Blockly.Blocks['kiwi_event_create'] = {
   init: function() {
-    this.setHelpUrl('http://www.example.com/');
-    this.setColour(195);
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_CREATE_HELPURL);
+    this.setColour(EVENT_HUE);
     this.appendDummyInput()
-    	.appendField("When created");
-    this.setTooltip('');
+    	.appendField(Blockly.Msg.KF_EVENT_CREATE_MESSAGE);
+    this.setTooltip(Blockly.Msg.KF_EVENT_CREATE_TOOLTIP);
+    this.appendStatementInput('STACK');
+  }
+};
+
+Blockly.Blocks['kiwi_event_stage_press'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL);
+    this.setColour(EVENT_HUE);
+    this.appendDummyInput()
+    	.appendField(Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE);
+    this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP);
+    this.appendStatementInput('STACK');
+  }
+};
+
+Blockly.Blocks['kiwi_event_stage_release'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL);
+    this.setColour(EVENT_HUE);
+    this.appendDummyInput()
+    	.appendField(Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE);
+    this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP);
     this.appendStatementInput('STACK');
   }
 };
