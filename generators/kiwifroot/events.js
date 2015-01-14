@@ -30,7 +30,8 @@ goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	// Define a procedure with a return value.
-	var funcName = Blockly.Kiwifroot.variableDB_.getName('onCreate', Blockly.Procedures.NAME_TYPE);
+	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onCreate', Blockly.Procedures.NAME_TYPE);
+	console.log(Blockly.Kiwifroot.variableDB_);
 	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
 	if (Blockly.Kiwifroot.STATEMENT_PREFIX) {
 		branch = Blockly.Kiwifroot.prefixLines(
