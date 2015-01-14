@@ -1110,3 +1110,7 @@ Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL = '';
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE = 'When stage is released';
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = "The event triggered when the player releases a click/touch anywhere in the game scene";
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
+
+// THe Kiwifroot set position block
+Blockly.Msg.KF_TRANSFORM_SET_POSITION_TOOLTIP = 'Sets the position of a game object to a given value';
+Blockly.Msg.KF_TRANSFORM_SET_POSITION_HELPURL = '';
