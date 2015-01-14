@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2014-11-20 15:37:54.063549",
+		"lastupdated": "2015-01-15 12:18:34.492501",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -358,5 +358,16 @@
 	"PROCEDURES_HIGHLIGHT_DEF": "Highlight function definition",
 	"PROCEDURES_CREATE_DO": "Create '%1'",
 	"PROCEDURES_IFRETURN_TOOLTIP": "If a value is true, then return a second value.",
-	"PROCEDURES_IFRETURN_WARNING": "Warning: This block may be used only within a function definition."
+	"PROCEDURES_IFRETURN_WARNING": "Warning: This block may be used only within a function definition.",
+	"KF_EVENT_CREATE_MESSAGE": "When created",
+	"KF_EVENT_CREATE_HELPURL": "",
+	"KF_EVENT_STAGE_PRESS_MESSAGE": "When stage is pressed",
+	"KF_EVENT_STAGE_PRESS_HELPURL": "",
+	"KF_EVENT_STAGE_RELEASE_MESSAGE": "When stage is released",
+	"KF_EVENT_STAGE_RELEASE_HELPURL": "",
+	"KF_TRANSFORM_SET_POSITION_TOOLTIP": "Sets the position of a game object to a given value.",
+	"KF_TRANSFORM_SET_POSITION_HELPURL": "",
+	"KF_INSTANCE_SELF_MESSAGE": "myself",
+	"KF_INSTANCE_SELF_TOOLTIP": "The game object that this script is attached to.",
+	"KF_INSTANCE_SELF_HELPURL": ""
 }
