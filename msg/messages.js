@@ -1099,25 +1099,33 @@ Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then return a sec
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
 
 
-/// The Kiwifroot create event messages
-/// All events begin with an upper case letter, like the beginning of a sentence
-/// All functions will be lowercase - the final part of the sentence
+/// Label text for the kiwifroot create event
 Blockly.Msg.KF_EVENT_CREATE_MESSAGE = 'When created';
-Blockly.Msg.KF_EVENT_CREATE_TOOLTIP = 'The event triggered when this game object is created'; 
+/// tooltip - The event dispatched when the game object this script is attached to is created
+Blockly.Msg.KF_EVENT_CREATE_TOOLTIP = 'The event triggered when this game object is created';
+/// url - Information on the kiwifroot create event 
 Blockly.Msg.KF_EVENT_CREATE_HELPURL = '';
-/// The kiwifroot stage event messages
+/// Label text for the kiwifroot stage pressed event
 Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = 'When stage is pressed';
+/// tooltip - The event dispatched when the player clicks/touches the game stage
 Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP = "The event triggered when the player presses a click/touch down anywhere in the game scene.";
+/// url - Information on the kiwifroot stage press event
 Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL = '';
+/// Label text for the kiwifroot stage released event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE = 'When stage is released';
+/// tooltip - The event dispatched when the player releases a click/touch of the game stage
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = "The event triggered when the player releases a click/touch anywhere in the game scene.";
+/// url - Information on the kiwifroot stage release event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
 
-/// THe Kiwifroot set position block
+/// tooltip - Sets either the x or y position of the given game object to the given value
 Blockly.Msg.KF_TRANSFORM_SET_POSITION_TOOLTIP = 'Sets the position of a game object to a given value.';
+/// url - Information on the set position block
 Blockly.Msg.KF_TRANSFORM_SET_POSITION_HELPURL = '';
 
-/// The kiwifroot 'self' block
+/// Label for the kiwifroot self block
 Blockly.Msg.KF_INSTANCE_SELF_MESSAGE = 'myself';
+/// tooltip - This block returns the game object that the script is attached to
 Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP = 'The game object that this script is attached to.';
+/// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_SELF_HELPURL = '';

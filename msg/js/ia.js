@@ -78,6 +78,7 @@ Blockly.Msg.HELP = "Adjuta";
 Blockly.Msg.INLINE_INPUTS = "Entrata interne";
 Blockly.Msg.KF_EVENT_CREATE_HELPURL = "";  // untranslated
 Blockly.Msg.KF_EVENT_CREATE_MESSAGE = "When created";  // untranslated
+Blockly.Msg.KF_EVENT_CREATE_TOOLTIP = "The event triggered when this game object is created";  // untranslated
 Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL = "";  // untranslated
 Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = "When stage is pressed";  // untranslated
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = "";  // untranslated

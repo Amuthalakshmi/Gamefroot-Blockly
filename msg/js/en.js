@@ -78,6 +78,7 @@ Blockly.Msg.HELP = "Help";
 Blockly.Msg.INLINE_INPUTS = "Inline Inputs";
 Blockly.Msg.KF_EVENT_CREATE_HELPURL = "";
 Blockly.Msg.KF_EVENT_CREATE_MESSAGE = "When created";
+Blockly.Msg.KF_EVENT_CREATE_TOOLTIP = "The event triggered when this game object is created";
 Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL = "";
 Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = "When stage is pressed";
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = "";

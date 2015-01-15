@@ -121,8 +121,6 @@ Blockly.Kiwifroot.DEFINITIONS = 'DEFINITIONS';
  * @param {string} code The javascript to insert into the section
  */
 Blockly.Kiwifroot.provideAddition = function(section,code){
-  console.log('Provide addition',section,code);
-  console.trace();
   if (!Blockly.Kiwifroot.sections_[section]) {
     Blockly.Kiwifroot.sections_[section] = [];
   }
@@ -175,7 +173,6 @@ Blockly.Kiwifroot.init = function(workspace) {
  * @return {string} Completed code.
  */
 Blockly.Kiwifroot.finish = function(code) {
-  console.log('Definitions',Blockly.Kiwifroot.definitions_);
   // Support the old definitions way of doing things
   for (var name in Blockly.Kiwifroot.definitions_) {
     Blockly.Kiwifroot.provideAddition(
@@ -243,7 +240,6 @@ Blockly.Kiwifroot.generateFromTemplate_ = function(){
       var code = Blockly.Kiwifroot.generateSection_(sectionName,prefix,suffix);
       var re = safeSectionStart+regexpQuote(sectionNameWithArgs)+safeSectionEnd;
       str = str.replace(new RegExp(re),code);
-      console.log('This is the code',code,'for section',sectionName);
     }
   }
   return str;
@@ -257,7 +253,6 @@ Blockly.Kiwifroot.generateFromTemplate_ = function(){
 Blockly.Kiwifroot.generateSection_ = function(section,prefix,suffix){
   var code = '';
   var arr = Blockly.Kiwifroot.sections_[section];
-  console.log('Generating section',section,arr);
   if (arr) {
     for (var i=0, n=arr.length; i < n; i++){
       code += prefix + arr[i] + suffix;

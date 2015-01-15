@@ -201,6 +201,12 @@ class Gen_compressed(threading.Thread):
       f = open(filename)
       params.append(('js_code', ''.join(f.readlines())))
       f.close()
+    # Include the kiwifroot blocks
+    filenames = glob.glob(os.path.join('blocks/kiwifroot', '*.js'))
+    for filename in filenames:
+      f = open(filename)
+      params.append(('js_code', ''.join(f.readlines())))
+      f.close()
 
     # Remove Blockly.Blocks to be compatible with Blockly.
     remove = 'var Blockly={Blocks:{}};'
