@@ -134,6 +134,24 @@ Blockly.Kiwifroot.provideAddition = function(section,code){
 };
 
 /**
+ * Sets the macros object that will be applied to the template
+ * (Would prefer to send arguments to init but that would mean changing blockly.Generator)
+ * @param {Object} macros The new macros object containing all the symbols to be applied to the template
+ */
+Blockly.Kiwifroot.setMacros = function(macros){
+  Blockly.Kiwifroot.macros = macros;
+}
+
+/**
+ * Sets the template to use when generating code
+ * (Would prefer to send arguments to init but that would mean changing blockly.Generator)
+ * @param {String} template The template to use, see Blockly.Kiwifroot.defaultTemplate for an example
+ */
+Blockly.Kiwifroot.setTemplate = function(template){
+  Blockly.Kiwifroot.template = template;
+}
+
+/**
  * Initialise the database of variable names.
  * @param {!Blockly.Workspace} workspace Workspace to generate code from.
  */
@@ -145,9 +163,9 @@ Blockly.Kiwifroot.init = function(workspace) {
   Blockly.Kiwifroot.functionNames_ = Object.create(null);
 
   // The template to use to generate the code
-  Blockly.Kiwifroot.template_ = Blockly.Kiwifroot.defaultTemplate;
+  Blockly.Kiwifroot.template_ = Blockly.Kiwifroot.template || Blockly.Kiwifroot.defaultTemplate;
   // The macros to replace in the template
-  Blockly.Kiwifroot.macros_ = Blockly.Kiwifroot.defaultMacros;
+  Blockly.Kiwifroot.macros_ = Blockly.Kiwifroot.macros || Blockly.Kiwifroot.defaultMacros;
   // An object containing all the sections of code to insert into the template
   Blockly.Kiwifroot.sections_ = {};
   // The special symbols to interpret from the template
@@ -186,7 +204,8 @@ Blockly.Kiwifroot.finish = function(code) {
         Blockly.Kiwifroot.definitions_[name]+'\n\n');
   }
   // Generate everything from the template we were provided
-  return Blockly.Kiwifroot.generateFromTemplate_();
+  var code = Blockly.Kiwifroot.generateFromTemplate_();
+  return code;
 };
 
 /**
@@ -216,8 +235,9 @@ Blockly.Kiwifroot.generateFromTemplate_ = function(){
       var macroName = macroNameWithSymbols.slice(
           macroStart.length,macroNameWithSymbols.length-macroEnd.length);
       // TODO if = is present, set the symbol to a new value
-      str = str.replace(new RegExp(safeMacroStart+macroName+safeMacroEnd),
-        symbols[macroName] || 'MACRO_NOT_SUPPLIED');
+      if (!symbols.hasOwnProperty(macroName)) throw 'No macro provided with the name: '+macroName;
+      str = str.replace(new RegExp(safeMacroStart+macroName+safeMacroEnd), 
+          symbols[macroName]);
     }
   }
 
