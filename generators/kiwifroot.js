@@ -103,7 +103,7 @@ Blockly.Kiwifroot.defaultMacros = {
   'PLUGIN_VERSION':'0.5.0',
   'MIN_KIWI_VERSION':'1.1.1',
   'KIWIFROOT_PLUGINS':'[]'
-}
+};
 
 /** 
  * The constructor section of the template
@@ -140,7 +140,7 @@ Blockly.Kiwifroot.provideAddition = function(section,code){
  */
 Blockly.Kiwifroot.setMacros = function(macros){
   Blockly.Kiwifroot.macros = macros;
-}
+};
 
 /**
  * Sets the template to use when generating code
@@ -149,7 +149,7 @@ Blockly.Kiwifroot.setMacros = function(macros){
  */
 Blockly.Kiwifroot.setTemplate = function(template){
   Blockly.Kiwifroot.template = template;
-}
+};
 
 /**
  * Initialise the database of variable names.
@@ -187,7 +187,7 @@ Blockly.Kiwifroot.init = function(workspace) {
   for (var x = 0; x < variables.length; x++) {
     var code = Blockly.Kiwifroot.variableDB_.getName(variables[x],
         Blockly.Variables.NAME_TYPE) + ';';
-    provideAddition(Blockly.Kiwifroot.DEFINITIONS,code);
+    Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code);
   }
 };
 
