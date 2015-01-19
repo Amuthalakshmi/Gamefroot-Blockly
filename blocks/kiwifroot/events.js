@@ -62,3 +62,32 @@ Blockly.Blocks['kiwi_event_stage_release'] = {
     this.appendStatementInput('STACK');
   }
 };
+
+Blockly.Blocks['kiwi_event_key_press'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_KEY_PRESS_HELPURL);
+    this.setColour(EVENT_HUE);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE);
+    this.appendValueInput("KEY")
+        .setCheck("Number");
+    this.setTooltip(Blockly.Msg.KF_EVENT_KEY_PRESS_TOOLTIP);
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+  }
+};
+
+Blockly.Blocks['kiwi_event_key_release'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL);
+    this.setColour(EVENT_HUE);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE);
+    this.appendValueInput("KEY")
+        .setCheck("Number");
+    this.setTooltip(Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP);
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+  }
+};
+

@@ -19,36 +19,24 @@
  */
 
 /**
- * @fileoverview Transformation blocks for Kiwifroot.
+ * @fileoverview Keyboard key blocks for Kiwifroot.
  * @author rani_sputnik@hotmail.com (Ryan Loader)
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.Kiwifroot.transforms');
+goog.provide('Blockly.Blocks.Kiwifroot.keys');
 
 goog.require('Blockly.Blocks');
 
-var TRANSFORM_HUE = 230;
 
-Blockly.Blocks['kiwi_transform_set_position'] = {
+/*Blockly.Blocks['kiwi_key_special'] = {
   init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_TRANSFORM_SET_POSITION_HELPURL);
-    this.setColour(TRANSFORM_HUE);
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
+    this.setColour(0);
     this.appendDummyInput()
-    	.appendField("set");
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["x", "x"], ["y", "y"]]), "AXIS");
-    this.appendDummyInput()
-    	.appendField("position of");
-    this.appendValueInput("INST")
-        .setCheck("Instance");
-    this.appendDummyInput()
-    	.appendField("to");
-    this.appendValueInput("VALUE")
-        .setCheck("Number");
+        .appendField(Blockly.Msg.KF_INSTANCE_SELF_MESSAGE);
     this.setInputsInline(true);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.KF_TRANSFORM_SET_POSITION_TOOLTIP);
+    this.setOutput(true, "Key");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
   }
-};
+};*/

@@ -19,7 +19,7 @@
  */
 
 /**
- * @fileoverview Transformation blocks for Kiwifroot.
+ * @fileoverview Instance blocks for Kiwifroot.
  * @author rani_sputnik@hotmail.com (Ryan Loader)
  */
 'use strict';
@@ -36,7 +36,7 @@ Blockly.Blocks['kiwi_instance_self'] = {
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_INSTANCE_SELF_MESSAGE);
     this.setInputsInline(true);
-    this.setOutput(true, "instance");
+    this.setOutput(true, "Instance");
     this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
   }
 };

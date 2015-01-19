@@ -85,6 +85,17 @@ Blockly.Kiwifroot.defaultTemplate =
   // will include two newline breaks after each definition.
   '{{Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.,DEFINITIONS,\n\n}}'+
 
+  // on Key pressed - TODO remove this if there is no 'onKeyPressed' event
+  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.onKeyPressed = function(){\n'+
+  '\tswitch(gameObject){\n'+
+  '{{\t\t,EVENT_KEY_PRESSED}}\n'+
+  '\t};\n};\n\n'+
+  // on Key released - TODO remove this if there is no 'onKeyReleased' event
+  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.onKeyReleased = function(){\n'+
+  '\tswitch(gameObject){\n'+
+  '{{\t\t,EVENT_KEY_RELEASED}}\n'+
+  '\t};\n};\n\n'+
+
   // Add the component to the list of plugins
   'Kiwi.Plugins.[[PLUGIN_NAME]].kiwifrootPlugins.push({\n'+
     '\ttype: Kiwifroot.Plugins.COMPONENT,\n'+
@@ -119,7 +130,9 @@ Blockly.Kiwifroot.CONSTRUCTOR = 'CONSTRUCTOR';
  */
 Blockly.Kiwifroot.DEFINITIONS = 'DEFINITIONS';
 
-// TODO add Kiwifroot reserved words
+
+Blockly.Kiwifroot.addReservedWords(
+  'onKeyPressed,onKeyReleased');
 
 /**
  * Adds a new addition to the given section (spectified in the template)
@@ -132,6 +145,24 @@ Blockly.Kiwifroot.provideAddition = function(section,code){
   }
   Blockly.Kiwifroot.sections_[section].push(code);
 };
+
+/**
+ * Adds a new addition provided an addition with the given uniqueId has not
+ * already been added to the given section
+ * @param {string} uniqueId The id that must be unique in order to make the addition
+ * @param {string} section The section to add the code to
+ * @param {string} code The javascript to insert into the section
+ */
+Blockly.Kiwifroot.provideAdditionOnce = function(uniqueId, section, code){
+  if (!Blockly.Kiwifroot.sectionIds_[section]) {
+    Blockly.Kiwifroot.sectionIds_[section] = [];
+  } 
+  var arr = Blockly.Kiwifroot.sectionIds_[section];
+  if (arr.indexOf(uniqueId) < 0) {
+    arr.push(uniqueId);
+    Blockly.Kiwifroot.provideAddition(section,code);
+  }
+}
 
 /**
  * Sets the macros object that will be applied to the template
@@ -168,6 +199,8 @@ Blockly.Kiwifroot.init = function(workspace) {
   Blockly.Kiwifroot.macros_ = Blockly.Kiwifroot.macros || Blockly.Kiwifroot.defaultMacros;
   // An object containing all the sections of code to insert into the template
   Blockly.Kiwifroot.sections_ = {};
+  // An object containing all the sections of code and the unique ids that have been added to them
+  Blockly.Kiwifroot.sectionIds_ = {};
   // The special symbols to interpret from the template
   Blockly.Kiwifroot.openMacroDelimeter_ = '[[';
   Blockly.Kiwifroot.closeMacroDelimeter_ = ']]';

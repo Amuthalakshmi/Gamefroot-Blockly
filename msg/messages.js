@@ -1117,6 +1117,18 @@ Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE = 'When stage is released';
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = "The event triggered when the player releases a click/touch anywhere in the game scene.";
 /// url - Information on the kiwifroot stage release event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
+/// Label text for the kiwifroot key pressed event
+Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE = 'When the player presses';
+/// tooltip - The event triggered when the player presses the given key on their keyboard.
+Blockly.Msg.KF_EVENT_KEY_PRESS_TOOLTIP = "The event triggered when the player presses the given key on their keyboard.";
+/// url - Information on the kiwifroot key press event
+Blockly.Msg.KF_EVENT_KEY_PRESS_HELPURL = '';
+/// Label text for the kiwifroot key released event
+Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE = 'When the player releases';
+/// tooltip - The event triggered when the player releases the given key on their keyboard.
+Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = "The event triggered when the player releases the given key on their keyboard.";
+/// url - Information on the kiwifroot key release event
+Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
 
 /// tooltip - Sets either the x or y position of the given game object to the given value
 Blockly.Msg.KF_TRANSFORM_SET_POSITION_TOOLTIP = 'Sets the position of a game object to a given value.';
