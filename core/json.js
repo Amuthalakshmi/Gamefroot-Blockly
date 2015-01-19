@@ -114,8 +114,8 @@ Blockly.Json.blockToObject_ = function(block) {
   }
 
   if (block.comment) {
- var hw = block.comment.getBubbleSize();
- var newComment = {};
+    var hw = block.comment.getBubbleSize();
+    var newComment = {};
     newComment[Blockly.Json.fieldLabels.commentText] = block.comment.getText();
     newComment[Blockly.Json.fieldLabels.commentPinned] = block.comment.isVisible();
     newComment[Blockly.Json.fieldLabels.commentHeight] = hw.height;
@@ -147,8 +147,8 @@ Blockly.Json.blockToObject_ = function(block) {
  }
     
    
-    if (!empty) {
-   element[Blockly.Json.fieldLabels.inputList] = element[Blockly.Json.fieldLabels.inputList] || [];
+  if (!empty) {
+    element[Blockly.Json.fieldLabels.inputList] = element[Blockly.Json.fieldLabels.inputList] || [];
       element[Blockly.Json.fieldLabels.inputList].push(container);
     }
   }
@@ -171,11 +171,7 @@ Blockly.Json.blockToObject_ = function(block) {
   if (!block.isEditable()) {
     element[Blockly.Json.fieldLabels.inputEditable]= false;
   }
-  try{
- block.render();
-  }catch (e) {
-  return; 
-  }
+
   if (block.nextConnection) {
     var nextBlock = block.nextConnection.targetBlock();
     if (nextBlock) {
@@ -211,7 +207,10 @@ Blockly.Json.textToObject = function(text) {
  * @param {!Element} Json Json DOM.
  */
 Blockly.Json.objectToWorkspace = function(workspace, json) {
-  var width = Blockly.svgSize().width;
+  var width;  // Not used in LTR.
+  if (Blockly.RTL) {
+    width = workspace.getWidth();
+  }
   for (var x = 0, jsonChild; jsonChild = json[x]; x++) {
     //if (JsonChild['eType'] == 'block') {
       var block = Blockly.Json.objectToBlock_(workspace, jsonChild);
@@ -251,7 +250,7 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
   } catch (e){
    return;
   }
-  if (!block.svg_) {
+  if (block.initSvg) {
     block.initSvg();
   }
   
@@ -351,27 +350,28 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
           block.nextConnection.connect(blockChild.previousConnection);
     }  
   }
-  
-  var next = block.nextConnection && block.nextConnection.targetBlock();
-  if (next) {
-    // Next block in a stack needs to square off its corners.
-    // Rendering a child will render its parent.
-    next.render();
-  } else {
-    block.render();
+
+  if (workspace.rendered){
+    var next = block.nextConnection && block.nextConnection.targetBlock();
+    if (next) {
+      // Next block in a stack needs to square off its corners.
+      // Rendering a child will render its parent.
+      next.render();
+    } else {
+      block.render();
+    }
   }
   return block;
 };
 
-
 // Export symbols that would otherwise be renamed by Closure compiler.
-if (!window['Blockly']) {
-  window['Blockly'] = {};
+if (!goog.global['Blockly']) {
+  goog.global['Blockly'] = {};
 }
-if (!window['Blockly']['Json']) {
-  window['Blockly']['Json'] = {};
+if (!goog.global['Blockly']['Json']) {
+  goog.global['Blockly']['Json'] = {};
 }
-window['Blockly']['Json']['objectToText'] = Blockly.Json.objectToText;
-window['Blockly']['Json']['objectToWorkspace'] = Blockly.Json.objectToWorkspace;
-window['Blockly']['Json']['textToObject'] = Blockly.Json.textToObject;
-window['Blockly']['Json']['workspaceToObject'] = Blockly.Json.workspaceToObject;
+goog.global['Blockly']['Json']['objectToText'] = Blockly.Json.objectToText;
+goog.global['Blockly']['Json']['objectToWorkspace'] = Blockly.Json.objectToWorkspace;
+goog.global['Blockly']['Json']['textToObject'] = Blockly.Json.textToObject;
+goog.global['Blockly']['Json']['workspaceToObject'] = Blockly.Json.workspaceToObject;
