@@ -30,6 +30,6 @@ goog.require('Blockly.Kiwifroot');
 
 
 Blockly.Kiwifroot['kiwi_instance_self'] = function(block) {
-	var code = 'this'; // TODO we may want to change this to self if there are any async functions
+	var code = 'this.owner'; // TODO we may want to change this to self if there are any async functions
   	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
