@@ -1154,3 +1154,9 @@ Blockly.Msg.KF_KEY_SPECIAL_MESSAGE = 'key:';
 Blockly.Msg.KF_KEY_SPECIAL_TOOLTIP = 'A special keyboard key';
 /// url - information on the special key block
 Blockly.Msg.KF_KEY_SPECIAL_HELPURL = '';
+/// Label for the mouse position block
+Blockly.Msg.KF_INPUT_MOUSE_MESSAGE = 'position of mouse';
+/// tooltip - The position of the mouse in the level
+Blockly.Msg.KF_INPUT_MOUSE_TOOLTIP = 'The position of the mouse in the current level';
+/// url - Information on the mouse position block
+Blockly.Msg.KF_INPUT_MOUSE_HELPURL = '';

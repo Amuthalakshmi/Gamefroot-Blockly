@@ -53,3 +53,19 @@ Blockly.Blocks['kiwi_key_special'] = {
     this.setTooltip(Blockly.Msg.KF_KEY_SPECIAL_TOOLTIP);
   }
 };
+
+Blockly.Blocks['kiwi_input_mouse'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INPUT_MOUSE_HELPURL);
+    this.setColour(300);
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([
+            ["x", "x"], 
+            ["y", "y"],
+        ]), "AXIS")
+        .appendField(Blockly.Msg.KF_INPUT_MOUSE_MESSAGE);
+        // TODO add other key codes
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_INPUT_MOUSE_TOOLTIP);
+  }
+};

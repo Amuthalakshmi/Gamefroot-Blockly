@@ -30,14 +30,14 @@ goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_transform_set_position'] = function(block) {
 	var axis = block.getFieldValue('AXIS');
-	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 'null'; // TODO what order is this?
+	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
 	var pos = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 	return inst + '.transform.'+axis+' = '+pos+';\n';
 };
 
 Blockly.Kiwifroot['kiwi_transform_get_position'] = function(block) {
 	var axis = block.getFieldValue('AXIS');
-	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 'null'; // TODO what order is this?
-	var code = inst + '.transform.'+axis+'\n';
-	return [code, Blockly.JavaScript.ORDER_ATOMIC];
+	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
+	var code = inst + '.transform.'+axis;
+	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

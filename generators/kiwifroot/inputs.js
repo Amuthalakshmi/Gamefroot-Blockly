@@ -32,3 +32,9 @@ Blockly.Kiwifroot['kiwi_key_special'] = function(block) {
 	var code = block.getFieldValue('KEY');
   	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+Blockly.Kiwifroot['kiwi_input_mouse'] = function(block) {
+	var axis = block.getFieldValue('AXIS');
+	var code = 'this.game.input.mouse.' + axis;
+  	return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
