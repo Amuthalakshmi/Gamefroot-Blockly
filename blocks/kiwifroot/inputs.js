@@ -60,8 +60,8 @@ Blockly.Blocks['kiwi_input_mouse'] = {
     this.setColour(300);
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
-            ["x", "x"], 
-            ["y", "y"],
+            ["x position", "x"], 
+            ["y position", "y"],
         ]), "AXIS")
         .appendField(Blockly.Msg.KF_INPUT_MOUSE_MESSAGE);
         // TODO add other key codes

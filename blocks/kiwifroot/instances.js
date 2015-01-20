@@ -60,7 +60,7 @@ var instanceProps = [
 
 Blockly.Blocks['kiwi_instance_set'] = {
   init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SET_HELPURL);
     this.setColour(230);
     this.appendDummyInput()
     	.appendField("set")
@@ -75,13 +75,13 @@ Blockly.Blocks['kiwi_instance_set'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SET_TOOLTIP);
   }
 };
 
 Blockly.Blocks['kiwi_instance_get'] = {
   init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
     this.setColour(230);
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown(instanceProps), "PROP")
@@ -90,6 +90,6 @@ Blockly.Blocks['kiwi_instance_get'] = {
         .setCheck("Instance");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
-    this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
   }
 };

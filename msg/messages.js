@@ -1147,6 +1147,14 @@ Blockly.Msg.KF_INSTANCE_SELF_MESSAGE = 'myself';
 Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP = 'The game object that this script is attached to.';
 /// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_SELF_HELPURL = '';
+/// tooltip - Sets the selected property of a given instance to a new value
+Blockly.Msg.KF_INSTANCE_SET_TOOLTIP = 'Sets the selected property of a given instance to a new value.';
+/// url - Information on the self block
+Blockly.Msg.KF_INSTANCE_SET_HELPURL = '';
+/// tooltip - This block returns the game object that the script is attached to
+Blockly.Msg.KF_INSTANCE_GET_TOOLTIP = 'Gets the value of a selected property of the given instance.';
+/// url - Information on the self block
+Blockly.Msg.KF_INSTANCE_GET_HELPURL = '';
 
 /// Label for the keyboard key block
 Blockly.Msg.KF_KEY_SPECIAL_MESSAGE = 'key:';
@@ -1155,7 +1163,7 @@ Blockly.Msg.KF_KEY_SPECIAL_TOOLTIP = 'A special keyboard key';
 /// url - information on the special key block
 Blockly.Msg.KF_KEY_SPECIAL_HELPURL = '';
 /// Label for the mouse position block
-Blockly.Msg.KF_INPUT_MOUSE_MESSAGE = 'position of mouse';
+Blockly.Msg.KF_INPUT_MOUSE_MESSAGE = 'of mouse';
 /// tooltip - The position of the mouse in the level
 Blockly.Msg.KF_INPUT_MOUSE_TOOLTIP = 'The position of the mouse in the current level';
 /// url - Information on the mouse position block
