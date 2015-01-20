@@ -1105,6 +1105,12 @@ Blockly.Msg.KF_EVENT_CREATE_MESSAGE = 'When created';
 Blockly.Msg.KF_EVENT_CREATE_TOOLTIP = 'The event triggered when this game object is created';
 /// url - Information on the kiwifroot create event 
 Blockly.Msg.KF_EVENT_CREATE_HELPURL = '';
+/// Label text for the kiwifroot constantly event
+Blockly.Msg.KF_EVENT_CONSTANTLY_MESSAGE = 'Constantly';
+/// tooltip - The event triggered every frame
+Blockly.Msg.KF_EVENT_CONSTANTLY_TOOLTIP = 'The event triggered every frame';
+/// url - Information on the kiwifroot constantly event 
+Blockly.Msg.KF_EVENT_CONSTANTLY_HELPURL = '';
 /// Label text for the kiwifroot stage pressed event
 Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = 'When stage is pressed';
 /// tooltip - The event dispatched when the player clicks/touches the game stage

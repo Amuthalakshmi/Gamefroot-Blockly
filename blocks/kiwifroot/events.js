@@ -41,6 +41,17 @@ Blockly.Blocks['kiwi_event_create'] = {
   }
 };
 
+Blockly.Blocks['kiwi_event_constantly'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_CONSTANTLY_HELPURL);
+    this.setColour(EVENT_HUE);
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_CONSTANTLY_MESSAGE);
+    this.setTooltip(Blockly.Msg.KF_EVENT_CONSTANTLY_TOOLTIP);
+    this.appendStatementInput('STACK');
+  }
+};
+
 Blockly.Blocks['kiwi_event_stage_press'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL);

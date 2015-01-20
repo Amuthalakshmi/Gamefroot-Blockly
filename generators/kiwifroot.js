@@ -162,7 +162,7 @@ Blockly.Kiwifroot.provideAdditionOnce = function(uniqueId, section, code){
     arr.push(uniqueId);
     Blockly.Kiwifroot.provideAddition(section,code);
   }
-}
+};
 
 /**
  * Sets the macros object that will be applied to the template

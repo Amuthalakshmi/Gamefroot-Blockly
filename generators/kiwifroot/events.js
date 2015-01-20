@@ -36,6 +36,13 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	return null;
 };
 
+Blockly.Kiwifroot['kiwi_event_constantly'] = function(block){
+	var funcName = defineFunctionFromBranch('onUpdate', block);
+	var constructorCode = 'this.state.robots.onUpdate.add(this.'+funcName + ', this);';
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	return null;
+};
+
 Blockly.Kiwifroot['kiwi_event_stage_press'] = function(block) {
 	var funcName = defineFunctionFromBranch('onStagePress', block);
 	var constructorCode = 'this.game.input.onDown.add(this.'+funcName+', this, 25);';
