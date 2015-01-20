@@ -16,7 +16,6 @@
 <script src="../generators/kiwifroot.js"></script>
 <script src="../generators/kiwifroot/variables.js"></script>
 <script src="../generators/kiwifroot/events.js"></script>
-<script src="../generators/kiwifroot/transforms.js"></script>
 <script src="../generators/kiwifroot/instances.js"></script>
 <script src="../generators/kiwifroot/inputs.js"></script>
 <!-- add new kiwifroot generators here -->
@@ -30,7 +29,6 @@
 <script src="../blocks/variables.js"></script>
 <script src="../blocks/procedures.js"></script>
 <script src="../blocks/kiwifroot/events.js"></script>
-<script src="../blocks/kiwifroot/transforms.js"></script>
 <script src="../blocks/kiwifroot/instances.js"></script>
 <script src="../blocks/kiwifroot/inputs.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
@@ -121,9 +119,9 @@ function gotoGame(){
   var code = toCode('Kiwifroot');
   var baseURL = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
   var popup = window.open(baseURL+'/blockly/game');
-  setTimeout(function(){
+  popup.addEventListener('load',function(){
     popup.postMessage(code,"*");
-  },1000);
+  }, true);
 }
 
 </script>
@@ -385,23 +383,6 @@ h1 {
         <block type="kiwi_event_key_release">
           <value name="KEY">
             <block type="kiwi_key_special"></block>
-          </value>
-        </block>
-      </category>
-      <category name="Transforms">
-        <block type="kiwi_transform_set_position">
-          <value name="INST">
-            <block type="kiwi_instance_self"></block>
-          </value>
-          <value name="VALUE">
-            <block type="math_number">
-              <field name="NUM">0</field>
-            </block>
-          </value>
-        </block>
-        <block type="kiwi_transform_get_position">
-          <value name="INST">
-            <block type="kiwi_instance_self"></block>
           </value>
         </block>
       </category>
