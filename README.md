@@ -22,6 +22,13 @@ You will also need to navigate to the file without using the file:// protocol eg
 you test in this way then you can use the 'Go to Game!' button to quickly launch a new kiwifroot game
 with the Kiwifroot code generated from the current script.
 
+If you have made changes and need to reload but don't want to lose your awesome script, then
+you can hit 'Export to JSON' and copy the code that is outputted in the text field. After the
+reload, paste into the text field and hit 'Import from JSON', all your code blocks will reappear.
+
+Additionally, if you have made a SUPER awesome script, save it in tests/savedscripts with a descriptive
+name so that we can come back and test it's working later (to help make sure we aren't breaking anything).
+
 ## New Blocks
 
 To create a new block follow these steps;
