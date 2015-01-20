@@ -86,13 +86,13 @@ Blockly.Kiwifroot.defaultTemplate =
   '{{Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.,DEFINITIONS,\n\n}}'+
 
   // on Key pressed - TODO remove this if there is no 'onKeyPressed' event
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.onKeyPressed = function(){\n'+
-  '\tswitch(gameObject){\n'+
+  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.onKeyPressed = function(keyCode){\n'+
+  '\tswitch(keyCode){\n'+
   '{{\t\t,EVENT_KEY_PRESSED}}\n'+
   '\t};\n};\n\n'+
   // on Key released - TODO remove this if there is no 'onKeyReleased' event
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.onKeyReleased = function(){\n'+
-  '\tswitch(gameObject){\n'+
+  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.onKeyReleased = function(keyCode){\n'+
+  '\tswitch(keyCode){\n'+
   '{{\t\t,EVENT_KEY_RELEASED}}\n'+
   '\t};\n};\n\n'+
 

@@ -28,7 +28,7 @@ goog.provide('Blockly.Blocks.Kiwifroot.events');
 
 goog.require('Blockly.Blocks');
 
-var EVENT_HUE = 195;
+var EVENT_HUE = 45;
 
 Blockly.Blocks['kiwi_event_create'] = {
   init: function() {
