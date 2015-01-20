@@ -40,3 +40,56 @@ Blockly.Blocks['kiwi_instance_self'] = {
     this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
   }
 };
+
+
+/**
+ * The properties that exist on an instance
+ * @const
+ * @type {array}
+ */
+var instanceProps = [
+	["x position","x"],
+	["y position","y"],
+	["width", "width"], 
+	["height", "height"],
+	["rotation", "rotation"], 
+	["scale x", "scaleX"],
+	["scale y", "scaleY"],
+	["alpha", "alpha"]
+];
+
+Blockly.Blocks['kiwi_instance_set'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
+    this.setColour(230);
+    this.appendDummyInput()
+    	.appendField("set")
+        .appendField(new Blockly.FieldDropdown(instanceProps), "PROP")
+        .appendField("of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.appendDummyInput()
+    	.appendField("to");
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_get'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown(instanceProps), "PROP")
+        .appendField("of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
+  }
+};

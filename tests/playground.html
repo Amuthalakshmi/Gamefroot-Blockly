@@ -407,6 +407,21 @@ h1 {
       </category>
       <category name="Instances">
         <block type="kiwi_instance_self"></block>
+        <block type="kiwi_instance_set">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+          <value name="VALUE">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+          </value>
+        </block>
+        <block type="kiwi_instance_get">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
       </category>
       <category name="Input">
         <block type="kiwi_key_special"></block>
