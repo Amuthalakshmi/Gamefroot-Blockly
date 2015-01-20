@@ -1141,3 +1141,10 @@ Blockly.Msg.KF_INSTANCE_SELF_MESSAGE = 'myself';
 Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP = 'The game object that this script is attached to.';
 /// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_SELF_HELPURL = '';
+
+/// Label for the keyboard key block
+Blockly.Msg.KF_KEY_SPECIAL_MESSAGE = 'key:';
+/// tooltip - A special keyboard key
+Blockly.Msg.KF_KEY_SPECIAL_TOOLTIP = 'A special keyboard key';
+/// url - information on the special key block
+Blockly.Msg.KF_KEY_SPECIAL_HELPURL = '';

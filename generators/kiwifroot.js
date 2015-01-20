@@ -76,8 +76,8 @@ Blockly.Kiwifroot.defaultTemplate =
   '}\n\n' +
   // Extend GameObject
   'Kiwi.extend(Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]], Kiwi.Component);\n\n'+
-  // Supply an add method
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.add = function(state, gameObject, params){\n'+
+  // Supply an add method for the plugin
+  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].add = function(state, gameObject, params){\n'+
   '\tgameObject.components.add(new Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]](gameObject));\n'+
   // TODO provide an 'on added' section
   '}\n\n'+
@@ -109,7 +109,7 @@ Blockly.Kiwifroot.defaultTemplate =
  * @type {object}
  */
 Blockly.Kiwifroot.defaultMacros = {
-  'PLUGIN_NAME':'MyClass',
+  'PLUGIN_NAME':'MyScript',
   'CLASS_NAME':'Component',
   'PLUGIN_VERSION':'0.5.0',
   'MIN_KIWI_VERSION':'1.1.1',

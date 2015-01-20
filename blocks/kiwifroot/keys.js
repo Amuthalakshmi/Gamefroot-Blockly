@@ -28,15 +28,28 @@ goog.provide('Blockly.Blocks.Kiwifroot.keys');
 
 goog.require('Blockly.Blocks');
 
-
-/*Blockly.Blocks['kiwi_key_special'] = {
+Blockly.Blocks['kiwi_key_special'] = {
   init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
-    this.setColour(0);
+    this.setHelpUrl(Blockly.Msg.KF_KEY_SPECIAL_HELPURL);
+    this.setColour(300);
     this.appendDummyInput()
-        .appendField(Blockly.Msg.KF_INSTANCE_SELF_MESSAGE);
-    this.setInputsInline(true);
-    this.setOutput(true, "Key");
-    this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
+        .appendField("key:")
+        .appendField(new Blockly.FieldDropdown([
+        	["backspace", "8"], 
+        	["tab", "9"],
+        	["enter", "13"], 
+        	["shift", "16"],
+        	["ctrl", "17"],
+        	["alt", "18"], 
+        	["escape", "27"], 
+        	["spacebar", "32"],
+        	["left arrow", "37"],
+        	["up arrow", "38"], 
+        	["right arrow", "39"],
+        	["down arrow", "40"]
+        ]), "KEY");
+      	// TODO add other key codes
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_KEY_SPECIAL_TOOLTIP);
   }
-};*/
+};

@@ -13,28 +13,12 @@
 <script src="../generators/javascript/colour.js"></script>
 <script src="../generators/javascript/variables.js"></script>
 <script src="../generators/javascript/procedures.js"></script>
-<script src="../generators/python.js"></script>
-<script src="../generators/python/logic.js"></script>
-<script src="../generators/python/loops.js"></script>
-<script src="../generators/python/math.js"></script>
-<script src="../generators/python/text.js"></script>
-<script src="../generators/python/lists.js"></script>
-<script src="../generators/python/colour.js"></script>
-<script src="../generators/python/variables.js"></script>
-<script src="../generators/python/procedures.js"></script>
-<script src="../generators/dart.js"></script>
-<script src="../generators/dart/logic.js"></script>
-<script src="../generators/dart/loops.js"></script>
-<script src="../generators/dart/math.js"></script>
-<script src="../generators/dart/text.js"></script>
-<script src="../generators/dart/lists.js"></script>
-<script src="../generators/dart/colour.js"></script>
-<script src="../generators/dart/variables.js"></script>
-<script src="../generators/dart/procedures.js"></script>
 <script src="../generators/kiwifroot.js"></script>
 <script src="../generators/kiwifroot/events.js"></script>
 <script src="../generators/kiwifroot/transforms.js"></script>
 <script src="../generators/kiwifroot/instances.js"></script>
+<script src="../generators/kiwifroot/keys.js"></script>
+<!-- add new kiwifroot generators here -->
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
 <script src="../blocks/loops.js"></script>
@@ -47,6 +31,7 @@
 <script src="../blocks/kiwifroot/events.js"></script>
 <script src="../blocks/kiwifroot/transforms.js"></script>
 <script src="../blocks/kiwifroot/instances.js"></script>
+<script src="../blocks/kiwifroot/keys.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -110,6 +95,7 @@ function fromJson() {
 function toCode(lang) {
   var output = document.getElementById('importExport');
   output.value = Blockly[lang].workspaceToCode();
+  return output.value;
 }
 
 function airstrike(n) {
@@ -129,6 +115,16 @@ function airstrike(n) {
     block.render();
   }
 }
+
+function gotoGame(){
+  var code = toCode('Kiwifroot');
+  var baseURL = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
+  var popup = window.open(baseURL+'/blockly/game');
+  setTimeout(function(){
+    popup.postMessage(code,"*");
+  },1000);
+}
+
 </script>
 
 <style>
@@ -372,15 +368,23 @@ h1 {
           </block>
         </value>
       </block>
-    </category>
+    </category> 
     <hr>
     <category name="Kiwifroot">
       <category name="Events">
         <block type="kiwi_event_create"></block>
         <block type="kiwi_event_stage_press"></block>
         <block type="kiwi_event_stage_release"></block>
-        <block type="kiwi_event_key_press"></block>
-        <block type="kiwi_event_key_release"></block>
+        <block type="kiwi_event_key_press">
+          <value name="KEY">
+            <block type="kiwi_key_special"></block>
+          </value>
+        </block>
+        <block type="kiwi_event_key_release">
+          <value name="KEY">
+            <block type="kiwi_key_special"></block>
+          </value>
+        </block>
       </category>
       <category name="Transforms">
         <block type="kiwi_transform_set_position">
@@ -393,10 +397,18 @@ h1 {
             </block>
           </value>
         </block>
+        <block type="kiwi_transform_get_position">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
       </category>
       <category name="Instances">
         <block type="kiwi_instance_self"></block>
       </category>
+      <category name="Keys">
+        <block type="kiwi_key_special"></block>
+      </category
     </category>
     <hr>
     <category name="Variables" custom="VARIABLE"></category>
@@ -425,13 +437,9 @@ h1 {
     &nbsp;
     <input type="button" value="Import from JSON" onclick="fromJson()">
     <br>
-    <input type="button" value="To JavaScript" onclick="toCode('JavaScript')">
-    &nbsp;
-    <input type="button" value="To Python" onclick="toCode('Python')">
-    &nbsp;
-    <input type="button" value="To Dart" onclick="toCode('Dart')">
-    &nbsp;
     <input type="button" value="To Kiwifroot" onclick="toCode('Kiwifroot')">
+    &nbsp;
+    <input type="button" value="Go to Game!" onclick="gotoGame()">
     <br>
     <textarea id="importExport" style="width: 26%; height: 12em"></textarea>
   </p>

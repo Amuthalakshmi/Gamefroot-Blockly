@@ -1,0 +1,59 @@
+{
+	
+	"name": "GameName",
+
+	"width": 768,
+
+	"height": 512,
+
+	"levels": [
+
+		{
+			"id": 1,
+			"url": "./level-one.json",
+			"name": "Level 1"
+		}
+
+	],
+
+	"plugins": [ "MyScript" ],
+
+	"assets": [
+	
+		{
+			"type": "textureatlas",
+			"id": 1,
+			"imageUrl": "../../assets/kiwifrootAtlas.png",
+			"jsonId": 2,
+			"jsonUrl": "../../assets/kiwifrootAtlas.json"
+		},
+
+		{
+			"type": "image",
+			"id": 3,
+			"url": "../../assets/imgs/misc/cursor.png"
+		},
+
+		{
+			"type": "spritesheet",
+			"id": 4,
+			"url": "../../assets/imgs/misc/number_sheet.png",
+			"frameWidth": 13,
+			"frameHeight": 17
+		},
+
+		{
+			"id": 5,
+			"type": "sound",
+			"url": "../../assets/sounds/ammo.mp3"
+		},
+
+		{
+			"id": 6,
+			"type": "json",
+			"url": "../../assets/dpad.json"
+		}
+
+	]
+
+}

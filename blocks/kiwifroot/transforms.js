@@ -52,3 +52,21 @@ Blockly.Blocks['kiwi_transform_set_position'] = {
     this.setTooltip(Blockly.Msg.KF_TRANSFORM_SET_POSITION_TOOLTIP);
   }
 };
+
+Blockly.Blocks['kiwi_transform_get_position'] = {
+  init: function() {
+    //this.setHelpUrl(Blockly.Msg.KF_TRANSFORM_GET_POSITION_HELPURL);
+    this.setColour(TRANSFORM_HUE);
+    this.appendDummyInput()
+        .appendField("get");
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["x", "x"], ["y", "y"]]), "AXIS");
+    this.appendDummyInput()
+        .appendField("position of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    //this.setTooltip(Blockly.Msg.KF_TRANSFORM_GET_POSITION_TOOLTIP);
+  }
+};

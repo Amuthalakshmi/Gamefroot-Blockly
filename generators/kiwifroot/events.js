@@ -55,7 +55,7 @@ Blockly.Kiwifroot['kiwi_event_key_press'] = function(block) {
 	var constructorCode = 'this.game.input.keyboard.onKeyDownOnce.add(this.onKeyPressed, this);';
 	Blockly.Kiwifroot.provideAdditionOnce('EventKeyPressed', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
 	var funcName = defineFunctionFromBranch('onKeyPressed', block);
-	var code = 'case '+keyCode+': '+funcName+'(); break;\n';
+	var code = 'case '+keyCode+': this.'+funcName+'(); break;\n';
 	Blockly.Kiwifroot.provideAddition('EVENT_KEY_PRESSED', code);
 	return null;
 };
@@ -65,7 +65,7 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
 	var constructorCode = 'this.game.input.keyboard.onKeyUp.add(this.onKeyReleased, this);';
 	Blockly.Kiwifroot.provideAdditionOnce('EventKeyReleased', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
 	var funcName = defineFunctionFromBranch('onKeyReleased', block);
-	var code = 'case '+keyCode+': '+funcName+'(); break;\n';
+	var code = 'case '+keyCode+': this.'+funcName+'(); break;\n';
 	Blockly.Kiwifroot.provideAddition('EVENT_KEY_RELEASED', code);
 	return null;
 };

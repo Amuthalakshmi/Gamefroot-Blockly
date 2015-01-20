@@ -1,0 +1,128 @@
+{
+	
+	"name": "Level Name",
+
+	"color": {
+		"r": 255,
+		"g": 255,
+		"b": 255,
+		"a": 1
+	},
+
+	"loader": {
+	
+	},
+
+	"systems": {
+
+		"Robots": [
+
+			{
+
+				"id": 42,
+            	"script": {
+	              	"robot": "2.0",
+	              	"properties": {},
+	              	"behavior": [
+	                    {
+	                      "event": "onKeyPress",
+	                      "keyCode": 71,
+	                      "commands": [
+	                        {
+	                            "action":"setOpacity",
+	                            "amount": 50
+	                        },
+	                        {
+	                            "action":"toggleVisible",
+	                            "amount":50
+	                        }
+	                      ]
+	                    },
+
+	                    {
+	                      "event": "onKeyPress",
+	                      "keyCode": 71,
+	                      "commands": [
+	                        {
+	                            "action":"setOpacity",
+	                            "amount": 50
+	                        }
+	                      ]
+	                    }
+	                    
+	              	],
+	              	"variables": {}
+
+            	}
+
+            }
+
+		]
+
+	},
+
+	"gameObjects": [
+	
+		{
+			"type": "static-image",
+			"imageId": 8,
+			"cellIndex": 1,
+			"x": 300,
+			"y": 170,
+
+			"components": {
+
+				"MyScript": {
+					
+				},
+			
+				"animation": {
+
+					"flashing": {
+						"cells": [0, 1],
+						"loop": true,
+						"play": true,
+						"speed": 0.1
+					}
+			
+				}
+
+			}
+
+		}
+
+	],
+
+	"assets": [
+
+		{
+			"id": 7,
+			"type": "image",
+			"url": "assets/mushroom.png"
+		},
+
+		{
+			"id": 8,
+			"type": "spritesheet",
+			"url": "assets/mushroom.png",
+			"frameWidth": 144,
+			"frameHeight": 144
+		}, 
+
+		{
+			"id": 9,
+			"type": "json",
+			"url": "assets/tilemap.json"
+		},
+
+		{
+			"id": 10,
+			"type": "spritesheet",
+			"url": "assets/terrain.png",
+			"frameWidth": 48,
+			"frameHeight": 48
+		}
+
+	]
+
+}
