@@ -1136,10 +1136,26 @@ Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = "The event triggered when the player 
 /// url - Information on the kiwifroot key release event
 Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
 
-/// tooltip - Sets either the x or y position of the given game object to the given value
-Blockly.Msg.KF_TRANSFORM_SET_POSITION_TOOLTIP = 'Sets the position of a game object to a given value.';
+/// tooltip - Sets the size of the games viewport on the screen
+Blockly.Msg.KF_GAME_STAGE_SET_SIZE_TOOLTIP = 'Sets the size of the games viewport on the screen.';
 /// url - Information on the set position block
-Blockly.Msg.KF_TRANSFORM_SET_POSITION_HELPURL = '';
+Blockly.Msg.KF_GAME_STAGE_SET_SIZE_HELPURL = '';
+/// tooltip - Sets the size of the games viewport on the screen
+Blockly.Msg.KF_GAME_STAGE_GET_SIZE_TOOLTIP = 'Gets the size of the games viewport on the screen.';
+/// url - Information on the set position block
+Blockly.Msg.KF_GAME_STAGE_GET_SIZE_HELPURL = '';
+/// Label for the kiwifroot get stage colour block
+Blockly.Msg.KF_GAME_STAGE_SET_COLOUR_MESSAGE = 'set stage colour to';
+/// tooltip - Sets the size of the games viewport on the screen
+Blockly.Msg.KF_GAME_STAGE_SET_COLOUR_TOOLTIP = 'Sets the colour of the game background.';
+/// url - Information on the set stage colour block
+Blockly.Msg.KF_GAME_STAGE_SET_COLOUR_HELPURL = '';
+/// Label for the kiwifroot get stage colour block
+Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_MESSAGE = 'stage colour';
+/// tooltip - Gets the colour of the game background
+Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_TOOLTIP = 'Gets the colour of the game background.';
+/// url - Information on the get stage colour block
+Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_HELPURL = '';
 
 /// Label for the kiwifroot self block
 Blockly.Msg.KF_INSTANCE_SELF_MESSAGE = 'myself';

@@ -16,6 +16,7 @@
 <script src="../generators/kiwifroot.js"></script>
 <script src="../generators/kiwifroot/variables.js"></script>
 <script src="../generators/kiwifroot/events.js"></script>
+<script src="../generators/kiwifroot/game.js"></script>
 <script src="../generators/kiwifroot/instances.js"></script>
 <script src="../generators/kiwifroot/inputs.js"></script>
 <!-- add new kiwifroot generators here -->
@@ -29,6 +30,7 @@
 <script src="../blocks/variables.js"></script>
 <script src="../blocks/procedures.js"></script>
 <script src="../blocks/kiwifroot/events.js"></script>
+<script src="../blocks/kiwifroot/game.js"></script>
 <script src="../blocks/kiwifroot/instances.js"></script>
 <script src="../blocks/kiwifroot/inputs.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
@@ -370,6 +372,11 @@ h1 {
     </category> 
     <hr>
     <category name="Kiwifroot">
+      <category name="Game">
+        <block type="kiwi_game_stage_get_size"></block>
+        <block type="kiwi_game_stage_set_colour"></block>
+        <block type="kiwi_game_stage_get_colour"></block>
+      </category>
       <category name="Events">
         <block type="kiwi_event_create"></block>
         <block type="kiwi_event_constantly"></block>

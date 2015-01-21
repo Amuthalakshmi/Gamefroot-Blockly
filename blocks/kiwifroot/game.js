@@ -1,0 +1,79 @@
+/**
+ * @license
+ * Visual Blocks Editor
+ *
+ * Copyright 2012 Google Inc.
+ * https://developers.google.com/blockly/
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @fileoverview Game blocks for Kiwifroot.
+ * @author rani_sputnik@hotmail.com (Ryan Loader)
+ */
+'use strict';
+
+goog.provide('Blockly.Blocks.Kiwifroot.game');
+
+goog.require('Blockly.Blocks');
+
+/**
+ * The properties that exist on the stage
+ * @const
+ * @type {array}
+ */
+var stageSizeProps = [
+	["width","width"],
+	["height","height"]
+];
+
+Blockly.Blocks['kiwi_game_stage_get_size'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_GAME_STAGE_GET_SIZE_HELPURL);
+    this.setColour(300);
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown(stageSizeProps), "PROP")
+        .appendField("of the stage");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_GAME_STAGE_GET_SIZE_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_game_stage_set_colour'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_GAME_STAGE_SET_COLOUR_HELPURL);
+    this.setColour(300);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_GAME_STAGE_SET_COLOUR_MESSAGE);
+    this.appendValueInput("VALUE")
+        .setCheck("Colour");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_GAME_STAGE_SET_COLOUR_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_game_stage_get_colour'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_HELPURL);
+    this.setColour(300);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_MESSAGE);
+    this.setInputsInline(true);
+    this.setOutput(true, "Colour");
+    this.setTooltip(Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_TOOLTIP);
+  }
+};
