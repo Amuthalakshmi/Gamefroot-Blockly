@@ -105,7 +105,7 @@ Blockly.Kiwifroot.defaultTemplate =
   'function colour_random() {\n'+
   '\tvar num = Math.floor(Math.random() * Math.pow(2, 24));\n'+
   '\treturn "#" + ("00000" + num.toString(16)).substr(-6);\n'+
-  '}'
+  '}';
 
 /**
  * The default macro properties to use when compiling for Kiwifroot

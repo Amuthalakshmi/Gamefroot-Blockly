@@ -48,14 +48,14 @@ Blockly.Blocks['kiwi_instance_self'] = {
  * @type {array}
  */
 var instanceProps = [
-	["x position","x"],
-	["y position","y"],
-	["width", "width"], 
-	["height", "height"],
-	["rotation", "rotation"], 
-	["scale x", "scaleX"],
-	["scale y", "scaleY"],
-	["alpha", "alpha"]
+	["x position","x"]
+	,["y position","y"]
+	,["width", "width"]
+	,["height", "height"]
+	,["rotation", "rotation"]
+	,["scale x", "scaleX"]
+	,["scale y", "scaleY"]
+	,["alpha", "alpha"]
 ];
 
 Blockly.Blocks['kiwi_instance_set'] = {

@@ -35,18 +35,18 @@ Blockly.Blocks['kiwi_key_special'] = {
     this.appendDummyInput()
         .appendField("key:")
         .appendField(new Blockly.FieldDropdown([
-        	["backspace", "8"], 
-        	["tab", "9"],
-        	["enter", "13"], 
-        	["shift", "16"],
-        	["ctrl", "17"],
-        	["alt", "18"], 
-        	["escape", "27"], 
-        	["spacebar", "32"],
-        	["left arrow", "37"],
-        	["up arrow", "38"], 
-        	["right arrow", "39"],
-        	["down arrow", "40"]
+        	["backspace", "8"] 
+        	,["tab", "9"]
+        	,["enter", "13"]
+        	,["shift", "16"]
+        	,["ctrl", "17"]
+        	,["alt", "18"]
+        	,["escape", "27"]
+        	,["spacebar", "32"]
+        	,["left arrow", "37"]
+        	,["up arrow", "38"]
+        	,["right arrow", "39"]
+        	,["down arrow", "40"]
         ]), "KEY");
       	// TODO add other key codes
     this.setOutput(true, "Number");
@@ -60,8 +60,8 @@ Blockly.Blocks['kiwi_input_mouse'] = {
     this.setColour(300);
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
-            ["x position", "x"], 
-            ["y position", "y"],
+            ["x position", "x"]
+            ,["y position", "y"]
         ]), "AXIS")
         .appendField(Blockly.Msg.KF_INPUT_MOUSE_MESSAGE);
         // TODO add other key codes
