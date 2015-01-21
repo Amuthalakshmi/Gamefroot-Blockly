@@ -134,6 +134,14 @@ Blockly.Kiwifroot.CONSTRUCTOR = 'CONSTRUCTOR';
  */
 Blockly.Kiwifroot.DEFINITIONS = 'DEFINITIONS';
 
+/**
+ * The array of sounds, contains tuples of names and ids
+ * @type {array}
+ */
+Blockly.Kiwifroot.sounds_ = [
+  ['Machine Gun',"11"]
+];
+
 
 Blockly.Kiwifroot.addReservedWords(
   'onKeyPressed,onKeyReleased');

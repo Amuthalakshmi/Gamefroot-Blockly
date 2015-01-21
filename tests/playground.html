@@ -20,6 +20,7 @@
 <script src="../generators/kiwifroot/game.js"></script>
 <script src="../generators/kiwifroot/instances.js"></script>
 <script src="../generators/kiwifroot/inputs.js"></script>
+<script src="../generators/kiwifroot/sound.js"></script>
 <!-- add new kiwifroot generators here -->
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
@@ -34,6 +35,7 @@
 <script src="../blocks/kiwifroot/game.js"></script>
 <script src="../blocks/kiwifroot/instances.js"></script>
 <script src="../blocks/kiwifroot/inputs.js"></script>
+<script src="../blocks/kiwifroot/sound.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -415,6 +417,11 @@ h1 {
       <category name="Input">
         <block type="kiwi_key_special"></block>
         <block type="kiwi_input_mouse"></block>
+      </category>
+      <category name="Sound">
+        <block type="kiwi_sound_play_background"></block>
+        <block type="kiwi_sound_stop_background"></block>
+        <block type="kiwi_sound_play_effect"></block>
       </category
     </category>
     <hr>

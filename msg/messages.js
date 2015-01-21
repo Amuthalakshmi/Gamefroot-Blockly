@@ -1184,3 +1184,22 @@ Blockly.Msg.KF_INPUT_MOUSE_MESSAGE = 'of mouse';
 Blockly.Msg.KF_INPUT_MOUSE_TOOLTIP = 'The position of the mouse in the current level';
 /// url - Information on the mouse position block
 Blockly.Msg.KF_INPUT_MOUSE_HELPURL = '';
+
+/// Label for the 'play music' block
+Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_MESSAGE = 'play music';
+/// tooltip - Starts playing the specified music from the beginning
+Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_TOOLTIP = 'Starts playing the specified music from the beginning.';
+/// url - Information on the play background music block
+Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_HELPURL = '';
+/// Label for the 'stop music' block
+Blockly.Msg.KF_SOUND_STOP_BACKGROUND_MESSAGE = 'stop the current music';
+/// tooltip - Stops playing the current music and clears the playhead. If resumed it will start from the beginning.
+Blockly.Msg.KF_SOUND_STOP_BACKGROUND_TOOLTIP = 'Stops playing the current music and clears the playhead. If resumed it will start from the beginning.';
+/// url - Information on the stop background music block
+Blockly.Msg.KF_SOUND_STOP_BACKGROUND_HELPURL = '';
+/// Label for the 'stop music' block
+Blockly.Msg.KF_SOUND_PLAY_EFFECT_MESSAGE = 'play effect';
+/// tooltip - Plays the given sound effect once.
+Blockly.Msg.KF_SOUND_PLAY_EFFECT_TOOLTIP = 'Plays the given sound effect once.';
+/// url - Information on the play sound effect block
+Blockly.Msg.KF_SOUND_PLAY_EFFECT_HELPURL = '';

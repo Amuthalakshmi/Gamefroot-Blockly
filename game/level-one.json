@@ -121,6 +121,12 @@
 			"url": "assets/terrain.png",
 			"frameWidth": 48,
 			"frameHeight": 48
+		},
+
+		{
+			"id": 11,
+			"type": "sound",
+			"url": "assets/machine_gun.mp3"
 		}
 
 	]

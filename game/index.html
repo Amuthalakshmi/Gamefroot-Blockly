@@ -20,7 +20,7 @@
 		 	var code = event.data;
 		 	eval(code);
 		 	//Run the KiwiFroot Game.
-		 	var game = new Kiwifroot.Game( {
+		 	window.game = new Kiwifroot.Game( {
 				jsonURL: 'game.json'
 			} );
 		}
