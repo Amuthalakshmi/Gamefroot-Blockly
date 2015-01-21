@@ -28,13 +28,25 @@ goog.provide('Blockly.Blocks.Kiwifroot.sound');
 
 goog.require('Blockly.Blocks');
 
+Blockly.Blocks['kiwi_sound'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_SOUND_HELPURL);
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown(Blockly.Kiwifroot.sounds_), "SOUND");
+    this.setOutput(true, "Sound");
+    this.setTooltip(Blockly.Msg.KF_SOUND_TOOLTIP);
+  }
+};
+
 Blockly.Blocks['kiwi_sound_play_background'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_HELPURL);
     this.setColour(230);
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_MESSAGE)
-        .appendField(new Blockly.FieldDropdown(Blockly.Kiwifroot.sounds_), "SOUND");
+    this.appendValueInput("SOUND")
+        .setCheck("Sound");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -61,7 +73,8 @@ Blockly.Blocks['kiwi_sound_play_effect'] = {
     this.setColour(230);
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_SOUND_PLAY_EFFECT_MESSAGE)
-        .appendField(new Blockly.FieldDropdown(Blockly.Kiwifroot.sounds_), "SOUND");
+    this.appendValueInput("SOUND")
+        .setCheck("Sound");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);

@@ -30,9 +30,13 @@ goog.require('Blockly.Kiwifroot');
 
 var soundsRef = 'this.state.sounds';
 
+Blockly.Kiwifroot['kiwi_sound'] = function(block) {
+    var code = block.getFieldValue('SOUND');
+    return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
 
 Blockly.Kiwifroot['kiwi_sound_play_background'] = function(block) {
-    var val = block.getFieldValue('SOUND');
+    var val = Blockly.Kiwifroot.valueToCode(block, 'SOUND', Blockly.Kiwifroot.ORDER_ATOMIC) || "-1";
     return soundsRef + '.playBackgroundTrack('+val+');\n';
 };
 
@@ -41,6 +45,6 @@ Blockly.Kiwifroot['kiwi_sound_stop_background'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_sound_play_effect'] = function(block) {
-    var val = block.getFieldValue('SOUND');
+    var val = Blockly.Kiwifroot.valueToCode(block, 'SOUND', Blockly.Kiwifroot.ORDER_ATOMIC) || "-1";
     return soundsRef + '.playSoundEffect('+val+');\n';
 };

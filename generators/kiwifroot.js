@@ -139,6 +139,7 @@ Blockly.Kiwifroot.DEFINITIONS = 'DEFINITIONS';
  * @type {array}
  */
 Blockly.Kiwifroot.sounds_ = [
+  ["Ammo","5"],
   ['Machine Gun',"11"]
 ];
 

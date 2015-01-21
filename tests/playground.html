@@ -419,9 +419,18 @@ h1 {
         <block type="kiwi_input_mouse"></block>
       </category>
       <category name="Sound">
-        <block type="kiwi_sound_play_background"></block>
+        <block type="kiwi_sound"></block>
+        <block type="kiwi_sound_play_background">
+          <value name="SOUND">
+            <block type="kiwi_sound"></block>
+          </value>
+        </block>
         <block type="kiwi_sound_stop_background"></block>
-        <block type="kiwi_sound_play_effect"></block>
+        <block type="kiwi_sound_play_effect">
+          <value name="SOUND">
+            <block type="kiwi_sound"></block>
+          </value>
+        </block>
       </category
     </category>
     <hr>
