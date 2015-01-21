@@ -58,42 +58,45 @@ Blockly.Kiwifroot['kiwi_event_stage_release'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_event_key_press'] = function(block) {
-	// Make sure that the 'onKeyPressed' function is defined
-	var func = Blockly.Kiwifroot.defineFunctionOnce('onKeyPressed',{
-		args: 'keyCode'
-		,head: '\tswitch (keyCode) {\n'
-		,foot: '\t};\n'
-		,prefix: '\t\t'
-	});
+	var t = Blockly.Kiwifroot.INDENT;
+	var funcName = Blockly.Kiwifroot.provideFunction_(
+		'onKeyPressed',
+		[ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function(keyCode) {',
+        t + 'switch (keyCode) {',
+        '{{'+t+t+',EVENT_KEY_PRESSED,\n}}',
+        t + '}',
+        '}']);
 	// Generate the new function
 	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT)
-	var constructorCode = 'this.game.input.keyboard.onKeyDownOnce.add(this.onKeyPressed, this);';
+	var constructorCode = 'this.game.input.keyboard.onKeyDownOnce.add(this.' + funcName + ', this);';
 	Blockly.Kiwifroot.provideAdditionOnce('EventKeyPressed', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
 	var funcName = defineFunctionFromBranch('onKeyPressed', block);
 	// Generate the code for the switch statement and add it
-	var code = 'case '+keyCode+': this.'+funcName+'(); break;\n';
-	func.code.push(code);
+	var code = 'case '+keyCode+': this.'+funcName+'(); break;';
+	Blockly.Kiwifroot.provideAddition('EVENT_KEY_PRESSED', code);
 	return null;
 };
 
 Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
-	// Make sure the 'onKeyReleased' function is defined
-	var func = Blockly.Kiwifroot.defineFunctionOnce('onKeyReleased',{
-		args: 'keyCode'
-		,head: '\tswitch (keyCode) {\n'
-		,foot: '\t};\n'
-		,prefix: '\t\t'
-	});
+	var t = Blockly.Kiwifroot.INDENT;
+	var funcName = Blockly.Kiwifroot.provideFunction_(
+		'onKeyReleased',
+		[ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function(keyCode) {',
+        t + 'switch (keyCode) {',
+        '{{'+t+t+',EVENT_KEY_RELEASED,\n}}',
+        t + '}',
+        '}']);
 	// Generate the code for the new function
 	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT)
-	var constructorCode = 'this.game.input.keyboard.onKeyUp.add(this.onKeyReleased, this);';
+	var constructorCode = 'this.game.input.keyboard.onKeyUp.add(this.' + funcName + ', this);';
 	Blockly.Kiwifroot.provideAdditionOnce('EventKeyReleased', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
 	var funcName = defineFunctionFromBranch('onKeyReleased', block);
 	// Generate the code for the switch
-	var code = 'case '+keyCode+': this.'+funcName+'(); break;\n';
-	func.code.push(code);
+	var code = 'case '+keyCode+': this.'+funcName+'(); break;';
+	Blockly.Kiwifroot.provideAddition('EVENT_KEY_RELEASED', code);
 	return null;
 };
+
 
 function defineFunctionFromBranch(desiredName, block){
 	// Define a procedure with a return value.

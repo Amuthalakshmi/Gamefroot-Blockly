@@ -72,7 +72,7 @@ Blockly.Kiwifroot.defaultTemplate =
   // Set this components state property
   '\tthis.state = this.owner.state;\n\n'+
   // This is where the constructor additions will be made
-  '{{\t,CONSTRUCTOR,\n}}'+
+  '{{\t,CONSTRUCTOR,\n}}\n'+
   '}\n\n' +
   // Extend GameObject
   'Kiwi.extend(Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]], Kiwi.Component);\n\n'+
@@ -129,37 +129,7 @@ Blockly.Kiwifroot.sounds_ = [
 ];
 
 
-Blockly.Kiwifroot.addReservedWords(
-  'onKeyPressed,onKeyReleased');
-
-
-
-// TODO work out a better way to use these functions
-
-
-Blockly.Kiwifroot.defineFunctionOnce = function(name, params){
-  // TODO check for no existing name conflicts
-  var funcName = name;
-  if (!Blockly.Kiwifroot.defs_[funcName]) {
-    Blockly.Kiwifroot.defs_[funcName] = {
-      code:[]
-    };
-  }
-  var def = Blockly.Kiwifroot.defs_[funcName];
-  def.name = funcName;
-  def.args = params.args || def.args;
-  def.head = params.head || def.head;
-  def.foot = params.foot || def.foot;
-  def.prefix = params.prefix || def.prefix;
-  def.suffix = params.suffix || def.suffix;
-  if (!def.args) def.args = '';
-  if (!def.head) def.head = '';
-  if (!def.foot) def.foot = '';
-  if (!def.prefix) def.prefix = '';
-  if (!def.suffix) def.suffix = '';
-  if (params.code) def.code.push(params.code);
-  return def;
-};
+Blockly.Kiwifroot.addReservedWords();
 
 /**
  * Adds a new addition to the given section (spectified in the template)
@@ -271,6 +241,7 @@ Blockly.Kiwifroot.finish = function(code) {
   }
   // Support the old definitions way of doing things
   for (var name in Blockly.Kiwifroot.definitions_) {
+
     Blockly.Kiwifroot.provideAddition(
         Blockly.Kiwifroot.DEFINITIONS,
         Blockly.Kiwifroot.definitions_[name]+'\n\n');
@@ -315,30 +286,30 @@ Blockly.Kiwifroot.generateFromTemplate_ = function(){
 
   // Find all the sections in the template
   var SECTION_RE = safeSectionStart+"(.|\n)*?"+safeSectionEnd;
+  var i = 0;
   var sectionsInTemplate = str.match(new RegExp(SECTION_RE,'g'));
-  if (sectionsInTemplate) {
-    for (var i = 0, n = sectionsInTemplate.length; i < n; i++) {
-      var sectionNameWithSymbols = sectionsInTemplate[i];
-      var sectionNameWithArgs = sectionNameWithSymbols.slice(
-          sectionStart.length,sectionNameWithSymbols.length-sectionEnd.length);
-      // Find any prefix/suffix args + the name of the section
-      var sectionName = sectionNameWithArgs;
-      var prefix = '';
-      var suffix = '';
-      var args = sectionName.split(',');
-      if (args.length > 1) {
-        prefix = args[0];
-        sectionName = args[1];
-        if (args.length > 2) {
-            suffix = args[2];
-            if (args.length > 3) throw 'Too many arguments provided in section: '+sectionName;
-        }
+  while (sectionsInTemplate && sectionsInTemplate.length > 0 && i++ < 1000) {
+    var sectionNameWithSymbols = sectionsInTemplate[0];
+    var sectionNameWithArgs = sectionNameWithSymbols.slice(
+        sectionStart.length,sectionNameWithSymbols.length-sectionEnd.length);
+    // Find any prefix/suffix args + the name of the section
+    var sectionName = sectionNameWithArgs;
+    var prefix = '';
+    var suffix = '';
+    var args = sectionName.split(',');
+    if (args.length > 1) {
+      prefix = args[0];
+      sectionName = args[1];
+      if (args.length > 2) {
+          suffix = args[2];
+          if (args.length > 3) throw 'Too many arguments provided in section: '+sectionName;
       }
-      // Generate the code for this section
-      var code = Blockly.Kiwifroot.generateSection_(sectionName,prefix,suffix);
-      var re = safeSectionStart+regexpQuote(sectionNameWithArgs)+safeSectionEnd;
-      str = str.replace(new RegExp(re),code);
     }
+    // Generate the code for this section
+    var code = Blockly.Kiwifroot.generateSection_(sectionName,prefix,suffix);
+    var re = safeSectionStart+regexpQuote(sectionNameWithArgs)+safeSectionEnd;
+    str = str.replace(new RegExp(re),code);
+    sectionsInTemplate = str.match(new RegExp(SECTION_RE,'g'));
   }
   return str;
 };
@@ -353,7 +324,8 @@ Blockly.Kiwifroot.generateSection_ = function(section,prefix,suffix){
   var arr = Blockly.Kiwifroot.sections_[section];
   if (arr) {
     for (var i=0, n=arr.length; i < n; i++){
-      code += prefix + arr[i] + suffix;
+      code += prefix + arr[i];
+      if (i < n - 1) code += suffix;
     }
   }
   return code;
@@ -372,7 +344,6 @@ Blockly.Kiwifroot.generateConstructor_ = function(){
   }
   return 'function ' + className + '() {\n' + code + '}';
 }
-
 /**
  * Helper function that automatically escapes all characters in the string
  * that have a special meaning in a regexp expression
