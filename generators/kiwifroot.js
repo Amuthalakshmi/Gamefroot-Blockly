@@ -269,48 +269,60 @@ Blockly.Kiwifroot.generateFromTemplate_ = function(){
   var safeSectionStart = regexpQuote(sectionStart);
   var safeSectionEnd = regexpQuote(sectionEnd);
 
-  // Find all the macros in the template
   var MACRO_RE = safeMacroStart+".*?"+safeMacroEnd;
   var macrosInTemplate = str.match(new RegExp(MACRO_RE,'g'));
-  if (macrosInTemplate) {
-    for (var i = 0, n = macrosInTemplate.length; i < n; i++){
-      var macroNameWithSymbols = macrosInTemplate[i];
-      var macroName = macroNameWithSymbols.slice(
-          macroStart.length,macroNameWithSymbols.length-macroEnd.length);
-      // TODO if = is present, set the symbol to a new value
-      if (!symbols.hasOwnProperty(macroName)) throw 'No macro provided with the name: '+macroName;
-      str = str.replace(new RegExp(safeMacroStart+macroName+safeMacroEnd), 
-          symbols[macroName]);
-    }
-  }
-
-  // Find all the sections in the template
   var SECTION_RE = safeSectionStart+"(.|\n)*?"+safeSectionEnd;
-  var i = 0;
   var sectionsInTemplate = str.match(new RegExp(SECTION_RE,'g'));
-  while (sectionsInTemplate && sectionsInTemplate.length > 0 && i++ < 1000) {
-    var sectionNameWithSymbols = sectionsInTemplate[0];
-    var sectionNameWithArgs = sectionNameWithSymbols.slice(
-        sectionStart.length,sectionNameWithSymbols.length-sectionEnd.length);
-    // Find any prefix/suffix args + the name of the section
-    var sectionName = sectionNameWithArgs;
-    var prefix = '';
-    var suffix = '';
-    var args = sectionName.split(',');
-    if (args.length > 1) {
-      prefix = args[0];
-      sectionName = args[1];
-      if (args.length > 2) {
-          suffix = args[2];
-          if (args.length > 3) throw 'Too many arguments provided in section: '+sectionName;
+  var k = 0;
+  var MAX_NESTING = 100;
+  
+  // While there are still symbols in the template, find and replace them
+  while (((macrosInTemplate && macrosInTemplate.length > 0)
+    || (sectionsInTemplate && sectionsInTemplate.length > 0)) 
+    && k++ < MAX_NESTING) {
+    // Replace the macros in the template
+    if (macrosInTemplate) {
+      for (var i = 0, n = macrosInTemplate.length; i < n; i++){
+        var macroNameWithSymbols = macrosInTemplate[0];
+        var macroName = macroNameWithSymbols.slice(
+            macroStart.length,macroNameWithSymbols.length-macroEnd.length);
+        // TODO if = is present, set the symbol to a new value
+        if (!symbols.hasOwnProperty(macroName)) throw 'No macro provided with the name: '+macroName;
+        str = str.replace(new RegExp(safeMacroStart+macroName+safeMacroEnd), 
+            symbols[macroName]);
       }
     }
-    // Generate the code for this section
-    var code = Blockly.Kiwifroot.generateSection_(sectionName,prefix,suffix);
-    var re = safeSectionStart+regexpQuote(sectionNameWithArgs)+safeSectionEnd;
-    str = str.replace(new RegExp(re),code);
+    // Replace the sections in the template
+    if (sectionsInTemplate) {
+      for (var i = 0, n = sectionsInTemplate.length; i < n; i++) {
+        var sectionNameWithSymbols = sectionsInTemplate[i];
+        var sectionNameWithArgs = sectionNameWithSymbols.slice(
+            sectionStart.length,sectionNameWithSymbols.length-sectionEnd.length);
+        // Find any prefix/suffix args + the name of the section
+        var sectionName = sectionNameWithArgs;
+        var prefix = '';
+        var suffix = '';
+        var args = sectionName.split(',');
+        if (args.length > 1) {
+          prefix = args[0];
+          sectionName = args[1];
+          if (args.length > 2) {
+              suffix = args[2];
+              if (args.length > 3) throw 'Too many arguments provided in section: '+sectionName;
+          }
+        }
+        // Generate the code for this section
+        var code = Blockly.Kiwifroot.generateSection_(sectionName,prefix,suffix);
+        var re = safeSectionStart+regexpQuote(sectionNameWithArgs)+safeSectionEnd;
+        str = str.replace(new RegExp(re),code);
+      }
+    }
+    // If then new sections added any new macros/templates, then we need to make
+    // sure that we replace those too
+    macrosInTemplate = str.match(new RegExp(MACRO_RE,'g'));
     sectionsInTemplate = str.match(new RegExp(SECTION_RE,'g'));
   }
+
   return str;
 };
 
