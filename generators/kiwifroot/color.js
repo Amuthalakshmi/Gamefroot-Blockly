@@ -26,7 +26,12 @@
 
 
 Blockly.Kiwifroot['colour_random'] = function(block) {
-  // Generate a random colour.
-  var code = 'colour_random()';
-  return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+	var func = Blockly.Kiwifroot.defineFunctionOnce('colour_random',{
+		prefix:'\t'
+	});
+	func.code.push('var num = Math.floor(Math.random() * Math.pow(2, 24));\n');
+	func.code.push('return "#" + ("00000" + num.toString(16)).substr(-6);\n');
+	// Generate a random colour.
+	var code = 'this.'+func.name+'()';
+	return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };

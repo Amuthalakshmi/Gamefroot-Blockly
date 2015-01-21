@@ -85,27 +85,12 @@ Blockly.Kiwifroot.defaultTemplate =
   // will include two newline breaks after each definition.
   '{{Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.,DEFINITIONS,\n\n}}'+
 
-  // on Key pressed - TODO remove this if there is no 'onKeyPressed' event
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.onKeyPressed = function(keyCode){\n'+
-  '\tswitch(keyCode){\n'+
-  '{{\t\t,EVENT_KEY_PRESSED}}\n'+
-  '\t};\n};\n\n'+
-  // on Key released - TODO remove this if there is no 'onKeyReleased' event
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.onKeyReleased = function(keyCode){\n'+
-  '\tswitch(keyCode){\n'+
-  '{{\t\t,EVENT_KEY_RELEASED}}\n'+
-  '\t};\n};\n\n'+
-
   // Add the component to the list of plugins
   'Kiwi.Plugins.[[PLUGIN_NAME]].kiwifrootPlugins.push({\n'+
     '\ttype: Kiwifroot.Plugins.COMPONENT,\n'+
     '\tname: \'[[PLUGIN_NAME]]\',\n'+
     '\tnamespace: Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]]\n'+
-  '});\n\n'+
-  'function colour_random() {\n'+
-  '\tvar num = Math.floor(Math.random() * Math.pow(2, 24));\n'+
-  '\treturn "#" + ("00000" + num.toString(16)).substr(-6);\n'+
-  '}';
+  '});\n\n';
 
 /**
  * The default macro properties to use when compiling for Kiwifroot
@@ -146,6 +131,35 @@ Blockly.Kiwifroot.sounds_ = [
 
 Blockly.Kiwifroot.addReservedWords(
   'onKeyPressed,onKeyReleased');
+
+
+
+// TODO work out a better way to use these functions
+
+
+Blockly.Kiwifroot.defineFunctionOnce = function(name, params){
+  // TODO check for no existing name conflicts
+  var funcName = name;
+  if (!Blockly.Kiwifroot.defs_[funcName]) {
+    Blockly.Kiwifroot.defs_[funcName] = {
+      code:[]
+    };
+  }
+  var def = Blockly.Kiwifroot.defs_[funcName];
+  def.name = funcName;
+  def.args = params.args || def.args;
+  def.head = params.head || def.head;
+  def.foot = params.foot || def.foot;
+  def.prefix = params.prefix || def.prefix;
+  def.suffix = params.suffix || def.suffix;
+  if (!def.args) def.args = '';
+  if (!def.head) def.head = '';
+  if (!def.foot) def.foot = '';
+  if (!def.prefix) def.prefix = '';
+  if (!def.suffix) def.suffix = '';
+  if (params.code) def.code.push(params.code);
+  return def;
+};
 
 /**
  * Adds a new addition to the given section (spectified in the template)
@@ -220,6 +234,8 @@ Blockly.Kiwifroot.init = function(workspace) {
   Blockly.Kiwifroot.openSectionDelimeter_ = '{{';
   Blockly.Kiwifroot.closeSectionDelimeter_ = '}}';
 
+  Blockly.Kiwifroot.defs_ = Object.create(null);
+
   // Create the database of names
   if (!Blockly.Kiwifroot.variableDB_) {
     Blockly.Kiwifroot.variableDB_ =
@@ -243,6 +259,16 @@ Blockly.Kiwifroot.init = function(workspace) {
  * @return {string} Completed code.
  */
 Blockly.Kiwifroot.finish = function(code) {
+  // 
+  for (var name in Blockly.Kiwifroot.defs_) {
+    var def = Blockly.Kiwifroot.defs_[name];
+    var code = '';
+    for (var i = 0, n = def.code.length; i < n; i++) {
+      code += def.prefix + def.code[i] + def.suffix;
+    }
+    var fullCode = def.name + ' = function(' + def.args + '){\n'+def.head + code + def.foot + '}';
+    Blockly.Kiwifroot.definitions_[def.name] = fullCode;
+  }
   // Support the old definitions way of doing things
   for (var name in Blockly.Kiwifroot.definitions_) {
     Blockly.Kiwifroot.provideAddition(
