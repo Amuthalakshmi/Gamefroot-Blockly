@@ -62,27 +62,14 @@ Blockly.Kiwifroot['kiwi_animation_current'] = function(block) {
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
-Blockly.Kiwifroot['kiwi_animation_current_frame'] = function(block) {
-  var code = '(' + comp + '.currentAnimation.frameIndex + 1)';
+Blockly.Kiwifroot['kiwi_animation_numbers'] = function(block) {
+  var dropdown_numbers = block.getFieldValue('NUMBERS');
+  var code = comp + '.' + dropdown_numbers;
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
-Blockly.Kiwifroot['kiwi_animation_current_frames'] = function(block) {
-  var code = comp + '.currentAnimation.length';
-  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
-};
-
-Blockly.Kiwifroot['kiwi_animation_speed'] = function(block) {
-  var code = comp + '.currentAnimation.speed';
-  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
-};
-
-Blockly.Kiwifroot['kiwi_animation_playing'] = function(block) {
-  var code = comp + '.isPlaying';
-  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
-};
-
-Blockly.Kiwifroot['kiwi_animation_loops'] = function(block) {
-  var code = comp + '.currentAnimation.loop';
+Blockly.Kiwifroot['kiwi_animation_booleans'] = function(block) {
+  var dropdown_numbers = block.getFieldValue('BOOLEANS');
+  var code = comp + '.' + dropdown_numbers;
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

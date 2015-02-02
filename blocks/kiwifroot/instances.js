@@ -93,3 +93,17 @@ Blockly.Blocks['kiwi_instance_get'] = {
     this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
   }
 };
+
+
+
+Blockly.Blocks['kiwi_instance_closest'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_CLOSEST_MESSAGE);
+    this.setColour(0);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_INSTANCE_CLOSEST_MESSAGE);
+    this.setInputsInline(true);
+    this.setOutput(true, "Instance");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_CLOSEST_TOOLTIP);
+  }
+};
