@@ -40,9 +40,10 @@ Blockly.Connection = function(source, type) {
   this.type = type;
   this.x_ = 0;
   this.y_ = 0;
-  this.inDB_ = false;
   // Shortcut for the databases for this connection's workspace.
-  this.dbList_ = this.sourceBlock_.workspace.connectionDBList;
+  this.dbList_ = source.workspace.connectionDBList;
+  this.hidden_ = !this.dbList_;
+  this.inDB_ = false;
 };
 
 /**
@@ -55,7 +56,6 @@ Blockly.Connection.prototype.dispose = function() {
   if (this.inDB_) {
     this.dbList_[this.type].removeConnection_(this);
   }
-  this.inDB_ = false;
   if (Blockly.highlightedConnection_ == this) {
     Blockly.highlightedConnection_ = null;
   }
@@ -322,7 +322,9 @@ Blockly.Connection.prototype.moveTo = function(x, y) {
   this.x_ = x;
   this.y_ = y;
   // Insert it into its new location in the database.
-  this.dbList_[this.type].addConnection_(this);
+  if (!this.hidden_) {
+    this.dbList_[this.type].addConnection_(this);
+  }
 };
 
 /**
@@ -332,6 +334,19 @@ Blockly.Connection.prototype.moveTo = function(x, y) {
  */
 Blockly.Connection.prototype.moveBy = function(dx, dy) {
   this.moveTo(this.x_ + dx, this.y_ + dy);
+};
+
+/**
+ * Set whether this connections is hidden (not tracked in a database) or not.
+ * @param {boolean} hidden True if connection is hidden.
+ */
+Blockly.Connection.prototype.setHidden = function(hidden) {
+  this.hidden_ = hidden;
+  if (hidden && this.inDB_) {
+    this.dbList_[this.type].removeConnection_(this);
+  } else if (!hidden && !this.inDB_) {
+    this.dbList_[this.type].addConnection_(this);
+  }
 };
 
 /**
@@ -651,9 +666,8 @@ Blockly.Connection.prototype.hideAll = function() {
  * @return {!Array.<!Blockly.Block>} List of blocks to render.
  */
 Blockly.Connection.prototype.unhideAll = function() {
-  if (!this.inDB_) {
-    this.dbList_[this.type].addConnection_(this);
-  }
+  this.dbList_[this.type].addConnection_(this);
+  this.hidden_ = false;
   // All blocks that need unhiding must be unhidden before any rendering takes
   // place, since rendering requires knowing the dimensions of lower blocks.
   // Also, since rendering a block renders all its parents, we only need to

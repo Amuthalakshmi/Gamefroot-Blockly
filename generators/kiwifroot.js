@@ -33,7 +33,7 @@ goog.require('Blockly.JavaScript.logic');
 goog.require('Blockly.JavaScript.loops');
 goog.require('Blockly.JavaScript.math');
 goog.require('Blockly.JavaScript.procedures');
-goog.require('Blockly.JavaScript.text');
+goog.require('Blockly.JavaScript.texts');
 goog.require('Blockly.JavaScript.variables');
 
 
