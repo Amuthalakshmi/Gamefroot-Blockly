@@ -83,7 +83,7 @@ Blockly.Kiwifroot.defaultTemplate =
   '}\n\n'+
   // Add all the definitions here, they will all be prefixed with the namespace and
   // will include two newline breaks after each definition.
-  '{{Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.,DEFINITIONS,\n\n}}'+
+  '{{Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.,DEFINITIONS,\n\n}}\n\n'+
 
   // Add the component to the list of plugins
   'Kiwi.Plugins.[[PLUGIN_NAME]].kiwifrootPlugins.push({\n'+
