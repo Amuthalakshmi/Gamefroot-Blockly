@@ -34,27 +34,11 @@ Blockly.Kiwifroot['kiwi_animation'] = function(block) {
     var code = "'"+block.getFieldValue('ANIMATION')+"'";
     return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
 Blockly.Kiwifroot['kiwi_animation_play'] = function(block) {
     var val = Blockly.Kiwifroot.valueToCode(block, 'ANIMATION', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
 
     return comp + '.play('+ val + ');\n';
-};
-
-
-Blockly.Kiwifroot['kiwi_animation_pause'] = function(block) {
-    return comp + '.pause();\n';
-};
-
-Blockly.Kiwifroot['kiwi_animation_resume'] = function(block) {
-    return comp + '.resume();\n';
-};
-
-Blockly.Kiwifroot['kiwi_animation_next_frame'] = function(block) {
-  return comp + '.nextFrame();\n';
-};
-
-Blockly.Kiwifroot['kiwi_animation_prev_frame'] = function(block) {
-  return comp + '.prevFrame();\n';
 };
 
 Blockly.Kiwifroot['kiwi_animation_current'] = function(block) {
@@ -62,14 +46,26 @@ Blockly.Kiwifroot['kiwi_animation_current'] = function(block) {
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
+Blockly.Kiwifroot['kiwi_animation_state'] = function(block) {
+  var dropdown_value = block.getFieldValue('STATES');
+  var code = comp + '.' + dropdown_value + ';\n';
+  return code;
+};
+
+Blockly.Kiwifroot['kiwi_animation_frame'] = function(block) {
+  var dropdown_value = block.getFieldValue('FRAMES');
+  var code = comp + '.' + dropdown_value + ';\n';
+  return code;
+};
+
 Blockly.Kiwifroot['kiwi_animation_numbers'] = function(block) {
-  var dropdown_numbers = block.getFieldValue('NUMBERS');
-  var code = comp + '.' + dropdown_numbers;
+  var dropdown_value = block.getFieldValue('NUMBERS');
+  var code = comp + '.' + dropdown_value;
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
 Blockly.Kiwifroot['kiwi_animation_booleans'] = function(block) {
-  var dropdown_numbers = block.getFieldValue('BOOLEANS');
-  var code = comp + '.' + dropdown_numbers;
+  var dropdown_value = block.getFieldValue('BOOLEANS');
+  var code = comp + '.' + dropdown_value;
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

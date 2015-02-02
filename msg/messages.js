@@ -1241,42 +1241,52 @@ Blockly.Msg.KF_SOUND_PLAY_EFFECT_TOOLTIP = 'Plays the given sound effect once.';
 /// url - Information on the play sound effect block
 Blockly.Msg.KF_SOUND_PLAY_EFFECT_HELPURL = '';
 
-/**
-*
-* Animations
-* 
-*/
+
+/// tooltip - 
 Blockly.Msg.KF_ANIMATION_TOOLTIP = 'A list of all animations the this gameobject can play.';
+/// url -
 Blockly.Msg.KF_ANIMATION_HELPURL = '';
 
+/// message - 
 Blockly.Msg.KF_ANIMATION_PLAY_MESSAGE = 'play animation';
+/// url -
 Blockly.Msg.KF_ANIMATION_PLAY_HELPURL = '';
+/// tooltip - 
 Blockly.Msg.KF_ANIMATION_PLAY_TOOLTIP = 'Starts playing an animation on this gameobject.';
 
-Blockly.Msg.KF_ANIMATION_PAUSE_MESSAGE = 'pause animation';
-Blockly.Msg.KF_ANIMATION_PAUSE_HELPURL = '';
-Blockly.Msg.KF_ANIMATION_PAUSE_TOOLTIP = 'Pause the current animation on this gameobject.';
+/// message - 
+Blockly.Msg.KF_ANIMATION_STATE_MESSAGE = 'current animation';
+/// url -
+Blockly.Msg.KF_ANIMATION_STATE_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_ANIMATION_STATE_TOOLTIP = ' The state of the current animation.';
 
-Blockly.Msg.KF_ANIMATION_RESUME_MESSAGE = 'resume animation';
-Blockly.Msg.KF_ANIMATION_RESUME_HELPURL = '';
-Blockly.Msg.KF_ANIMATION_RESUME_TOOLTIP = 'Resumes the current animation on this gameobject.';
+/// message before - 
+Blockly.Msg.KF_ANIMATION_FRAME_MESSAGE_BEFORE = 'goto';
+/// message after - 
+Blockly.Msg.KF_ANIMATION_FRAME_MESSAGE_AFTER = 'animation frame';
+/// url -
+Blockly.Msg.KF_ANIMATION_FRAME_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_ANIMATION_FRAME_TOOLTIP = 'Goes to the selected frame in the current animation. If at the end of an animation it will go to the first frame, or the start if at the end.';
 
-Blockly.Msg.KF_ANIMATION_NEXT_FRAME_MESSAGE = 'goto next animation frame';
-Blockly.Msg.KF_ANIMATION_NEXT_FRAME_HELPURL = '';
-Blockly.Msg.KF_ANIMATION_NEXT_FRAME_TOOLTIP = 'Goes to the next frame in the current animation. If at the end of an animation it will go to the first frame.';
-
-Blockly.Msg.KF_ANIMATION_PREV_FRAME_MESSAGE = 'goto previous animation frame';
-Blockly.Msg.KF_ANIMATION_PREV_FRAME_HELPURL = '';
-Blockly.Msg.KF_ANIMATION_PREV_FRAME_TOOLTIP = 'Goes to the previous frame in the current animation. If at the start of an animation it will go to the last frame.';
-
+/// message - 
 Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE = 'get current animation';
+/// url -
 Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL = '';
+/// tooltip - 
 Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP = 'Returns the current animation that is playing on this game object.';
 
+/// message - 
 Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE = 'get current animation';
+/// url -
 Blockly.Msg.KF_ANIMATION_NUMBERS_HELPURL = '';
+/// tooltip - 
 Blockly.Msg.KF_ANIMATION_NUMBERS_TOOLTIP = 'Returns a number related to the selected field..';
 
+/// message - 
 Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE = 'if the current animation';
+/// url -
 Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL = '';
+/// tooltip - 
 Blockly.Msg.KF_ANIMATION_BOOLEAN_TOOLTIP = 'Returns true if the statement is true. False if the statement isn\'t.';
