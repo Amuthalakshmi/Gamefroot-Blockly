@@ -1136,6 +1136,12 @@ Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = "The event triggered when the player 
 /// url - Information on the kiwifroot key release event
 Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
 
+/// Label for the 'go to level numbered' block
+Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_MESSAGE = 'Go to level';
+/// tooltip - Changes the current level to the level specified
+Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_TOOLTIP = 'Changes the current level to the level specified.';
+/// url - Information on the goto level block
+Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_HELPURL = '';
 /// tooltip - Sets the size of the games viewport on the screen
 Blockly.Msg.KF_GAME_STAGE_SET_SIZE_TOOLTIP = 'Sets the size of the games viewport on the screen.';
 /// url - Information on the set position block

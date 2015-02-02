@@ -30,6 +30,11 @@ goog.provide('Blockly.Kiwifroot.game');
 
 goog.require('Blockly.Kiwifroot');
 
+Blockly.Kiwifroot['kiwi_game_goto_level_num'] = function(block) {
+	var levelNum = Blockly.Kiwifroot.valueToCode(block, 'LEVEL', Blockly.Kiwifroot.ORDER_ATOMIC);
+	return 'this.game.info.switchLevelByNumber('+levelNum+');\n';
+};
+
 Blockly.Kiwifroot['kiwi_game_stage_get_size'] = function(block) {
 	var prop = block.getFieldValue('PROP');
 	var code = 'this.game.stage.' + prop;

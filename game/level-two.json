@@ -1,0 +1,62 @@
+{
+	
+	"name": "Level 2",
+
+	"color": {
+		"r": 255,
+		"g": 255,
+		"b": 255,
+		"a": 1
+	},
+
+	"loader": {
+	
+	},
+
+	"systems": {
+
+		"Robots": []
+
+	},
+
+	"gameObjects": [],
+
+	"assets": [
+
+		{
+			"id": 7,
+			"type": "image",
+			"url": "assets/mushroom.png"
+		},
+
+		{
+			"id": 8,
+			"type": "spritesheet",
+			"url": "assets/mushroom.png",
+			"frameWidth": 144,
+			"frameHeight": 144
+		}, 
+
+		{
+			"id": 9,
+			"type": "json",
+			"url": "assets/tilemap.json"
+		},
+
+		{
+			"id": 10,
+			"type": "spritesheet",
+			"url": "assets/terrain.png",
+			"frameWidth": 48,
+			"frameHeight": 48
+		},
+
+		{
+			"id": 11,
+			"type": "sound",
+			"url": "assets/machine_gun.mp3"
+		}
+
+	]
+
+}

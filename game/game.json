@@ -12,6 +12,12 @@
 			"id": 1,
 			"url": "./level-one.json",
 			"name": "Level 1"
+		},
+
+		{
+			"id": 2,
+			"url": "./level-two.json",
+			"name": "Level 2"
 		}
 
 	],

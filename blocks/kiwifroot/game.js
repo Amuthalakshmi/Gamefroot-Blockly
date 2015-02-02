@@ -28,6 +28,22 @@ goog.provide('Blockly.Blocks.Kiwifroot.game');
 
 goog.require('Blockly.Blocks');
 
+
+Blockly.Blocks['kiwi_game_goto_level_num'] = {
+    init:function(){
+        this.setHelpUrl(Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_HELPURL);
+        this.setColour(300);
+        this.appendDummyInput()
+            .appendField(Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_MESSAGE);
+        this.appendValueInput("LEVEL")
+            .setCheck("Number");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setTooltip(Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_TOOLTIP);
+    }
+};
+
 /**
  * The properties that exist on the stage
  * @const
