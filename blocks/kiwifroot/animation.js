@@ -117,3 +117,58 @@ Blockly.Blocks['kiwi_animation_current'] = {
     this.setTooltip(Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP);
   }
 };
+
+Blockly.Blocks['kiwi_animation_current_frame'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_CURRENT_FRAME_HELPURL );
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ANIMATION_CURRENT_FRAME_MESSAGE );
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_ANIMATION_CURRENT_FRAME_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_animation_current_frames'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_CURRENT_FRAMES_HELPURL );
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ANIMATION_CURRENT_FRAMES_MESSAGE );
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_ANIMATION_CURRENT_FRAMES_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_animation_speed'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_CURRENT_SPEED_HELPURL );
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ANIMATION_CURRENT_SPEED_MESSAGE );
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_ANIMATION_CURRENT_SPEED_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_animation_playing'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_PLAYING_HELPURL );
+    this.setColour(210);
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ANIMATION_PLAYING_MESSAGE );
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_ANIMATION_PLAYING_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_animation_loops'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_LOOPS_HELPURL );
+    this.setColour(210);
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ANIMATION_LOOPS_MESSAGE );
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_ANIMATION_LOOPS_TOOLTIP );
+  }
+};

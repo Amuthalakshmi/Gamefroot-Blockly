@@ -1245,3 +1245,23 @@ Blockly.Msg.KF_ANIMATION_PREV_FRAME_TOOLTIP = 'Goes to the previous frame in the
 Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE = 'get current animation';
 Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL = '';
 Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP = 'Returns the current animation that is playing on this game object.';
+
+Blockly.Msg.KF_ANIMATION_CURRENT_FRAME_MESSAGE = 'get current animation frame';
+Blockly.Msg.KF_ANIMATION_CURRENT_FRAME_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_CURRENT_FRAME_TOOLTIP = 'Returns the index of the frame for the current animation. Starting at 1.';
+
+Blockly.Msg.KF_ANIMATION_CURRENT_FRAMES_MESSAGE = 'get current animation frames';
+Blockly.Msg.KF_ANIMATION_CURRENT_FRAMES_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_CURRENT_FRAMES_TOOLTIP = 'Returns the number of the frames in the current animation.';
+
+Blockly.Msg.KF_ANIMATION_CURRENT_SPEED_MESSAGE = 'get current animation speed';
+Blockly.Msg.KF_ANIMATION_CURRENT_SPEED_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_CURRENT_SPEED_TOOLTIP = 'Returns the speed of the current animation.';
+
+Blockly.Msg.KF_ANIMATION_PLAYING_MESSAGE = 'if animation is playing';
+Blockly.Msg.KF_ANIMATION_PLAYING_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_PLAYING_TOOLTIP = 'Returns true if an animation is playing. False if an animation isn\'t.';
+
+Blockly.Msg.KF_ANIMATION_LOOPS_MESSAGE = 'if current animation loops';
+Blockly.Msg.KF_ANIMATION_LOOPS_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_LOOPS_TOOLTIP = 'Returns true if the current animation loops. False if it doesn\'t.';

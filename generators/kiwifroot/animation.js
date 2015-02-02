@@ -54,13 +54,35 @@ Blockly.Kiwifroot['kiwi_animation_next_frame'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_animation_prev_frame'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
   return comp + '.prevFrame();\n';
 };
 
 Blockly.Kiwifroot['kiwi_animation_current'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
   var code = comp + '.currentAnimation.name';
-  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_animation_current_frame'] = function(block) {
+  var code = '(' + comp + '.currentAnimation.frameIndex + 1)';
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_animation_current_frames'] = function(block) {
+  var code = comp + '.currentAnimation.length';
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_animation_speed'] = function(block) {
+  var code = comp + '.currentAnimation.speed';
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_animation_playing'] = function(block) {
+  var code = comp + '.isPlaying';
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_animation_loops'] = function(block) {
+  var code = comp + '.currentAnimation.loop';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
