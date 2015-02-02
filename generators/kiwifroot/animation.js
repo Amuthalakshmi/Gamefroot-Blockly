@@ -41,16 +41,12 @@ var addAnimationToConstructor = function() {
 
 };
 
-Blockly.Kiwifroot['kiwi_animation'] = function(block) {
-    var code = "'"+block.getFieldValue('ANIMATION')+"'";
-    return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
-};
 
 Blockly.Kiwifroot['kiwi_animation_play'] = function(block) {
 
 	addAnimationToConstructor();
 
-    var val = Blockly.Kiwifroot.valueToCode(block, 'ANIMATION', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
+    var val = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
     return comp + '.play('+ val + ');\n';
 };
 

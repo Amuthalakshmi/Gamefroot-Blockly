@@ -28,25 +28,14 @@ goog.provide('Blockly.Blocks.Kiwifroot.animation');
 
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks['kiwi_animation'] = {
-  init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_HELPURL);
-    this.setColour(270);
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown(Blockly.Kiwifroot.animations_), "ANIMATION");
-    this.setOutput(true, "Animation");
-    this.setTooltip(Blockly.Msg.KF_ANIMATION_TOOLTIP);
-  }
-};
-
 
 Blockly.Blocks['kiwi_animation_current'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL);
-    this.setColour(270);
+    this.setColour(160);
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE);
-    this.setOutput(true, "Animation");
+    this.setOutput(true, "String");
     this.setTooltip(Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP);
   }
 };
@@ -57,8 +46,8 @@ Blockly.Blocks['kiwi_animation_play'] = {
     this.setColour(270);
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_ANIMATION_PLAY_MESSAGE);
-    this.appendValueInput("ANIMATION")
-        .setCheck("Animation");
+    this.appendValueInput("TEXT")
+        .setCheck("String");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);

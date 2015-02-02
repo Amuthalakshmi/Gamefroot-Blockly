@@ -1242,11 +1242,6 @@ Blockly.Msg.KF_SOUND_PLAY_EFFECT_TOOLTIP = 'Plays the given sound effect once.';
 Blockly.Msg.KF_SOUND_PLAY_EFFECT_HELPURL = '';
 
 
-/// tooltip - 
-Blockly.Msg.KF_ANIMATION_TOOLTIP = 'A list of all animations the this gameobject can play.';
-/// url -
-Blockly.Msg.KF_ANIMATION_HELPURL = '';
-
 /// message - 
 Blockly.Msg.KF_ANIMATION_PLAY_MESSAGE = 'play animation';
 /// url -
