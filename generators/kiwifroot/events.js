@@ -65,7 +65,7 @@ Blockly.Kiwifroot['kiwi_event_key_press'] = function(block) {
         t + 'switch (keyCode) {',
         '{{'+t+t+',EVENT_KEY_PRESSED,\n}}',
         t + '}',
-        '}']);
+        '};']);
 	// Generate the new function
 	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT)
 	var constructorCode = 'this.game.input.keyboard.onKeyDownOnce.add(this.' + funcName + ', this);';
@@ -85,7 +85,7 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
         t + 'switch (keyCode) {',
         '{{'+t+t+',EVENT_KEY_RELEASED,\n}}',
         t + '}',
-        '}']);
+        '};']);
 	// Generate the code for the new function
 	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT)
 	var constructorCode = 'this.game.input.keyboard.onKeyUp.add(this.' + funcName + ', this);';
@@ -111,7 +111,7 @@ function defineFunctionFromBranch(desiredName, block){
 		branch = Blockly.Kiwifroot.INFINITE_LOOP_TRAP.replace(/%1/g,
 			'\'' + block.id + '\'') + branch;
 	}
-	var code = funcName + ' = function() {\n' + branch + '}';
+	var code = funcName + ' = function() {\n' + branch + '};';
 	code = Blockly.Kiwifroot.scrub_(block, code);
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code)
 	return funcName;

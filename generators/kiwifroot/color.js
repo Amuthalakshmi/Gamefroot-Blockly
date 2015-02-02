@@ -33,7 +33,7 @@ Blockly.Kiwifroot['colour_random'] = function(block) {
       	[ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function() {',
         	t+'var num = Math.floor(Math.random() * Math.pow(2, 24));',
         	t+'return \'#\' + (\'00000\' + num.toString(16)).substr(-6);',
-        '}']);
+        '};']);
   	var code = 'this.' + functionName + '()';
 	return [code, Blockly.JavaScript.ORDER_FUNCTION_CALL];
 };

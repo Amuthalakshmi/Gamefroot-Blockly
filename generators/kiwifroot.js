@@ -236,15 +236,14 @@ Blockly.Kiwifroot.finish = function(code) {
     for (var i = 0, n = def.code.length; i < n; i++) {
       code += def.prefix + def.code[i] + def.suffix;
     }
-    var fullCode = def.name + ' = function(' + def.args + '){\n'+def.head + code + def.foot + '}';
+    var fullCode = def.name + ' = function(' + def.args + '){\n'+def.head + code + def.foot + '};';
     Blockly.Kiwifroot.definitions_[def.name] = fullCode;
   }
   // Support the old definitions way of doing things
   for (var name in Blockly.Kiwifroot.definitions_) {
-
     Blockly.Kiwifroot.provideAddition(
         Blockly.Kiwifroot.DEFINITIONS,
-        Blockly.Kiwifroot.definitions_[name]+'\n\n');
+        Blockly.Kiwifroot.definitions_[name]);
   }
   // Generate everything from the template we were provided
   var code = Blockly.Kiwifroot.generateFromTemplate_();
@@ -343,19 +342,6 @@ Blockly.Kiwifroot.generateSection_ = function(section,prefix,suffix){
   return code;
 };
 
-/**
- * Generates the constructor code for this entity
- * @private
- * @return {string} The constructor code
- */
-Blockly.Kiwifroot.generateConstructor_ = function(){
-  var className = 'TestEntity'
-  var code = '';
-  for (var i=0, n=Blockly.Kiwifroot.constructorAdditions_.length; i < n; i++){
-    code += '\t' + Blockly.Kiwifroot.constructorAdditions_[i];
-  }
-  return 'function ' + className + '() {\n' + code + '}';
-}
 /**
  * Helper function that automatically escapes all characters in the string
  * that have a special meaning in a regexp expression
