@@ -1255,3 +1255,11 @@ Blockly.Msg.KF_ANIMATION_PREV_FRAME_TOOLTIP = 'Goes to the previous frame in the
 Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE = 'get current animation';
 Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL = '';
 Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP = 'Returns the current animation that is playing on this game object.';
+
+Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE = 'get current animation';
+Blockly.Msg.KF_ANIMATION_NUMBERS_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_NUMBERS_TOOLTIP = 'Returns a number related to the selected field..';
+
+Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE = 'if the current animation';
+Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_BOOLEAN_TOOLTIP = 'Returns true if the statement is true. False if the statement isn\'t.';

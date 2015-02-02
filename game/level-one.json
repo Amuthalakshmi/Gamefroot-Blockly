@@ -38,13 +38,13 @@
 					},
 					"red": {
 						"cells": [0],
-						"loop": true,
+						"loop": false,
 						"play": false,
 						"speed": 0.1
 					},
 					"green": {
 						"cells": [1],
-						"loop": true,
+						"loop": false,
 						"play": false,
 						"speed": 0.1
 					}

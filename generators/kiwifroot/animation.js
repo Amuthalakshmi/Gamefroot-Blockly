@@ -54,13 +54,22 @@ Blockly.Kiwifroot['kiwi_animation_next_frame'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_animation_prev_frame'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
   return comp + '.prevFrame();\n';
 };
 
 Blockly.Kiwifroot['kiwi_animation_current'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
   var code = comp + '.currentAnimation.name';
-  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_animation_numbers'] = function(block) {
+  var dropdown_numbers = block.getFieldValue('NUMBERS');
+  var code = comp + '.' + dropdown_numbers;
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_animation_booleans'] = function(block) {
+  var dropdown_numbers = block.getFieldValue('BOOLEANS');
+  var code = comp + '.' + dropdown_numbers;
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

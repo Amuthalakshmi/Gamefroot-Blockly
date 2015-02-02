@@ -117,3 +117,41 @@ Blockly.Blocks['kiwi_animation_current'] = {
     this.setTooltip(Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP);
   }
 };
+
+
+var animationNumberProps = [
+        ["frame", "currentAnimation.frameIndex + 1"], 
+        ["frames", "currentAnimation.length"], 
+        ["speed", "currentAnimation.speed"]
+    ];
+
+Blockly.Blocks['kiwi_animation_numbers'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_NUMBERS_HELPURL );
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE )
+        .appendField(new Blockly.FieldDropdown(animationNumberProps), "NUMBERS");
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_ANIMATION_NUMBERS_TOOLTIP );
+  }
+};
+
+
+var animationBooleanProps = [
+    ["is playing", "isPlaying"],
+    ["loops", "currentAnimation.loop"]
+];
+
+
+Blockly.Blocks['kiwi_animation_booleans'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL );
+    this.setColour(210);
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE )
+        .appendField(new Blockly.FieldDropdown(animationBooleanProps), "BOOLEANS");
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_ANIMATION_BOOLEAN_TOOLTIP );
+  }
+};
