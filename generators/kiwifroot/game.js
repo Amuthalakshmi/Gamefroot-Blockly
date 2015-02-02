@@ -30,6 +30,26 @@ goog.provide('Blockly.Kiwifroot.game');
 
 goog.require('Blockly.Kiwifroot');
 
+Blockly.Kiwifroot['kiwi_game_level_special'] = function(block) {
+	var level = block.getFieldValue('LEVEL');
+	switch (level) {
+		case 'currentLevel': 
+			return ['this.game.info.currentLevelNumber'
+					,Blockly.Kiwifroot.ORDER_ATOMIC];
+        case 'previousLevel': 
+        	return ['this.game.info.currentLevelNumber - 1'
+        			,Blockly.Kiwifroot.ORDER_SUBTRACTION];
+        case 'nextLevel': 
+        	return ['this.game.info.currentLevelNumber + 1'
+        			,Blockly.Kiwifroot.ORDER_ADDITION];
+        case 'firstLevel': 
+        	return ['0',Blockly.Kiwifroot.ORDER_ATOMIC];
+        case 'lastLevel': 
+        	return ['this.game.info.numLevels - 1'
+        			,Blockly.Kiwifroot.ORDER_SUBTRACTION];
+	}
+};
+
 Blockly.Kiwifroot['kiwi_game_goto_level_num'] = function(block) {
 	var levelNum = Blockly.Kiwifroot.valueToCode(block, 'LEVEL', Blockly.Kiwifroot.ORDER_ATOMIC);
 	return 'this.game.info.switchLevelByNumber('+levelNum+');\n';

@@ -28,7 +28,26 @@ goog.provide('Blockly.Blocks.Kiwifroot.game');
 
 goog.require('Blockly.Blocks');
 
+// A list of 'special' levels, 'Current Level', 'Previous Level' etc.
+Blockly.Blocks['kiwi_game_level_special'] = {
+    init:function(){
+        this.setHelpUrl(Blockly.Msg.KF_GAME_LEVEL_SPECIAL_HELPURL);
+        this.setColour(0);
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldDropdown([
+                    ["current level", 'currentLevel']
+                    ,["previous level", 'previousLevel']
+                    ,["next level", 'nextLevel']
+                    ,["first level", 'firstLevel']
+                    ,["last level", 'lastLevel']
+                ]), "LEVEL");
+        this.setInputsInline(true);
+        this.setOutput(true, "Number");
+        this.setTooltip(Blockly.Msg.KF_GAME_LEVEL_SPECIAL_TOOLTIP);
+    }
+};
 
+// A blocks that changes the current level
 Blockly.Blocks['kiwi_game_goto_level_num'] = {
     init:function(){
         this.setHelpUrl(Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_HELPURL);
