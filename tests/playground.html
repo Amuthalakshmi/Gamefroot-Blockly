@@ -21,6 +21,7 @@
 <script src="../generators/kiwifroot/instances.js"></script>
 <script src="../generators/kiwifroot/inputs.js"></script>
 <script src="../generators/kiwifroot/sound.js"></script>
+<script src="../generators/kiwifroot/animation.js"></script>
 <!-- add new kiwifroot generators here -->
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
@@ -36,6 +37,7 @@
 <script src="../blocks/kiwifroot/instances.js"></script>
 <script src="../blocks/kiwifroot/inputs.js"></script>
 <script src="../blocks/kiwifroot/sound.js"></script>
+<script src="../blocks/kiwifroot/animation.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -432,7 +434,20 @@ h1 {
             <block type="kiwi_sound"></block>
           </value>
         </block>
-      </category
+      </category>
+      <category name="Animation">
+        <block type="kiwi_animation"></block>
+        <block type="kiwi_animation_current"></block>
+        <block type="kiwi_animation_play">
+          <value name="ANIMATION">
+            <block type="kiwi_animation"></block>
+          </value>
+        </block>
+        <block type="kiwi_animation_pause"></block>
+        <block type="kiwi_animation_resume"></block>
+        <block type="kiwi_animation_next_frame"></block>
+        <block type="kiwi_animation_prev_frame"></block>
+      </category>
     </category>
     <hr>
     <category name="Variables" custom="VARIABLE"></category>

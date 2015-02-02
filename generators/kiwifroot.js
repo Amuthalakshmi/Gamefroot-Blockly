@@ -44,6 +44,7 @@ goog.require('Blockly.JavaScript.variables');
 Blockly.Kiwifroot = Blockly.JavaScript;
 
 /**
+
  * The indent symbol used in code generation - we use tabs
  * @type {string}
  */
@@ -126,6 +127,13 @@ Blockly.Kiwifroot.DEFINITIONS = 'DEFINITIONS';
 Blockly.Kiwifroot.sounds_ = [
   ["Ammo","5"],
   ['Machine Gun',"11"]
+];
+
+Blockly.Kiwifroot.animations_ = [
+  ["Flashing", "flashing"],
+  ["Red", "red"],
+  ["Green", "green"],
+  ['Default', "default"]
 ];
 
 Blockly.Kiwifroot.addReservedWords();
