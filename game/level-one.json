@@ -27,10 +27,6 @@
 			"y": 170,
 
 			"components": {
-
-				"MyScript": {
-					
-				},
 			
 				"animation": {
 
@@ -53,6 +49,10 @@
 						"speed": 0.1
 					}
 			
+				},
+
+				"MyScript": {
+					
 				}
 
 			}

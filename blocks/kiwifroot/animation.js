@@ -82,3 +82,38 @@ Blockly.Blocks['kiwi_animation_resume'] = {
     this.setTooltip(Blockly.Msg.KF_ANIMATION_RESUME_TOOLTIP);
   }
 };
+
+Blockly.Blocks['kiwi_animation_next_frame'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_NEXT_FRAME_HELPURL);
+    this.setColour(270);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_ANIMATION_NEXT_FRAME_MESSAGE);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_ANIMATION_NEXT_FRAME_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_animation_prev_frame'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_PREV_FRAME_HELPURL);
+    this.setColour(270);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_ANIMATION_PREV_FRAME_MESSAGE);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_ANIMATION_PREV_FRAME_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_animation_current'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL);
+    this.setColour(270);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE);
+    this.setOutput(true, "Animation");
+    this.setTooltip(Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP);
+  }
+};

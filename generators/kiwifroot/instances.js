@@ -47,3 +47,8 @@ Blockly.Kiwifroot['kiwi_instance_get'] = function(block) {
 	var code = inst + '.' + prop;
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
+Blockly.Kiwifroot['kiwi_instance_closest'] = function(block) {
+	var code = 'this.owner'; // TODO we may want to change this to self if there are any async functions
+  	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
