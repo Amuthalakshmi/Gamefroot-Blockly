@@ -35,9 +35,9 @@ Blockly.Blocks['kiwi_game_level_special'] = {
         this.setColour(0);
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
-                    ["current level", 'currentLevel']
+                    ["next level", 'nextLevel']
+                    ,["current level", 'currentLevel']
                     ,["previous level", 'previousLevel']
-                    ,["next level", 'nextLevel']
                     ,["first level", 'firstLevel']
                     ,["last level", 'lastLevel']
                 ]), "LEVEL");

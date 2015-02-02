@@ -429,7 +429,11 @@ h1 {
     <category name="Kiwifroot">
       <category name="Game">
         <block type="kiwi_game_level_special"></block>
-        <block type="kiwi_game_goto_level_num"></block>
+        <block type="kiwi_game_goto_level_num">
+          <value name="LEVEL">
+            <block type="kiwi_game_level_special"></block>
+          </value>
+        </block>
         <block type="kiwi_game_stage_get_size"></block>
         <block type="kiwi_game_stage_set_colour"></block>
         <block type="kiwi_game_stage_get_colour"></block>
