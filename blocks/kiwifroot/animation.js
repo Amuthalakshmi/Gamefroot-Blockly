@@ -40,6 +40,17 @@ Blockly.Blocks['kiwi_animation'] = {
 };
 
 
+Blockly.Blocks['kiwi_animation_current'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL);
+    this.setColour(270);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE);
+    this.setOutput(true, "Animation");
+    this.setTooltip(Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP);
+  }
+};
+
 Blockly.Blocks['kiwi_animation_play'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_ANIMATION_PLAY_HELPURL);
@@ -56,65 +67,41 @@ Blockly.Blocks['kiwi_animation_play'] = {
 };
 
 
-Blockly.Blocks['kiwi_animation_pause'] = {
+var animationState = [
+    ["pause", "pause()"],
+    ["resume", "resume()"]
+];
+
+Blockly.Blocks['kiwi_animation_state'] = {
   init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_PAUSE_HELPURL);
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_STATE_HELPURL );
     this.setColour(270);
     this.appendDummyInput()
-        .appendField(Blockly.Msg.KF_ANIMATION_PAUSE_MESSAGE);
-    this.setInputsInline(true);
+        .appendField(new Blockly.FieldDropdown(animationState), "STATES")
+        .appendField( Blockly.Msg.KF_ANIMATION_STATE_MESSAGE );
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.KF_ANIMATION_PAUSE_TOOLTIP);
+    this.setTooltip( Blockly.Msg.KF_ANIMATION_STATE_TOOLTIP );
   }
 };
 
 
-Blockly.Blocks['kiwi_animation_resume'] = {
+var frameAdjustmentPros = [
+    ["next", "nextFrame()"],
+    ["prev", "prevFrame()"]
+];
+
+Blockly.Blocks['kiwi_animation_frame'] = {
   init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_RESUME_HELPURL);
+    this.setHelpUrl( Blockly.Msg.KF_ANIMATION_FRAME_HELPURL );
     this.setColour(270);
     this.appendDummyInput()
-        .appendField(Blockly.Msg.KF_ANIMATION_RESUME_MESSAGE);
-    this.setInputsInline(true);
+        .appendField( Blockly.Msg.KF_ANIMATION_FRAME_MESSAGE_BEFORE )
+        .appendField(new Blockly.FieldDropdown(frameAdjustmentPros), "FRAMES")
+        .appendField( Blockly.Msg.KF_ANIMATION_FRAME_MESSAGE_AFTER );
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.KF_ANIMATION_RESUME_TOOLTIP);
-  }
-};
-
-Blockly.Blocks['kiwi_animation_next_frame'] = {
-  init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_NEXT_FRAME_HELPURL);
-    this.setColour(270);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.KF_ANIMATION_NEXT_FRAME_MESSAGE);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.KF_ANIMATION_NEXT_FRAME_TOOLTIP);
-  }
-};
-
-Blockly.Blocks['kiwi_animation_prev_frame'] = {
-  init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_PREV_FRAME_HELPURL);
-    this.setColour(270);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.KF_ANIMATION_PREV_FRAME_MESSAGE);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.KF_ANIMATION_PREV_FRAME_TOOLTIP);
-  }
-};
-
-Blockly.Blocks['kiwi_animation_current'] = {
-  init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL);
-    this.setColour(270);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE);
-    this.setOutput(true, "Animation");
-    this.setTooltip(Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP);
+    this.setTooltip( Blockly.Msg.KF_ANIMATION_FRAME_TOOLTIP );
   }
 };
 
