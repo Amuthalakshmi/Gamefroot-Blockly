@@ -39,21 +39,30 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 Blockly.Kiwifroot['kiwi_event_constantly'] = function(block){
 	var funcName = defineFunctionFromBranch('onUpdate', block);
 	var constructorCode = 'this.state.robots.onUpdate.add(this.'+funcName + ', this);';
-	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	var destructorCode = 'this.state.robots.onUpdate.remove(this.'+funcName+ ', this);';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 	return null;
 };
 
 Blockly.Kiwifroot['kiwi_event_stage_press'] = function(block) {
 	var funcName = defineFunctionFromBranch('onStagePress', block);
 	var constructorCode = 'this.game.input.onDown.add(this.'+funcName+', this, 25);';
+	var destructorCode = 'this.game.input.onDown.remove(this.'+funcName+', this, 25);';
+
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 	return null;
 };
 
 Blockly.Kiwifroot['kiwi_event_stage_release'] = function(block) {
 	var funcName = defineFunctionFromBranch('onStageRelease', block);
 	var constructorCode = 'this.game.input.onUp.add(this.'+funcName+', this, 25);';
+	var destructorCode = 'this.game.input.onUp.remove(this.'+funcName+', this, 25);';
+
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 	return null;
 };
 
@@ -73,7 +82,11 @@ Blockly.Kiwifroot['kiwi_event_key_press'] = function(block) {
 	var funcName = defineFunctionFromBranch('onKeyPressed', block);
 	// Generate the code for the switch statement and add it
 	var code = 'case '+keyCode+': this.'+funcName+'(); break;';
+
+	var destructorCode = 'this.game.input.keyboard.onKeyDownOnce.remove(this.' + funcName + ', this);';
+
 	Blockly.Kiwifroot.provideAddition('EVENT_KEY_PRESSED', code);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 	return null;
 };
 
@@ -93,7 +106,11 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
 	var funcName = defineFunctionFromBranch('onKeyReleased', block);
 	// Generate the code for the switch
 	var code = 'case '+keyCode+': this.'+funcName+'(); break;';
+
+	var destructorCode = 'this.game.input.keyboard.onKeyUp.remove(this.' + funcName + ', this);';
+
 	Blockly.Kiwifroot.provideAddition('EVENT_KEY_RELEASED', code);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 	return null;
 };
 
@@ -113,6 +130,6 @@ function defineFunctionFromBranch(desiredName, block){
 	}
 	var code = funcName + ' = function() {\n' + branch + '};';
 	code = Blockly.Kiwifroot.scrub_(block, code);
-	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code)
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code);
 	return funcName;
 };

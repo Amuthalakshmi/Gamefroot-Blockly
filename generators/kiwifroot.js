@@ -74,17 +74,24 @@ Blockly.Kiwifroot.defaultTemplate =
   '\tthis.state = this.owner.state;\n\n'+
   // This is where the constructor additions will be made
   '{{\t,CONSTRUCTOR,\n}}\n'+
-  '}\n\n' +
+  '};\n\n' +
   // Extend GameObject
   'Kiwi.extend(Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]], Kiwi.Component);\n\n'+
+
   // Supply an add method for the plugin
   'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].add = function(state, gameObject, params){\n'+
   '\tgameObject.components.add(new Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]](gameObject));\n'+
   // TODO provide an 'on added' section
-  '}\n\n'+
+  '};\n\n'+
   // Add all the definitions here, they will all be prefixed with the namespace and
   // will include two newline breaks after each definition.
   '{{Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.,DEFINITIONS,\n\n}}\n\n'+
+
+  // Here we define the destructor for the plugin
+  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.destroy = function(){\n'+
+  // This is where the destructor additions will be made
+  '{{\t,DESTRUCTOR,\n}}\n'+
+  '};\n\n' +
 
   // Add the component to the list of plugins
   'Kiwi.Plugins.[[PLUGIN_NAME]].kiwifrootPlugins.push({\n'+
@@ -119,6 +126,13 @@ Blockly.Kiwifroot.CONSTRUCTOR = 'CONSTRUCTOR';
  * @type {string} 
  */
 Blockly.Kiwifroot.DEFINITIONS = 'DEFINITIONS';
+
+/** 
+ * The destructor section of the template
+ * @const
+ * @type {string} 
+ */
+Blockly.Kiwifroot.DESTRUCTOR = 'DESTRUCTOR';
 
 /**
  * The array of sounds, contains tuples of names and ids
