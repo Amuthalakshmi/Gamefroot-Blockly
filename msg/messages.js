@@ -1171,6 +1171,12 @@ Blockly.Msg.KF_INSTANCE_SET_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_GET_TOOLTIP = 'Gets the value of a selected property of the given instance.';
 /// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_GET_HELPURL = '';
+/// Label for the kiwifroot instance closest
+Blockly.Msg.KF_INSTANCE_CLOSEST_MESSAGE = 'closest instance to me';
+/// tooltip - This block returns the game object that is closest to this gameobject 
+Blockly.Msg.KF_INSTANCE_CLOSEST_TOOLTIP = 'The closest instance to this gameobject the script is attached to.';
+/// url - Information on the instance closest block
+Blockly.Msg.KF_INSTANCE_CLOSEST_HELPURL = '';
 
 /// Label for the keyboard key block
 Blockly.Msg.KF_KEY_SPECIAL_MESSAGE = 'key:';
@@ -1207,3 +1213,21 @@ Blockly.Msg.KF_SOUND_PLAY_EFFECT_MESSAGE = 'play sound effect';
 Blockly.Msg.KF_SOUND_PLAY_EFFECT_TOOLTIP = 'Plays the given sound effect once.';
 /// url - Information on the play sound effect block
 Blockly.Msg.KF_SOUND_PLAY_EFFECT_HELPURL = '';
+
+
+/// tooltip - A list of all the sounds included in the game
+Blockly.Msg.KF_ANIMATION_TOOLTIP = 'A list of all animations the this gameobject can play.';
+/// url - Information on the sound block
+Blockly.Msg.KF_ANIMATION_HELPURL = '';
+
+Blockly.Msg.KF_ANIMATION_PLAY_MESSAGE = 'play animation';
+Blockly.Msg.KF_ANIMATION_PLAY_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_PLAY_TOOLTIP = 'Starts playing an animation on this gameobject.';
+
+Blockly.Msg.KF_ANIMATION_PAUSE_MESSAGE = 'pause animation';
+Blockly.Msg.KF_ANIMATION_PAUSE_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_PAUSE_TOOLTIP = 'Pause the current animation on this gameobject.';
+
+Blockly.Msg.KF_ANIMATION_RESUME_MESSAGE = 'resume animation';
+Blockly.Msg.KF_ANIMATION_RESUME_HELPURL = '';
+Blockly.Msg.KF_ANIMATION_RESUME_TOOLTIP = 'Resumes the current animation on this gameobject.';

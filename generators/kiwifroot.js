@@ -128,6 +128,12 @@ Blockly.Kiwifroot.sounds_ = [
   ['Machine Gun',"11"]
 ];
 
+Blockly.Kiwifroot.animations_ = [
+  ["Flashing", "flashing"],
+  ["Red", "red"],
+  ["Green", "green"]
+];
+
 
 Blockly.Kiwifroot.addReservedWords();
 

@@ -15,50 +15,6 @@
 
 	"systems": {
 
-		"Robots": [
-
-			{
-
-				"id": 42,
-            	"script": {
-	              	"robot": "2.0",
-	              	"properties": {},
-	              	"behavior": [
-	                    {
-	                      "event": "onKeyPress",
-	                      "keyCode": 71,
-	                      "commands": [
-	                        {
-	                            "action":"setOpacity",
-	                            "amount": 50
-	                        },
-	                        {
-	                            "action":"toggleVisible",
-	                            "amount":50
-	                        }
-	                      ]
-	                    },
-
-	                    {
-	                      "event": "onKeyPress",
-	                      "keyCode": 71,
-	                      "commands": [
-	                        {
-	                            "action":"setOpacity",
-	                            "amount": 50
-	                        }
-	                      ]
-	                    }
-	                    
-	              	],
-	              	"variables": {}
-
-            	}
-
-            }
-
-		]
-
 	},
 
 	"gameObjects": [
@@ -82,6 +38,18 @@
 						"cells": [0, 1],
 						"loop": true,
 						"play": true,
+						"speed": 0.1
+					},
+					"red": {
+						"cells": [0],
+						"loop": true,
+						"play": false,
+						"speed": 0.1
+					},
+					"green": {
+						"cells": [1],
+						"loop": true,
+						"play": false,
 						"speed": 0.1
 					}
 			
