@@ -149,7 +149,8 @@ Blockly.Kiwifroot.sounds_ = [
 * @type {array}
 */
 Blockly.Kiwifroot.instances_ = [
-  ["mushroom", "mushroom"]
+  ['RedMushroom', "red-mushroom"],
+  ['GreenMushroom', "green-mushroom"]
 ];
 
 Blockly.Kiwifroot.addReservedWords();

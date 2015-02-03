@@ -432,3 +432,6 @@ Blockly.Blocks['math_random_float'] = {
     this.setTooltip(Blockly.Msg.MATH_RANDOM_FLOAT_TOOLTIP);
   }
 };
+
+
+

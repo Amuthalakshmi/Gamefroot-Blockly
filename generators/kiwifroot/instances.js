@@ -38,7 +38,7 @@ goog.require('Blockly.Kiwifroot');
 
 	Blockly.Kiwifroot['kiwi_instance_select'] = function(block) {
 	  var dropdown_id = block.getFieldValue('ID');
-	  var code = 'this.state.getChildById("' + dropdown_id + '");\n';
+	  var code = 'this.state.getChildById("' + dropdown_id + '")';
 	  
 	  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 	};
@@ -65,11 +65,6 @@ goog.require('Blockly.Kiwifroot');
 	Blockly.Kiwifroot['kiwi_instance_set_visible'] = function(block) {
 	  var value_vis = Blockly.Kiwifroot.valueToCode(block, 'VISIBLE', Blockly.Kiwifroot.ORDER_ATOMIC);
 	  return 'this.owner.visible = ' + value_vis + ';\n';
-	};
-
-	Blockly.Kiwifroot['kiwi_instance_closest'] = function(block) {
-		var code = 'this.owner'; // TODO we may want to change this to self if there are any async functions
-	  	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 	};
 
 	Blockly.Kiwifroot['kiwi_instance_tag_management'] = function(block) {
