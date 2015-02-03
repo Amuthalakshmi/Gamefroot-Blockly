@@ -1218,12 +1218,6 @@ Blockly.Msg.KF_INSTANCE_SET_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_GET_TOOLTIP = 'Gets the value of a selected property of the given instance.';
 /// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_GET_HELPURL = '';
-/// Label for the kiwifroot instance closest
-Blockly.Msg.KF_INSTANCE_CLOSEST_MESSAGE = 'closest instance to me';
-/// tooltip - This block returns the game object that is closest to this gameobject 
-Blockly.Msg.KF_INSTANCE_CLOSEST_TOOLTIP = 'The closest instance to this gameobject the script is attached to.';
-/// url - Information on the instance closest block
-Blockly.Msg.KF_INSTANCE_CLOSEST_HELPURL = '';
 ///
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL = '';
 ///

@@ -134,18 +134,6 @@ goog.require('Blockly.Blocks');
       }
     };
 
-    Blockly.Blocks['kiwi_instance_closest'] = {
-      init: function() {
-        this.setHelpUrl(Blockly.Msg.KF_INSTANCE_CLOSEST_MESSAGE);
-        this.setColour(0);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.KF_INSTANCE_CLOSEST_MESSAGE);
-        this.setInputsInline(true);
-        this.setOutput(true, "Instance");
-        this.setTooltip(Blockly.Msg.KF_INSTANCE_CLOSEST_TOOLTIP);
-      }
-    };
-
 
     /**
     *
