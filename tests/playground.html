@@ -495,10 +495,23 @@ h1 {
             <block type="kiwi_sound"></block>
           </value>
         </block>
+        <block type="kiwi_sound_background_state"></block>
         <block type="kiwi_sound_stop_background"></block>
         <block type="kiwi_sound_play_effect">
           <value name="SOUND">
             <block type="kiwi_sound"></block>
+          </value>
+        </block>
+        <block type="kiwi_sound_set_mute">
+          <value name="STATE">
+            <block type="logic_boolean"></block>
+          </value>
+        </block>
+        <block type="kiwi_sound_get_mute"></block>
+        <block type="kiwi_sound_get_volume"></block>
+        <block type="kiwi_sound_set_volume">
+          <value name="VOLUME">
+            <block type="math_number"></block>
           </value>
         </block>
       </category>
