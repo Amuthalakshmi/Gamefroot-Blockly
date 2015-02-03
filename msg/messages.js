@@ -1240,6 +1240,36 @@ Blockly.Msg.KF_SOUND_PLAY_EFFECT_MESSAGE = 'play sound effect';
 Blockly.Msg.KF_SOUND_PLAY_EFFECT_TOOLTIP = 'Plays the given sound effect once.';
 /// url - Information on the play sound effect block
 Blockly.Msg.KF_SOUND_PLAY_EFFECT_HELPURL = '';
+///
+Blockly.Msg.KF_SOUND_BACKGROUND_STATE_HELPURL = '';
+///
+Blockly.Msg.KF_SOUND_BACKGROUND_STATE_MESSAGE = 'music';
+///
+Blockly.Msg.KF_SOUND_BACKGROUND_STATE_TOOLTIP = 'Pauses or resumes the current background track.';
+///
+Blockly.Msg.KF_SOUND_SET_MUTE_HELPURL = '';
+///
+Blockly.Msg.KF_SOUND_SET_MUTE_MESSAGE = 'mute';
+///
+Blockly.Msg.KF_SOUND_SET_MUTE_TOOLTIP = 'Sets the mute state of the selected piece of audio by a boolean passed.';
+///
+Blockly.Msg.KF_SOUND_GET_MUTE_HELPURL = '';
+///
+Blockly.Msg.KF_SOUND_GET_MUTE_MESSAGE = 'mute';
+///
+Blockly.Msg.KF_SOUND_GET_MUTE_TOOLTIP = 'Sets the mute state of the selected piece of audio by a boolean passed.';
+///
+Blockly.Msg.KF_SOUND_GET_VOLUME_HELPURL = '';
+///
+Blockly.Msg.KF_SOUND_GET_VOLUME_MESSAGE = 'get volume';
+///
+Blockly.Msg.KF_SOUND_GET_VOLUME_TOOLTIP = 'Gets the volume of all sounds played. A number from 0 - 100.';
+///
+Blockly.Msg.KF_SOUND_SET_VOLUME_HELPURL = '';
+///
+Blockly.Msg.KF_SOUND_SET_VOLUME_MESSAGE = 'set volume';
+///
+Blockly.Msg.KF_SOUND_SET_VOLUME_TOOLTIP = 'Sets the volume of all sounds played. A number from 0 - 100.';
 
 
 /// message - 
