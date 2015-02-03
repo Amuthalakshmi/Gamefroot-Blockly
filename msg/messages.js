@@ -1285,3 +1285,49 @@ Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE = 'if the current animation';
 Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_ANIMATION_BOOLEAN_TOOLTIP = 'Returns true if the statement is true. False if the statement isn\'t.';
+
+
+/// message - 
+Blockly.Msg.KF_CAMERA_PAN_TO_MESSAGE = 'camera to';
+/// url -
+Blockly.Msg.KF_CAMERA_PAN_TO_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_CAMERA_PAN_TO_TOOLTIP = 'Returns true if the statement is true. False if the statement isn\'t.';
+
+/// message - 
+Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE = 'set camera';
+/// message - 
+Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER = 'to';
+/// url -
+Blockly.Msg.KF_CAMERA_SET_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_CAMERA_SET_TOOLTIP = 'Sets a selected property on the camera to the value passed.';
+
+/// message - 
+Blockly.Msg.KF_CAMERA_GET_MESSAGE = 'camera';
+/// url -
+Blockly.Msg.KF_CAMERA_GET_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_CAMERA_GET_TOOLTIP = 'Returns a selected property on the camera.';
+
+/// message - 
+Blockly.Msg.KF_CAMERA_LOCK_ON_MESSAGE = 'lock camera on';
+/// url -
+Blockly.Msg.KF_CAMERA_LOCK_ON_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_CAMERA_LOCK_ON_TOOLTIP = 'Locks the camera to an Instance passed.';
+
+/// message - 
+Blockly.Msg.KF_CAMERA_UNLOCK_MESSAGE = 'unlock camera';
+/// url -
+Blockly.Msg.KF_CAMERA_UNLOCK_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_CAMERA_UNLOCK_TOOLTIP = 'Unlocks the camera.';
+
+
+/// message - 
+Blockly.Msg.KF_CAMERA_STATE_MESSAGE = 'is camera';
+/// url -
+Blockly.Msg.KF_CAMERA_STATE_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_CAMERA_STATE_TOOLTIP = 'Returns true if the statement is correct.';

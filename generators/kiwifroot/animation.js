@@ -28,68 +28,72 @@ goog.provide('Blockly.Kiwifroot.animation');
 
 goog.require('Blockly.Kiwifroot');
 
-var comp  = 'this.animation';
+(function() {
 
-var addAnimationToConstructor = function() {
+  var comp  = 'this.animation';
 
-	var constructorCode = 'this.animation = this.owner.components.getComponent( "Animation" );\n\n';
-	constructorCode    += '\tif( !this.animation ) {\n';
-	constructorCode    += '\t\tKiwi.Log.error("Animation component not found on object. Will not work.", "#animation");\n'
-	constructorCode    += '\t}\n';
+  var addAnimationToConstructor = function() {
 
-	Blockly.Kiwifroot.provideAdditionOnce('animationConstructor', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+  	var constructorCode = 'this.animation = this.owner.components.getComponent( "Animation" );\n\n';
+  	constructorCode    += '\tif( !this.animation ) {\n';
+  	constructorCode    += '\t\tKiwi.Log.error("Animation component not found on object. Animation blocks will not work.", "#animation");\n'
+  	constructorCode    += '\t}\n';
 
-};
+  	Blockly.Kiwifroot.provideAdditionOnce('animationConstructor', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+
+  };
 
 
-Blockly.Kiwifroot['kiwi_animation_play'] = function(block) {
+  Blockly.Kiwifroot['kiwi_animation_play'] = function(block) {
 
-	addAnimationToConstructor();
+  	addAnimationToConstructor();
 
-    var val = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
-    return comp + '.play('+ val + ');\n';
-};
+      var val = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
+      return comp + '.play('+ val + ');\n';
+  };
 
-Blockly.Kiwifroot['kiwi_animation_current'] = function(block) {
+  Blockly.Kiwifroot['kiwi_animation_current'] = function(block) {
 
-	addAnimationToConstructor();
+  	addAnimationToConstructor();
 
-  	var code = comp + '.currentAnimation.name';
-  	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
-};
+    	var code = comp + '.currentAnimation.name';
+    	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+  };
 
-Blockly.Kiwifroot['kiwi_animation_state'] = function(block) {
+  Blockly.Kiwifroot['kiwi_animation_state'] = function(block) {
 
-	addAnimationToConstructor();
+  	addAnimationToConstructor();
 
-  	var dropdown_value = block.getFieldValue('STATES');
- 	var code = comp + '.' + dropdown_value + ';\n';
-  	return code;
-};
+    	var dropdown_value = block.getFieldValue('STATES');
+   	var code = comp + '.' + dropdown_value + ';\n';
+    	return code;
+  };
 
-Blockly.Kiwifroot['kiwi_animation_frame'] = function(block) {
+  Blockly.Kiwifroot['kiwi_animation_frame'] = function(block) {
 
-	addAnimationToConstructor();
+  	addAnimationToConstructor();
 
-  	var dropdown_value = block.getFieldValue('FRAMES');
-  	var code = comp + '.' + dropdown_value + ';\n';
-  	return code;
-};
+    	var dropdown_value = block.getFieldValue('FRAMES');
+    	var code = comp + '.' + dropdown_value + ';\n';
+    	return code;
+  };
 
-Blockly.Kiwifroot['kiwi_animation_numbers'] = function(block) {
+  Blockly.Kiwifroot['kiwi_animation_numbers'] = function(block) {
 
-	addAnimationToConstructor();
+  	addAnimationToConstructor();
 
-  	var dropdown_value = block.getFieldValue('NUMBERS');
-  	var code = comp + '.' + dropdown_value;
-  	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
-};
+    	var dropdown_value = block.getFieldValue('NUMBERS');
+    	var code = comp + '.' + dropdown_value;
+    	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+  };
 
-Blockly.Kiwifroot['kiwi_animation_booleans'] = function(block) {
+  Blockly.Kiwifroot['kiwi_animation_booleans'] = function(block) {
 
-	addAnimationToConstructor();
+  	addAnimationToConstructor();
 
-  	var dropdown_value = block.getFieldValue('BOOLEANS');
-  	var code = comp + '.' + dropdown_value;
-  	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
-};
+    	var dropdown_value = block.getFieldValue('BOOLEANS');
+    	var code = comp + '.' + dropdown_value;
+    	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+  };
+  
+})();

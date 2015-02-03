@@ -22,6 +22,7 @@
 <script src="../generators/kiwifroot/inputs.js"></script>
 <script src="../generators/kiwifroot/sound.js"></script>
 <script src="../generators/kiwifroot/animation.js"></script>
+<script src="../generators/kiwifroot/camera.js"></script>
 <!-- add new kiwifroot generators here -->
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
@@ -38,6 +39,7 @@
 <script src="../blocks/kiwifroot/inputs.js"></script>
 <script src="../blocks/kiwifroot/sound.js"></script>
 <script src="../blocks/kiwifroot/animation.js"></script>
+<script src="../blocks/kiwifroot/camera.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -501,6 +503,29 @@ h1 {
         <block type="kiwi_animation_frame"></block>
         <block type="kiwi_animation_numbers"></block>
         <block type="kiwi_animation_booleans"></block>
+      </category>
+      <category name="Camera">
+        <block type="kiwi_camera_go_to">
+          <value name="X_POS">
+            <block type="math_number"></block>
+          </value>
+          <value name="Y_POS">
+            <block type="math_number"></block>
+          </value>
+        </block>
+        <block type="kiwi_camera_set">
+          <value name="VALUE">
+            <block type="math_number"></block>
+          </value>
+        </block>
+        <block type="kiwi_camera_get"></block>
+        <block type="kiwi_camera_lock_on">
+          <value name="INSTANCE">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
+        <block type="kiwi_camera_unlock"></block>
+        <block type="kiwi_camera_state"></block>
       </category>
     </category>
     <sep></sep>
