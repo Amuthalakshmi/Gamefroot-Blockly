@@ -66,6 +66,26 @@ Blockly.Kiwifroot['kiwi_event_stage_release'] = function(block) {
 	return null;
 };
 
+Blockly.Kiwifroot['kiwi_event_inst_press'] = function(block) {
+	/*var funcName = defineFunctionFromBranch('onPress', block);
+	var constructorCode = 'this.game.input.onDown.add(this.'+funcName+', this, 25);';
+	var destructorCode = 'this.game.input.onDown.remove(this.'+funcName+', this, 25);';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);*/
+	return null;
+};
+
+Blockly.Kiwifroot['kiwi_event_inst_release'] = function(block) {
+	/*var funcName = defineFunctionFromBranch('onStageRelease', block);
+	var constructorCode = 'this.game.input.onUp.add(this.'+funcName+', this, 25);';
+	var destructorCode = 'this.game.input.onUp.remove(this.'+funcName+', this, 25);';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);*/
+	return null;
+};
+
 Blockly.Kiwifroot['kiwi_event_key_press'] = function(block) {
 	var t = Blockly.Kiwifroot.INDENT;
 	var funcName = Blockly.Kiwifroot.provideFunction_(
@@ -75,6 +95,10 @@ Blockly.Kiwifroot['kiwi_event_key_press'] = function(block) {
         '{{'+t+t+',EVENT_KEY_PRESSED,\n}}',
         t + '}',
         '};']);
+	// Add the remove function
+	var destructorCode = 'this.game.input.keyboard.onKeyDownOnce.remove(this.' + funcName + ', this);';
+	Blockly.Kiwifroot.provideAdditionOnce('removeOnKeyPressed',Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
 	// Generate the new function
 	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT)
 	var constructorCode = 'this.game.input.keyboard.onKeyDownOnce.add(this.' + funcName + ', this);';
@@ -83,10 +107,7 @@ Blockly.Kiwifroot['kiwi_event_key_press'] = function(block) {
 	// Generate the code for the switch statement and add it
 	var code = 'case '+keyCode+': this.'+funcName+'(); break;';
 
-	var destructorCode = 'this.game.input.keyboard.onKeyDownOnce.remove(this.' + funcName + ', this);';
-
 	Blockly.Kiwifroot.provideAddition('EVENT_KEY_PRESSED', code);
-	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 	return null;
 };
 
@@ -99,6 +120,10 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
         '{{'+t+t+',EVENT_KEY_RELEASED,\n}}',
         t + '}',
         '};']);
+	// Add the remove function
+	var destructorCode = 'this.game.input.keyboard.onKeyUp.remove(this.' + funcName + ', this);';
+	Blockly.Kiwifroot.provideAdditionOnce('removeOnKeyReleased',Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
 	// Generate the code for the new function
 	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT)
 	var constructorCode = 'this.game.input.keyboard.onKeyUp.add(this.' + funcName + ', this);';
@@ -107,10 +132,7 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
 	// Generate the code for the switch
 	var code = 'case '+keyCode+': this.'+funcName+'(); break;';
 
-	var destructorCode = 'this.game.input.keyboard.onKeyUp.remove(this.' + funcName + ', this);';
-
 	Blockly.Kiwifroot.provideAddition('EVENT_KEY_RELEASED', code);
-	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 	return null;
 };
 
