@@ -71,10 +71,11 @@ Blockly.Kiwifroot.defaultTemplate =
   // Call the base component constructor
   '\tKiwi.Component.call(this, gameObject, \'[[PLUGIN_NAME]]\');\n\n'+
   // Set this components state property
-  '\tthis.state = this.owner.state;\n\n'+
+  '\tthis.state = this.owner.state;\n'+
+  '\tthis.box = this.owner.components.getComponent("Box");\n\n'+
   // This is where the constructor additions will be made
   '{{\t,CONSTRUCTOR,\n}}\n'+
-  '};\n\n' +
+  '};\n\n'+
   // Extend GameObject
   'Kiwi.extend(Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]], Kiwi.Component);\n\n'+
 

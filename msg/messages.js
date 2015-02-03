@@ -1140,6 +1140,20 @@ Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE = 'When stage is released';
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = "The event triggered when the player releases a click/touch anywhere in the game scene.";
 /// url - Information on the kiwifroot stage release event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
+
+// Label text for the kiwifroot instance pressed event.
+Blockly.Msg.KF_EVENT_INST_PRESS_MESSAGE = 'When the player presses on ';
+//// tooltip - The event triggered when the player presses a click/touch on the given instance.
+Blockly.Msg.KF_EVENT_INST_PRESS_TOOLTIP = 'The event triggered when the player presses a click/touch on the given instance.';
+/// url - Information on the kiwifroot instance pressed event.
+Blockly.Msg.KF_EVENT_INST_PRESS_HELPURL = '';
+// Label text for the kiwifroot instance pressed event.
+Blockly.Msg.KF_EVENT_INST_RELEASE_MESSAGE = 'When the player releases over ';
+//// tooltip - The event triggered when the player presses a click/touch on the given instance.
+Blockly.Msg.KF_EVENT_INST_RELEASE_TOOLTIP = 'The event triggered when the player releases a click/touch on the given instance.';
+/// url - Information on the kiwifroot instance pressed event.
+Blockly.Msg.KF_EVENT_INST_RELEASE_HELPURL = '';
+
 /// Label text for the kiwifroot key pressed event
 Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE = 'When the player presses';
 /// tooltip - The event triggered when the player presses the given key on their keyboard.
