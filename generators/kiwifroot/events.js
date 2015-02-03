@@ -176,8 +176,9 @@ function defineFunctionFromBranch(desiredName, block){
 		branch = Blockly.Kiwifroot.INFINITE_LOOP_TRAP.replace(/%1/g,
 			'\'' + block.id + '\'') + branch;
 	}
+	branch = Blockly.Kiwifroot.scrub_(block, branch);
 	var code = funcName + ' = function() {\n' + branch + '};';
-	code = Blockly.Kiwifroot.scrub_(block, code);
+
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code);
 	return funcName;
 };
