@@ -1204,6 +1204,12 @@ Blockly.Msg.KF_INSTANCE_SELF_MESSAGE = 'myself';
 Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP = 'The game object that this script is attached to.';
 /// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_SELF_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_SELECT_MESSAGE = 'instance ';
+///
+Blockly.Msg.KF_INSTANCE_SELECT_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_SELECT_TOOLTIP = 'Selects a game object with the corresponding id.';
 /// tooltip - Sets the selected property of a given instance to a new value
 Blockly.Msg.KF_INSTANCE_SET_TOOLTIP = 'Sets the selected property of a given instance to a new value.';
 /// url - Information on the self block
@@ -1218,6 +1224,44 @@ Blockly.Msg.KF_INSTANCE_CLOSEST_MESSAGE = 'closest instance to me';
 Blockly.Msg.KF_INSTANCE_CLOSEST_TOOLTIP = 'The closest instance to this gameobject the script is attached to.';
 /// url - Information on the instance closest block
 Blockly.Msg.KF_INSTANCE_CLOSEST_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE = 'visibility';
+///
+Blockly.Msg.KF_INSTANCE_GET_VISIBLE_TOOLTIP = 'Returns visibility state of this gameobject. An alpha of zero is does not mean that the visiblity is false.';
+///
+Blockly.Msg.KF_INSTANCE_SET_VISIBLE_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE = 'visibility';
+///
+Blockly.Msg.KF_INSTANCE_SET_VISIBLE_TOOLTIP = 'Sets whether the gameobject should be renderer or not. An alpha of zero is does not mean that the visiblity is false.';
+///
+Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_BEFORE = 'tag';
+///
+Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_AFTER = 'to';
+///
+Blockly.Msg.KF_INSTANCE_ADD_TAG_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_ADD_TAG_TOOLTIP = 'Adds a tag passed to the given gameobject.';
+///
+Blockly.Msg.KF_INSTANCE_HAS_TAG_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_HAS_TAG_MESSAGE = 'has tag';
+///
+Blockly.Msg.KF_INSTANCE_HAS_TAG_TOOLTIP = 'Returns a boolean indicating if the gameobject has the tag or not.';
+///
+Blockly.Msg.KF_INSTANCE_GET_BY_TAG_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_GET_BY_TAG_MESSAGE = 'instance by tag';
+///
+Blockly.Msg.KF_INSTANCE_GET_BY_TAG_TOOLTIP = 'Returns a single instance by the tag passed.';
+///
+Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_MESSAGE = 'get all children by tag';
+///
+Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP = 'Returns a list of all the instances that have the tag passed.';
 
 /// Label for the keyboard key block
 Blockly.Msg.KF_KEY_SPECIAL_MESSAGE = 'key:';
