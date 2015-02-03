@@ -144,6 +144,13 @@ Blockly.Kiwifroot.sounds_ = [
   ['Machine Gun',"11"]
 ];
 
+/**
+* The array of instance ids. Contains tples of names/ids
+* @type {array}
+*/
+Blockly.Kiwifroot.instances_ = [
+  ["mushroom", "mushroom"]
+];
 
 Blockly.Kiwifroot.addReservedWords();
 

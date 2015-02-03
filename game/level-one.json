@@ -20,6 +20,7 @@
 	"gameObjects": [
 	
 		{
+			"id": "mushroom",
 			"type": "static-image",
 			"imageId": 8,
 			"cellIndex": 1,

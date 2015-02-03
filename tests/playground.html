@@ -6,7 +6,7 @@
 <script src="../blockly_uncompressed.js"></script>
 <script src="../generators/javascript.js"></script>
 <script src="../generators/javascript/logic.js"></script>
-<script src="../generators/javascript/loops.js"></script>
+<script src="../generators/kiwifroot/loops.js"></script>
 <script src="../generators/javascript/math.js"></script>
 <script src="../generators/javascript/text.js"></script>
 <script src="../generators/javascript/lists.js"></script>
@@ -468,6 +468,7 @@ h1 {
       </category>
       <category name="Instances">
         <block type="kiwi_instance_self"></block>
+        <block type="kiwi_instance_select"></block>
         <block type="kiwi_instance_set">
           <value name="INST">
             <block type="kiwi_instance_self"></block>
@@ -481,6 +482,38 @@ h1 {
         <block type="kiwi_instance_get">
           <value name="INST">
             <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
+        <block type="kiwi_instance_get_visible"></block>
+        <block type="kiwi_instance_set_visible">
+          <value name="VISIBLE">
+            <block type="logic_boolean"></block>
+          </value>
+        </block>
+        <block type="kiwi_instance_tag_management">
+          <value name="TAG">
+            <block type="text"></block>
+          </value>
+          <value name="INSTANCE">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
+        <block type="kiwi_instance_has_tags">
+          <value name="TAG">
+            <block type="text"></block>
+          </value>
+          <value name="INSTANCE">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
+        <block type="kiwi_instance_get_by_tag">
+          <value name="TAG">
+            <block type="text"></block>
+          </value>
+        </block>
+        <block type="kiwi_instance_get_all_by_tag">
+          <value name="TAG">
+            <block type="text"></block>
           </value>
         </block>
       </category>

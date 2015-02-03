@@ -116,6 +116,7 @@ goog.require('Blockly.Blocks');
                 .setCheck("Boolean")
                 .appendField( Blockly.Msg.KF_SOUND_SET_MUTE_MESSAGE )
                 .appendField(new Blockly.FieldDropdown(muteTypes), "PROP");
+            this.setInputsInline(true);
             this.setPreviousStatement(true);
             this.setNextStatement(true);
             this.setTooltip( Blockly.Msg.KF_SOUND_SET_MUTE_TOOLTIP );
@@ -153,6 +154,7 @@ goog.require('Blockly.Blocks');
             this.appendValueInput("VOLUME")
                 .setCheck("Number")
                 .appendField( Blockly.Msg.KF_SOUND_SET_VOLUME_MESSAGE );
+            this.setInputsInline(true);
             this.setPreviousStatement(true);
             this.setNextStatement(true);
             this.setTooltip( Blockly.Msg.KF_SOUND_SET_VOLUME_TOOLTIP );
