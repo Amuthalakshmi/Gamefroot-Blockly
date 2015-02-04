@@ -503,8 +503,15 @@ h1 {
             <block type="kiwi_instance_self"></block>
           </value>
         </block>
-        <block type="kiwi_instance_get_visible"></block>
+        <block type="kiwi_instance_get_visible">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
         <block type="kiwi_instance_set_visible">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
           <value name="VISIBLE">
             <block type="logic_boolean"></block>
           </value>

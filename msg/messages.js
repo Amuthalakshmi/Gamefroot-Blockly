@@ -1221,13 +1221,15 @@ Blockly.Msg.KF_INSTANCE_GET_HELPURL = '';
 ///
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL = '';
 ///
-Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE = 'visibility';
+Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE = 'get visibility of';
 ///
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_TOOLTIP = 'Returns visibility state of this gameobject. An alpha of zero is does not mean that the visiblity is false.';
 ///
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_HELPURL = '';
 ///
-Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE = 'visibility';
+Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_BEFORE = 'set visibility of';
+///
+Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_AFTER = 'to';
 ///
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_TOOLTIP = 'Sets whether the gameobject should be renderer or not. An alpha of zero is does not mean that the visiblity is false.';
 ///
