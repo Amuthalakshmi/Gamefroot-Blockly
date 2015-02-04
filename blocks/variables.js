@@ -107,7 +107,7 @@ Blockly.Blocks['variables_set'] = {
     this.interpolateMsg(
         // TODO: Combine these messages instead of using concatenation.
         Blockly.Msg.VARIABLES_SET_TITLE + ' %1 %2' +
-        Blockly.Msg.VARIABLES_SET_TAIL + ' %',
+        Blockly.Msg.VARIABLES_SET_TAIL + ' %3',
         ['TYPE', new Blockly.FieldDropdown(Blockly.Blocks.variables.TYPES)],
         ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM)],
         ['VALUE', null, Blockly.ALIGN_RIGHT],
