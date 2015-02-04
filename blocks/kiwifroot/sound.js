@@ -21,6 +21,7 @@
 /**
  * @fileoverview Sound blocks for Gamefroot
  * @author rani_sputnik@hotmail.com (Ryan Loader)
+ * @author benjamin.p.harding@gmail.com (Ben Harding)
  */
 'use strict';
 
@@ -28,137 +29,134 @@ goog.provide('Blockly.Blocks.Kiwifroot.sound');
 
 goog.require('Blockly.Blocks');
 
-(function() {
+Blockly.Blocks['kiwi_sound'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_SOUND_HELPURL);
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown(Blockly.Kiwifroot.sounds_), "SOUND");
+    this.setOutput(true, "Sound");
+    this.setTooltip(Blockly.Msg.KF_SOUND_TOOLTIP);
+  }
+};
 
-    Blockly.Blocks['kiwi_sound'] = {
-      init: function() {
-        this.setHelpUrl(Blockly.Msg.KF_SOUND_HELPURL);
-        this.setColour(230);
-        this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown(Blockly.Kiwifroot.sounds_), "SOUND");
-        this.setOutput(true, "Sound");
-        this.setTooltip(Blockly.Msg.KF_SOUND_TOOLTIP);
-      }
-    };
+Blockly.Blocks['kiwi_sound_play_background'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_HELPURL);
+    this.setColour(230);
+    this.appendDummyInput()
+    	.appendField(Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_MESSAGE)
+    this.appendValueInput("SOUND")
+        .setCheck("Sound");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_TOOLTIP);
+  }
+};
 
-    Blockly.Blocks['kiwi_sound_play_background'] = {
-      init: function() {
-        this.setHelpUrl(Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_HELPURL);
-        this.setColour(230);
-        this.appendDummyInput()
-        	.appendField(Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_MESSAGE)
-        this.appendValueInput("SOUND")
-            .setCheck("Sound");
+Blockly.Blocks['kiwi_sound_stop_background'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_SOUND_STOP_BACKGROUND_HELPURL);
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_SOUND_STOP_BACKGROUND_MESSAGE);
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_SOUND_STOP_BACKGROUND_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_sound_play_effect'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_SOUND_PLAY_EFFECT_HELPURL);
+    this.setColour(230);
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_SOUND_PLAY_EFFECT_MESSAGE)
+    this.appendValueInput("SOUND")
+        .setCheck("Sound");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_SOUND_PLAY_EFFECT_TOOLTIP);
+  }
+};
+
+
+Blockly.Blocks['kiwi_sound_background_state'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_SOUND_BACKGROUND_STATE_HELPURL );
+    this.setColour(210);
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([
+            ["pause", "pauseBackgroundTrack()"], 
+            ["resume", "resumeBackgroundTrack()"]
+        ]), "METHOD")
+        .appendField( Blockly.Msg.KF_SOUND_BACKGROUND_STATE_MESSAGE );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_SOUND_BACKGROUND_STATE_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_sound_set_mute'] = {
+    init: function() {
+        this.setHelpUrl( Blockly.Msg.KF_SOUND_SET_MUTE_HELPURL );
+        this.setColour(210);
+        this.appendValueInput("STATE")
+            .setCheck("Boolean")
+            .appendField( Blockly.Msg.KF_SOUND_SET_MUTE_MESSAGE )
+            .appendField(new Blockly.FieldDropdown([
+                ["music", "muteBackground"], 
+                ["effects", "muteEffects"]
+            ]), "PROP");
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip(Blockly.Msg.KF_SOUND_PLAY_BACKGROUND_TOOLTIP);
-      }
-    };
+        this.setTooltip( Blockly.Msg.KF_SOUND_SET_MUTE_TOOLTIP );
+    }
+};
 
-    Blockly.Blocks['kiwi_sound_stop_background'] = {
-      init: function() {
-        this.setHelpUrl(Blockly.Msg.KF_SOUND_STOP_BACKGROUND_HELPURL);
-        this.setColour(230);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.KF_SOUND_STOP_BACKGROUND_MESSAGE);
-        this.setInputsInline(true);
-        this.setPreviousStatement(true);
-        this.setNextStatement(true);
-        this.setTooltip(Blockly.Msg.KF_SOUND_STOP_BACKGROUND_TOOLTIP);
-      }
-    };
-
-    Blockly.Blocks['kiwi_sound_play_effect'] = {
-      init: function() {
-        this.setHelpUrl(Blockly.Msg.KF_SOUND_PLAY_EFFECT_HELPURL);
-        this.setColour(230);
-        this.appendDummyInput()
-            .appendField(Blockly.Msg.KF_SOUND_PLAY_EFFECT_MESSAGE)
-        this.appendValueInput("SOUND")
-            .setCheck("Sound");
-        this.setInputsInline(true);
-        this.setPreviousStatement(true);
-        this.setNextStatement(true);
-        this.setTooltip(Blockly.Msg.KF_SOUND_PLAY_EFFECT_TOOLTIP);
-      }
-    };
-
-    var soundMethods = [
-        ["pause", "pauseBackgroundTrack()"], 
-        ["resume", "resumeBackgroundTrack()"]
-    ];
-
-    Blockly.Blocks['kiwi_sound_background_state'] = {
-      init: function() {
-        this.setHelpUrl( Blockly.Msg.KF_SOUND_BACKGROUND_STATE_HELPURL );
+Blockly.Blocks['kiwi_sound_get_mute'] = {
+    init: function() {
+        this.setHelpUrl( Blockly.Msg.KF_SOUND_GET_MUTE_HELPURL );
         this.setColour(210);
         this.appendDummyInput()
-            .appendField(new Blockly.FieldDropdown(soundMethods), "METHOD")
-            .appendField( Blockly.Msg.KF_SOUND_BACKGROUND_STATE_MESSAGE );
+            .appendField( Blockly.Msg.KF_SOUND_GET_MUTE_MESSAGE )
+            .appendField(new Blockly.FieldDropdown([
+                ["music", "muteBackground"], 
+                ["effects", "muteEffects"]
+            ]), "PROP");
+        this.setOutput(true, "Boolean");
+        this.setTooltip( Blockly.Msg.KF_SOUND_GET_MUTE_TOOLTIP );
+    }
+};
+
+
+Blockly.Blocks['kiwi_sound_get_volume'] = {
+    init: function() {
+        this.setHelpUrl( Blockly.Msg.KF_SOUND_GET_VOLUME_HELPURL );
+        this.setColour(230);
+        this.appendDummyInput()
+            .appendField( Blockly.Msg.KF_SOUND_GET_VOLUME_MESSAGE );
+        this.setOutput(true, "Number");
+        this.setTooltip( Blockly.Msg.KF_SOUND_GET_VOLUME_TOOLTIP );
+    }
+};
+
+Blockly.Blocks['kiwi_sound_set_volume'] = {
+    init: function() {
+        this.setHelpUrl( Blockly.Msg.KF_SOUND_SET_VOLUME_HELPURL );
+        this.setColour(230);
+        this.appendValueInput("VOLUME")
+            .setCheck("Number")
+            .appendField( Blockly.Msg.KF_SOUND_SET_VOLUME_MESSAGE );
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
-        this.setTooltip( Blockly.Msg.KF_SOUND_BACKGROUND_STATE_TOOLTIP );
-      }
-    };
-
-    var muteTypes = [
-        ["music", "muteBackground"], 
-        ["effects", "muteEffects"]
-    ];
-
-    Blockly.Blocks['kiwi_sound_set_mute'] = {
-        init: function() {
-            this.setHelpUrl( Blockly.Msg.KF_SOUND_SET_MUTE_HELPURL );
-            this.setColour(210);
-            this.appendValueInput("STATE")
-                .setCheck("Boolean")
-                .appendField( Blockly.Msg.KF_SOUND_SET_MUTE_MESSAGE )
-                .appendField(new Blockly.FieldDropdown(muteTypes), "PROP");
-            this.setInputsInline(true);
-            this.setPreviousStatement(true);
-            this.setNextStatement(true);
-            this.setTooltip( Blockly.Msg.KF_SOUND_SET_MUTE_TOOLTIP );
-        }
-    };
-
-    Blockly.Blocks['kiwi_sound_get_mute'] = {
-        init: function() {
-            this.setHelpUrl( Blockly.Msg.KF_SOUND_GET_MUTE_HELPURL );
-            this.setColour(210);
-            this.appendDummyInput()
-                .appendField( Blockly.Msg.KF_SOUND_GET_MUTE_MESSAGE )
-                .appendField(new Blockly.FieldDropdown(muteTypes), "PROP");
-            this.setOutput(true, "Boolean");
-            this.setTooltip( Blockly.Msg.KF_SOUND_GET_MUTE_TOOLTIP );
-        }
-    };
-
-
-    Blockly.Blocks['kiwi_sound_get_volume'] = {
-        init: function() {
-            this.setHelpUrl( Blockly.Msg.KF_SOUND_GET_VOLUME_HELPURL );
-            this.setColour(230);
-            this.appendDummyInput()
-                .appendField( Blockly.Msg.KF_SOUND_GET_VOLUME_MESSAGE );
-            this.setOutput(true, "Number");
-            this.setTooltip( Blockly.Msg.KF_SOUND_GET_VOLUME_TOOLTIP );
-        }
-    };
-
-    Blockly.Blocks['kiwi_sound_set_volume'] = {
-        init: function() {
-            this.setHelpUrl( Blockly.Msg.KF_SOUND_SET_VOLUME_HELPURL );
-            this.setColour(230);
-            this.appendValueInput("VOLUME")
-                .setCheck("Number")
-                .appendField( Blockly.Msg.KF_SOUND_SET_VOLUME_MESSAGE );
-            this.setInputsInline(true);
-            this.setPreviousStatement(true);
-            this.setNextStatement(true);
-            this.setTooltip( Blockly.Msg.KF_SOUND_SET_VOLUME_TOOLTIP );
-        }
-    };
-
-})();
+        this.setTooltip( Blockly.Msg.KF_SOUND_SET_VOLUME_TOOLTIP );
+    }
+};

@@ -28,17 +28,16 @@ goog.provide('Blockly.Blocks.Kiwifroot.camera');
 
 goog.require('Blockly.Blocks');
 
-var cameraMethods = [
-	["pan", "panTo"],
-	["snap", "snapTo"]
-];
 
 Blockly.Blocks['kiwi_camera_go_to'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_PAN_TO_HELPURL );
     this.setColour(80);
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown(cameraMethods), "METHOD");
+        .appendField(new Blockly.FieldDropdown([
+        ["pan", "panTo"],
+        ["snap", "snapTo"]
+    ]), "METHOD");
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_PAN_TO_MESSAGE );
     this.appendValueInput("X_POS")
@@ -56,18 +55,6 @@ Blockly.Blocks['kiwi_camera_go_to'] = {
   }
 };
 
-
-var cameraSingleValues = [
-	["pan speed", "panSpeed"], 
-	["x offset", "offset.x"], 
-	["y offset", "offset.y"], 
-	["x minimum", "minX"], 
-	["y minimum", "minY"],
-	["x maximum", "maxX"], 
-	["y maximum", "maxY"]
-];
-
-
 Blockly.Blocks['kiwi_camera_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_SET_HELPURL );
@@ -75,7 +62,15 @@ Blockly.Blocks['kiwi_camera_set'] = {
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE );
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown( cameraSingleValues ), "METHOD")
+        .appendField(new Blockly.FieldDropdown( [
+            ["pan speed", "panSpeed"], 
+            ["x offset", "offset.x"], 
+            ["y offset", "offset.y"], 
+            ["x minimum", "minX"], 
+            ["y minimum", "minY"],
+            ["x maximum", "maxX"], 
+            ["y maximum", "maxY"]
+        ] ), "METHOD")
         .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER );
     this.appendValueInput("VALUE")
         .setCheck("Number");
@@ -87,15 +82,6 @@ Blockly.Blocks['kiwi_camera_set'] = {
 };
 
 
-var readOnlyValues = [
-		["x", "x"],
-		["y", "y"],
-		["width", "camera.width"],
-		["height", "camera.height"]
-	];
-
-var cameraGetValues = cameraSingleValues.concat( readOnlyValues );
-
 Blockly.Blocks['kiwi_camera_get'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_HELPURL );
@@ -103,7 +89,19 @@ Blockly.Blocks['kiwi_camera_get'] = {
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_GET_MESSAGE );
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown( cameraGetValues ), "METHOD");
+        .appendField(new Blockly.FieldDropdown( [
+            ["pan speed", "panSpeed"], 
+            ["x offset", "offset.x"], 
+            ["y offset", "offset.y"], 
+            ["x minimum", "minX"], 
+            ["y minimum", "minY"],
+            ["x maximum", "maxX"], 
+            ["y maximum", "maxY"],
+            ["x", "x"],
+            ["y", "y"],
+            ["width", "camera.width"],
+            ["height", "camera.height"]
+        ] ), "METHOD");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
     this.setTooltip( Blockly.Msg.KF_CAMERA_GET_TOOLTIP );
@@ -140,18 +138,16 @@ Blockly.Blocks['kiwi_camera_unlock'] = {
 };
 
 
-var cameraStates = [
-	["locked", "locked"], 
-	["panning", "panning"]
-];
-
 Blockly.Blocks['kiwi_camera_state'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_STATE_HELPURL );
     this.setColour(210);
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_STATE_MESSAGE )
-        .appendField(new Blockly.FieldDropdown( cameraStates ), "TYPE");
+        .appendField(new Blockly.FieldDropdown( [
+            ["locked", "locked"], 
+            ["panning", "panning"]
+        ] ), "TYPE");
     this.setInputsInline(true);
     this.setOutput(true);
     this.setTooltip( Blockly.Msg.KF_CAMERA_STATE_TOOLTIP );

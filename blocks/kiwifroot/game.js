@@ -63,22 +63,16 @@ Blockly.Blocks['kiwi_game_goto_level_num'] = {
     }
 };
 
-/**
- * The properties that exist on the stage
- * @const
- * @type {array}
- */
-var stageSizeProps = [
-	["width","width"],
-	["height","height"]
-];
 
 Blockly.Blocks['kiwi_game_stage_get_size'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_GAME_STAGE_GET_SIZE_HELPURL);
     this.setColour(300);
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown(stageSizeProps), "PROP")
+        .appendField(new Blockly.FieldDropdown([
+            ["width","width"],
+            ["height","height"]
+        ]), "PROP")
         .appendField("of the stage");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
