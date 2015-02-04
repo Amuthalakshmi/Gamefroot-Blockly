@@ -32,6 +32,7 @@
 <script src="../blocks/colour.js"></script>
 <script src="../blocks/variables.js"></script>
 <script src="../blocks/procedures.js"></script>
+<script src="../blocks/kiwifroot/math.js"></script>
 <script src="../blocks/kiwifroot/events.js"></script>
 <script src="../blocks/kiwifroot/game.js"></script>
 <script src="../blocks/kiwifroot/instances.js"></script>
@@ -299,6 +300,25 @@ h1 {
         </value>
       </block>
       <block type="math_random_float"></block>
+      <block type="kiwi_math_instance">
+        <value name="INST_ONE">
+          <block type="kiwi_instance_self"></block>
+        </value>
+        <value name="INST_TWO">
+          <block type="kiwi_instance_select"></block>
+        </value>
+      </block>
+      <block type="kiwi_math_instance_to_xy">
+        <value name="INST_ONE">
+          <block type="kiwi_instance_self"></block>
+        </value>
+        <value name="X_LOC">
+          <block type="math_number"></block>
+        </value>
+        <value name="Y_LOC">
+          <block type="math_number"></block>
+        </value>
+      </block>
     </category>
     <category name="Text">
       <block type="text"></block>

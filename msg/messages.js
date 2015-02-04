@@ -1413,3 +1413,21 @@ Blockly.Msg.KF_CAMERA_STATE_MESSAGE = 'is camera';
 Blockly.Msg.KF_CAMERA_STATE_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_CAMERA_STATE_TOOLTIP = 'Returns true if the statement is correct.';
+
+///
+Blockly.Msg.KF_MATH_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE = 'from';
+///
+Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER = 'to';
+///
+Blockly.Msg.KF_MATH_INSTANCE_TOOLTIP = 'Returns the selected value between two instances.';
+
+///
+Blockly.Msg.KF_MATH_INSTANCE_TO_XY_HELPURL = '';
+///
+Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_BEFORE = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE;
+///
+Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_AFTER = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER;
+///
+Blockly.Msg.KF_MATH_INSTANCE_TO_XY_TOOLTIP = 'Returns the selected value between an instance and a set of coordinates passed.';
