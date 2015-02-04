@@ -409,5 +409,3 @@ Blockly.Kiwifroot['math_random_float'] = function(block) {
   // Random fraction between 0 and 1.
   return ['Math.random()', Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
 };
-
-
