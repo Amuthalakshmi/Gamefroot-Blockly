@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-04 11:22:35.693740",
+		"lastupdated": "2015-02-05 11:38:15.363773",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -366,6 +366,10 @@
 	"PROCEDURES_CREATE_DO": "Create '%1'",
 	"PROCEDURES_IFRETURN_TOOLTIP": "If a value is true, then return a second value.",
 	"PROCEDURES_IFRETURN_WARNING": "Warning: This block may be used only within a function definition.",
+	"KF_TYPE_BOOLEAN": "True/False",
+	"KF_TYPE_NUMBER": "Number",
+	"KF_TYPE_STRING": "Text",
+	"KF_TYPE_INSTANCE": "Instance",
 	"KF_EVENT_CREATE_MESSAGE": "When created",
 	"KF_EVENT_CREATE_TOOLTIP": "The event triggered when this game object is created",
 	"KF_EVENT_CREATE_HELPURL": "",
@@ -411,9 +415,6 @@
 	"KF_INSTANCE_SET_HELPURL": "",
 	"KF_INSTANCE_GET_TOOLTIP": "Gets the value of a selected property of the given instance.",
 	"KF_INSTANCE_GET_HELPURL": "",
-	"KF_INSTANCE_CLOSEST_MESSAGE": "closest instance to me",
-	"KF_INSTANCE_CLOSEST_TOOLTIP": "The closest instance to this gameobject the script is attached to.",
-	"KF_INSTANCE_CLOSEST_HELPURL": "",
 	"KF_INSTANCE_GET_VISIBLE_HELPURL": "",
 	"KF_INSTANCE_GET_VISIBLE_MESSAGE": "visibility",
 	"KF_INSTANCE_GET_VISIBLE_TOOLTIP": "Returns visibility state of this gameobject. An alpha of zero is does not mean that the visiblity is false.",

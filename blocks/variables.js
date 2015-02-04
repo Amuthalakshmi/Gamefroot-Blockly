@@ -27,8 +27,6 @@
 goog.provide('Blockly.Blocks.variables');
 
 goog.require('Blockly.Blocks');
-goog.require('Blockly.FieldVariable');
-goog.require('Blockly.FieldDropdown');
 
 
 Blockly.Blocks.variables.HUE = 330;
@@ -79,6 +77,15 @@ Blockly.Blocks['variables_get'] = {
     }
   },
   /**
+   * Sets the type of the variable
+   * @param {string} type The type of the variable
+   * @this Blockly.Block
+   */
+  setType: function(type) {
+    this.setOutput(true, type);
+    console.log('Set the type of this block',type);
+  }, 
+  /**
    * Add menu option to create getter/setter block for this setter/getter.
    * @param {!Array} options List of menu options to add to.
    * @this Blockly.Block
@@ -108,7 +115,7 @@ Blockly.Blocks['variables_set'] = {
         // TODO: Combine these messages instead of using concatenation.
         Blockly.Msg.VARIABLES_SET_TITLE + ' %1 %2' +
         Blockly.Msg.VARIABLES_SET_TAIL + ' %3',
-        ['TYPE', new Blockly.FieldDropdown(Blockly.Blocks.variables.TYPES)],
+        ['TYPE', new Blockly.FieldVariableType(Blockly.Blocks.variables.TYPES)],
         ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM)],
         ['VALUE', null, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
@@ -138,5 +145,14 @@ Blockly.Blocks['variables_set'] = {
       this.setFieldValue(newName, 'VAR');
     }
   },
+  /**
+   * Sets the type of the variable
+   * @param {string} type The type of the variable
+   * @this Blockly.Block
+   */
+  setType: function(type) {
+    console.log('Set the type of this block',type);
+  }, 
+
   customContextMenu: Blockly.Blocks['variables_get'].customContextMenu
 };
