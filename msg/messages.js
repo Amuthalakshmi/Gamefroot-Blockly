@@ -1115,6 +1115,14 @@ Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then return a sec
 /// warning - This appears if the user tries to use this block outside of a function definition.
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
 
+/// The display name of the boolean type
+Blockly.Msg.KF_TYPE_BOOLEAN = 'True/False';
+/// The display name of the boolean type
+Blockly.Msg.KF_TYPE_NUMBER = 'Number';
+/// The display name of the boolean type
+Blockly.Msg.KF_TYPE_STRING = 'Text';
+/// The display name of the boolean type
+Blockly.Msg.KF_TYPE_INSTANCE = 'Instance';
 
 /// Label text for the kiwifroot create event
 Blockly.Msg.KF_EVENT_CREATE_MESSAGE = 'When created';
