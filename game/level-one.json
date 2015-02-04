@@ -22,6 +22,7 @@
 		{
 			"id": "red-mushroom",
 			"type": "static-image",
+			"name": "red-mushroom",
 			"imageId": 8,
 			"cellIndex": 1,
 			"x": 150,
@@ -40,7 +41,7 @@
 					"red": {
 						"cells": [0],
 						"loop": true,
-						"play": false,
+						"play": true,
 						"speed": 0.1
 					},
 					"green": {
@@ -59,6 +60,7 @@
 		{
 			"id": "green-mushroom",
 			"type": "static-image",
+			"name": "green-mushroom",
 			"imageId": 8,
 			"cellIndex": 1,
 			"x": 400,

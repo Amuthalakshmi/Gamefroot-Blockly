@@ -81,6 +81,12 @@ Blockly.Kiwifroot['kiwi_instance_set_visible'] = function(block) {
   return inst + '.visible = ' + value_vis + ';\n';
 };
 
+Blockly.Kiwifroot['kiwi_instance_death'] = function(block) {
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var code = value_inst + '.exists = false;\n';
+  return code;
+};
+
 Blockly.Kiwifroot['kiwi_instance_tag_management'] = function(block) {
   var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC);
   var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC);
