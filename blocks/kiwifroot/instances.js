@@ -119,9 +119,11 @@ Blockly.Blocks['kiwi_instance_get_visible'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL );
     this.setColour( Blockly.Blocks.logic.HUE );
-    this.appendDummyInput()
-        .appendField( Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE );;
     this.setOutput(true, "Boolean");
+    this.setInputsInline(true);
     this.setTooltip( Blockly.Msg.KF_INSTANCE_GET_VISIBLE_TOOLTIP );
   }
 };
@@ -130,9 +132,12 @@ Blockly.Blocks['kiwi_instance_set_visible'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_SET_VISIBLE_HELPURL );
     this.setColour( Blockly.Blocks.logic.HUE );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_BEFORE );
     this.appendValueInput("VISIBLE")
         .setCheck("Boolean")
-        .appendField( Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE );
+        .appendField( Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_AFTER );
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);

@@ -45,24 +45,40 @@ Blockly.Kiwifroot['kiwi_instance_set'] = function(block) {
 	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
 	var prop = block.getFieldValue('PROP');
 	var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-	return inst + '.'+prop+' = '+val+';\n';
+
+  var code = inst + '.' + prop + ' = ' + val;
+
+  if( prop === 'rotation' ) {
+    code += ' * Kiwi.Utils.GameMath.DEG_TO_RAD';
+  }
+
+  code += ';\n';
+
+	return code;
 };
 
 Blockly.Kiwifroot['kiwi_instance_get'] = function(block) {
 	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
 	var prop = block.getFieldValue('PROP');
 	var code = inst + '.' + prop;
+
+  if( prop === 'rotation' ) {
+    code += ' * Kiwi.Utils.GameMath.RAD_TO_DEG';
+  }
+
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
 Blockly.Kiwifroot['kiwi_instance_get_visible'] = function(block) {
-  var code = 'this.owner.visible';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var code = inst + '.visible';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
 Blockly.Kiwifroot['kiwi_instance_set_visible'] = function(block) {
   var value_vis = Blockly.Kiwifroot.valueToCode(block, 'VISIBLE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  return 'this.owner.visible = ' + value_vis + ';\n';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  return inst + '.visible = ' + value_vis + ';\n';
 };
 
 Blockly.Kiwifroot['kiwi_instance_tag_management'] = function(block) {

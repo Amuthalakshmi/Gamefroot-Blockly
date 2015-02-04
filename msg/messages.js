@@ -1229,13 +1229,15 @@ Blockly.Msg.KF_INSTANCE_GET_HELPURL = '';
 ///
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL = '';
 ///
-Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE = 'visibility';
+Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE = 'get visibility of';
 ///
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_TOOLTIP = 'Returns visibility state of this gameobject. An alpha of zero is does not mean that the visiblity is false.';
 ///
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_HELPURL = '';
 ///
-Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE = 'visibility';
+Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_BEFORE = 'set visibility of';
+///
+Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_AFTER = 'to';
 ///
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_TOOLTIP = 'Sets whether the gameobject should be renderer or not. An alpha of zero is does not mean that the visiblity is false.';
 ///
@@ -1421,3 +1423,21 @@ Blockly.Msg.KF_CAMERA_STATE_MESSAGE = 'is camera';
 Blockly.Msg.KF_CAMERA_STATE_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_CAMERA_STATE_TOOLTIP = 'Returns true if the statement is correct.';
+
+///
+Blockly.Msg.KF_MATH_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE = 'from';
+///
+Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER = 'to';
+///
+Blockly.Msg.KF_MATH_INSTANCE_TOOLTIP = 'Returns the selected value between two instances.';
+
+///
+Blockly.Msg.KF_MATH_INSTANCE_TO_XY_HELPURL = '';
+///
+Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_BEFORE = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE;
+///
+Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_AFTER = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER;
+///
+Blockly.Msg.KF_MATH_INSTANCE_TO_XY_TOOLTIP = 'Returns the selected value between an instance and a set of coordinates passed.';
