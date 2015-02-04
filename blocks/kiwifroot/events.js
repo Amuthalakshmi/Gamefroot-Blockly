@@ -28,12 +28,12 @@ goog.provide('Blockly.Blocks.Kiwifroot.events');
 
 goog.require('Blockly.Blocks');
 
-var EVENT_HUE = 45;
+Blockly.Blocks.Kiwifroot.events.HUE = 45;
 
 Blockly.Blocks['kiwi_event_create'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_CREATE_HELPURL);
-    this.setColour(EVENT_HUE);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_EVENT_CREATE_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_CREATE_TOOLTIP);
@@ -44,7 +44,7 @@ Blockly.Blocks['kiwi_event_create'] = {
 Blockly.Blocks['kiwi_event_constantly'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_CONSTANTLY_HELPURL);
-    this.setColour(EVENT_HUE);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_CONSTANTLY_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_CONSTANTLY_TOOLTIP);
@@ -55,7 +55,7 @@ Blockly.Blocks['kiwi_event_constantly'] = {
 Blockly.Blocks['kiwi_event_stage_press'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL);
-    this.setColour(EVENT_HUE);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP);
@@ -66,7 +66,7 @@ Blockly.Blocks['kiwi_event_stage_press'] = {
 Blockly.Blocks['kiwi_event_stage_release'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL);
-    this.setColour(EVENT_HUE);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP);
@@ -77,7 +77,7 @@ Blockly.Blocks['kiwi_event_stage_release'] = {
 Blockly.Blocks['kiwi_event_inst_press'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INST_PRESS_HELPURL);
-    this.setColour(EVENT_HUE);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_INST_PRESS_MESSAGE);
     this.appendValueInput("INST")
@@ -91,7 +91,7 @@ Blockly.Blocks['kiwi_event_inst_press'] = {
 Blockly.Blocks['kiwi_event_inst_release'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INST_RELEASE_HELPURL);
-    this.setColour(EVENT_HUE);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_INST_RELEASE_MESSAGE);
     this.appendValueInput("INST")
@@ -105,7 +105,7 @@ Blockly.Blocks['kiwi_event_inst_release'] = {
 Blockly.Blocks['kiwi_event_key_press'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_KEY_PRESS_HELPURL);
-    this.setColour(EVENT_HUE);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE);
     this.appendValueInput("KEY")
@@ -119,7 +119,7 @@ Blockly.Blocks['kiwi_event_key_press'] = {
 Blockly.Blocks['kiwi_event_key_release'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL);
-    this.setColour(EVENT_HUE);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE);
     this.appendValueInput("KEY")

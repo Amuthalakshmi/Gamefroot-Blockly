@@ -28,11 +28,12 @@ goog.provide('Blockly.Blocks.Kiwifroot.camera');
 
 goog.require('Blockly.Blocks');
 
+Blockly.Blocks.Kiwifroot.camera.HUE = 80;
 
 Blockly.Blocks['kiwi_camera_go_to'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_PAN_TO_HELPURL );
-    this.setColour(80);
+    this.setColour( Blockly.Blocks.Kiwifroot.camera.HUE );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
         ["pan", "panTo"],
@@ -58,7 +59,7 @@ Blockly.Blocks['kiwi_camera_go_to'] = {
 Blockly.Blocks['kiwi_camera_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_SET_HELPURL );
-    this.setColour(80);
+    this.setColour( Blockly.Blocks.Kiwifroot.camera.HUE );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE );
     this.appendDummyInput()
@@ -85,7 +86,7 @@ Blockly.Blocks['kiwi_camera_set'] = {
 Blockly.Blocks['kiwi_camera_get'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_HELPURL );
-    this.setColour(230);
+    this.setColour( Blockly.Blocks.math.HUE );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_GET_MESSAGE );
     this.appendDummyInput()
@@ -111,7 +112,7 @@ Blockly.Blocks['kiwi_camera_get'] = {
 Blockly.Blocks['kiwi_camera_lock_on'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_LOCK_ON_HELPURL );
-    this.setColour(80);
+    this.setColour( Blockly.Blocks.Kiwifroot.camera.HUE );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_LOCK_ON_MESSAGE );
     this.appendValueInput("INSTANCE")
@@ -127,7 +128,7 @@ Blockly.Blocks['kiwi_camera_lock_on'] = {
 Blockly.Blocks['kiwi_camera_unlock'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_UNLOCK_HELPURL );
-    this.setColour(80);
+    this.setColour( Blockly.Blocks.Kiwifroot.camera.HUE );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_UNLOCK_MESSAGE );
     this.setInputsInline(true);
@@ -141,7 +142,7 @@ Blockly.Blocks['kiwi_camera_unlock'] = {
 Blockly.Blocks['kiwi_camera_state'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_STATE_HELPURL );
-    this.setColour(210);
+    this.setColour( Blockly.Blocks.logic.HUE );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CAMERA_STATE_MESSAGE )
         .appendField(new Blockly.FieldDropdown( [
