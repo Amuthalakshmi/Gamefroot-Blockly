@@ -194,8 +194,5 @@ Blockly.FieldVariable.dropdownChange = function(text) {
     }
     return null;
   }
-  else {
-    this.sourceBlock_.varChanged(text);
-  }
   return undefined;
 };

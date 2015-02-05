@@ -31,12 +31,6 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks.variables.HUE = 330;
 
-Blockly.Blocks.variables.TYPES = [
-  [Blockly.Msg.KF_TYPE_BOOLEAN,'Boolean']
-  ,[Blockly.Msg.KF_TYPE_NUMBER,'Number']
-  ,[Blockly.Msg.KF_TYPE_STRING,'String']
-  ,[Blockly.Msg.KF_TYPE_INSTANCE,'Instance']
-]
 
 Blockly.Blocks['variables_get'] = {
   /**
@@ -45,10 +39,9 @@ Blockly.Blocks['variables_get'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
+    this.setColour(Blockly.Blocks.variables.HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
-        .appendField(new Blockly.FieldVariableType(
-        Blockly.Blocks.variables.TYPES), 'TYPE')
         .appendField(new Blockly.FieldVariable(
         Blockly.Msg.VARIABLES_GET_ITEM), 'VAR')
         .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
@@ -78,17 +71,6 @@ Blockly.Blocks['variables_get'] = {
     }
   },
   /**
-   * Notification that a variable is changing type.
-   * If the name matches one of this block's variables, change it's type.
-   * @param {string} type The type of the variable
-   * @this Blockly.Block
-   */
-  changeType: function(name, type) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      this.setOutput(true, type);
-    }
-  }, 
-  /**
    * Add menu option to create getter/setter block for this setter/getter.
    * @param {!Array} options List of menu options to add to.
    * @this Blockly.Block
@@ -113,11 +95,11 @@ Blockly.Blocks['variables_set'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_SET_HELPURL);
+    this.setColour(Blockly.Blocks.variables.HUE);
     this.interpolateMsg(
         // TODO: Combine these messages instead of using concatenation.
         Blockly.Msg.VARIABLES_SET_TITLE + ' %1 %2' +
         Blockly.Msg.VARIABLES_SET_TAIL + ' %3',
-        ['TYPE', new Blockly.FieldVariableType(Blockly.Blocks.variables.TYPES)],
         ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM)],
         ['VALUE', null, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
@@ -145,17 +127,6 @@ Blockly.Blocks['variables_set'] = {
   renameVar: function(oldName, newName) {
     if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
       this.setFieldValue(newName, 'VAR');
-    }
-  },
-  /**
-   * Notification that a variable is changing type.
-   * If the name matches one of this block's variables, change it's type.
-   * @param {string} type The type of the variable
-   * @this Blockly.Block
-   */
-  changeType: function(name, type) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      this.setFieldValue(type, 'TYPE');
     }
   },
 

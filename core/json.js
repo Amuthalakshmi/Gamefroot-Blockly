@@ -251,6 +251,10 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
    return;
   }
   
+  if (block.initSvg) {
+    block.initSvg();
+  }
+  
   var inline = jsonBlock[Blockly.Json.fieldLabels.inputInline];
   if (inline) {
     block.setInputsInline(true);
@@ -346,14 +350,6 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
           }
           block.nextConnection.connect(blockChild.previousConnection);
     }  
-  }
-
-  if (block.setType) {
-    block.setType();
-  }
-
-  if (block.initSvg) {
-    block.initSvg();
   }
 
   if (workspace.rendered){
