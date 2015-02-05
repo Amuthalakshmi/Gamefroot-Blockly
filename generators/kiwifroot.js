@@ -86,7 +86,10 @@ Blockly.Kiwifroot.defaultTemplate =
   // Here we define the destructor for the plugin
   'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.destroy = function(){\n'+
   // This is where the destructor additions will be made
-  '{{\t,DESTRUCTOR,\n}}\n'+
+  '{{\t,DESTRUCTOR,\n}}\n\n'+
+  '\tKiwi.Component.prototype.destroy.call( this );\n' +
+  '\tthis.state = null;\n' +
+  '\tthis.box = null;\n' +
   '};\n\n' +
 
   // Add the component to the list of plugins
@@ -140,12 +143,21 @@ Blockly.Kiwifroot.sounds_ = [
 ];
 
 /**
-* The array of instance ids. Contains tples of names/ids
+* The array of instance ids. Contains tuples of names/ids
 * @type {array}
 */
 Blockly.Kiwifroot.instances_ = [
   ['RedMushroom', "red-mushroom"],
   ['GreenMushroom', "green-mushroom"]
+];
+
+/**
+* The array of classes. 
+* @type {array}
+*/
+Blockly.Kiwifroot.classes_ = [
+  ["RedMushroom", "red-mushroom"], 
+  ["GreenMushroom", "green-mushroom"]
 ];
 
 Blockly.Kiwifroot.addReservedWords();

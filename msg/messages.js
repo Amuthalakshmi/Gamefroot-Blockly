@@ -1174,6 +1174,21 @@ Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE = 'When the player releases';
 Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = "The event triggered when the player releases the given key on their keyboard.";
 /// url - Information on the kiwifroot key release event
 Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_TIME_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'When' ;
+///
+Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'of millisecond has passed';
+///
+Blockly.Msg.KF_EVENT_TIME_TOOLTIP = 'Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.';
+
+///
+Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_REMOVE_TOOLTIP = 'The event is triggered when this gameobject is destroyed.';
+///
+Blockly.Msg.KF_EVENT_REMOVE_MESSAGE = 'When removed';
 
 /// tooltip - A list of special levels, they include previous/current/next and the first/last levels
 Blockly.Msg.KF_GAME_LEVEL_SPECIAL_TOOLTIP = 'A list of special levels, they include previous/current/next and the first/last levels.';
@@ -1241,6 +1256,12 @@ Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_AFTER = 'to';
 ///
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_TOOLTIP = 'Sets whether the gameobject should be renderer or not. An alpha of zero is does not mean that the visiblity is false.';
 ///
+Blockly.Msg.KF_INSTANCE_DEATH_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_DEATH_MESSAGE = 'destroy';
+///
+Blockly.Msg.KF_INSTANCE_DEATH_TOOLTIP = 'Destroys the selected instance. Destruction cannot be reverted!';
+///
 Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_BEFORE = 'tag';
 ///
 Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_AFTER = 'to';
@@ -1266,6 +1287,12 @@ Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_MESSAGE = 'get all children by tag';
 ///
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP = 'Returns a list of all the instances that have the tag passed.';
+///
+Blockly.Msg.KF_INSTANCE_OVERLAPS_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_OVERLAPS_MESSAGE = 'overlaps';
+///
+Blockly.Msg.KF_INSTANCE_OVERLAPS_TOOLTIP = 'Checks to see if the two passed instances overlap.';
 
 /// Label for the keyboard key block
 Blockly.Msg.KF_KEY_SPECIAL_MESSAGE = 'key:';
@@ -1441,3 +1468,38 @@ Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_BEFORE = Blockly.Msg.KF_MATH_INSTANCE
 Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_AFTER = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER;
 ///
 Blockly.Msg.KF_MATH_INSTANCE_TO_XY_TOOLTIP = 'Returns the selected value between an instance and a set of coordinates passed.';
+
+///
+Blockly.Msg.KF_CLASSES_INSTANCE_MESSAGE = 'class of';
+///
+Blockly.Msg.KF_CLASSES_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_CLASSES_INSTANCE_TOOLTIP = 'Returns the class of the selected instance.';
+
+///
+Blockly.Msg.KF_CLASSES_SELECTOR_HELPURL = '';
+///
+Blockly.Msg.KF_CLASSES_SELECTOR_TOOLTIP = 'Returns the class selected.';
+
+///
+Blockly.Msg.KF_CLASSES_GET_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_CLASSES_GET_INSTANCE_MESSAGE = 'instance of';
+///
+Blockly.Msg.KF_CLASSES_GET_INSTANCE_TOOLTIP = 'Selects the corresponding instance.';
+
+///
+Blockly.Msg.KF_CLASSES_GET_ALL_INSTANCES_HELPURL = '';
+///
+Blockly.Msg.KF_CLASSES_GET_ALL_INSTANCES_MESSAGE = 'get all instances of';
+///
+Blockly.Msg.KF_CLASSES_GET_ALL_INSTANCES_TOOLTIP = 'Returns a list of all the instances with that class.';
+
+///
+Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_BEFORE = 'create new instance of';
+///
+Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_AFTER = 'at';
+///
+Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP = 'Creates a new instance of a class type at the location specified.';

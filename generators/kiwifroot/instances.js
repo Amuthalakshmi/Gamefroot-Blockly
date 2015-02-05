@@ -36,7 +36,7 @@ Blockly.Kiwifroot['kiwi_instance_self'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_instance_select'] = function(block) {
   var dropdown_id = block.getFieldValue('ID');
-  var code = 'this.state.getChildById("' + dropdown_id + '")';
+  var code = 'this.state.getChildByID("' + dropdown_id + '")';
   
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
@@ -79,6 +79,12 @@ Blockly.Kiwifroot['kiwi_instance_set_visible'] = function(block) {
   var value_vis = Blockly.Kiwifroot.valueToCode(block, 'VISIBLE', Blockly.Kiwifroot.ORDER_ATOMIC);
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   return inst + '.visible = ' + value_vis + ';\n';
+};
+
+Blockly.Kiwifroot['kiwi_instance_death'] = function(block) {
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var code = value_inst + '.exists = false;\n';
+  return code;
 };
 
 Blockly.Kiwifroot['kiwi_instance_tag_management'] = function(block) {

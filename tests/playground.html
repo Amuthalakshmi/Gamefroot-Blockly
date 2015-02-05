@@ -18,10 +18,12 @@
 <script src="../generators/kiwifroot/events.js"></script>
 <script src="../generators/kiwifroot/game.js"></script>
 <script src="../generators/kiwifroot/instances.js"></script>
+<script src="../generators/kiwifroot/classes.js"></script>
 <script src="../generators/kiwifroot/inputs.js"></script>
 <script src="../generators/kiwifroot/sound.js"></script>
 <script src="../generators/kiwifroot/animation.js"></script>
 <script src="../generators/kiwifroot/camera.js"></script>
+<script src="../generators/kiwifroot/intersects.js"></script>
 <!-- add new kiwifroot generators here -->
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
@@ -36,10 +38,12 @@
 <script src="../blocks/kiwifroot/events.js"></script>
 <script src="../blocks/kiwifroot/game.js"></script>
 <script src="../blocks/kiwifroot/instances.js"></script>
+<script src="../blocks/kiwifroot/classes.js"></script>
 <script src="../blocks/kiwifroot/inputs.js"></script>
 <script src="../blocks/kiwifroot/sound.js"></script>
 <script src="../blocks/kiwifroot/animation.js"></script>
 <script src="../blocks/kiwifroot/camera.js"></script>
+<script src="../blocks/kiwifroot/intersects.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -461,6 +465,7 @@ h1 {
       </category>
       <category name="Events">
         <block type="kiwi_event_create"></block>
+        <block type="kiwi_event_remove"></block>
         <block type="kiwi_event_constantly"></block>
         <block type="kiwi_event_stage_press"></block>
         <block type="kiwi_event_stage_release"></block>
@@ -482,6 +487,11 @@ h1 {
         <block type="kiwi_event_key_release">
           <value name="KEY">
             <block type="kiwi_key_special"></block>
+          </value>
+        </block>
+        <block type="kiwi_event_time">
+          <value name="MILLISECOND">
+            <block type="math_number"></block>
           </value>
         </block>
       </category>
@@ -516,6 +526,11 @@ h1 {
             <block type="logic_boolean"></block>
           </value>
         </block>
+        <block type="kiwi_instance_death">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
         <block type="kiwi_instance_tag_management">
           <value name="TAG">
             <block type="text"></block>
@@ -540,6 +555,35 @@ h1 {
         <block type="kiwi_instance_get_all_by_tag">
           <value name="TAG">
             <block type="text"></block>
+          </value>
+        </block>
+      </category>
+      <category name="Classes">
+        <block type="kiwi_classes_selector"></block>
+        <block type="kiwi_classes_instance_type">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
+        <block type="kiwi_classes_get_instance">
+          <value name="CLASS">
+            <block type="kiwi_classes_selector"></block>
+          </value>
+        </block>
+        <block type="kiwi_classes_get_all_instances">
+          <value name="CLASS">
+            <block type="kiwi_classes_selector"></block>
+          </value>
+        </block>
+        <block type="kiwi_classes_create_instance">
+          <value name="CLASS">
+            <block type="kiwi_classes_selector"></block>
+          </value>
+          <value name="X_LOC">
+            <block type="math_number"></block>
+          </value>
+          <value name="Y_LOC">
+            <block type="math_number"></block>
           </value>
         </block>
       </category>
@@ -608,6 +652,16 @@ h1 {
         </block>
         <block type="kiwi_camera_unlock"></block>
         <block type="kiwi_camera_state"></block>
+      </category>
+      <category name="Intersects">
+        <block type="kiwi_intersects_instance_to_instance">
+          <value name="INST_ONE">
+            <block type="kiwi_instance_self"></block>
+          </value>
+          <value name="INST_TWO">
+            <block type="kiwi_instance_select"></block>
+          </value>
+        </block>
       </category>
     </category>
     <sep></sep>

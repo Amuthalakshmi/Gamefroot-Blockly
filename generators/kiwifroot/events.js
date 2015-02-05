@@ -21,6 +21,7 @@
 /**
  * @fileoverview Generating Kiwifroot Kiwifroot for event blocks.
  * @author rani_sputnik@hotmail.com (Ryan Loader)
+ * @author benjamin.p.harding@gmail.com (Benjamin Harding)
  */
 'use strict';
 
@@ -31,8 +32,20 @@ goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	var funcName = defineFunctionFromBranch('onCreate', block);
-	var constructorCode = 'this.'+funcName + '();';
+	var constructorCode = '//Attach an special onSpawn call.\n' + 
+		'\t//This is to make sure all the components are loaded/attached before executing any code.\n' +
+		'\tthis.state.robots.onPreUpdate.addOnce( this.' + funcName + ', this);';
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	return null;
+};
+
+
+Blockly.Kiwifroot['kiwi_event_remove'] = function(block) {
+	var funcName = defineFunctionFromBranch('onRemove', block);
+
+	var destructorCode = 'this.'+funcName + '();';
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
 	return null;
 };
 
@@ -162,6 +175,21 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
 	return null;
 };
 
+Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
+
+	var funcName = defineFunctionFromBranch('onTick', block);
+
+	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+
+	var constructorCode = 'this.' + funcName + '_ = this.game.time.clock.setInterval( this.' + funcName + ', ' + tick + ', this);';
+	var destructorCode = 'this.game.time.clock.removeTimer( this.' + funcName + '_ );';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
+	return null;
+};
+
 
 function defineFunctionFromBranch(desiredName, block){
 	// Define a procedure with a return value.
@@ -182,3 +210,4 @@ function defineFunctionFromBranch(desiredName, block){
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code);
 	return funcName;
 };
+

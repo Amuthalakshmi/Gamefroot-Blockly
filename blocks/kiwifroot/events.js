@@ -21,6 +21,7 @@
 /**
  * @fileoverview Event blocks for Kiwifroot.
  * @author rani_sputnik@hotmail.com (Ryan Loader)
+ * @author benjamin.p.harding@gmail.com (Benjamin Harding)
  */
 'use strict';
 
@@ -37,6 +38,17 @@ Blockly.Blocks['kiwi_event_create'] = {
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_EVENT_CREATE_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_CREATE_TOOLTIP);
+    this.appendStatementInput('STACK');
+  }
+};
+
+Blockly.Blocks['kiwi_event_remove'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_REMOVE_HELPURL);
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_REMOVE_MESSAGE);
+    this.setTooltip(Blockly.Msg.KF_EVENT_REMOVE_TOOLTIP);
     this.appendStatementInput('STACK');
   }
 };
@@ -130,3 +142,19 @@ Blockly.Blocks['kiwi_event_key_release'] = {
   }
 };
 
+
+Blockly.Blocks['kiwi_event_time'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_TIME_HELPURL );
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE );
+    this.appendValueInput("MILLISECOND")
+        .setCheck("Number");
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER );
+    this.setTooltip(Blockly.Msg.KF_EVENT_TIME_TOOLTIP );
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+  }
+};

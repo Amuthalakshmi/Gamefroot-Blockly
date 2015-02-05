@@ -145,6 +145,20 @@ Blockly.Blocks['kiwi_instance_set_visible'] = {
   }
 };
 
+Blockly.Blocks['kiwi_instance_death'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INSTANCE_DEATH_HELPURL );
+    this.setColour( Blockly.Blocks.Kiwifroot.instances.HUE );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_INSTANCE_DEATH_MESSAGE );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_INSTANCE_DEATH_TOOLTIP );
+  }
+};
+
 Blockly.Blocks['kiwi_instance_tag_management'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_ADD_TAG_HELPURL );
@@ -210,4 +224,3 @@ Blockly.Blocks['kiwi_instance_get_all_by_tag'] = {
     this.setTooltip( Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP );
   }
 };
-    
