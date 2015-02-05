@@ -74,6 +74,7 @@ function start() {
   if (Blockly.Realtime.isEnabled()) {
     enableRealtimeSpecificUi();
   }
+  loadOutput();
 }
 
 function toXml() {
@@ -82,6 +83,7 @@ function toXml() {
   output.value = Blockly.Xml.domToPrettyText(xml);
   output.focus();
   output.select();
+  saveOutput();
 }
 
 function fromXml() {
@@ -96,6 +98,7 @@ function toJson() {
   output.value = Blockly.Json.objectToText(json);
   output.focus();
   output.select();
+  saveOutput();
 }
 
 function fromJson() {
@@ -107,6 +110,7 @@ function fromJson() {
 function toCode(lang) {
   var output = document.getElementById('importExport');
   output.value = Blockly[lang].workspaceToCode();
+  saveOutput();
   return output.value;
 }
 
@@ -135,6 +139,14 @@ function gotoGame(){
   popup.addEventListener('load',function(){
     popup.postMessage(code,"*");
   }, true);
+}
+
+function loadOutput(){
+  document.getElementById('importExport').value = window.localStorage['blocklyOutput'];
+}
+
+function saveOutput(){
+  window.localStorage['blocklyOutput'] = document.getElementById('importExport').value;
 }
 
 function spaghetti(n) {
