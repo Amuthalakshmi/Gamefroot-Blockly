@@ -175,6 +175,21 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
 	return null;
 };
 
+Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
+
+	var funcName = defineFunctionFromBranch('onTick', block);
+
+	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+
+	var constructorCode = 'this.' + funcName + '_ = this.game.time.clock.setInterval( this.' + funcName + ', ' + tick + ', this);';
+	var destructorCode = 'this.game.time.clock.removeTimer( this.' + funcName + '_ );';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
+	return null;
+};
+
 
 function defineFunctionFromBranch(desiredName, block){
 	// Define a procedure with a return value.
@@ -195,3 +210,4 @@ function defineFunctionFromBranch(desiredName, block){
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code);
 	return funcName;
 };
+

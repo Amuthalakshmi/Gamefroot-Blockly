@@ -36,7 +36,7 @@ Blockly.Kiwifroot['kiwi_instance_self'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_instance_select'] = function(block) {
   var dropdown_id = block.getFieldValue('ID');
-  var code = 'this.state.getChildById("' + dropdown_id + '")';
+  var code = 'this.state.getChildByID("' + dropdown_id + '")';
   
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

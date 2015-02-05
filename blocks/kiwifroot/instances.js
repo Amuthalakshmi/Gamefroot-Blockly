@@ -224,4 +224,3 @@ Blockly.Blocks['kiwi_instance_get_all_by_tag'] = {
     this.setTooltip( Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP );
   }
 };
-    

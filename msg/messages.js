@@ -1174,6 +1174,14 @@ Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE = 'When the player releases';
 Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = "The event triggered when the player releases the given key on their keyboard.";
 /// url - Information on the kiwifroot key release event
 Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_TIME_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'When' ;
+///
+Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'of millisecond has passed';
+///
+Blockly.Msg.KF_EVENT_TIME_TOOLTIP = 'Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.';
 
 ///
 Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
@@ -1279,6 +1287,12 @@ Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_MESSAGE = 'get all children by tag';
 ///
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP = 'Returns a list of all the instances that have the tag passed.';
+///
+Blockly.Msg.KF_INSTANCE_OVERLAPS_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_OVERLAPS_MESSAGE = 'overlaps';
+///
+Blockly.Msg.KF_INSTANCE_OVERLAPS_TOOLTIP = 'Checks to see if the two passed instances overlap.';
 
 /// Label for the keyboard key block
 Blockly.Msg.KF_KEY_SPECIAL_MESSAGE = 'key:';

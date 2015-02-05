@@ -141,3 +141,20 @@ Blockly.Blocks['kiwi_event_key_release'] = {
     this.setInputsInline(true);
   }
 };
+
+
+Blockly.Blocks['kiwi_event_time'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_TIME_HELPURL );
+    this.setColour( Blockly.Blocks.Kiwifroot.events.HUE );
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE );
+    this.appendValueInput("MILLISECOND")
+        .setCheck("Number");
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER );
+    this.setTooltip(Blockly.Msg.KF_EVENT_TIME_TOOLTIP );
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+  }
+};
