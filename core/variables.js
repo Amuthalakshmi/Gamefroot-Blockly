@@ -93,6 +93,23 @@ Blockly.Variables.renameVariable = function(oldName, newName, workspace) {
 };
 
 /**
+ * Find all the instances of a specified variable and change the type.
+ * @param {string} name Variable to rename
+ * @param {string} type The type to set the variable to
+ * @param {!Blockly.Workspace} workspace Workspace to modify variables in.
+ */
+Blockly.Variables.changeType = function(name, type, workspace) {
+  var blocks = workspace.getAllBlocks();
+  // Iterate through every block.
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].changeType;
+    if (func) {
+      func.call(blocks[x], name, type);
+    }
+  }
+};
+
+/**
  * Construct the blocks required by the flyout for the variable category.
  * @param {!Array.<!Blockly.Block>} blocks List of blocks to show.
  * @param {!Array.<number>} gaps List of widths between blocks.

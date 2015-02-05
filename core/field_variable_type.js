@@ -35,37 +35,12 @@ goog.require('Blockly.Variables');
  * Class for a variable's dropdown field.
  * @param {?string} varname The default name for the variable.  If null,
  *     a unique variable name will be generated.
- * @param {Function} opt_changeHandler A function that is executed when a new
- *     option is selected.  Its sole argument is the new option value.  Its
- *     return value is ignored.
  * @extends {Blockly.FieldDropdown}
  * @constructor
  */
-Blockly.FieldVariableType = function(types, opt_changeHandler) {
-  var changeHandler;
-
-  if (opt_changeHandler) {
-    // Wrap the user's change handler together with the variable rename handler.
-    var thisObj = this;
-    changeHandler = function(value) {
-      var retVal = Blockly.FieldVariableType.dropdownChange.call(thisObj, value);
-      var newVal;
-      if (retVal === undefined) {
-        newVal = value;  // Existing variable selected.
-      } else if (retVal === null) {
-        newVal = thisObj.getValue();  // Abort, no change.
-      } else {
-        newVal = retVal;  // Variable name entered.
-      }
-      opt_changeHandler.call(thisObj, newVal);
-      return retVal;
-    };
-  } else {
-    changeHandler = Blockly.FieldVariableType.dropdownChange;
-  }
-
+Blockly.FieldVariableType = function(types) {
   Blockly.FieldVariableType.superClass_.constructor.call(this,
-      types, changeHandler);
+      types, Blockly.FieldVariableType.dropdownChange);
 };
 goog.inherits(Blockly.FieldVariableType, Blockly.FieldDropdown);
 
@@ -105,6 +80,7 @@ Blockly.FieldVariableType.prototype.clone = function() {
  */
 Blockly.FieldVariableType.dropdownChange = function(text) {
   var workspace = this.sourceBlock_.workspace;
-  console.log(text);
+  var varname = this.sourceBlock_.getVars()[0];
+  Blockly.Variables.changeType(varname, text, workspace);
   return undefined;
 };

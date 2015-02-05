@@ -77,13 +77,15 @@ Blockly.Blocks['variables_get'] = {
     }
   },
   /**
-   * Sets the type of the variable
+   * Notification that a variable is changing type.
+   * If the name matches one of this block's variables, change it's type.
    * @param {string} type The type of the variable
    * @this Blockly.Block
    */
-  setType: function(type) {
-    this.setOutput(true, type);
-    console.log('Set the type of this block',type);
+  changeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      this.setOutput(true, type);
+    }
   }, 
   /**
    * Add menu option to create getter/setter block for this setter/getter.
@@ -146,13 +148,16 @@ Blockly.Blocks['variables_set'] = {
     }
   },
   /**
-   * Sets the type of the variable
+   * Notification that a variable is changing type.
+   * If the name matches one of this block's variables, change it's type.
    * @param {string} type The type of the variable
    * @this Blockly.Block
    */
-  setType: function(type) {
-    console.log('Set the type of this block',type);
-  }, 
+  changeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      this.setFieldValue(type, 'TYPE');
+    }
+  },
 
   customContextMenu: Blockly.Blocks['variables_get'].customContextMenu
 };
