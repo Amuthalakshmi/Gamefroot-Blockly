@@ -31,12 +31,23 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks.variables.HUE = 330;
 
+Blockly.Blocks.variables.TYPE_BOOLEAN = 'Boolean';
+Blockly.Blocks.variables.TYPE_NUMBER = 'Number';
+Blockly.Blocks.variables.TYPE_STRING = 'String';
+Blockly.Blocks.variables.TYPE_INSTANCE = 'Instance';
+
 Blockly.Blocks.variables.TYPES = [
-  [Blockly.Msg.KF_TYPE_BOOLEAN,'Boolean']
-  ,[Blockly.Msg.KF_TYPE_NUMBER,'Number']
-  ,[Blockly.Msg.KF_TYPE_STRING,'String']
-  ,[Blockly.Msg.KF_TYPE_INSTANCE,'Instance']
-]
+  [Blockly.Msg.KF_TYPE_BOOLEAN, Blockly.Blocks.variables.TYPE_BOOLEAN]
+  ,[Blockly.Msg.KF_TYPE_NUMBER, Blockly.Blocks.variables.TYPE_NUMBER]
+  ,[Blockly.Msg.KF_TYPE_STRING, Blockly.Blocks.variables.TYPE_STRING]
+  ,[Blockly.Msg.KF_TYPE_INSTANCE, Blockly.Blocks.variables.TYPE_INSTANCE]
+];
+
+Blockly.Blocks.variables.TYPE_COLOURS = {};
+Blockly.Blocks.variables.TYPE_COLOURS[Blockly.Blocks.variables.TYPE_BOOLEAN] = 210;
+Blockly.Blocks.variables.TYPE_COLOURS[Blockly.Blocks.variables.TYPE_NUMBER] = 230;
+Blockly.Blocks.variables.TYPE_COLOURS[Blockly.Blocks.variables.TYPE_STRING] = 160;
+Blockly.Blocks.variables.TYPE_COLOURS[Blockly.Blocks.variables.TYPE_INSTANCE] = 0;
 
 Blockly.Blocks['variables_get'] = {
   /**
@@ -51,10 +62,16 @@ Blockly.Blocks['variables_get'] = {
         .appendField(new Blockly.FieldVariable(
         Blockly.Msg.VARIABLES_GET_ITEM), 'VAR')
         .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
-    this.setOutput(true);
     this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
+    this.setOutput(true);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
     this.contextMenuType_ = 'variables_set';
+
+    var varname = this.getFieldValue('VAR');
+    var type = Blockly.Variables.typeOf(varname, this.workspace) ||
+      Blockly.Blocks.variables.TYPE_BOOLEAN;
+    this.type_ = null;
+    this.setType(type);
   },
   /**
    * Return all variables referenced by this block.
@@ -77,6 +94,18 @@ Blockly.Blocks['variables_get'] = {
     }
   },
   /**
+   * Notification that a block is searching for a variable type
+   * If the name matches one of this block's variables, change it's type.
+   * @param {string} type The type of the variable
+   * @this Blockly.Block
+   */ 
+  getType: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return this.type_;
+    }
+    else return undefined;
+  },
+  /**
    * Notification that a variable is changing type.
    * If the name matches one of this block's variables, change it's type.
    * @param {string} type The type of the variable
@@ -84,9 +113,21 @@ Blockly.Blocks['variables_get'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      this.setOutput(true, type);
+      this.setType(type)
     }
   }, 
+  /**
+   * Changes the type of this block
+   * @param {string} type The new type for the block
+   */
+  setType: function(type) {
+    if (this.type_ != type) {
+      this.type_ = type;
+      this.unplug(true, true);
+      this.setColour(Blockly.Blocks.variables.TYPE_COLOURS[type]);
+      this.changeOutput(this.type_);
+    }
+  },
   /**
    * Add menu option to create getter/setter block for this setter/getter.
    * @param {!Array} options List of menu options to add to.
@@ -126,6 +167,11 @@ Blockly.Blocks['variables_set'] = {
     this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
     this.contextMenuType_ = 'variables_get';
+    // Apply the current type to the block
+    var varname = this.getFieldValue('VAR');
+    var type = Blockly.Variables.typeOf(varname, this.workspace) ||
+      Blockly.Blocks.variables.TYPE_BOOLEAN;
+    this.setType(type);
   },
   /**
    * Return all variables referenced by this block.
@@ -134,6 +180,18 @@ Blockly.Blocks['variables_set'] = {
    */
   getVars: function() {
     return [this.getFieldValue('VAR')];
+  },  
+  /**
+   * Notification that a block is searching for a variable type
+   * If the name matches one of this block's variables, change it's type.
+   * @param {string} type The type of the variable
+   * @this Blockly.Block
+   */ 
+  getType: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return this.getFieldValue('TYPE')
+    }
+    else return undefined;
   },
   /**
    * Notification that a variable is renaming.
@@ -155,8 +213,16 @@ Blockly.Blocks['variables_set'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      this.setFieldValue(type, 'TYPE');
+      this.setType(type);
     }
+  },
+  /**
+   * Changes the type of this block
+   * @param {string} type The new type for the block
+   */
+  setType: function(type) {
+    this.setFieldValue(type, 'TYPE');
+    this.getInput('VALUE').setCheck(type);
   },
 
   customContextMenu: Blockly.Blocks['variables_get'].customContextMenu
