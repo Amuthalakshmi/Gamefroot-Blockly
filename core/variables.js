@@ -93,25 +93,6 @@ Blockly.Variables.renameVariable = function(oldName, newName, workspace) {
 };
 
 /**
- * Gets the type of an existing variable.
- * @param {string} name The existing variable
- * @param {!Blockly.Workspace} workspace Workspace to search.
- * @return {string} The type of the variable
- */
-Blockly.Variables.typeOf = function(name, workspace) {
-  var blocks = workspace.getAllBlocks();
-  // Iterate through every block.
-  for (var x = 0; x < blocks.length; x++) {
-    var func = blocks[x].getType;
-    if (func) {
-      var type = func.call(blocks[x], name);
-      if (type) return type;
-    }
-  }
-  return null;
-};
-
-/**
  * Find all the instances of a specified variable and change the type.
  * @param {string} name Variable to rename
  * @param {string} type The type to set the variable to
