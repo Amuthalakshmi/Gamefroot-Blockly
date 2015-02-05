@@ -79,7 +79,8 @@ Blockly.FieldVariableType.prototype.clone = function() {
  * Event handler for a change in type
  */
 Blockly.FieldVariableType.dropdownChange = function(text) {
-  var workspace = this.sourceBlock_.workspace;
+  //var workspace = this.sourceBlock_.workspace;
+  var workspace = Blockly.mainWorkspace;
   var varname = this.sourceBlock_.getVars()[0];
   Blockly.Variables.changeType(varname, text, workspace);
   return undefined;

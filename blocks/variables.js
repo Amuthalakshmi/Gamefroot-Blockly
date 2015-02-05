@@ -56,9 +56,10 @@ Blockly.Blocks['variables_get'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
-    this.setColour(Blockly.Blocks.variables.HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
+        .appendField(new Blockly.FieldVariableType(
+        Blockly.Blocks.variables.TYPES), 'TYPE')
         .appendField(new Blockly.FieldVariable(
         Blockly.Msg.VARIABLES_GET_ITEM), 'VAR')
         .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
@@ -66,11 +67,17 @@ Blockly.Blocks['variables_get'] = {
     this.setOutput(true);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
     this.contextMenuType_ = 'variables_set';
-
-    var varname = this.getFieldValue('VAR');
-    var type = Blockly.Variables.typeOf(varname, this.workspace) ||
-      Blockly.Blocks.variables.TYPE_BOOLEAN;
     this.type_ = null;
+    this.varChanged();
+  },
+  /**
+   * Called when a new variable is selected from the dropdown
+   * @param {string} varname The new variable name selected
+   */
+  varChanged: function(varname){
+    // Apply the current type to the block
+    varname = varname || this.getFieldValue('VAR');
+    var type = Blockly.Variables.typeOf(varname, Blockly.mainWorkspace);
     this.setType(type);
   },
   /**
@@ -101,7 +108,7 @@ Blockly.Blocks['variables_get'] = {
    */ 
   getType: function(name) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      return this.type_;
+      return this.getFieldValue('TYPE');
     }
     else return undefined;
   },
@@ -121,11 +128,13 @@ Blockly.Blocks['variables_get'] = {
    * @param {string} type The new type for the block
    */
   setType: function(type) {
+    type = type || this.getFieldValue('TYPE');
     if (this.type_ != type) {
       this.type_ = type;
+      this.setFieldValue(type, 'TYPE');
       this.unplug(true, true);
       this.setColour(Blockly.Blocks.variables.TYPE_COLOURS[type]);
-      this.changeOutput(this.type_);
+      this.changeOutput(type);
     }
   },
   /**
@@ -153,7 +162,6 @@ Blockly.Blocks['variables_set'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_SET_HELPURL);
-    this.setColour(Blockly.Blocks.variables.HUE);
     this.interpolateMsg(
         // TODO: Combine these messages instead of using concatenation.
         Blockly.Msg.VARIABLES_SET_TITLE + ' %1 %2' +
@@ -167,10 +175,17 @@ Blockly.Blocks['variables_set'] = {
     this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
     this.contextMenuType_ = 'variables_get';
+    this.type_ = null;
+    this.varChanged();
+  },
+  /**
+   * Called when a new variable is selected from the dropdown
+   * @param {string} varname The new variable name selected
+   */
+  varChanged: function(varname){
+    varname = varname || this.getFieldValue('VAR');
     // Apply the current type to the block
-    var varname = this.getFieldValue('VAR');
-    var type = Blockly.Variables.typeOf(varname, this.workspace) ||
-      Blockly.Blocks.variables.TYPE_BOOLEAN;
+    var type = Blockly.Variables.typeOf(varname, Blockly.mainWorkspace);
     this.setType(type);
   },
   /**
@@ -189,7 +204,7 @@ Blockly.Blocks['variables_set'] = {
    */ 
   getType: function(name) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      return this.getFieldValue('TYPE')
+      return this.getFieldValue('TYPE');
     }
     else return undefined;
   },
@@ -221,8 +236,13 @@ Blockly.Blocks['variables_set'] = {
    * @param {string} type The new type for the block
    */
   setType: function(type) {
-    this.setFieldValue(type, 'TYPE');
-    this.getInput('VALUE').setCheck(type);
+    type = type || this.getFieldValue('TYPE');
+    if (this.type_ != type) {
+      this.type_ = type;
+      this.setFieldValue(type, 'TYPE');
+      this.getInput('VALUE').setCheck(type);
+      this.setColour(Blockly.Blocks.variables.TYPE_COLOURS[type]);
+    }
   },
 
   customContextMenu: Blockly.Blocks['variables_get'].customContextMenu
