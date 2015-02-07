@@ -40,13 +40,13 @@ goog.require('goog.userAgent');
 Blockly.BlockSvg = function() {
   // Create core elements for the block.
   this.svgGroup_ = Blockly.createSvgElement('g', {}, null);
-  this.svgPathDark_ = Blockly.createSvgElement('path',
+  /*this.svgPathDark_ = Blockly.createSvgElement('path',
       {'class': 'blocklyPathDark', 'transform': 'translate(1, 1)'},
-      this.svgGroup_);
+      this.svgGroup_);*/
   this.svgPath_ = Blockly.createSvgElement('path', {'class': 'blocklyPath'},
       this.svgGroup_);
-  this.svgPathLight_ = Blockly.createSvgElement('path',
-      {'class': 'blocklyPathLight'}, this.svgGroup_);
+  /*this.svgPathLight_ = Blockly.createSvgElement('path',
+      {'class': 'blocklyPathLight'}, this.svgGroup_);*/
   this.svgPath_.tooltip = this;
   Blockly.Tooltip.bindMouseEvents(this.svgPath_);
   this.updateMovable();
@@ -955,8 +955,8 @@ Blockly.BlockSvg.prototype.dispose = function(healStack, animate,
   // Sever JavaScript to DOM connections.
   this.svgGroup_ = null;
   this.svgPath_ = null;
-  this.svgPathLight_ = null;
-  this.svgPathDark_ = null;
+  //this.svgPathLight_ = null;
+  //this.svgPathDark_ = null;
 };
 
 /**
@@ -1059,10 +1059,11 @@ Blockly.BlockSvg.prototype.updateColour = function() {
   }
   var hexColour = Blockly.makeColour(this.getColour());
   var rgb = goog.color.hexToRgb(hexColour);
-  var rgbLight = goog.color.lighten(rgb, 0.3);
+  //var rgbLight = rgb;
   var rgbDark = goog.color.darken(rgb, 0.4);
-  this.svgPathLight_.setAttribute('stroke', goog.color.rgbArrayToHex(rgbLight));
-  this.svgPathDark_.setAttribute('fill', goog.color.rgbArrayToHex(rgbDark));
+  //this.svgPathLight_.setAttribute('stroke', goog.color.rgbArrayToHex(rgbLight));
+  //this.svgPathDark_.setAttribute('stroke', goog.color.rgbArrayToHex(rgbLight));
+  this.svgPath_.setAttribute('stroke', goog.color.rgbArrayToHex(rgbDark));
   this.svgPath_.setAttribute('fill', hexColour);
 
   var icons = this.getIcons();
@@ -1504,14 +1505,14 @@ Blockly.BlockSvg.prototype.renderDraw_ = function(iconWidth, inputRows) {
 
   var pathString = steps.join(' ') + '\n' + inlineSteps.join(' ');
   this.svgPath_.setAttribute('d', pathString);
-  this.svgPathDark_.setAttribute('d', pathString);
-  pathString = highlightSteps.join(' ') + '\n' + highlightInlineSteps.join(' ');
-  this.svgPathLight_.setAttribute('d', pathString);
+  //this.svgPathDark_.setAttribute('d', pathString);
+  //pathString = highlightSteps.join(' ') + '\n' + highlightInlineSteps.join(' ');
+  //this.svgPathLight_.setAttribute('d', pathString);
   if (Blockly.RTL) {
     // Mirror the block's path.
     this.svgPath_.setAttribute('transform', 'scale(-1 1)');
-    this.svgPathLight_.setAttribute('transform', 'scale(-1 1)');
-    this.svgPathDark_.setAttribute('transform', 'translate(1,1) scale(-1 1)');
+    //this.svgPathLight_.setAttribute('transform', 'scale(-1 1)');
+    //this.svgPathDark_.setAttribute('transform', 'translate(1,1) scale(-1 1)');
   }
 };
 

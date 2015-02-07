@@ -94,8 +94,14 @@ Blockly.Flyout.prototype.autoClose = true;
  * @type {number}
  * @const
  */
-Blockly.Flyout.prototype.CORNER_RADIUS = 8;
+Blockly.Flyout.prototype.CORNER_RADIUS = 0;
 
+/**
+ * The margin between blocks in the flyout
+ * @type {number}
+ * @const
+ */
+Blockly.Flyout.prototype.GAP = 8;
 
 /**
  * Creates the flyout's DOM.  Only needs to be called once.
@@ -345,7 +351,7 @@ Blockly.Flyout.prototype.show = function(xmlList) {
   }
   this.buttons_.length = 0;
 
-  var margin = this.CORNER_RADIUS;
+  var margin = this.GAP;
   this.svgGroup_.style.display = 'block';
 
   // Create the blocks to be shown in this flyout.
