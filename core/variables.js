@@ -31,11 +31,58 @@ goog.provide('Blockly.Variables');
 goog.require('Blockly.Workspace');
 goog.require('goog.string');
 
+/**
+ * The definition name of the boolean type
+ * @const
+ */
+Blockly.Variables.TYPE_BOOLEAN = 'Boolean';
+/**
+ * The definition name of the number type
+ * @const
+ */
+Blockly.Variables.TYPE_NUMBER = 'Number';
+/**
+ * The definition name of the string type
+ * @const
+ */
+Blockly.Variables.TYPE_STRING = 'String';
+/**
+ * The definition name of the colour type
+ * @const
+ */
+Blockly.Variables.TYPE_COLOUR = 'Colour';
+/**
+ * The definition name of the array type
+ * @const
+ */
+Blockly.Variables.TYPE_ARRAY = 'Array';
 
 /**
  * Category to separate variable names from procedures and generated functions.
  */
 Blockly.Variables.NAME_TYPE = 'VARIABLE';
+
+/**
+ * A Complete list of all variables types available.
+ * Contains a tuple of both the variables display name and
+ * it's definition name.
+ * @return {Array}
+ */
+Blockly.Variables.allTypes = function(){
+  return [
+    [Blockly.Msg.VARIABLES_TYPE_BOOLEAN,
+      Blockly.Variables.TYPE_BOOLEAN],
+    [Blockly.Msg.VARIABLES_TYPE_NUMBER,
+      Blockly.Variables.TYPE_NUMBER],
+    [Blockly.Msg.VARIABLES_TYPE_STRING,
+      Blockly.Variables.TYPE_STRING],
+    [Blockly.Msg.VARIABLES_TYPE_COLOUR,
+      Blockly.Variables.TYPE_COLOUR],
+    [Blockly.Msg.VARIABLES_TYPE_ARRAY,
+      Blockly.Variables.TYPE_ARRAY]
+  ];
+}
+
 
 /**
  * Find all user-created variables.

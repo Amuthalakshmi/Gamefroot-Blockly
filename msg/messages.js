@@ -1000,6 +1000,17 @@ Blockly.Msg.LISTS_SPLIT_TOOLTIP_JOIN = 'Join a list of texts into one text, sepa
 Blockly.Msg.ORDINAL_NUMBER_SUFFIX = '';
 
 // Variables Blocks.
+/// The display name of the true/false variable type
+Blockly.Msg.VARIABLES_TYPE_BOOLEAN = 'true/false';
+/// The display name of the number variable type
+Blockly.Msg.VARIABLES_TYPE_NUMBER = 'number';
+/// The display name of the text variable type
+Blockly.Msg.VARIABLES_TYPE_STRING = 'text';
+/// The display name of the colour variable type
+Blockly.Msg.VARIABLES_TYPE_COLOUR = 'colour';
+/// The display name of the array variable type
+Blockly.Msg.VARIABLES_TYPE_ARRAY = 'list';
+
 /// url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.
 Blockly.Msg.VARIABLES_GET_HELPURL = 'https://github.com/google/blockly/wiki/Variables#get';
 /// block text - This precedes the name of a variable when getting its values.  In most (all?) languages, it should be the empty string.  If unsure, ask yourself if any word should go before "x" in the expression "x + 1".

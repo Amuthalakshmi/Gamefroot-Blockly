@@ -27,7 +27,7 @@
 goog.provide('Blockly.Blocks.variables');
 
 goog.require('Blockly.Blocks');
-
+goog.require('Blockly.Variables');
 
 Blockly.Blocks.variables.HUE = 330;
 
@@ -41,6 +41,8 @@ Blockly.Blocks['variables_get'] = {
     this.setColour(Blockly.Blocks.variables.HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
+        .appendField(new Blockly.FieldDropdown(
+          Blockly.Variables.allTypes()), 'TYPE')
         .appendField(new Blockly.FieldVariable(
         Blockly.Msg.VARIABLES_GET_ITEM), 'VAR')
         .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
@@ -97,8 +99,9 @@ Blockly.Blocks['variables_set'] = {
     this.setColour(Blockly.Blocks.variables.HUE);
     this.interpolateMsg(
         // TODO: Combine these messages instead of using concatenation.
-        Blockly.Msg.VARIABLES_SET_TITLE + ' %1 ' +
-        Blockly.Msg.VARIABLES_SET_TAIL + ' %2',
+        Blockly.Msg.VARIABLES_SET_TITLE + ' %1 %2' +
+        Blockly.Msg.VARIABLES_SET_TAIL + ' %3',
+        ['TYPE', new Blockly.FieldDropdown(Blockly.Variables.allTypes())],
         ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM)],
         ['VALUE', null, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
