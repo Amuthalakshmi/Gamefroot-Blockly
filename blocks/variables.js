@@ -189,18 +189,6 @@ Blockly.Blocks['variables_set'] = {
     return [this.getFieldValue('VAR')];
   },
   /**
-   * Notification that a variable changed type
-   * If the name matches this blocks variable name, rename it.
-   * @param {string} name The name of the variable to change type
-   * @param {string} type The new type of the variable
-   * @this Blockly.Block
-   */
-  /*changeType: function(name, type) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      this.setType(type);
-    }
-  },*/
-  /**
    * Changes the type of this block
    * @param {string} type The new type for the block
    */
