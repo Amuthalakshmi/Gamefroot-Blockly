@@ -110,3 +110,36 @@ Blockly.Blocks['kiwi_game_stage_get_colour'] = {
     this.setTooltip(Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_TOOLTIP);
   }
 };
+
+Blockly.Blocks['kiwi_game_get_time'] = {
+  init: function() {
+
+    var dropdowns = [["elapsed", "clock.elapsed()"], ["delta", "delta"], ["rate", "clock.rate"]];
+
+    this.setHelpUrl( Blockly.Msg.KF_GAME_GET_TIME_HELPURL );
+    this.setColour( Blockly.Blocks.math.HUE );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_GAME_GET_TIME_MESSAGE )
+        .appendField(new Blockly.FieldDropdown( dropdowns ), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_GAME_GET_TIME_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_game_time_method'] = {
+  init: function() {
+
+    var dropdowns = [["pause", "clock.pause"], ["resume", "clock.resume"]];
+
+    this.setHelpUrl( Blockly.Msg.KF_GAME_TIME_METHOD_HELPURL );
+    this.setColour( Blockly.Blocks.Kiwifroot.game.HUE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( dropdowns ), "METHOD")
+        .appendField( Blockly.Msg.KF_GAME_TIME_METHOD_MESSAGE );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_GAME_TIME_METHOD_TOOLTIP );
+  }
+};

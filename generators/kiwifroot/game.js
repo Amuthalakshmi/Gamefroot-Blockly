@@ -70,3 +70,18 @@ Blockly.Kiwifroot['kiwi_game_stage_get_colour'] = function(block) {
 	var code = '"#" + this.game.stage.color';
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
+Blockly.Kiwifroot['kiwi_game_get_time'] = function(block) {
+
+  	var dropdown_method = block.getFieldValue('METHOD');
+
+	var code = 'this.game.time.' + dropdown_method;
+
+  	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_game_time_method'] = function(block) {
+  var dropdown_method = block.getFieldValue('METHOD');
+  var code = 'this.game.time.' + dropdown_method + '();\n';
+  return code;
+};

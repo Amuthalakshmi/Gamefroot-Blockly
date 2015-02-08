@@ -1220,6 +1220,18 @@ Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_MESSAGE = 'stage colour';
 Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_TOOLTIP = 'Gets the colour of the game background.';
 /// url - Information on the get stage colour block
 Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_HELPURL = '';
+///
+Blockly.Msg.KF_GAME_GET_TIME_HELPURL = '';
+///
+Blockly.Msg.KF_GAME_GET_TIME_MESSAGE = 'time';
+///
+Blockly.Msg.KF_GAME_GET_TIME_TOOLTIP = 'Returns the associate time method associated.';
+///
+Blockly.Msg.KF_GAME_TIME_METHOD_HELPURL = '';
+///
+Blockly.Msg.KF_GAME_TIME_METHOD_MESSAGE = 'time';
+///
+Blockly.Msg.KF_GAME_TIME_METHOD_TOOLTIP = 'Pauses or resumes the clock, thus pausing/resume gameplay.';
 
 /// Label for the kiwifroot self block
 Blockly.Msg.KF_INSTANCE_SELF_MESSAGE = 'myself';
