@@ -29,10 +29,10 @@ goog.provide('Blockly');
 
 // Blockly core dependencies.
 goog.require('Blockly.BlockSvg');
-goog.require('Blockly.Connection');
 goog.require('Blockly.FieldAngle');
 goog.require('Blockly.FieldCheckbox');
 goog.require('Blockly.FieldColour');
+goog.require('Blockly.FieldDate');
 goog.require('Blockly.FieldDropdown');
 goog.require('Blockly.FieldImage');
 goog.require('Blockly.FieldTextInput');
@@ -49,11 +49,6 @@ goog.require('Blockly.utils');
 
 // Closure dependencies.
 goog.require('goog.color');
-goog.require('goog.dom');
-goog.require('goog.events');
-goog.require('goog.string');
-goog.require('goog.ui.ColorPicker');
-goog.require('goog.ui.tree.TreeControl');
 goog.require('goog.userAgent');
 
 
