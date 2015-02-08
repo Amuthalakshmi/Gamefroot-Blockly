@@ -54,7 +54,7 @@ Blockly.Blocks['variables_get'] = {
 
     var name = this.getFieldValue('VAR');
     var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
-    if (type) this.changeType(name,type);
+    if (type) this.setType(type);
   },
   /**
    * Return all variables referenced by this block.
@@ -84,15 +84,24 @@ Blockly.Blocks['variables_get'] = {
    * @this Blockly.Block
    */
   changeType: function(name, type) {
+    console.log('Change type?')
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      // TODO unplug ONLY if the connection doesn't support our new type
-      var oldType = this.getFieldValue('TYPE');
-      if (oldType != type) {
-        this.unplug();
-      }
-      this.setFieldValue(type, 'TYPE');
-      this.changeOutput(type);
+      this.setType(type);
+      console.log('Changing type of getter',name,type);
     }
+  },
+  /**
+   * Changes the type of this block
+   * @param {string} type The new type for the block
+   */
+  setType: function(type) {
+    // TODO unplug ONLY if the connection doesn't support our new type
+    var oldType = this.getFieldValue('TYPE');
+    if (oldType != type) {
+      this.unplug();
+    }
+    this.setFieldValue(type, 'TYPE');
+    this.changeOutput(type);
   },
   /**
    * Notification that a variable is renaming.
@@ -124,12 +133,23 @@ Blockly.Blocks['variables_get'] = {
   },
   /**
    * The function called when the type dropdown is changed
+   * @param {string} type The type that the dropdown changed to
    */
   typeChangedHandler: function(type){
     var self = this.sourceBlock_;
     var name = self.getFieldValue('VAR');
-    Blockly.Variables.changeType(name,type,Blockly.mainWorkspace);
-  }
+    console.log('Type changed handler');
+    Blockly.Variables.changeType(name, type, Blockly.mainWorkspace);
+  },
+  /**
+   * The function called when the name dropdown is changed
+   * @param {string} text The name that the dropdown changed to
+   */
+  nameChangedHandler: function(newName){
+    var self = this.sourceBlock_;
+    var type = Blockly.Variables.typeOf(newName, Blockly.mainWorkspace);
+    if (type) self.setType(type);
+  },
 };
 
 Blockly.Blocks['variables_set'] = {
@@ -146,7 +166,8 @@ Blockly.Blocks['variables_set'] = {
         Blockly.Msg.VARIABLES_SET_TAIL + ' %3',
         ['TYPE', new Blockly.FieldDropdown(Blockly.Variables.allTypes(),
           this.typeChangedHandler)],
-        ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM)],
+        ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM,
+          this.nameChangedHandler)],
         ['VALUE', null, Blockly.ALIGN_RIGHT],
         Blockly.ALIGN_RIGHT);
     this.setPreviousStatement(true);
@@ -157,7 +178,7 @@ Blockly.Blocks['variables_set'] = {
 
     var name = this.getFieldValue('VAR');
     var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
-    if (type) this.changeType(name,type);
+    if (type) this.setType(type);
   },
   /**
    * Return all variables referenced by this block.
@@ -174,11 +195,18 @@ Blockly.Blocks['variables_set'] = {
    * @param {string} type The new type of the variable
    * @this Blockly.Block
    */
-  changeType: function(name, type) {
+  /*changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      this.setFieldValue(type, 'TYPE');
-      this.getInput('VALUE').setCheck(type);
+      this.setType(type);
     }
+  },*/
+  /**
+   * Changes the type of this block
+   * @param {string} type The new type for the block
+   */
+  setType: function(type) {
+    this.setFieldValue(type, 'TYPE');
+    this.getInput('VALUE').setCheck(type);
   },
   /**
    * Notification that a variable is renaming.
@@ -193,6 +221,8 @@ Blockly.Blocks['variables_set'] = {
     }
   },
   typeOf: Blockly.Blocks['variables_get'].typeOf,
+  changeType: Blockly.Blocks['variables_get'].changeType,
   customContextMenu: Blockly.Blocks['variables_get'].customContextMenu,
-  typeChangedHandler: Blockly.Blocks['variables_get'].typeChangedHandler
+  typeChangedHandler: Blockly.Blocks['variables_get'].typeChangedHandler,
+  nameChangedHandler: Blockly.Blocks['variables_get'].nameChangedHandler
 };
