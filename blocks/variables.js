@@ -87,10 +87,8 @@ Blockly.Blocks['variables_get'] = {
    * @this Blockly.Block
    */
   changeType: function(name, type) {
-    console.log('Change type?')
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
       this.setType(type);
-      console.log('Changing type of getter',name,type);
     }
   },
   /**
@@ -98,9 +96,8 @@ Blockly.Blocks['variables_get'] = {
    * @param {string} type The new type for the block
    */
   setType: function(type) {
-    // TODO unplug ONLY if the connection doesn't support our new type
-    var oldType = this.getFieldValue('TYPE');
-    if (oldType != type) {
+    var targetConnection = this.outputConnection.targetConnection;
+    if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
     }
     this.setFieldValue(type, 'TYPE');
@@ -141,7 +138,6 @@ Blockly.Blocks['variables_get'] = {
   typeChangedHandler: function(type){
     var self = this.sourceBlock_;
     var name = self.getFieldValue('VAR');
-    console.log('Type changed handler');
     Blockly.Variables.changeType(name, type, Blockly.mainWorkspace);
   },
   /**

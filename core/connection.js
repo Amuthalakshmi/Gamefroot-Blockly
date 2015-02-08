@@ -518,6 +518,21 @@ Blockly.Connection.prototype.closest = function(maxLimit, dx, dy) {
 };
 
 /**
+ * Returns whether or not the connection accepts the given type
+ * @param {string} type The type to check the connection for
+ * @return {boolean}
+ */
+Blockly.Connection.prototype.acceptsType = function(type){
+  // If it accepts anything
+  if (!this.check_) return true;
+  // If it contains the type
+  if (this.check_.indexOf(type) != -1) {
+    return true;
+  }
+  return false;
+};
+
+/**
  * Is this connection compatible with another connection with respect to the
  * value type system.  E.g. square_root("Hello") is not compatible.
  * @param {!Blockly.Connection} otherConnection Connection to compare against.
