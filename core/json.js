@@ -250,6 +250,7 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
   } catch (e){
    return;
   }
+  
   if (block.initSvg) {
     block.initSvg();
   }

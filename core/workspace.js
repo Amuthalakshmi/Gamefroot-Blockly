@@ -26,6 +26,9 @@
 
 goog.provide('Blockly.Workspace');
 
+goog.require('goog.math');
+
+
 /**
  * Class for a workspace.  This is a data structure that contains blocks.
  * There is no UI, and can be created headlessly.

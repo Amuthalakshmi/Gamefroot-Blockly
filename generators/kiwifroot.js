@@ -40,7 +40,6 @@ goog.require('Blockly.JavaScript.variables');
 Blockly.Kiwifroot = Blockly.JavaScript;
 
 /**
-
  * The indent symbol used in code generation - we use tabs
  * @type {string}
  */

@@ -29,6 +29,7 @@ goog.provide('Blockly.Variables');
 // TODO(scr): Fix circular dependencies
 // goog.require('Blockly.Block');
 goog.require('Blockly.Workspace');
+goog.require('goog.string');
 
 
 /**
@@ -119,10 +120,11 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
     setBlock && setBlock.initSvg();
     if (variableList[i] === null) {
       defaultVariable = (getBlock || setBlock).getVars()[0];
-    } else {
+    }
+    else {
       getBlock && getBlock.setFieldValue(variableList[i], 'VAR');
       setBlock && setBlock.setFieldValue(variableList[i], 'VAR');
-    }
+    }    
     setBlock && blocks.push(setBlock);
     getBlock && blocks.push(getBlock);
     if (getBlock && setBlock) {

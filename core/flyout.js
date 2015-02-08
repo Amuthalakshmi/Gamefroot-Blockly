@@ -29,6 +29,8 @@ goog.provide('Blockly.Flyout');
 goog.require('Blockly.Block');
 goog.require('Blockly.Comment');
 goog.require('Blockly.WorkspaceSvg');
+goog.require('goog.dom');
+goog.require('goog.events');
 goog.require('goog.math.Rect');
 goog.require('goog.userAgent');
 
@@ -102,6 +104,13 @@ Blockly.Flyout.prototype.CORNER_RADIUS = 0;
  * @const
  */
 Blockly.Flyout.prototype.MARGIN = 8;
+
+/*
+ * The gap between blocks and the edges of the flyout / each other
+ * @type {number}
+ * @const
+ */
+Blockly.Flyout.prototype.GAP = 8;
 
 /**
  * Creates the flyout's DOM.  Only needs to be called once.
@@ -351,7 +360,7 @@ Blockly.Flyout.prototype.show = function(xmlList) {
   }
   this.buttons_.length = 0;
 
-  var margin = this.MARGIN;
+  var margin = this.GAP;
   this.svgGroup_.style.display = 'block';
 
   // Create the blocks to be shown in this flyout.
@@ -453,7 +462,7 @@ Blockly.Flyout.prototype.show = function(xmlList) {
  */
 Blockly.Flyout.prototype.reflow = function() {
   var flyoutWidth = 0;
-  var margin = this.CORNER_RADIUS;
+  var margin = this.GAP;
   var blocks = this.workspace_.getTopBlocks(false);
   for (var x = 0, block; block = blocks[x]; x++) {
     var root = block.getSvgRoot();
