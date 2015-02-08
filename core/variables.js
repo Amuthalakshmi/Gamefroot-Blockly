@@ -126,7 +126,7 @@ Blockly.Variables.allVariables = function(root) {
  * Sets the type of a variable with the given name
  * @param {string} name The variable name
  * @param {string} type The type to change to
- * @param {!Blockly.Workspace} workspace Workspace rename variables in.
+ * @param {!Blockly.Workspace} workspace Workspace edit variables in.
  */
 Blockly.Variables.changeType = function(name, type, workspace){
   var blocks = workspace.getAllBlocks();
@@ -135,6 +135,23 @@ Blockly.Variables.changeType = function(name, type, workspace){
     var func = blocks[x].changeType;
     if (func) {
       func.call(blocks[x], name, type);
+    }
+  }
+};
+
+/**
+ * Gets the type of a variable with the given name
+ * @param {string} name The name of the variable to test
+ * @param {!Blockly.Workspace} workspace Workspace query variables in.
+ */
+Blockly.Variables.typeOf = function(name, workspace){
+  var blocks = workspace.getAllBlocks();
+  // Iterate through every block.
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].typeOf;
+    if (func) {
+      var type =  func.call(blocks[x], name);
+      if (type) return type;
     }
   }
 };

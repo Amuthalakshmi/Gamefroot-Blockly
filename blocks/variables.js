@@ -51,6 +51,10 @@ Blockly.Blocks['variables_get'] = {
     this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
     this.contextMenuType_ = 'variables_set';
+
+    var name = this.getFieldValue('VAR');
+    var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
+    if (type) this.changeType(name,type);
   },
   /**
    * Return all variables referenced by this block.
@@ -59,6 +63,18 @@ Blockly.Blocks['variables_get'] = {
    */
   getVars: function() {
     return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Notification that a variable is requesting it's type
+   * @param {string} name The name of the variable query
+   * @return {string} The type of the variable with the given name
+   * (or undefined if this block isn't for that variable)
+   */
+  typeOf: function(name){
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return this.getFieldValue('TYPE');
+    }
+    else return undefined;
   },
   /**
    * Notification that a variable changed type
@@ -138,6 +154,10 @@ Blockly.Blocks['variables_set'] = {
     this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
     this.contextMenuType_ = 'variables_get';
+
+    var name = this.getFieldValue('VAR');
+    var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
+    if (type) this.changeType(name,type);
   },
   /**
    * Return all variables referenced by this block.
@@ -172,6 +192,7 @@ Blockly.Blocks['variables_set'] = {
       this.setFieldValue(newName, 'VAR');
     }
   },
+  typeOf: Blockly.Blocks['variables_get'].typeOf,
   customContextMenu: Blockly.Blocks['variables_get'].customContextMenu,
   typeChangedHandler: Blockly.Blocks['variables_get'].typeChangedHandler
 };
