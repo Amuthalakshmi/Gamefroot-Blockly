@@ -29,6 +29,7 @@
 goog.provide('Blockly.Field');
 
 goog.require('goog.asserts');
+goog.require('goog.dom');
 goog.require('goog.math.Size');
 goog.require('goog.userAgent');
 
@@ -187,7 +188,7 @@ Blockly.Field.prototype.render_ = function() {
   if (this.visible_ && this.textElement_) {
     try {
       var width = this.textElement_.getComputedTextLength();
-    } catch(e) {
+    } catch (e) {
       // MSIE 11 is known to throw "Unexpected call to method or property
       // access." if Blockly is hidden.
       var width = this.textElement_.textContent.length * 8;
@@ -294,8 +295,9 @@ Blockly.Field.prototype.setValue = function(text) {
  */
 Blockly.Field.prototype.onMouseUp_ = function(e) {
   if ((goog.userAgent.IPHONE || goog.userAgent.IPAD) &&
+      !goog.userAgent.isVersionOrHigher('537.51.2') &&
       e.layerX !== 0 && e.layerY !== 0) {
-    // iOS spawns a bogus event on the next touch after a 'prompt()' edit.
+    // Old iOS spawns a bogus event on the next touch after a 'prompt()' edit.
     // Unlike the real events, these have a layerX and layerY set.
     return;
   } else if (Blockly.isRightButton(e)) {
