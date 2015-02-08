@@ -81,8 +81,7 @@ Blockly.Variables.allTypes = function(){
     [Blockly.Msg.VARIABLES_TYPE_ARRAY,
       Blockly.Variables.TYPE_ARRAY]
   ];
-}
-
+};
 
 /**
  * Find all user-created variables.
@@ -121,6 +120,23 @@ Blockly.Variables.allVariables = function(root) {
     variableList.push(variableHash[name]);
   }
   return variableList;
+};
+
+/**
+ * Sets the type of a variable with the given name
+ * @param {string} name The variable name
+ * @param {string} type The type to change to
+ * @param {!Blockly.Workspace} workspace Workspace rename variables in.
+ */
+Blockly.Variables.changeType = function(name, type, workspace){
+  var blocks = workspace.getAllBlocks();
+  // Iterate through every block.
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].changeType;
+    if (func) {
+      func.call(blocks[x], name, type);
+    }
+  }
 };
 
 /**
