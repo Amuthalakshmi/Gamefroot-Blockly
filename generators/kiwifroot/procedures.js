@@ -32,55 +32,60 @@ goog.require('Blockly.Kiwifroot');
 Blockly.Kiwifroot['procedures_defreturn'] = function(block) {
   // Define a procedure with a return value.
   var funcName = Blockly.Kiwifroot.variableDB_.getName(
-      block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+	  block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
 
   var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
 
   if (Blockly.Kiwifroot.STATEMENT_PREFIX) {
-    branch = Blockly.Kiwifroot.prefixLines(
-        Blockly.Kiwifroot.STATEMENT_PREFIX.replace(/%1/g,
-        '\'' + block.id + '\''), Blockly.Kiwifroot.INDENT) + branch;
+	branch = Blockly.Kiwifroot.prefixLines(
+		Blockly.Kiwifroot.STATEMENT_PREFIX.replace(/%1/g,
+		'\'' + block.id + '\''), Blockly.Kiwifroot.INDENT) + branch;
   }
 
   if (Blockly.Kiwifroot.INFINITE_LOOP_TRAP) {
-    branch = Blockly.Kiwifroot.INFINITE_LOOP_TRAP.replace(/%1/g,
-        '\'' + block.id + '\'') + branch;
+	branch = Blockly.Kiwifroot.INFINITE_LOOP_TRAP.replace(/%1/g,
+		'\'' + block.id + '\'') + branch;
   }
 
   var returnValue = Blockly.Kiwifroot.valueToCode(block, 'RETURN',
-      Blockly.Kiwifroot.ORDER_NONE) || '';
+	  Blockly.Kiwifroot.ORDER_NONE) || '';
 
   if (returnValue) {
-    returnValue = '  return ' + returnValue + ';\n';
+	returnValue = '  return ' + returnValue + ';\n';
   }
 
   var args = [];
   for (var x = 0; x < block.arguments_.length; x++) {
-    args[x] = Blockly.Kiwifroot.variableDB_.getName(block.arguments_[x],
-        Blockly.Variables.NAME_TYPE);
+	args[x] = Blockly.Kiwifroot.variableDB_.getName(block.arguments_[x],
+		Blockly.Variables.NAME_TYPE);
   }
 
-  var code = funcName + ' = function(' + args.join(', ') + ') {\n' +
-      branch + returnValue + '}';
+  	var code  = funcName + ' = function(' + args.join(', ') + ') {\n';
+  		
+  		for( var i = 0; i < args.length; i++ ){
+  			code += '\tthis.' + args[ i ] + ' = ' + args[ i ] + ';\n';
+  		}
+		
+		code += branch + returnValue + '}';
 
-  code = Blockly.Kiwifroot.scrub_(block, code);
-  Blockly.Kiwifroot.definitions_[funcName] = code;
-  return null;
+  	code = Blockly.Kiwifroot.scrub_(block, code);
+  	Blockly.Kiwifroot.definitions_[funcName] = code;
+  	return null;
 };
 
 // Defining a procedure without a return value uses the same generator as
 // a procedure with a return value.
 Blockly.Kiwifroot['procedures_defnoreturn'] =
-    Blockly.Kiwifroot['procedures_defreturn'];
+	Blockly.Kiwifroot['procedures_defreturn'];
 
 Blockly.Kiwifroot['procedures_callreturn'] = function(block) {
   // Call a procedure with a return value.
   var funcName = Blockly.Kiwifroot.variableDB_.getName(
-      block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+	  block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
   var args = [];
   for (var x = 0; x < block.arguments_.length; x++) {
-    args[x] = Blockly.Kiwifroot.valueToCode(block, 'ARG' + x,
-        Blockly.Kiwifroot.ORDER_COMMA) || 'null';
+	args[x] = Blockly.Kiwifroot.valueToCode(block, 'ARG' + x,
+		Blockly.Kiwifroot.ORDER_COMMA) || 'null';
   }
   var code = 'this.' + funcName + '(' + args.join(', ') + ')';
   return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
@@ -89,11 +94,11 @@ Blockly.Kiwifroot['procedures_callreturn'] = function(block) {
 Blockly.Kiwifroot['procedures_callnoreturn'] = function(block) {
   // Call a procedure with no return value.
   var funcName = Blockly.Kiwifroot.variableDB_.getName(
-      block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+	  block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
   var args = [];
   for (var x = 0; x < block.arguments_.length; x++) {
-    args[x] = Blockly.Kiwifroot.valueToCode(block, 'ARG' + x,
-        Blockly.Kiwifroot.ORDER_COMMA) || 'null';
+	args[x] = Blockly.Kiwifroot.valueToCode(block, 'ARG' + x,
+		Blockly.Kiwifroot.ORDER_COMMA) || 'null';
   }
   var code = 'this.' + funcName + '(' + args.join(', ') + ');\n';
   return code;
@@ -102,14 +107,14 @@ Blockly.Kiwifroot['procedures_callnoreturn'] = function(block) {
 Blockly.Kiwifroot['procedures_ifreturn'] = function(block) {
   // Conditionally return value from a procedure.
   var condition = Blockly.Kiwifroot.valueToCode(block, 'CONDITION',
-      Blockly.Kiwifroot.ORDER_NONE) || 'false';
+	  Blockly.Kiwifroot.ORDER_NONE) || 'false';
   var code = 'if (' + condition + ') {\n';
   if (block.hasReturnValue_) {
-    var value = Blockly.Kiwifroot.valueToCode(block, 'VALUE',
-        Blockly.Kiwifroot.ORDER_NONE) || 'null';
-    code += '  return ' + value + ';\n';
+	var value = Blockly.Kiwifroot.valueToCode(block, 'VALUE',
+		Blockly.Kiwifroot.ORDER_NONE) || 'null';
+	code += '  return ' + value + ';\n';
   } else {
-    code += '  return;\n';
+	code += '  return;\n';
   }
   code += '}\n';
   return code;

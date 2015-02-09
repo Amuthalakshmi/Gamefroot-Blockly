@@ -422,7 +422,7 @@ Blockly.Kiwifroot['kiwi_math_instance'] = function(block) {
   var code = value_inst_one + '.transform.getPositionPoint().' + dropdown_method + '( '+ value_inst_two + '.transform.getPositionPoint() )';
 
   if( dropdown_method == 'angleTo' ) {
-    code += ' * Kiwi.Utils.GameMath.RAD_TO_DEG';
+    code = '(' + code + ' * Kiwi.Utils.GameMath.RAD_TO_DEG )';
   }
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
@@ -438,8 +438,17 @@ Blockly.Kiwifroot['kiwi_math_instance_to_xy'] = function(block) {
   var code = value_inst_one + '.transform.getPositionPoint().' + dropdown_method + '( '+ value_x_loc + ', ' + value_y_loc + ' )';
 
   if( dropdown_method == 'angleToXY' ) {
-    code += ' * Kiwi.Utils.GameMath.RAD_TO_DEG';
+    code = '(' + code + ' * Kiwi.Utils.GameMath.RAD_TO_DEG)';
   }
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_math_utils'] = function(block) {
+  var value_input = Blockly.Kiwifroot.valueToCode(block, 'INPUT', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var dropdown_method = block.getFieldValue('METHOD');
+
+  var code = 'Kiwi.Utils.GameMath.' + dropdown_method + '( ' + value_input + ', false )';
+
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };

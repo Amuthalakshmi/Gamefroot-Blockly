@@ -114,13 +114,14 @@ Blockly.Blocks['kiwi_game_stage_get_colour'] = {
 Blockly.Blocks['kiwi_game_get_time'] = {
   init: function() {
 
-    var dropdowns = [["elapsed", "clock.elapsed()"], ["delta", "delta"], ["rate", "clock.rate"]];
-
     this.setHelpUrl( Blockly.Msg.KF_GAME_GET_TIME_HELPURL );
     this.setColour( Blockly.Blocks.math.HUE );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_GAME_GET_TIME_MESSAGE )
-        .appendField(new Blockly.FieldDropdown( dropdowns ), "METHOD");
+        .appendField(new Blockly.FieldDropdown( [
+    ["elapsed", "clock.elapsed()"], 
+    ["delta", "delta()"], 
+    ["rate", "clock.rate"]] ), "METHOD");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
     this.setTooltip( Blockly.Msg.KF_GAME_GET_TIME_TOOLTIP );
@@ -130,12 +131,10 @@ Blockly.Blocks['kiwi_game_get_time'] = {
 Blockly.Blocks['kiwi_game_time_method'] = {
   init: function() {
 
-    var dropdowns = [["pause", "clock.pause"], ["resume", "clock.resume"]];
-
     this.setHelpUrl( Blockly.Msg.KF_GAME_TIME_METHOD_HELPURL );
     this.setColour( Blockly.Blocks.Kiwifroot.game.HUE );
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown( dropdowns ), "METHOD")
+        .appendField(new Blockly.FieldDropdown( [["pause", "clock.pause"], ["resume", "clock.resume"]] ), "METHOD")
         .appendField( Blockly.Msg.KF_GAME_TIME_METHOD_MESSAGE );
     this.setInputsInline(true);
     this.setPreviousStatement(true);

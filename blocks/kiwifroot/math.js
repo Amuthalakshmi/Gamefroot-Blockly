@@ -70,3 +70,16 @@ Blockly.Blocks['kiwi_math_instance_to_xy'] = {
     this.setTooltip( Blockly.Msg.KF_MATH_INSTANCE_TO_XY_TOOLTIP );
   }
 };
+
+Blockly.Blocks['kiwi_math_utils'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_MATH_UTILS_HELPURL );
+    this.setColour( Blockly.Blocks.math.HUE );
+    this.appendValueInput("INPUT")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldDropdown([["normalize angle", "normalizeAngle"], ["radians to degrees ", "radiansToDegrees "], ["degrees to radians ", "degreesToRadians "]]), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_MATH_UTILS_TOOLTIP );
+  }
+};

@@ -49,7 +49,7 @@ Blockly.Kiwifroot['kiwi_instance_set'] = function(block) {
   var code = inst + '.' + prop + ' = ' + val;
 
   if( prop === 'rotation' ) {
-    code += ' * Kiwi.Utils.GameMath.DEG_TO_RAD';
+    code = inst + '.' + prop + ' = (' + val + ' * Kiwi.Utils.GameMath.DEG_TO_RAD)';
   }
 
   code += ';\n';
@@ -63,7 +63,7 @@ Blockly.Kiwifroot['kiwi_instance_get'] = function(block) {
 	var code = inst + '.' + prop;
 
   if( prop === 'rotation' ) {
-    code += ' * Kiwi.Utils.GameMath.RAD_TO_DEG';
+    code = '(' + inst + '.' + prop + ' * Kiwi.Utils.GameMath.RAD_TO_DEG)';
   }
 
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
