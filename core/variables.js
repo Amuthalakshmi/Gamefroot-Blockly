@@ -73,6 +73,17 @@ Blockly.Variables.TYPE_INSTANCE = 'Instance';
 Blockly.Variables.NAME_TYPE = 'VARIABLE';
 
 /**
+ * The hue that corresponds to each variable type
+ */
+Blockly.Variables.HUE_FOR_TYPE = {};
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN] = 210;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_NUMBER] = 230;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_STRING] = 160;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_COLOUR] = 20;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_ARRAY] = 260;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = 0;
+
+/**
  * A Complete list of all variables types available.
  * Contains a tuple of both the variables display name and
  * it's definition name.

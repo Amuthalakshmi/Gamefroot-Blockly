@@ -38,7 +38,7 @@ Blockly.Blocks['variables_get'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
-    this.setColour(Blockly.Blocks.variables.HUE);
+    this.setColour(Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN]);
     this.appendDummyInput()
         .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
         .appendField(new Blockly.FieldDropdown(
@@ -102,6 +102,7 @@ Blockly.Blocks['variables_get'] = {
     }
     this.setFieldValue(type, 'TYPE');
     this.changeOutput(type);
+    this.setColour(Blockly.Variables.HUE_FOR_TYPE[type]);
   },
   /**
    * Notification that a variable is renaming.
