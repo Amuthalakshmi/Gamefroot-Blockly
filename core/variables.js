@@ -32,6 +32,11 @@ goog.require('Blockly.Workspace');
 goog.require('goog.string');
 
 /**
+ * The definition name of the any type
+ * @const
+ */
+Blockly.Variables.TYPE_ANY = '';
+/**
  * The definition name of the boolean type
  * @const
  */
@@ -70,6 +75,8 @@ Blockly.Variables.NAME_TYPE = 'VARIABLE';
  */
 Blockly.Variables.allTypes = function(){
   return [
+    [Blockly.Msg.VARIABLES_TYPE_ANY,
+      Blockly.Variables.TYPE_ANY],
     [Blockly.Msg.VARIABLES_TYPE_BOOLEAN,
       Blockly.Variables.TYPE_BOOLEAN],
     [Blockly.Msg.VARIABLES_TYPE_NUMBER,
@@ -118,6 +125,49 @@ Blockly.Variables.allVariables = function(root) {
   var variableList = [];
   for (var name in variableHash) {
     variableList.push(variableHash[name]);
+  }
+  return variableList;
+};
+
+/**
+ * Finds all user-created variables and their types. 
+ * @param {!Blockly.Block|!Blockly.Workspace} root Root block or workspace.
+ * @return {!Array<!Array<string>>}
+ */
+Blockly.Variables.allVariablesAndTypes = function(root){
+  var blocks, workspace;
+  if (root.getDescendants) {
+    // Root is Block.
+    blocks = root.getDescendants();
+    workspace = root.workspace;
+  } else if (root.getAllBlocks) {
+    // Root is Workspace.
+    blocks = root.getAllBlocks();
+    workspace = root;
+  } else {
+    throw 'Not Block or Workspace: ' + root;
+  }
+  var variableHash = Object.create(null);
+  // Iterate through every block and add each variable to the hash.
+  for (var x = 0; x < blocks.length; x++) {
+    var func = blocks[x].getVars;
+    if (func) {
+      var blockVariables = func.call(blocks[x]);
+      for (var y = 0; y < blockVariables.length; y++) {
+        var varName = blockVariables[y];
+        // Variable name may be null if the block is only half-built.
+        if (varName) {
+          variableHash[varName.toLowerCase()] = varName;
+        }
+      }
+    }
+  }
+  // Flatten the hash into a list.
+  var variableList = [];
+  for (var name in variableHash) {
+    var type = Blockly.Variables.typeOf(name,workspace)
+      || Blockly.Variables.TYPE_ANY;
+    variableList.push([variableHash[name], type]);
   }
   return variableList;
 };

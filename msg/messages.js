@@ -1000,6 +1000,8 @@ Blockly.Msg.LISTS_SPLIT_TOOLTIP_JOIN = 'Join a list of texts into one text, sepa
 Blockly.Msg.ORDINAL_NUMBER_SUFFIX = '';
 
 // Variables Blocks.
+/// The display name of the any variable type
+Blockly.Msg.VARIABLES_TYPE_ANY = 'any';
 /// The display name of the true/false variable type
 Blockly.Msg.VARIABLES_TYPE_BOOLEAN = 'true/false';
 /// The display name of the number variable type
