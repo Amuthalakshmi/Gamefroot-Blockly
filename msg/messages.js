@@ -1576,3 +1576,16 @@ Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_MESSAGE_BEFORE = 'set';
 Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_MESSAGE_AFTER = 'side collisions to';
 ///
 Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_TOOLTIP = 'Sets the sides of this gameobject that can collide with other gameobjects.';
+
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_MESSAGE = 'set gravity';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_TOOLTIP = 'Sets the global gravity property to a value passed.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_MESSAGE = 'gravity';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_TOOLTIP = 'Returns the selected gravity value.';

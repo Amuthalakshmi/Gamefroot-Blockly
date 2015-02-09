@@ -162,3 +162,35 @@ Blockly.Blocks['kiwi_arcadephysics_set_collisions'] = {
     this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_TOOLTIP );
   }
 };
+
+
+Blockly.Blocks['kiwi_arcadephysics_set_gravity'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_HELPURL );
+    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.appendValueInput("VALUE")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_MESSAGE )
+        .appendField(new Blockly.FieldDropdown([
+            ["x", "x"], 
+            ["y", "y"]
+        ]), "PROP");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_arcadephysics_get_gravity'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_HELPURL );
+    this.setColour( Blockly.Variables.HUE_NUMBER );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_MESSAGE )
+        .appendField(new Blockly.FieldDropdown([["x", "x"], ["y", "y"]]), "PROP");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_TOOLTIP );
+  }
+};
