@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-09 21:33:42.663620",
+		"lastupdated": "2015-02-10 09:43:46.048570",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -338,6 +338,7 @@
 	"VARIABLES_TYPE_STRING": "text",
 	"VARIABLES_TYPE_COLOUR": "colour",
 	"VARIABLES_TYPE_ARRAY": "list",
+	"VARIABLES_TYPE_INSTANCE": "instance",
 	"VARIABLES_GET_HELPURL": "https://github.com/google/blockly/wiki/Variables#get",
 	"VARIABLES_GET_TITLE": "",
 	"VARIABLES_GET_TAIL": "",
@@ -398,7 +399,7 @@
 	"KF_EVENT_KEY_RELEASE_MESSAGE": "When the player releases",
 	"KF_EVENT_KEY_RELEASE_HELPURL": "",
 	"KF_EVENT_TIME_HELPURL": "",
-	"KF_EVENT_TIME_MESSAGE_AFTER": "of millisecond has passed",
+	"KF_EVENT_TIME_MESSAGE_AFTER": "milliseconds",
 	"KF_EVENT_TIME_TOOLTIP": "Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.",
 	"KF_EVENT_REMOVE_HELPURL": "",
 	"KF_EVENT_REMOVE_TOOLTIP": "The event is triggered when this gameobject is destroyed.",
@@ -502,13 +503,13 @@
 	"KF_ANIMATION_FRAME_MESSAGE_AFTER": "animation frame",
 	"KF_ANIMATION_FRAME_HELPURL": "",
 	"KF_ANIMATION_FRAME_TOOLTIP": "Goes to the selected frame in the current animation. If at the end of an animation it will go to the first frame, or the start if at the end.",
-	"KF_ANIMATION_CURRENT_MESSAGE": "get current animation",
+	"KF_ANIMATION_CURRENT_MESSAGE": "current animation",
 	"KF_ANIMATION_CURRENT_HELPURL": "",
 	"KF_ANIMATION_CURRENT_TOOLTIP": "Returns the current animation that is playing on this game object.",
-	"KF_ANIMATION_NUMBERS_MESSAGE": "get current animation",
+	"KF_ANIMATION_NUMBERS_MESSAGE": "current animation",
 	"KF_ANIMATION_NUMBERS_HELPURL": "",
 	"KF_ANIMATION_NUMBERS_TOOLTIP": "Returns a number related to the selected field..",
-	"KF_ANIMATION_BOOLEAN_MESSAGE": "if the current animation",
+	"KF_ANIMATION_BOOLEAN_MESSAGE": "current animation",
 	"KF_ANIMATION_BOOLEAN_HELPURL": "",
 	"KF_CAMERA_PAN_TO_MESSAGE": "camera to",
 	"KF_CAMERA_PAN_TO_HELPURL": "",
@@ -550,5 +551,7 @@
 	"KF_CLASSES_CREATE_INSTANCE_HELPURL": "",
 	"KF_CLASSES_CREATE_INSTANCE_MESSAGE_BEFORE": "create new instance of",
 	"KF_CLASSES_CREATE_INSTANCE_MESSAGE_AFTER": "at",
-	"KF_CLASSES_CREATE_INSTANCE_TOOLTIP": "Creates a new instance of a class type at the location specified."
+	"KF_CLASSES_CREATE_INSTANCE_TOOLTIP": "Creates a new instance of a class type at the location specified.",
+	"KF_ARCADEPHYSICS_HELPURL": "",
+	"KF_ARCADEPHYSICS_TOOLTIP": ""
 }
