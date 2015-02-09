@@ -254,31 +254,6 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
   if (block.initSvg) {
     block.initSvg();
   }
-  
-  var inline = jsonBlock[Blockly.Json.fieldLabels.inputInline];
-  if (inline) {
-    block.setInputsInline(true);
-  }
-  var collapsed = jsonBlock[Blockly.Json.fieldLabels.inputCollapsed];
-  if (collapsed) {
-    block.setCollapsed(true);
-  }
-  var disabled = jsonBlock[Blockly.Json.fieldLabels.inputDisabled];
-  if (disabled) {
-    block.setDisabled(true);
-  }
-  var deletable = jsonBlock[Blockly.Json.fieldLabels.inputDeletable];
-  if (deletable) {
-    block.setDeletable(true);
-  }
-  var movable = jsonBlock[Blockly.Json.fieldLabels.inputMovable];
-  if (movable) {
-    block.setMovable(true);
-  }
-  var editable = jsonBlock[Blockly.Json.fieldLabels.inputEditable];
-  if (editable) {
-    block.setEditable(true);
-  }
 
   if (jsonBlock[Blockly.Json.fieldLabels.jsonMutation] && block.objectToMutation) {
    block.objectToMutation(jsonBlock[Blockly.Json.fieldLabels.jsonMutation]);
@@ -350,6 +325,31 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
           }
           block.nextConnection.connect(blockChild.previousConnection);
     }  
+  }
+
+  var inline = jsonBlock[Blockly.Json.fieldLabels.inputInline];
+  if (inline) {
+    block.setInputsInline(true);
+  }
+  var collapsed = jsonBlock[Blockly.Json.fieldLabels.inputCollapsed];
+  if (collapsed) {
+    block.setCollapsed(true);
+  }
+  var disabled = jsonBlock[Blockly.Json.fieldLabels.inputDisabled];
+  if (disabled) {
+    block.setDisabled(true);
+  }
+  var deletable = jsonBlock[Blockly.Json.fieldLabels.inputDeletable];
+  if (deletable) {
+    block.setDeletable(true);
+  }
+  var movable = jsonBlock[Blockly.Json.fieldLabels.inputMovable];
+  if (movable) {
+    block.setMovable(true);
+  }
+  var editable = jsonBlock[Blockly.Json.fieldLabels.inputEditable];
+  if (editable) {
+    block.setEditable(true);
   }
 
   if (workspace.rendered){
