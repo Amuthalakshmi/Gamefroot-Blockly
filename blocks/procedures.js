@@ -376,7 +376,7 @@ Blockly.Blocks['procedures_mutatorcontainer'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Blocks.procedures.HUE);
+    this.setColour(Blockly.Blocks.CALLABLE_HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE);
     this.appendStatementInput('STACK');
@@ -394,7 +394,7 @@ Blockly.Blocks['procedures_mutatorarg'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Blocks.procedures.HUE);
+    this.setColour(Blockly.Blocks.CALLABLE_HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.PROCEDURES_MUTATORARG_TITLE)
         .appendField(new Blockly.FieldTextInput('x', this.validator_), 'NAME');
@@ -425,7 +425,7 @@ Blockly.Blocks['procedures_callnoreturn'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLNORETURN_HELPURL);
-    this.setColour(Blockly.Blocks.procedures.HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.PROCEDURES_CALLNORETURN_CALL)
         .appendField('', 'NAME')
@@ -520,6 +520,9 @@ Blockly.Blocks['procedures_callnoreturn'] = {
       var input = this.appendValueInput('ARG' + i)
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField(this.arguments_[i]);
+      // If we can derive a type from the workspace, set a check for it
+      var type = Blockly.Variables.typeOf(this.arguments_[i], Blockly.mainWorkspace);
+      if (type) input.setCheck(type);
       if (this.quarkArguments_) {
         // Reconnect any child blocks.
         var quarkName = this.quarkArguments_[i];
@@ -607,6 +610,28 @@ Blockly.Blocks['procedures_callnoreturn'] = {
     }
   },
   /**
+   * Notification that a block wants type information
+   * @param {string} name The name of the variable being queried
+   * @this Blockly.Block
+   */
+  typeOf: function(name) {
+    // A function does not need to offer any type information
+  },
+  /**
+   * Notification that a variable is changing type. If it's one
+   * of ours we need to update our inputs
+   * @param {string} name The name of the variable that's changing
+   * @param {string} type The type the variable is changing to
+   * @this Blockly.Block
+   */
+  changeType: function(name, type) {
+     for (var i = 0; i < this.arguments_.length; i++) {
+      if (Blockly.Names.equals(name, this.arguments_[i])) {
+        this.getInput('ARG' + i).setCheck(type);
+      }
+    } 
+  },
+  /**
    * Add menu option to find the definition block for this call.
    * @param {!Array} options List of menu options to add to.
    * @this Blockly.Block
@@ -632,7 +657,7 @@ Blockly.Blocks['procedures_callreturn'] = {
   init: function() {
     // TODO type!
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLRETURN_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_HUE);
+    this.setColour(Blockly.Variables.HUE_ANY);
     this.appendDummyInput()
         .appendField(Blockly.Msg.PROCEDURES_CALLRETURN_CALL)
         .appendField('', 'NAME')
@@ -650,6 +675,8 @@ Blockly.Blocks['procedures_callreturn'] = {
   mutationToDom: Blockly.Blocks['procedures_callnoreturn'].mutationToDom,
   domToMutation: Blockly.Blocks['procedures_callnoreturn'].domToMutation,
   renameVar: Blockly.Blocks['procedures_callnoreturn'].renameVar,
+  typeOf: Blockly.Blocks['procedures_callnoreturn'].typeOf,
+  changeType: Blockly.Blocks['procedures_callnoreturn'].changeType,
   customContextMenu: Blockly.Blocks['procedures_callnoreturn'].customContextMenu
 };
 
