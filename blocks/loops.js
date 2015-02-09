@@ -140,7 +140,7 @@ Blockly.Blocks['controls_for'] = {
     return [this.getFieldValue('VAR')];
   },
   /**
-   * Iterator is always a number type
+   * Iterator is always a number type, return this.
    * @return {string}
    * @this Blockly.Block
    */
@@ -151,7 +151,8 @@ Blockly.Blocks['controls_for'] = {
     else return undefined;
   },
   /**
-   * We can not change type! This is immutable
+   * Notfication that the workspace wants to change this variables type.
+   * We can not change type! This is immutable.
    * @this Blockly.Block
    */
   changeType: function(name, type) {
