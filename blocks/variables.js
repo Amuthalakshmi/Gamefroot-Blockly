@@ -27,7 +27,6 @@
 goog.provide('Blockly.Blocks.variables');
 
 goog.require('Blockly.Blocks');
-goog.require('Blockly.Variables');
 
 Blockly.Blocks.variables.HUE = 330;
 
@@ -149,7 +148,7 @@ Blockly.Blocks['variables_get'] = {
     var self = this.sourceBlock_;
     var type = Blockly.Variables.typeOf(newName, Blockly.mainWorkspace);
     if (type) self.setType(type);
-  },
+  }
 };
 
 Blockly.Blocks['variables_set'] = {
