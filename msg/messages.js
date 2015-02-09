@@ -1539,6 +1539,40 @@ Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP = 'Creates a new instance of a cl
 
 
 ///
-Blockly.Msg.KF_ARCADEPHYSICS_HELPURL = '';
+Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_HELPURL = '';
 ///
-Blockly.Msg.KF_ARCADEPHYSICS_TOOLTIP = '';
+Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_TOOLTIP = 'Returns a value for the selected property.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_TOOLTIP = 'Sets a numeric property selected.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_MESSAGE = 'set';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_MESSAGE = 'set';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_TOOLTIP = 'Sets a boolean property selected.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_TOOLTIP = 'Returns the state of a property selected.';
+
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_MESSAGE_BEFORE = 'on';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_MESSAGE_AFTER = 'side';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_TOOLTIP = 'Returns a Boolean indiciating the state of the selected statement for this gameobject.';
+
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_MESSAGE_BEFORE = 'set';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_MESSAGE_AFTER = 'side collisions to';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_TOOLTIP = 'Sets the sides of this gameobject that can collide with other gameobjects.';

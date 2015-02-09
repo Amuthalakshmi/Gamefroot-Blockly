@@ -24,6 +24,7 @@
 <script src="../generators/kiwifroot/animation.js"></script>
 <script src="../generators/kiwifroot/camera.js"></script>
 <script src="../generators/kiwifroot/intersects.js"></script>
+<script src="../generators/kiwifroot/physics.js"></script>
 <!-- add new kiwifroot generators here -->
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
@@ -44,6 +45,7 @@
 <script src="../blocks/kiwifroot/animation.js"></script>
 <script src="../blocks/kiwifroot/camera.js"></script>
 <script src="../blocks/kiwifroot/intersects.js"></script>
+<script src="../blocks/kiwifroot/physics.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -685,6 +687,26 @@ h1 {
           </value>
           <value name="INST_TWO">
             <block type="kiwi_instance_select"></block>
+          </value>
+        </block>
+      </category>
+      <category name="ArcadePhysics">
+        <block type="kiwi_arcadephysics_get_numeric"></block>
+        <block type="kiwi_arcadephysics_set_numeric">
+          <value name="VALUE">
+            <block type="math_number"></block>
+          </value>
+        </block>
+        <block type="kiwi_arcadephysics_get_boolean"></block>
+        <block type="kiwi_arcadephysics_set_boolean">
+          <value name="VALUE">
+            <block type="logic_boolean"></block>
+          </value>
+        </block>
+        <block type="kiwi_arcadephysics_get_collisions"></block>
+        <block type="kiwi_arcadephysics_set_collisions">
+          <value name="VALUE">
+            <block type="logic_boolean"></block>
           </value>
         </block>
       </category>
