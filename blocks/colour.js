@@ -29,8 +29,6 @@ goog.provide('Blockly.Blocks.colour');
 goog.require('Blockly.Blocks');
 
 
-Blockly.Blocks.colour.HUE = 20;
-
 Blockly.Blocks['colour_picker'] = {
   /**
    * Block for colour picker.
@@ -38,7 +36,7 @@ Blockly.Blocks['colour_picker'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.COLOUR_PICKER_HELPURL);
-    this.setColour(Blockly.Blocks.colour.HUE);
+    this.setColour(Blockly.Variables.HUE_COLOUR);
     this.appendDummyInput()
         .appendField(new Blockly.FieldColour('#ff0000'), 'COLOUR');
     this.setOutput(true, 'Colour');
@@ -53,7 +51,7 @@ Blockly.Blocks['colour_random'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.COLOUR_RANDOM_HELPURL);
-    this.setColour(Blockly.Blocks.colour.HUE);
+    this.setColour(Blockly.Variables.HUE_COLOUR);
     this.appendDummyInput()
         .appendField(Blockly.Msg.COLOUR_RANDOM_TITLE);
     this.setOutput(true, 'Colour');
@@ -68,7 +66,7 @@ Blockly.Blocks['colour_rgb'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.COLOUR_RGB_HELPURL);
-    this.setColour(Blockly.Blocks.colour.HUE);
+    this.setColour(Blockly.Variables.HUE_COLOUR);
     this.appendValueInput('RED')
         .setCheck('Number')
         .setAlign(Blockly.ALIGN_RIGHT)
@@ -94,7 +92,7 @@ Blockly.Blocks['colour_blend'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.COLOUR_BLEND_HELPURL);
-    this.setColour(Blockly.Blocks.colour.HUE);
+    this.setColour(Blockly.Variables.HUE_COLOUR);
     this.appendValueInput('COLOUR1')
         .setCheck('Colour')
         .setAlign(Blockly.ALIGN_RIGHT)

@@ -28,12 +28,11 @@ goog.provide('Blockly.Blocks.Kiwifroot.intersects');
 
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks.Kiwifroot.intersects.HUE = 180;
 
 Blockly.Blocks['kiwi_intersects_instance_to_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_OVERLAPS_HELPURL );
-    this.setColour( Blockly.Blocks.logic.HUE );
+    this.setColour( Blockly.Variables.HUE_BOOLEAN );
     this.appendValueInput("INST_ONE")
         .setCheck("Instance");
     this.appendValueInput("INST_TWO")

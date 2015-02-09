@@ -28,12 +28,11 @@ goog.provide('Blockly.Blocks.Kiwifroot.keys');
 
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks.Kiwifroot.keys.HUE = 300;
 
 Blockly.Blocks['kiwi_key_special'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_KEY_SPECIAL_HELPURL);
-    this.setColour( Blockly.Blocks.Kiwifroot.keys.HUE );
+    this.setColour( Blockly.Variables.HUE_NUMBER );
     this.appendDummyInput()
         .appendField("key:")
         .appendField(new Blockly.FieldDropdown([
@@ -59,7 +58,7 @@ Blockly.Blocks['kiwi_key_special'] = {
 Blockly.Blocks['kiwi_input_mouse'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_INPUT_MOUSE_HELPURL);
-    this.setColour( Blockly.Blocks.Kiwifroot.keys.HUE );
+    this.setColour( Blockly.Variables.HUE_NUMBER );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
             ["x position", "x"]

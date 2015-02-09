@@ -1012,6 +1012,8 @@ Blockly.Msg.VARIABLES_TYPE_STRING = 'text';
 Blockly.Msg.VARIABLES_TYPE_COLOUR = 'colour';
 /// The display name of the array variable type
 Blockly.Msg.VARIABLES_TYPE_ARRAY = 'list';
+/// The display name of the instace variable type
+Blockly.Msg.VARIABLES_TYPE_INSTANCE = 'instance';
 
 /// url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.
 Blockly.Msg.VARIABLES_GET_HELPURL = 'https://github.com/google/blockly/wiki/Variables#get';
@@ -1412,21 +1414,21 @@ Blockly.Msg.KF_ANIMATION_FRAME_HELPURL = '';
 Blockly.Msg.KF_ANIMATION_FRAME_TOOLTIP = 'Goes to the selected frame in the current animation. If at the end of an animation it will go to the first frame, or the start if at the end.';
 
 /// message - 
-Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE = 'get current animation';
+Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP = 'Returns the current animation that is playing on this game object.';
 
 /// message - 
-Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE = 'get current animation';
+Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_NUMBERS_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_ANIMATION_NUMBERS_TOOLTIP = 'Returns a number related to the selected field..';
 
 /// message - 
-Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE = 'if the current animation';
+Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL = '';
 /// tooltip - 

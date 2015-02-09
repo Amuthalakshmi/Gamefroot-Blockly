@@ -28,15 +28,11 @@ goog.provide('Blockly.Blocks.Kiwifroot.game');
 
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks.Kiwifroot.game.HUE = 300;
-
-//Blockly.Blocks.Kiwifroot.level.HUE = 0;
-
 // A list of 'special' levels, 'Current Level', 'Previous Level' etc.
 Blockly.Blocks['kiwi_game_level_special'] = {
     init:function(){
         this.setHelpUrl(Blockly.Msg.KF_GAME_LEVEL_SPECIAL_HELPURL);
-        this.setColour( 0 );
+        this.setColour( Blockly.Variables.HUE_NUMBER );
         this.appendDummyInput()
             .appendField(new Blockly.FieldDropdown([
                     ["next level", 'nextLevel']
@@ -55,7 +51,7 @@ Blockly.Blocks['kiwi_game_level_special'] = {
 Blockly.Blocks['kiwi_game_goto_level_num'] = {
     init:function(){
         this.setHelpUrl(Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_HELPURL);
-        this.setColour( Blockly.Blocks.Kiwifroot.game.HUE );
+        this.setColour( Blockly.Blocks.STATEMENT_HUE );
         this.appendDummyInput()
             .appendField(Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_MESSAGE);
         this.appendValueInput("LEVEL")
@@ -71,7 +67,7 @@ Blockly.Blocks['kiwi_game_goto_level_num'] = {
 Blockly.Blocks['kiwi_game_stage_get_size'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_GAME_STAGE_GET_SIZE_HELPURL);
-    this.setColour( Blockly.Blocks.Kiwifroot.game.HUE );
+    this.setColour( Blockly.Variables.HUE_NUMBER );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
             ["width","width"],
@@ -87,7 +83,7 @@ Blockly.Blocks['kiwi_game_stage_get_size'] = {
 Blockly.Blocks['kiwi_game_stage_set_colour'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_GAME_STAGE_SET_COLOUR_HELPURL);
-    this.setColour( Blockly.Blocks.Kiwifroot.game.HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_HUE );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_GAME_STAGE_SET_COLOUR_MESSAGE);
     this.appendValueInput("VALUE")
@@ -102,7 +98,7 @@ Blockly.Blocks['kiwi_game_stage_set_colour'] = {
 Blockly.Blocks['kiwi_game_stage_get_colour'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_HELPURL);
-    this.setColour( Blockly.Blocks.Kiwifroot.game.HUE );
+    this.setColour( Blockly.Variables.HUE_COLOUR );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_MESSAGE);
     this.setInputsInline(true);
@@ -115,7 +111,7 @@ Blockly.Blocks['kiwi_game_get_time'] = {
   init: function() {
 
     this.setHelpUrl( Blockly.Msg.KF_GAME_GET_TIME_HELPURL );
-    this.setColour( Blockly.Blocks.math.HUE );
+    this.setColour( Blockly.Variables.HUE_NUMBER );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_GAME_GET_TIME_MESSAGE )
         .appendField(new Blockly.FieldDropdown( [
@@ -132,7 +128,7 @@ Blockly.Blocks['kiwi_game_time_method'] = {
   init: function() {
 
     this.setHelpUrl( Blockly.Msg.KF_GAME_TIME_METHOD_HELPURL );
-    this.setColour( Blockly.Blocks.Kiwifroot.game.HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_HUE );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown( [["pause", "clock.pause"], ["resume", "clock.resume"]] ), "METHOD")
         .appendField( Blockly.Msg.KF_GAME_TIME_METHOD_MESSAGE );

@@ -61,11 +61,65 @@ Blockly.Variables.TYPE_COLOUR = 'Colour';
  * @const
  */
 Blockly.Variables.TYPE_ARRAY = 'Array';
+/**
+ * The definition name of the array type
+ * @const
+ */
+Blockly.Variables.TYPE_INSTANCE = 'Instance';
+
+/**
+ * The colour that should be applied to a block that outputs type 'any'
+ * @const
+ */
+Blockly.Variables.HUE_ANY = 100;
+/**
+ * The colour that should be applied to a block that outputs type 'boolean'
+ * @const
+ */
+Blockly.Variables.HUE_BOOLEAN = 210;
+/**
+ * The colour that should be applied to a block that outputs type 'number'
+ * @const
+ */
+Blockly.Variables.HUE_NUMBER = 230;
+/**
+ * The colour that should be applied to a block that outputs type 'string'
+ * @const
+ */
+Blockly.Variables.HUE_STRING = 160;
+/**
+ * The colour that should be applied to a block that outputs type 'colour'
+ * @const
+ */
+Blockly.Variables.HUE_COLOUR = 20;
+/**
+ * The colour that should be applied to a block that outputs type 'array'
+ * @const
+ */
+Blockly.Variables.HUE_ARRAY = 260;
+/**
+ * The colour that should be applied to a block that outputs type 'instance'
+ * @const
+ */
+Blockly.Variables.HUE_INSTANCE = 0;
 
 /**
  * Category to separate variable names from procedures and generated functions.
  */
 Blockly.Variables.NAME_TYPE = 'VARIABLE';
+
+
+
+/**
+ * The hue that corresponds to each variable type
+ */
+Blockly.Variables.HUE_FOR_TYPE = {};
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN] = 210;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_NUMBER] = 230;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_STRING] = 160;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_COLOUR] = 20;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_ARRAY] = 260;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = 0;
 
 /**
  * A Complete list of all variables types available.
@@ -75,8 +129,9 @@ Blockly.Variables.NAME_TYPE = 'VARIABLE';
  */
 Blockly.Variables.allTypes = function(){
   return [
+    /* We don't allow the any type here!
     [Blockly.Msg.VARIABLES_TYPE_ANY,
-      Blockly.Variables.TYPE_ANY],
+      Blockly.Variables.TYPE_ANY],*/
     [Blockly.Msg.VARIABLES_TYPE_BOOLEAN,
       Blockly.Variables.TYPE_BOOLEAN],
     [Blockly.Msg.VARIABLES_TYPE_NUMBER,
@@ -86,7 +141,9 @@ Blockly.Variables.allTypes = function(){
     [Blockly.Msg.VARIABLES_TYPE_COLOUR,
       Blockly.Variables.TYPE_COLOUR],
     [Blockly.Msg.VARIABLES_TYPE_ARRAY,
-      Blockly.Variables.TYPE_ARRAY]
+      Blockly.Variables.TYPE_ARRAY],
+    [Blockly.Msg.VARIABLES_TYPE_INSTANCE,
+      Blockly.Variables.TYPE_INSTANCE]
   ];
 };
 
