@@ -1192,9 +1192,9 @@ Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
 ///
 Blockly.Msg.KF_EVENT_TIME_HELPURL = '';
 ///
-Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'When' ;
+Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'Every' ;
 ///
-Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'of millisecond has passed';
+Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'milliseconds';
 ///
 Blockly.Msg.KF_EVENT_TIME_TOOLTIP = 'Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.';
 
@@ -1534,3 +1534,9 @@ Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_BEFORE = 'create new instance of'
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_AFTER = 'at';
 ///
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP = 'Creates a new instance of a class type at the location specified.';
+
+
+///
+Blockly.Msg.KF_ARCADEPHYSICS_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_TOOLTIP = '';
