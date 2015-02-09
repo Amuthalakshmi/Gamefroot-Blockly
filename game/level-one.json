@@ -31,6 +31,10 @@
 
 			"components": {
 			
+				"arcadephysics": {
+
+				},
+				
 				"animation": {
 
 					"flashing": {
@@ -53,6 +57,7 @@
 					}
 			
 				}
+
 
 			}
 
@@ -91,6 +96,10 @@
 						"speed": 0.1
 					}
 			
+				},
+
+				"arcadephysics": {
+
 				},
 
 				"MyScript": {

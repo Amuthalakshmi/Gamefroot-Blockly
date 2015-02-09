@@ -38,7 +38,7 @@ Blockly.Kiwifroot.camera.addCameraToConstructor_ = function() {
 	constructorCode    += '\t\tKiwi.Log.error("Camera component not found on the state. Camera blocks will not work.", "#camera");\n'
 	constructorCode    += '\t}\n';
 
-	Blockly.Kiwifroot.provideAdditionOnce('cameraConstructor', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	Blockly.Kiwifroot.provideAdditionOnce('cameraConstructor', Blockly.Kiwifroot.BOOT, constructorCode);
 
 };
 

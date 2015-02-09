@@ -33,12 +33,12 @@ Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX  = 'this.arcadephysics';
 
 Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_ = function() {
 
-	var constructorCode = 'this.arcadephysics = this.state.components.getComponent( "ArcadePhysics" );\n\n';
+	var constructorCode = 'this.arcadephysics = this.owner.components.getComponent( "ArcadePhysics" );\n\n';
 	constructorCode    += '\tif( !this.arcadephysics ) {\n';
 	constructorCode    += '\t\tKiwi.Log.error("ArcadePhysics component not found on the state. ArcadePhysics blocks will not work.", "#arcadephysics");\n'
 	constructorCode    += '\t}\n';
 
-	Blockly.Kiwifroot.provideAdditionOnce('arcadePhysicsConstructor', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	Blockly.Kiwifroot.provideAdditionOnce('arcadePhysicsConstructor', Blockly.Kiwifroot.BOOT, constructorCode);
 
 };
 

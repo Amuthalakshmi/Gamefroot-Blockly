@@ -37,7 +37,7 @@ Blockly.Kiwifroot.addAnimationToConstructor_ = function() {
 	constructorCode    += '\t\tKiwi.Log.error("Animation component not found on object. Animation blocks will not work.", "#animation");\n'
 	constructorCode    += '\t}\n';
 
-	Blockly.Kiwifroot.provideAdditionOnce('animationConstructor', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	Blockly.Kiwifroot.provideAdditionOnce('animationConstructor', Blockly.Kiwifroot.BOOT, constructorCode);
 };
 
 
