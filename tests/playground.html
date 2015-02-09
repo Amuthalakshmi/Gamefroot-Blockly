@@ -114,6 +114,12 @@ function toCode(lang) {
   return output.value;
 }
 
+function allVarsWithTypes(){
+  var output = document.getElementById('importExport');
+  var vars = Blockly.Variables.allVariablesAndTypes(Blockly.mainWorkspace);
+  output.value = JSON.stringify(vars);
+}
+
 function airstrike(n) {
   var prototypes = [];
   var toolbox = document.getElementById('toolbox');
@@ -714,6 +720,7 @@ h1 {
     &nbsp;
     <input type="button" value="Go to Game!" onclick="gotoGame()">
     <br>
+    <input type="button" value="All Vars with Types" onclick="allVarsWithTypes()">
     <textarea id="importExport" style="width: 26%; height: 12em"></textarea>
   </p>
   <hr>
