@@ -140,6 +140,30 @@ Blockly.Blocks['controls_for'] = {
     return [this.getFieldValue('VAR')];
   },
   /**
+   * Iterator is always a number type
+   * @return {string}
+   * @this Blockly.Block
+   */
+  typeOf: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return Blockly.Variables.TYPE_NUMBER;
+    }
+    else return undefined;
+  },
+  /**
+   * We can not change type! This is immutable
+   * @this Blockly.Block
+   */
+  changeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      setTimeout(function(){
+        // This type is immutable, change it back!
+        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_NUMBER, 
+          Blockly.mainWorkspace);
+      },1);
+    }
+  },
+  /**
    * Notification that a variable is renaming.
    * If the name matches one of this block's variables, rename it.
    * @param {string} oldName Previous name of variable.
