@@ -28,12 +28,10 @@ goog.provide('Blockly.Blocks.Kiwifroot.animation');
 
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks.Kiwifroot.animation.HUE = 270;
-
 Blockly.Blocks['kiwi_animation_current'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL);
-    this.setColour( Blockly.Blocks.texts.HUE );
+    this.setColour( Blockly.Variables.HUE_STRING );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE);
     this.setOutput(true, "String");
@@ -44,7 +42,7 @@ Blockly.Blocks['kiwi_animation_current'] = {
 Blockly.Blocks['kiwi_animation_play'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_ANIMATION_PLAY_HELPURL);
-    this.setColour( Blockly.Blocks.Kiwifroot.animation.HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_HUE );
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_ANIMATION_PLAY_MESSAGE);
     this.appendValueInput("TEXT")
@@ -61,7 +59,7 @@ Blockly.Blocks['kiwi_animation_play'] = {
 Blockly.Blocks['kiwi_animation_state'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ANIMATION_STATE_HELPURL );
-    this.setColour( Blockly.Blocks.Kiwifroot.animation.HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_HUE );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
             ["pause", "pause()"],
@@ -79,7 +77,7 @@ Blockly.Blocks['kiwi_animation_state'] = {
 Blockly.Blocks['kiwi_animation_frame'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ANIMATION_FRAME_HELPURL );
-    this.setColour( Blockly.Blocks.Kiwifroot.animation.HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_HUE );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_ANIMATION_FRAME_MESSAGE_BEFORE )
         .appendField(new Blockly.FieldDropdown([
@@ -97,12 +95,12 @@ Blockly.Blocks['kiwi_animation_frame'] = {
 Blockly.Blocks['kiwi_animation_numbers'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ANIMATION_NUMBERS_HELPURL );
-    this.setColour( Blockly.Blocks.math.HUE );
+    this.setColour( Blockly.Variables.HUE_NUMBER );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE )
         .appendField(new Blockly.FieldDropdown([
             ["frame", "currentAnimation.frameIndex + 1"], 
-            ["frames", "currentAnimation.length"], 
+            ["frame count", "currentAnimation.length"], 
             ["speed", "currentAnimation.speed"]
         ]), "NUMBERS");
     this.setOutput(true, "Number");
@@ -114,7 +112,7 @@ Blockly.Blocks['kiwi_animation_numbers'] = {
 Blockly.Blocks['kiwi_animation_booleans'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL );
-    this.setColour( Blockly.Blocks.logic.HUE );
+    this.setColour( Blockly.Variables.HUE_BOOLEAN );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE )
         .appendField(new Blockly.FieldDropdown([

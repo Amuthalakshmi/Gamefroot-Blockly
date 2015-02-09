@@ -29,8 +29,6 @@ goog.provide('Blockly.Blocks.procedures');
 goog.require('Blockly.Blocks');
 
 
-Blockly.Blocks.procedures.HUE = 290;
-
 Blockly.Blocks['procedures_defnoreturn'] = {
   /**
    * Block for defining a procedure with no return value.
@@ -38,7 +36,7 @@ Blockly.Blocks['procedures_defnoreturn'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.PROCEDURES_DEFNORETURN_HELPURL);
-    this.setColour(Blockly.Blocks.procedures.HUE);
+    this.setColour(Blockly.Blocks.CALLABLE_HUE);
     var name = Blockly.Procedures.findLegalName(
         Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE, this);
     this.appendDummyInput()
@@ -331,7 +329,7 @@ Blockly.Blocks['procedures_defreturn'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.PROCEDURES_DEFRETURN_HELPURL);
-    this.setColour(Blockly.Blocks.procedures.HUE);
+    this.setColour(Blockly.Blocks.CALLABLE_HUE);
     var name = Blockly.Procedures.findLegalName(
         Blockly.Msg.PROCEDURES_DEFRETURN_PROCEDURE, this);
     this.appendDummyInput()
@@ -632,8 +630,9 @@ Blockly.Blocks['procedures_callreturn'] = {
    * @this Blockly.Block
    */
   init: function() {
+    // TODO type!
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLRETURN_HELPURL);
-    this.setColour(Blockly.Blocks.procedures.HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_HUE);
     this.appendDummyInput()
         .appendField(Blockly.Msg.PROCEDURES_CALLRETURN_CALL)
         .appendField('', 'NAME')
@@ -661,7 +660,7 @@ Blockly.Blocks['procedures_ifreturn'] = {
    */
   init: function() {
     this.setHelpUrl('http://c2.com/cgi/wiki?GuardClause');
-    this.setColour(Blockly.Blocks.procedures.HUE);
+    this.setColour(Blockly.Variables.HUE_ANY);
     this.appendValueInput('CONDITION')
         .setCheck('Boolean')
         .appendField(Blockly.Msg.CONTROLS_IF_MSG_IF);

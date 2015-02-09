@@ -68,9 +68,47 @@ Blockly.Variables.TYPE_ARRAY = 'Array';
 Blockly.Variables.TYPE_INSTANCE = 'Instance';
 
 /**
+ * The colour that should be applied to a block that outputs type 'any'
+ * @const
+ */
+Blockly.Variables.HUE_ANY = 100;
+/**
+ * The colour that should be applied to a block that outputs type 'boolean'
+ * @const
+ */
+Blockly.Variables.HUE_BOOLEAN = 210;
+/**
+ * The colour that should be applied to a block that outputs type 'number'
+ * @const
+ */
+Blockly.Variables.HUE_NUMBER = 230;
+/**
+ * The colour that should be applied to a block that outputs type 'string'
+ * @const
+ */
+Blockly.Variables.HUE_STRING = 160;
+/**
+ * The colour that should be applied to a block that outputs type 'colour'
+ * @const
+ */
+Blockly.Variables.HUE_COLOUR = 20;
+/**
+ * The colour that should be applied to a block that outputs type 'array'
+ * @const
+ */
+Blockly.Variables.HUE_ARRAY = 260;
+/**
+ * The colour that should be applied to a block that outputs type 'instance'
+ * @const
+ */
+Blockly.Variables.HUE_INSTANCE = 0;
+
+/**
  * Category to separate variable names from procedures and generated functions.
  */
 Blockly.Variables.NAME_TYPE = 'VARIABLE';
+
+
 
 /**
  * The hue that corresponds to each variable type

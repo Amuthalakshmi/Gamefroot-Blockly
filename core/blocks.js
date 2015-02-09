@@ -33,6 +33,17 @@ goog.require('goog.asserts');
 goog.provide('Blockly.Blocks');
 
 /**
+ * The hue to use for statements
+ * @const
+ */
+Blockly.Blocks.STATEMENT_HUE = 330;
+/**
+ * The hue to use for blocks that are callbacks / functions / events etc.
+ * @const
+ */
+Blockly.Blocks.CALLABLE_HUE = 45;
+
+/**
  * Unique ID counter for created blocks.
  * @private
  */

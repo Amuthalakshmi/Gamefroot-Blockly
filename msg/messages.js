@@ -1196,7 +1196,7 @@ Blockly.Msg.KF_EVENT_TIME_HELPURL = '';
 ///
 Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'When' ;
 ///
-Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'of millisecond has passed';
+Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'milliseconds have passed';
 ///
 Blockly.Msg.KF_EVENT_TIME_TOOLTIP = 'Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.';
 
@@ -1414,21 +1414,21 @@ Blockly.Msg.KF_ANIMATION_FRAME_HELPURL = '';
 Blockly.Msg.KF_ANIMATION_FRAME_TOOLTIP = 'Goes to the selected frame in the current animation. If at the end of an animation it will go to the first frame, or the start if at the end.';
 
 /// message - 
-Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE = 'get current animation';
+Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP = 'Returns the current animation that is playing on this game object.';
 
 /// message - 
-Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE = 'get current animation';
+Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_NUMBERS_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_ANIMATION_NUMBERS_TOOLTIP = 'Returns a number related to the selected field..';
 
 /// message - 
-Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE = 'if the current animation';
+Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL = '';
 /// tooltip - 
