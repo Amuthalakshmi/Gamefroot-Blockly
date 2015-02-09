@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-05 13:05:05.137671",
+		"lastupdated": "2015-02-09 21:33:42.663620",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -332,6 +332,12 @@
 	"LISTS_SPLIT_TOOLTIP_SPLIT": "Split text into a list of texts, breaking at each delimiter.",
 	"LISTS_SPLIT_TOOLTIP_JOIN": "Join a list of texts into one text, separated by a delimiter.",
 	"ORDINAL_NUMBER_SUFFIX": "",
+	"VARIABLES_TYPE_ANY": "any",
+	"VARIABLES_TYPE_BOOLEAN": "true/false",
+	"VARIABLES_TYPE_NUMBER": "number",
+	"VARIABLES_TYPE_STRING": "text",
+	"VARIABLES_TYPE_COLOUR": "colour",
+	"VARIABLES_TYPE_ARRAY": "list",
 	"VARIABLES_GET_HELPURL": "https://github.com/google/blockly/wiki/Variables#get",
 	"VARIABLES_GET_TITLE": "",
 	"VARIABLES_GET_TAIL": "",
