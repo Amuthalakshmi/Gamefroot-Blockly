@@ -61,6 +61,11 @@ Blockly.Variables.TYPE_COLOUR = 'Colour';
  * @const
  */
 Blockly.Variables.TYPE_ARRAY = 'Array';
+/**
+ * The definition name of the array type
+ * @const
+ */
+Blockly.Variables.TYPE_INSTANCE = 'Instance';
 
 /**
  * Category to separate variable names from procedures and generated functions.
@@ -75,8 +80,9 @@ Blockly.Variables.NAME_TYPE = 'VARIABLE';
  */
 Blockly.Variables.allTypes = function(){
   return [
+    /* We don't allow the any type here!
     [Blockly.Msg.VARIABLES_TYPE_ANY,
-      Blockly.Variables.TYPE_ANY],
+      Blockly.Variables.TYPE_ANY],*/
     [Blockly.Msg.VARIABLES_TYPE_BOOLEAN,
       Blockly.Variables.TYPE_BOOLEAN],
     [Blockly.Msg.VARIABLES_TYPE_NUMBER,
@@ -86,7 +92,9 @@ Blockly.Variables.allTypes = function(){
     [Blockly.Msg.VARIABLES_TYPE_COLOUR,
       Blockly.Variables.TYPE_COLOUR],
     [Blockly.Msg.VARIABLES_TYPE_ARRAY,
-      Blockly.Variables.TYPE_ARRAY]
+      Blockly.Variables.TYPE_ARRAY],
+    [Blockly.Msg.VARIABLES_TYPE_INSTANCE,
+      Blockly.Variables.TYPE_INSTANCE]
   ];
 };
 

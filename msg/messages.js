@@ -1012,6 +1012,8 @@ Blockly.Msg.VARIABLES_TYPE_STRING = 'text';
 Blockly.Msg.VARIABLES_TYPE_COLOUR = 'colour';
 /// The display name of the array variable type
 Blockly.Msg.VARIABLES_TYPE_ARRAY = 'list';
+/// The display name of the instace variable type
+Blockly.Msg.VARIABLES_TYPE_INSTANCE = 'instance';
 
 /// url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.
 Blockly.Msg.VARIABLES_GET_HELPURL = 'https://github.com/google/blockly/wiki/Variables#get';
