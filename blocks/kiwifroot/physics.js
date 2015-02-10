@@ -194,3 +194,46 @@ Blockly.Blocks['kiwi_arcadephysics_get_gravity'] = {
     this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_TOOLTIP );
   }
 };
+
+Blockly.Blocks['kiwi_arcadephysics_probe'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_HELPURL );
+    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.appendValueInput("X_POS")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_MESSAGE );
+    this.appendValueInput("Y_POS")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_arcadephysics_probe_layer'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_HELPURL );
+    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.appendValueInput("X_POS")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_ONE )
+        .appendField(new Blockly.FieldDropdown([
+            ["any", "Kiwi.Components.ArcadePhysics.ANY"], 
+            ["left", "Kiwi.Components.ArcadePhysics.LEFT"], 
+            ["right", "Kiwi.Components.ArcadePhysics.RIGHT"], 
+            ["top", "Kiwi.Components.ArcadePhysics.UP"], 
+            ["bottom", "Kiwi.Components.ArcadePhysics.DOWN"]
+        ]), "SIDE")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_TWO );
+    this.appendValueInput("Y_POS")
+        .setCheck("Number");
+    this.appendValueInput("LAYER")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_THREE );
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_TOOLTIP );
+  }
+};

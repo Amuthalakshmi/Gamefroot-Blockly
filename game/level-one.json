@@ -20,10 +20,10 @@
 	"gameObjects": [
 	
 		{
-			"id": "red-mushroom",
+			"id": "undercover-mushroom",
 			"type": "static-image",
-			"name": "red-mushroom",
-			"tags": ["red-mushroom"],
+			"name": "undercover-mushroom",
+			"tags": ["undercover-mushroom"],
 			"imageId": 8,
 			"cellIndex": 1,
 			"x": 400,
@@ -35,6 +35,55 @@
 				"arcadephysics": {
 					"immovable": true,
 					"gravity": false
+				},
+
+				"animation": {
+
+					"flashing": {
+						"cells": [0, 1],
+						"loop": true,
+						"play": true,
+						"speed": 0.1
+					},
+					"red": {
+						"cells": [0],
+						"loop": true,
+						"play": false,
+						"speed": 0.1
+					},
+					"green": {
+						"cells": [1],
+						"loop": false,
+						"play": true,
+						"speed": 0.1
+					}
+			
+				}
+
+
+			}
+
+		},
+
+		{
+			"id": "red-mushroom",
+			"type": "static-image",
+			"name": "red-mushroom",
+			"tags": ["red-mushroom"],
+			"imageId": 8,
+			"cellIndex": 1,
+			"x": 100,
+			"y": 170,
+
+			"components": {
+			
+				"arcadephysics": {
+					"immovable": true,
+					"gravity": false,
+					"velocity": {
+						"x": 10,
+						"y": 0
+					}
 				},
 
 				"animation": {
