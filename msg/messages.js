@@ -1156,13 +1156,13 @@ Blockly.Msg.KF_EVENT_CONSTANTLY_HELPURL = '';
 /// Label text for the kiwifroot stage pressed event
 Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = 'When stage is pressed';
 /// tooltip - The event dispatched when the player clicks/touches the game stage
-Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP = "The event triggered when the player presses a click/touch down anywhere in the game scene.";
+Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP = 'The event triggered when the player presses a click/touch down anywhere in the game scene.';
 /// url - Information on the kiwifroot stage press event
 Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL = '';
 /// Label text for the kiwifroot stage released event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE = 'When stage is released';
 /// tooltip - The event dispatched when the player releases a click/touch of the game stage
-Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = "The event triggered when the player releases a click/touch anywhere in the game scene.";
+Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = 'The event triggered when the player releases a click/touch anywhere in the game scene.';
 /// url - Information on the kiwifroot stage release event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
 
@@ -1182,13 +1182,13 @@ Blockly.Msg.KF_EVENT_INST_RELEASE_HELPURL = '';
 /// Label text for the kiwifroot key pressed event
 Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE = 'When the player presses';
 /// tooltip - The event triggered when the player presses the given key on their keyboard.
-Blockly.Msg.KF_EVENT_KEY_PRESS_TOOLTIP = "The event triggered when the player presses the given key on their keyboard.";
+Blockly.Msg.KF_EVENT_KEY_PRESS_TOOLTIP = 'The event triggered when the player presses the given key on their keyboard.';
 /// url - Information on the kiwifroot key press event
 Blockly.Msg.KF_EVENT_KEY_PRESS_HELPURL = '';
 /// Label text for the kiwifroot key released event
 Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE = 'When the player releases';
 /// tooltip - The event triggered when the player releases the given key on their keyboard.
-Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = "The event triggered when the player releases the given key on their keyboard.";
+Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = 'The event triggered when the player releases the given key on their keyboard.';
 /// url - Information on the kiwifroot key release event
 Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
 ///
