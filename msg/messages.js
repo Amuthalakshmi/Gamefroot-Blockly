@@ -1598,7 +1598,6 @@ Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_MESSAGE = 'gravity';
 ///
 Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_TOOLTIP = 'Returns the selected gravity value.';
 
-
 ///
 Blockly.Msg.KF_MESSAGING_INSTANCE_HELPURL = '';
 ///
