@@ -53,11 +53,13 @@ Blockly.Blocks['variables_get'] = {
     this.contextMenuType_ = 'variables_set';
     // Post init step
     var self = this;
-    setTimeout(function() {
-      var name = self.getFieldValue('VAR');
-      var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
-      if (type) self.setType(type);
-    }, 1);
+    if (Blockly.mainWorkspace.rendered) {
+      setTimeout(function() {
+        var name = self.getFieldValue('VAR');
+        var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
+        if (type) self.setType(type);
+      }, 1);
+    }
   },
   /**
    * Return all variables referenced by this block.
@@ -177,11 +179,13 @@ Blockly.Blocks['variables_set'] = {
     this.contextMenuType_ = 'variables_get';
     // Post init step
     var self = this;
-    setTimeout(function() {
-      var name = self.getFieldValue('VAR');
-      var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
-      if (type) self.setType(type);
-    }, 1);
+    if (Blockly.mainWorkspace.rendered) {
+      setTimeout(function() {
+        var name = self.getFieldValue('VAR');
+        var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
+        if (type) self.setType(type);
+      }, 1);
+    }
   },
   /**
    * Return all variables referenced by this block.
