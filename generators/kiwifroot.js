@@ -155,7 +155,9 @@ Blockly.Kiwifroot.BOOT = 'BOOT';
 
 /**
  * The array of sounds, contains tuples of names and ids
+ * From now on you can only reference sounds through the sound type
  * @type {array}
+ * @deprecated
  */
 Blockly.Kiwifroot.sounds_ = [
   ["Ammo","5"],
