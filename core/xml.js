@@ -265,6 +265,10 @@ Blockly.Xml.domToBlock = function(workspace, xmlBlock, opt_reuseBlock) {
     // Fire an event to allow scrollbars to resize.
     Blockly.fireUiEvent(window, 'resize');
   }
+  // Once all the initialization is done, fire the postInit notification
+  var func = topBlock.postInit;
+  if (func) func.call(topBlock);
+
   return topBlock;
 };
 
