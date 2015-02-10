@@ -105,6 +105,12 @@ function toCode(lang) {
   output.value = Blockly[lang].workspaceToCode();
 }
 
+function allVarsWithTypes(){
+  var output = document.getElementById('importExport');
+  var vars = Blockly.Variables.allVariablesAndTypes(Blockly.mainWorkspace);
+  output.value = JSON.stringify(vars);
+}
+
 function airstrike(n) {
   var prototypes = [];
   var toolbox = document.getElementById('toolbox');
@@ -304,6 +310,7 @@ h1 {
       <block type="text_indexOf">
         <value name="VALUE">
           <block type="variables_get">
+            <field name="TYPE">String</field>
             <field name="VAR">text</field>
           </block>
         </value>
@@ -311,6 +318,7 @@ h1 {
       <block type="text_charAt">
         <value name="VALUE">
           <block type="variables_get">
+            <field name="TYPE">String</field>
             <field name="VAR">text</field>
           </block>
         </value>
@@ -318,6 +326,7 @@ h1 {
       <block type="text_getSubstring">
         <value name="STRING">
           <block type="variables_get">
+            <field name="TYPE">String</field>
             <field name="VAR">text</field>
           </block>
         </value>
@@ -346,6 +355,7 @@ h1 {
       <block type="lists_indexOf">
         <value name="VALUE">
           <block type="variables_get">
+            <field name="TYPE">Array</field>
             <field name="VAR">list</field>
           </block>
         </value>
@@ -353,6 +363,7 @@ h1 {
       <block type="lists_getIndex">
         <value name="VALUE">
           <block type="variables_get">
+            <field name="TYPE">Array</field>
             <field name="VAR">list</field>
           </block>
         </value>
@@ -360,6 +371,7 @@ h1 {
       <block type="lists_setIndex">
         <value name="LIST">
           <block type="variables_get">
+            <field name="TYPE">Array</field>
             <field name="VAR">list</field>
           </block>
         </value>
@@ -367,6 +379,7 @@ h1 {
       <block type="lists_getSublist">
         <value name="LIST">
           <block type="variables_get">
+            <field name="TYPE">Array</field>
             <field name="VAR">list</field>
           </block>
         </value>
@@ -450,6 +463,7 @@ h1 {
     &nbsp;
     <input type="button" value="To Dart" onclick="toCode('Dart')">
     <br>
+    <input type="button" value="All Vars with Types" onclick="allVarsWithTypes()">
     <textarea id="importExport" style="width: 26%; height: 12em"></textarea>
   </p>
   <hr>
