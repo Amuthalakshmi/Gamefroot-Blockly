@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-10 16:48:14.566905",
+		"lastupdated": "2015-02-11 10:41:11.868912",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -385,8 +385,10 @@
 	"KF_EVENT_CONSTANTLY_TOOLTIP": "The event triggered every frame",
 	"KF_EVENT_CONSTANTLY_HELPURL": "",
 	"KF_EVENT_STAGE_PRESS_MESSAGE": "When stage is pressed",
+	"KF_EVENT_STAGE_PRESS_TOOLTIP": "The event triggered when the player presses a click/touch down anywhere in the game scene.",
 	"KF_EVENT_STAGE_PRESS_HELPURL": "",
 	"KF_EVENT_STAGE_RELEASE_MESSAGE": "When stage is released",
+	"KF_EVENT_STAGE_RELEASE_TOOLTIP": "The event triggered when the player releases a click/touch anywhere in the game scene.",
 	"KF_EVENT_STAGE_RELEASE_HELPURL": "",
 	"KF_EVENT_INST_PRESS_MESSAGE": "When the player presses on ",
 	"KF_EVENT_INST_PRESS_TOOLTIP": "The event triggered when the player presses a click/touch on the given instance.",
@@ -395,8 +397,10 @@
 	"KF_EVENT_INST_RELEASE_TOOLTIP": "The event triggered when the player releases a click/touch on the given instance.",
 	"KF_EVENT_INST_RELEASE_HELPURL": "",
 	"KF_EVENT_KEY_PRESS_MESSAGE": "When the player presses",
+	"KF_EVENT_KEY_PRESS_TOOLTIP": "The event triggered when the player presses the given key on their keyboard.",
 	"KF_EVENT_KEY_PRESS_HELPURL": "",
 	"KF_EVENT_KEY_RELEASE_MESSAGE": "When the player releases",
+	"KF_EVENT_KEY_RELEASE_TOOLTIP": "The event triggered when the player releases the given key on their keyboard.",
 	"KF_EVENT_KEY_RELEASE_HELPURL": "",
 	"KF_EVENT_TIME_HELPURL": "",
 	"KF_EVENT_TIME_MESSAGE_AFTER": "milliseconds",

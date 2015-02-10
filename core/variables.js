@@ -319,6 +319,10 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
     } else {
       gaps.push(margin * 2);
     }
+    getBlock && typeof getBlock.postInit === 'function' 
+      && getBlock.postInit.call(getBlock);
+    setBlock && typeof setBlock.postInit === 'function' 
+      && setBlock.postInit.call(setBlock);
   }
 };
 

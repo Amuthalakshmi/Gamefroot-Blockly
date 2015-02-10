@@ -51,15 +51,17 @@ Blockly.Blocks['variables_get'] = {
     this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
     this.contextMenuType_ = 'variables_set';
-    // Post init step
-    var self = this;
-    if (Blockly.mainWorkspace.rendered) {
-      setTimeout(function() {
-        var name = self.getFieldValue('VAR');
-        var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
-        if (type) self.setType(type);
-      }, 1);
-    }
+  },
+  /**
+   * Notification that all the properties have been applied
+   * and we're ready to go!
+   */
+  postInit: function() {
+    // Try to use the main workspace (blocks in the flyout)
+    var workspace = Blockly.mainWorkspace || this.workspace;
+    var name = this.getFieldValue('VAR');
+    var type = Blockly.Variables.typeOf(name, workspace);
+    if (type) this.setType(type);
   },
   /**
    * Return all variables referenced by this block.
@@ -177,15 +179,17 @@ Blockly.Blocks['variables_set'] = {
     this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
     this.contextMenuType_ = 'variables_get';
-    // Post init step
-    var self = this;
-    if (Blockly.mainWorkspace.rendered) {
-      setTimeout(function() {
-        var name = self.getFieldValue('VAR');
-        var type = Blockly.Variables.typeOf(name,Blockly.mainWorkspace);
-        if (type) self.setType(type);
-      }, 1);
-    }
+  },
+  /**
+   * Notification that all the properties have been applied
+   * and we're ready to go!
+   */
+  postInit: function(){ 
+    // Try to use the main workspace (blocks in the flyout)
+    var workspace = Blockly.mainWorkspace || this.workspace;
+    var name = this.getFieldValue('VAR');
+    var type = Blockly.Variables.typeOf(name,workspace);
+    if (type) this.setType(type);
   },
   /**
    * Return all variables referenced by this block.
