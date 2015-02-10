@@ -361,6 +361,9 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
       block.render();
     }
   }
+
+  typeof block.postInit === 'function' && block.postInit.call(block);
+
   return block;
 };
 
