@@ -1206,6 +1206,14 @@ Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
 Blockly.Msg.KF_EVENT_REMOVE_TOOLTIP = 'The event is triggered when this gameobject is destroyed.';
 ///
 Blockly.Msg.KF_EVENT_REMOVE_MESSAGE = 'When removed';
+///
+Blockly.Msg.KF_EVENT_MESSAGE_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_BEFORE = 'When a message of';
+///
+Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_AFTER = 'is retrieved';
+///
+Blockly.Msg.KF_EVENT_MESSAGE_TOOLTIP = 'Send events when the player';
 
 /// tooltip - A list of special levels, they include previous/current/next and the first/last levels
 Blockly.Msg.KF_GAME_LEVEL_SPECIAL_TOOLTIP = 'A list of special levels, they include previous/current/next and the first/last levels.';
@@ -1589,3 +1597,27 @@ Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_HELPURL = '';
 Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_MESSAGE = 'gravity';
 ///
 Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_TOOLTIP = 'Returns the selected gravity value.';
+
+
+///
+Blockly.Msg.KF_MESSAGING_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_MESSAGING_INSTANCE_MESSAGE_BEFORE = 'send message';
+///
+Blockly.Msg.KF_MESSAGING_INSTANCE_MESSAGE_AFTER = 'to';
+///
+Blockly.Msg.KF_MESSAGING_INSTANCE_TOOLTIP = 'Sends a message to a singular instance you passed.';
+///
+Blockly.Msg.KF_MESSAGING_CLASS_HELPURL = '';
+///
+Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_BEFORE = 'send message'; 
+///
+Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_AFTER = 'to all';
+///
+Blockly.Msg.KF_MESSAGING_CLASS_TOOLTIP = 'Sends a message to all instances of a class you pass.';
+///
+Blockly.Msg.KF_MESSAGING_EVERYONE_HELPURL = '';
+///
+Blockly.Msg.KF_MESSAGING_EVERYONE_MESSAGE = 'send every gameobject a message of';
+///
+Blockly.Msg.KF_MESSAGING_EVERYONE_TOOLTIP = 'Sends a message to every gameobject.';

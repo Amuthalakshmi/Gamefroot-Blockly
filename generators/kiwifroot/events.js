@@ -164,13 +164,15 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
 	Blockly.Kiwifroot.provideAdditionOnce('removeOnKeyReleased',Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 
 	// Generate the code for the new function
-	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT)
+	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 	var constructorCode = 'this.game.input.keyboard.onKeyUp.add(this.' + funcName + ', this);';
+
 	Blockly.Kiwifroot.provideAdditionOnce('EventKeyReleased', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+
 	var funcName = defineFunctionFromBranch('onKeyReleased', block);
+
 	// Generate the code for the switch
 	var code = 'case '+keyCode+': this.'+funcName+'(); break;';
-
 	Blockly.Kiwifroot.provideAddition('EVENT_KEY_RELEASED', code);
 	return null;
 };
@@ -186,6 +188,31 @@ Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
 
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
+	return null;
+};
+
+Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
+
+	var t = Blockly.Kiwifroot.INDENT;
+	var funcName = Blockly.Kiwifroot.provideFunction_(
+		'onMessageRecieved',
+		[ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function( name, message ) {',
+        t + 'switch( message ) {',
+        '{{'+t+t+',EVENT_MESSAGE_RELEASED,\n}}',
+        t + '}',
+        '};']);
+
+
+	var constructorCode = 'this.owner.properties.onUpdate( this.' + funcName + ', this, "_messaging_");';
+	Blockly.Kiwifroot.provideAdditionOnce('EventMessageRecieved', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+
+	var funcName = defineFunctionFromBranch('executeMessageRecieved', block);
+	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+
+	// Generate the code for the switch
+	var code = 'case ' + message + ': this.'+funcName+'(); break;';
+	Blockly.Kiwifroot.provideAddition('EVENT_MESSAGE_RELEASED', code);
 
 	return null;
 };

@@ -25,6 +25,7 @@
 <script src="../generators/kiwifroot/camera.js"></script>
 <script src="../generators/kiwifroot/intersects.js"></script>
 <script src="../generators/kiwifroot/physics.js"></script>
+<script src="../generators/kiwifroot/messaging.js"></script>
 <!-- add new kiwifroot generators here -->
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
@@ -46,6 +47,7 @@
 <script src="../blocks/kiwifroot/camera.js"></script>
 <script src="../blocks/kiwifroot/intersects.js"></script>
 <script src="../blocks/kiwifroot/physics.js"></script>
+<script src="../blocks/kiwifroot/messaging.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -528,6 +530,11 @@ h1 {
             <block type="math_number"></block>
           </value>
         </block>
+        <block type="kiwi_event_message">
+          <value name="MESSAGE">
+            <block type="text"></block>
+          </value>
+        </block>
       </category>
       <category name="Instances">
         <block type="kiwi_instance_self"></block>
@@ -618,6 +625,29 @@ h1 {
           </value>
           <value name="Y_LOC">
             <block type="math_number"></block>
+          </value>
+        </block>
+      </category>
+      <category name="Messaging">
+        <block type="kiwi_messaging_instance">
+          <value name="MESSAGE">
+            <block type="text"></block>
+          </value>
+          <value name="INST">
+            <block type="kiwi_instance_select"></block>
+          </value>
+        </block>
+        <block type="kiwi_messaging_class">
+          <value name="MESSAGE">
+            <block type="text"></block>
+          </value>
+          <value name="CLASS">
+            <block type="kiwi_classes_selector"></block>
+          </value>
+        </block>
+        <block type="kiwi_messaging_everyone">
+          <value name="MESSAGE">
+            <block type="text"></block>
           </value>
         </block>
       </category>
