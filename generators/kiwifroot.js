@@ -76,8 +76,9 @@ Blockly.Kiwifroot.defaultTemplate =
 
   // Supply an add method for the plugin
   'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].add = function(state, gameObject, params){\n'+
-  '\tgameObject.components.add(new Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]](gameObject));\n'+
-  // TODO provide an 'on added' section
+  '\tvar component = new Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]](gameObject);\n'+
+  '\tgameObject.components.add(component);\n\n'+
+  '{{\t,WHEN_ADDED,\n}}\n'+
   '};\n\n'+
   // Add all the definitions here, they will all be prefixed with the namespace and
   // will include two newline breaks after each definition.
@@ -119,6 +120,13 @@ Blockly.Kiwifroot.defaultMacros = {
  */
 Blockly.Kiwifroot.CONSTRUCTOR = 'CONSTRUCTOR';
 
+/**
+ * The template section inside the 'add' method of the plugin
+ * @const
+ * @type {string}
+ */
+Blockly.Kiwifroot.WHEN_ADDED = 'WHEN_ADDED';
+ 
 /** 
  * The definitions section of the template
  * @const
@@ -248,9 +256,14 @@ Blockly.Kiwifroot.init = function(workspace) {
   // Provide all the custom variables
   var variables = Blockly.Variables.allVariables(workspace);
   for (var x = 0; x < variables.length; x++) {
-    var code = Blockly.Kiwifroot.variableDB_.getName(variables[x],
-        Blockly.Variables.NAME_TYPE) + ';';
-    Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code);
+    var variableName = variables[x];
+    var safeVariableName = Blockly.Kiwifroot.variableDB_.getName(variables[x],
+        Blockly.Variables.NAME_TYPE);
+    // For now gamefroot will pass the variable params with their unsafe names
+    // that's fine, maybe we'll want to change it to prevent some weird behaviour
+    // but it *should* be okay.
+    var code = 'component.' + safeVariableName + ' = params["'+variableName+'"];'; 
+    Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.WHEN_ADDED,code);
   }
 };
 
