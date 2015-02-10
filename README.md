@@ -52,6 +52,16 @@ Here are some simple rules to follow when creating blocks;
 - If a block performs a function it should be coloured with Blockly.Blocks.STATEMENT_HUE.
 - Blocks that serve as an entry point for other blocks (events/functions/etc) should be coloured with Blockly.Blocks.CALLABLE_HUE.
 
+## Checking Code Generation
+
+The headless demo in the blockly repo has been edited to allow easy testing for our server. The first
+step to testing blockly is to ensure it generates code correctly, the next step is ensuring it can do
+it without graphics using the headless demo @demos/headless/index.html 
+
+Adding new blocks should not ever break the headless implementation of blockly, but if you are ever
+playing with the core of blockly, it's best to test the headless implementation again to ensure that
+the new code will also work on our server.
+
 ## Generating Code with Node.js
 
 We are running a node server to generate javascript from the blockly code. The server
