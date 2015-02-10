@@ -151,6 +151,11 @@ Kiwi.Plugins.RobotXJ9.Component = function( gameObject ) {
 Kiwi.extend( Kiwi.Plugins.RobotXJ9.Component, Kiwi.Component );
 
 
+Kiwi.Plugins.RobotXJ9.Component.prototype.boot = function() {
+	//Execute when all the components have been generated.
+};
+
+
 Kiwi.Plugins.RobotXJ9.Component.add = function( state, gameObject, params ) {
 
 	//Create an animation component and add it to the gameobject

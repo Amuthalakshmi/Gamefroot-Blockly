@@ -1206,6 +1206,14 @@ Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
 Blockly.Msg.KF_EVENT_REMOVE_TOOLTIP = 'The event is triggered when this gameobject is destroyed.';
 ///
 Blockly.Msg.KF_EVENT_REMOVE_MESSAGE = 'When removed';
+///
+Blockly.Msg.KF_EVENT_MESSAGE_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_BEFORE = 'When a message of';
+///
+Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_AFTER = 'is retrieved';
+///
+Blockly.Msg.KF_EVENT_MESSAGE_TOOLTIP = 'Send events when the player';
 
 /// tooltip - A list of special levels, they include previous/current/next and the first/last levels
 Blockly.Msg.KF_GAME_LEVEL_SPECIAL_TOOLTIP = 'A list of special levels, they include previous/current/next and the first/last levels.';
@@ -1539,6 +1547,77 @@ Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP = 'Creates a new instance of a cl
 
 
 ///
-Blockly.Msg.KF_ARCADEPHYSICS_HELPURL = '';
+Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_HELPURL = '';
 ///
-Blockly.Msg.KF_ARCADEPHYSICS_TOOLTIP = '';
+Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_TOOLTIP = 'Returns a value for the selected property.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_TOOLTIP = 'Sets a numeric property selected.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_MESSAGE = 'set';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_MESSAGE = 'set';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_TOOLTIP = 'Sets a boolean property selected.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_TOOLTIP = 'Returns the state of a property selected.';
+
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_MESSAGE_BEFORE = 'on';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_MESSAGE_AFTER = 'side';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_TOOLTIP = 'Returns a Boolean indiciating the state of the selected statement for this gameobject.';
+
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_MESSAGE_BEFORE = 'set';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_MESSAGE_AFTER = 'side collisions to';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_TOOLTIP = 'Sets the sides of this gameobject that can collide with other gameobjects.';
+
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_MESSAGE = 'set gravity';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_TOOLTIP = 'Sets the global gravity property to a value passed.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_MESSAGE = 'gravity';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_TOOLTIP = 'Returns the selected gravity value.';
+
+
+///
+Blockly.Msg.KF_MESSAGING_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_MESSAGING_INSTANCE_MESSAGE_BEFORE = 'send message';
+///
+Blockly.Msg.KF_MESSAGING_INSTANCE_MESSAGE_AFTER = 'to';
+///
+Blockly.Msg.KF_MESSAGING_INSTANCE_TOOLTIP = 'Sends a message to a singular instance you passed.';
+///
+Blockly.Msg.KF_MESSAGING_CLASS_HELPURL = '';
+///
+Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_BEFORE = 'send message'; 
+///
+Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_AFTER = 'to all';
+///
+Blockly.Msg.KF_MESSAGING_CLASS_TOOLTIP = 'Sends a message to all instances of a class you pass.';
+///
+Blockly.Msg.KF_MESSAGING_EVERYONE_HELPURL = '';
+///
+Blockly.Msg.KF_MESSAGING_EVERYONE_MESSAGE = 'send every gameobject a message of';
+///
+Blockly.Msg.KF_MESSAGING_EVERYONE_TOOLTIP = 'Sends a message to every gameobject.';

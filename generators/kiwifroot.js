@@ -74,6 +74,11 @@ Blockly.Kiwifroot.defaultTemplate =
   // Extend GameObject
   'Kiwi.extend(Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]], Kiwi.Component);\n\n'+
 
+  //Boot method
+  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.boot = function() {\n' +
+  '{{\t,BOOT,\n}}\n'+
+  '};\n\n'+
+
   // Supply an add method for the plugin
   'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].add = function(state, gameObject, params){\n'+
   '\tvar component = new Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]](gameObject);\n'+
@@ -140,6 +145,13 @@ Blockly.Kiwifroot.DEFINITIONS = 'DEFINITIONS';
  * @type {string} 
  */
 Blockly.Kiwifroot.DESTRUCTOR = 'DESTRUCTOR';
+
+/**
+ * The boot method section of the template
+ * @const
+ * @type {string}
+ */
+Blockly.Kiwifroot.BOOT = 'BOOT';
 
 /**
  * The array of sounds, contains tuples of names and ids

@@ -23,13 +23,20 @@
 			"id": "red-mushroom",
 			"type": "static-image",
 			"name": "red-mushroom",
+			"tags": ["red-mushroom"],
 			"imageId": 8,
 			"cellIndex": 1,
-			"x": 150,
-			"y": 170,
+			"x": 400,
+			"y": 350,
+			"rotation": -1.57,
 
 			"components": {
 			
+				"arcadephysics": {
+					"immovable": true,
+					"gravity": false
+				},
+
 				"animation": {
 
 					"flashing": {
@@ -53,6 +60,7 @@
 			
 				}
 
+
 			}
 
 		},
@@ -61,6 +69,7 @@
 			"id": "green-mushroom",
 			"type": "static-image",
 			"name": "green-mushroom",
+			"tags": ["green-mushroom"],
 			"imageId": 8,
 			"cellIndex": 1,
 			"x": 400,
@@ -89,6 +98,10 @@
 						"speed": 0.1
 					}
 			
+				},
+
+				"arcadephysics": {
+
 				},
 
 				"MyScript": {
