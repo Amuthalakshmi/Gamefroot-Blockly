@@ -618,7 +618,6 @@ h1 {
         </block>
       </category>
       <category name="Classes">
-        <block type="kiwi_classes_selector"></block>
         <block type="kiwi_classes_instance_type">
           <value name="INST">
             <block type="kiwi_instance_self"></block>
@@ -626,17 +625,26 @@ h1 {
         </block>
         <block type="kiwi_classes_get_instance">
           <value name="CLASS">
-            <block type="kiwi_classes_selector"></block>
+            <block type="variables_get">
+              <field name="TYPE">Class</field>
+              <field name="VAR">Class</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_classes_get_all_instances">
           <value name="CLASS">
-            <block type="kiwi_classes_selector"></block>
+            <block type="variables_get">
+              <field name="TYPE">Class</field>
+              <field name="VAR">Class</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_classes_create_instance">
           <value name="CLASS">
-            <block type="kiwi_classes_selector"></block>
+            <block type="variables_get">
+              <field name="TYPE">Class</field>
+              <field name="VAR">Class</field>
+            </block>
           </value>
           <value name="X_LOC">
             <block type="math_number"></block>
@@ -660,7 +668,10 @@ h1 {
             <block type="text"></block>
           </value>
           <value name="CLASS">
-            <block type="kiwi_classes_selector"></block>
+            <block type="variables_get">
+              <field name="TYPE">Class</field>
+              <field name="VAR">Class</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_messaging_everyone">

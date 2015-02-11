@@ -67,6 +67,11 @@ Blockly.Variables.TYPE_ARRAY = 'Array';
  */
 Blockly.Variables.TYPE_INSTANCE = 'Instance';
 /**
+ * The definition name of the class type
+ * @const
+ */
+Blockly.Variables.TYPE_CLASS = 'Class';
+/**
  * The definition name of the sound type
  * @const
  */
@@ -108,6 +113,11 @@ Blockly.Variables.HUE_ARRAY = 260;
  */
 Blockly.Variables.HUE_INSTANCE = 0;
 /**
+ * The colour that should be applied to a block that outputs type 'class'
+ * @const
+ */
+Blockly.Variables.HUE_CLASS = 50;
+/**
  * The colour that should be applied to a block that outputs type 'sound'
  * @const
  */
@@ -130,6 +140,7 @@ Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_STRING] = Blockly.Variable
 Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_COLOUR] = Blockly.Variables.HUE_COLOUR;
 Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_ARRAY] = Blockly.Variables.HUE_ARRAY;
 Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = Blockly.Variables.HUE_INSTANCE;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_CLASS] = Blockly.Variables.HUE_CLASS;
 Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_SOUND] = Blockly.Variables.HUE_SOUND;
 
 /**
@@ -155,6 +166,8 @@ Blockly.Variables.allTypes = function(){
       Blockly.Variables.TYPE_ARRAY],
     [Blockly.Msg.VARIABLES_TYPE_INSTANCE,
       Blockly.Variables.TYPE_INSTANCE],
+    [Blockly.Msg.VARIABLES_TYPE_CLASS,
+      Blockly.Variables.TYPE_CLASS],
     [Blockly.Msg.VARIABLES_TYPE_SOUND,
       Blockly.Variables.TYPE_SOUND]
   ];
