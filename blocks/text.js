@@ -77,6 +77,16 @@ Blockly.Blocks['text_join'] = {
     this.setTooltip(Blockly.Msg.TEXT_JOIN_TOOLTIP);
   },
   /**
+   * Create an object to represent number of text inputs.
+   * @return {object} the mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    return {
+      'items': this.itemCount_
+    };
+  },
+  /**
    * Create XML to represent number of text inputs.
    * @return {Element} XML storage element.
    * @this Blockly.Block
@@ -85,6 +95,15 @@ Blockly.Blocks['text_join'] = {
     var container = document.createElement('mutation');
     container.setAttribute('items', this.itemCount_);
     return container;
+  },
+  /**
+   * Parse object to restore the text inputs.
+   * @param {object} obj The mutation data.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    this.itemCount_ = obj['items'];
+    this.updateShape_();
   },
   /**
    * Parse XML to restore the text inputs.
