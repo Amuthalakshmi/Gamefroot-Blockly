@@ -61,6 +61,16 @@ Blockly.Blocks['lists_create_with'] = {
     this.setTooltip(Blockly.Msg.LISTS_CREATE_WITH_TOOLTIP);
   },
   /**
+   * Create an object to represent list inputs.
+   * @return {object} mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function() {
+    return {
+      'items': this.itemCount_
+    };
+  },
+  /**
    * Create XML to represent list inputs.
    * @return {Element} XML storage element.
    * @this Blockly.Block
@@ -69,6 +79,15 @@ Blockly.Blocks['lists_create_with'] = {
     var container = document.createElement('mutation');
     container.setAttribute('items', this.itemCount_);
     return container;
+  },
+  /**
+   * Parse mutation data to restore the list inputs.
+   * @param {object} obj Mutation data object.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    this.itemCount_ = obj['items'];
+    this.updateShape_();
   },
   /**
    * Parse XML to restore the list inputs.
