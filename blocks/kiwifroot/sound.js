@@ -29,7 +29,7 @@ goog.provide('Blockly.Blocks.Kiwifroot.sound');
 
 goog.require('Blockly.Blocks');
 
-
+// @deprecated DO NOT USE
 Blockly.Blocks['kiwi_sound'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_SOUND_HELPURL);

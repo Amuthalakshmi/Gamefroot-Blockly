@@ -66,6 +66,11 @@ Blockly.Variables.TYPE_ARRAY = 'Array';
  * @const
  */
 Blockly.Variables.TYPE_INSTANCE = 'Instance';
+/**
+ * The definition name of the sound type
+ * @const
+ */
+Blockly.Variables.TYPE_SOUND = 'Sound';
 
 /**
  * The colour that should be applied to a block that outputs type 'any'
@@ -102,6 +107,11 @@ Blockly.Variables.HUE_ARRAY = 260;
  * @const
  */
 Blockly.Variables.HUE_INSTANCE = 0;
+/**
+ * The colour that should be applied to a block that outputs type 'sound'
+ * @const
+ */
+Blockly.Variables.HUE_SOUND = 300;
 
 /**
  * Category to separate variable names from procedures and generated functions.
@@ -114,12 +124,13 @@ Blockly.Variables.NAME_TYPE = 'VARIABLE';
  * The hue that corresponds to each variable type
  */
 Blockly.Variables.HUE_FOR_TYPE = {};
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN] = 210;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_NUMBER] = 230;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_STRING] = 160;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_COLOUR] = 20;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_ARRAY] = 260;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = 0;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN] = Blockly.Variables.HUE_BOOLEAN;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_NUMBER] = Blockly.Variables.HUE_NUMBER;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_STRING] = Blockly.Variables.HUE_STRING;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_COLOUR] = Blockly.Variables.HUE_COLOUR;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_ARRAY] = Blockly.Variables.HUE_ARRAY;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = Blockly.Variables.HUE_INSTANCE;
+Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_SOUND] = Blockly.Variables.HUE_SOUND;
 
 /**
  * A Complete list of all variables types available.
@@ -143,7 +154,9 @@ Blockly.Variables.allTypes = function(){
     [Blockly.Msg.VARIABLES_TYPE_ARRAY,
       Blockly.Variables.TYPE_ARRAY],
     [Blockly.Msg.VARIABLES_TYPE_INSTANCE,
-      Blockly.Variables.TYPE_INSTANCE]
+      Blockly.Variables.TYPE_INSTANCE],
+    [Blockly.Msg.VARIABLES_TYPE_SOUND,
+      Blockly.Variables.TYPE_SOUND]
   ];
 };
 
@@ -301,10 +314,8 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
     }
     var getBlock = Blockly.Blocks['variables_get'] ?
         Blockly.Block.obtain(workspace, 'variables_get') : null;
-    getBlock && getBlock.initSvg();
     var setBlock = Blockly.Blocks['variables_set'] ?
         Blockly.Block.obtain(workspace, 'variables_set') : null;
-    setBlock && setBlock.initSvg();
     if (variableList[i] === null) {
       defaultVariable = (getBlock || setBlock).getVars()[0];
     }
@@ -323,6 +334,9 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
       && getBlock.postInit.call(getBlock);
     setBlock && typeof setBlock.postInit === 'function' 
       && setBlock.postInit.call(setBlock);
+
+    getBlock && getBlock.initSvg();
+    setBlock && setBlock.initSvg();
   }
 };
 

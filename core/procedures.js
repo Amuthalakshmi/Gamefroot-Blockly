@@ -172,22 +172,23 @@ Blockly.Procedures.rename = function(text) {
 Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
   if (Blockly.Blocks['procedures_defnoreturn']) {
     var block = Blockly.Block.obtain(workspace, 'procedures_defnoreturn');
+    typeof block.postInit === 'function' && block.postInit.call(block);
     block.initSvg();
     blocks.push(block);
-    typeof block.postInit === 'function' && func.call(block);
     gaps.push(margin * 2);
   }
   if (Blockly.Blocks['procedures_defreturn']) {
     var block = Blockly.Block.obtain(workspace, 'procedures_defreturn');
+    typeof block.postInit === 'function' && block.postInit.call(block);
     block.initSvg();
     blocks.push(block);
     gaps.push(margin * 2);
   }
   if (Blockly.Blocks['procedures_ifreturn']) {
     var block = Blockly.Block.obtain(workspace, 'procedures_ifreturn');
+    typeof block.postInit === 'function' && block.postInit.call(block);
     block.initSvg();
     blocks.push(block);
-    typeof block.postInit === 'function' && func.call(block);
     gaps.push(margin * 2);
   }
   if (gaps.length) {
@@ -204,9 +205,9 @@ Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
         tempIds[t] = 'ARG' + t;
       }
       block.setProcedureParameters(procedureList[x][1], tempIds);
+      typeof block.postInit === 'function' && block.postInit.call(block);
       block.initSvg();
       blocks.push(block);
-      typeof block.postInit === 'function' && func.call(block);
       gaps.push(margin * 2);
     }
   }
