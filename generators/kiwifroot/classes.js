@@ -28,13 +28,6 @@ goog.provide('Blockly.Kiwifroot.classes');
 
 goog.require('Blockly.Kiwifroot');
 
-Blockly.Kiwifroot['kiwi_classes_selector'] = function(block) {
-  var dropdown_name = block.getFieldValue('NAME');
-  var code = "'" + dropdown_name + "'";
-
-  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
-};
-
 Blockly.Kiwifroot['kiwi_classes_instance_type'] = function(block) {
   var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
   var code = value_inst + '.name';

@@ -29,19 +29,6 @@ goog.provide('Blockly.Blocks.Kiwifroot.classes');
 goog.require('Blockly.Blocks');
 
 
-Blockly.Blocks['kiwi_classes_selector'] = {
-  init: function() {
-    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
-    this.setHelpUrl( Blockly.Msg.KF_CLASSES_SELECTOR_HELPURL );
-    this.setColour( Blockly.Variables.HUE_CLASS );
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown( Blockly.Kiwifroot.classes_ ), "NAME");
-    this.setInputsInline(true);
-    this.setOutput( true, "Class" );
-    this.setTooltip( Blockly.Msg.KF_CLASSES_SELECTOR_TOOLTIP );
-  }
-};
-
 Blockly.Blocks['kiwi_classes_instance_type'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_INSTANCE_HELPURL );
