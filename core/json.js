@@ -85,11 +85,12 @@ Blockly.Json.blockToObject_ = function(block) {
   var element = {};
   element[Blockly.Json.fieldLabels.type]= block.type;
   if (block.mutationToObject) {
- var mutation = block.mutationToObject();
+    var mutation = block.mutationToObject();
     if (mutation) {
       element[Blockly.Json.fieldLabels.jsonMutation]=mutation;
     }
   }else  if (block.mutationToDom) {
+    console.warn('You should implement a mutationToObject in order to fully support JSON');
     // Custom data for an advanced block.
     var mutation = block.mutationToDom();
     if (mutation) {
@@ -257,9 +258,10 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
   if (jsonBlock[Blockly.Json.fieldLabels.jsonMutation] && block.objectToMutation) {
    block.objectToMutation(jsonBlock[Blockly.Json.fieldLabels.jsonMutation]);
   }else if (jsonBlock[Blockly.Json.fieldLabels.xmlMutation] && block.domToMutation) {
-   var mutationDom = document.createElement('div');
-  mutationDom.innerHTML = jsonBlock[Blockly.Json.fieldLabels.xmlMutation];
-  block.domToMutation(mutationDom.firstChild);
+    console.warn('You should implement an objectToMutation method in order to fully support JSON');
+    var mutationDom = document.createElement('div');
+    mutationDom.innerHTML = jsonBlock[Blockly.Json.fieldLabels.xmlMutation];
+    block.domToMutation(mutationDom.firstChild);
   }
   
   if (jsonBlock[Blockly.Json.fieldLabels.comment]){

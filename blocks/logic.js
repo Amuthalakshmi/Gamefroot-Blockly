@@ -66,6 +66,24 @@ Blockly.Blocks['controls_if'] = {
     this.elseCount_ = 0;
   },
   /**
+   * Create JSON to represent the number of else-if and else inputs.
+   * @return {object} JSON storage element.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    if (!this.elseifCount_ && !this.elseCount_) {
+      return null;
+    }
+    var obj = {};
+    if (this.elseifCount_) {
+      obj['elseif'] = this.elseifCount_;
+    }
+    if (this.elseCount_) {
+      obj['else'] = 1;
+    }
+    return obj;
+  },
+  /**
    * Create XML to represent the number of else-if and else inputs.
    * @return {Element} XML storage element.
    * @this Blockly.Block
@@ -82,6 +100,28 @@ Blockly.Blocks['controls_if'] = {
       container.setAttribute('else', 1);
     }
     return container;
+  },
+  /**
+   * Restores a mutation from a JSON object.
+   * @param {!Element} xmlElement JSON storage element.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj){
+    this.elseifCount_ = 0;
+    this.elseCount_ = 0;
+    if (obj['elseif']) this.elseifCount_ = obj['elseif'];
+    if (obj['else']) this.elseCount_ = obj['else'];
+    for (var i = 1; i <= this.elseifCount_; i++) {
+      this.appendValueInput('IF' + i)
+          .setCheck('Boolean')
+          .appendField(Blockly.Msg.CONTROLS_IF_MSG_ELSEIF);
+      this.appendStatementInput('DO' + i)
+          .appendField(Blockly.Msg.CONTROLS_IF_MSG_THEN);
+    }
+    if (this.elseCount_) {
+      this.appendStatementInput('ELSE')
+          .appendField(Blockly.Msg.CONTROLS_IF_MSG_ELSE);
+    }
   },
   /**
    * Parse XML to restore the else-if and else inputs.
