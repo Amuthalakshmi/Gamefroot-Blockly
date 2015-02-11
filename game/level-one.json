@@ -52,7 +52,7 @@
 						"speed": 0.1
 					},
 					"green": {
-						"cells": [1],
+						"cells": [ 1 ],
 						"loop": false,
 						"play": true,
 						"speed": 0.1
@@ -143,7 +143,7 @@
 					"green": {
 						"cells": [1],
 						"loop": false,
-						"play": true,
+						"play": false,
 						"speed": 0.1
 					}
 			
