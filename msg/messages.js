@@ -1014,6 +1014,8 @@ Blockly.Msg.VARIABLES_TYPE_COLOUR = 'colour';
 Blockly.Msg.VARIABLES_TYPE_ARRAY = 'list';
 /// The display name of the instace variable type
 Blockly.Msg.VARIABLES_TYPE_INSTANCE = 'instance';
+/// The display name of the class variable type
+Blockly.Msg.VARIABLES_TYPE_CLASS = 'class';
 /// The display name of the sound variable type
 Blockly.Msg.VARIABLES_TYPE_SOUND = 'sound';
 
