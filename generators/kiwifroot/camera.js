@@ -75,14 +75,14 @@ Blockly.Kiwifroot['kiwi_camera_lock_on'] = function(block) {
 	Blockly.Kiwifroot.camera.addCameraToConstructor_();
 
   	var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.lockOn = ' + value_instance + '.transform;\n';
+  	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.lock(' + value_instance + '.transform, ' + value_instance + '.width * 0.5, ' + value_instance + '.height * 0.5);\n';
   	return code;
 };
 
 Blockly.Kiwifroot['kiwi_camera_unlock'] = function(block) {
 	Blockly.Kiwifroot.camera.addCameraToConstructor_();
 
-  	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.lockOn = null;\n';
+  	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.unlock();\n';
   	return code;
 };
 
