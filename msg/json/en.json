@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-11 16:48:17.625297",
+		"lastupdated": "2015-02-12 10:53:42.455478",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -339,6 +339,7 @@
 	"VARIABLES_TYPE_COLOUR": "colour",
 	"VARIABLES_TYPE_ARRAY": "list",
 	"VARIABLES_TYPE_INSTANCE": "instance",
+	"VARIABLES_TYPE_CLASS": "class",
 	"VARIABLES_TYPE_SOUND": "sound",
 	"VARIABLES_GET_HELPURL": "https://github.com/google/blockly/wiki/Variables#get",
 	"VARIABLES_GET_TITLE": "",
@@ -406,6 +407,9 @@
 	"KF_EVENT_TIME_HELPURL": "",
 	"KF_EVENT_TIME_MESSAGE_AFTER": "milliseconds",
 	"KF_EVENT_TIME_TOOLTIP": "Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.",
+	"KF_EVENT_TIME_SINGLE_HELPURL": "",
+	"KF_EVENT_TIME_SINGLE_MESSAGE_AFTER": "milliseconds have passed",
+	"KF_EVENT_TIME_SINGLE_TOOLTIP": "Triggers the inner blocks after the set period of time has occured. Warning: Does not check to see if the object was destroyed before the event fires.",
 	"KF_EVENT_REMOVE_HELPURL": "",
 	"KF_EVENT_REMOVE_TOOLTIP": "The event is triggered when this gameobject is destroyed.",
 	"KF_EVENT_REMOVE_MESSAGE": "When removed",
@@ -597,10 +601,12 @@
 	"KF_MESSAGING_EVERYONE_TOOLTIP": "Sends a message to every gameobject.",
 	"KF_ARCADEPHYSICS_PROBE_HELPURL": "",
 	"KF_ARCADEPHYSICS_PROBE_MESSAGE": "collidable object exists at",
-	"KF_ARCADEPHYSICS_PROBE_TOOLTIP": "Returns a boolean indiciating if a colliable object (with the collision shape as selected) exists at the cooridnates passed. ",
+	"KF_ARCADEPHYSICS_PROBE_TOOLTIP": "Returns a boolean indiciating if a colliable object exists at the cooridnates passed. ",
 	"KF_ARCADEPHYSICS_PROBE_LAYER_TOOLTIP": "Returns a boolean indiciating if a colliable object (with the collision shape AND layer as passed) exists at the coordinates passed.",
 	"KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_ONE": "collidable object of",
 	"KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_TWO": "side exists at",
 	"KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_THREE": "and is on the layer",
-	"KF_ARCADEPHYSICS_PROBE_LAYER_HELPURL": ""
+	"KF_ARCADEPHYSICS_PROBE_LAYER_HELPURL": "",
+	"KF_INSTANCE_MOVE_HELPURL": "",
+	"KF_INSTANCE_MOVE_TOOLTIP": "Changes the depth (layer ordering) of an instance passed by the selected dropdown method."
 }
