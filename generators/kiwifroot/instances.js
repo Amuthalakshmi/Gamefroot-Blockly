@@ -118,3 +118,12 @@ Blockly.Kiwifroot['kiwi_instance_get_all_by_tag'] = function(block) {
   var code = 'this.state.getChildrenByTag(' + value_tag + ')';
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+Blockly.Kiwifroot['kiwi_instance_move'] = function(block) {
+  var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_inst_two = Blockly.Kiwifroot.valueToCode(block, 'INST_TWO', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var dropdown_method = block.getFieldValue('METHOD');
+
+  var code = 'this.state.' + dropdown_method + '(' + value_inst_one + ', ' + value_inst_two + ');\n';
+  return code;
+};

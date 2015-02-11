@@ -1625,7 +1625,7 @@ Blockly.Msg.KF_ARCADEPHYSICS_PROBE_HELPURL = '';
 ///
 Blockly.Msg.KF_ARCADEPHYSICS_PROBE_MESSAGE = 'collidable object exists at';
 ///
-Blockly.Msg.KF_ARCADEPHYSICS_PROBE_TOOLTIP = 'Returns a boolean indiciating if a colliable object (with the collision shape as selected) exists at the cooridnates passed. ';
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_TOOLTIP = 'Returns a boolean indiciating if a colliable object exists at the cooridnates passed. ';
 ///
 Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_TOOLTIP = 'Returns a boolean indiciating if a colliable object (with the collision shape AND layer as passed) exists at the coordinates passed.';
 ///
@@ -1636,3 +1636,8 @@ Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_TWO = 'side exists at';
 Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_THREE = 'and is on the layer';
 ///
 Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_HELPURL = '';
+
+///
+Blockly.Msg.KF_INSTANCE_MOVE_HELPURL = '';
+///
+Blockly.Msg.KF_INSTANCE_MOVE_TOOLTIP = 'Changes the depth (layer ordering) of an instance passed by the selected dropdown method.';

@@ -223,3 +223,23 @@ Blockly.Blocks['kiwi_instance_get_all_by_tag'] = {
     this.setTooltip( Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP );
   }
 };
+
+Blockly.Blocks['kiwi_instance_move'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INSTANCE_MOVE_HELPURL );
+    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.appendValueInput("INST_ONE")
+        .setCheck("Instance");
+    this.appendValueInput("INST_TWO")
+        .setCheck("Instance")
+        .appendField(new Blockly.FieldDropdown([
+            ["move in front", "addChildAfter"], 
+            ["move behind", "addChildBefore"], 
+            ["swap with", "swapChildren"]
+        ]), "METHOD");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_INSTANCE_MOVE_TOOLTIP );
+  }
+};
