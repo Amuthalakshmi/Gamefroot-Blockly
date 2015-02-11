@@ -602,6 +602,7 @@ Blockly.Msg.VARIABLES_TYPE_BOOLEAN = "true/false";  // untranslated
 Blockly.Msg.VARIABLES_TYPE_COLOUR = "colour";  // untranslated
 Blockly.Msg.VARIABLES_TYPE_INSTANCE = "instance";  // untranslated
 Blockly.Msg.VARIABLES_TYPE_NUMBER = "number";  // untranslated
+Blockly.Msg.VARIABLES_TYPE_SOUND = "sound";  // untranslated
 Blockly.Msg.VARIABLES_TYPE_STRING = "text";  // untranslated
 Blockly.Msg.PROCEDURES_DEFRETURN_TITLE = Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE;
 Blockly.Msg.LISTS_GET_SUBLIST_INPUT_IN_LIST = Blockly.Msg.LISTS_INLIST;

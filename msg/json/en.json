@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-11 13:41:19.101498",
+		"lastupdated": "2015-02-11 16:48:17.625297",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -339,6 +339,7 @@
 	"VARIABLES_TYPE_COLOUR": "colour",
 	"VARIABLES_TYPE_ARRAY": "list",
 	"VARIABLES_TYPE_INSTANCE": "instance",
+	"VARIABLES_TYPE_SOUND": "sound",
 	"VARIABLES_GET_HELPURL": "https://github.com/google/blockly/wiki/Variables#get",
 	"VARIABLES_GET_TITLE": "",
 	"VARIABLES_GET_TAIL": "",

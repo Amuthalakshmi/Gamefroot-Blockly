@@ -1017,6 +1017,7 @@ Blockly.Msg.VARIABLES_TYPE_INSTANCE = 'instance';
 /// The display name of the sound variable type
 Blockly.Msg.VARIABLES_TYPE_SOUND = 'sound';
 
+
 /// url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.
 Blockly.Msg.VARIABLES_GET_HELPURL = 'https://github.com/google/blockly/wiki/Variables#get';
 /// block text - This precedes the name of a variable when getting its values.  In most (all?) languages, it should be the empty string.  If unsure, ask yourself if any word should go before "x" in the expression "x + 1".

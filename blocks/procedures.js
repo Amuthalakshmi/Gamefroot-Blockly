@@ -617,7 +617,7 @@ Blockly.Blocks['procedures_callnoreturn'] = {
       // Initialize caller with the mutator's IDs.
       this.setProcedureParameters(def.arguments_, def.paramIds_);
     } else {
-      this.arguments_ = obj.arguments_.concat();
+      this.arguments_ = obj.arguments.concat();
       // For the second argument (paramIds) use the arguments list as a dummy
       // list.
       this.setProcedureParameters(this.arguments_, this.arguments_);

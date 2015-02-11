@@ -333,6 +333,7 @@
 	"VARIABLES_TYPE_COLOUR": "The display name of the colour variable type",
 	"VARIABLES_TYPE_ARRAY": "The display name of the array variable type",
 	"VARIABLES_TYPE_INSTANCE": "The display name of the instace variable type",
+	"VARIABLES_TYPE_SOUND": "The display name of the sound variable type",
 	"VARIABLES_GET_HELPURL": "url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.",
 	"VARIABLES_GET_TITLE": "block text - This precedes the name of a variable when getting its values.  In most (all?) languages, it should be the empty string.  If unsure, ask yourself if any word should go before 'x' in the expression 'x + 1'.",
 	"VARIABLES_GET_TAIL": "block text - This follows the name of a variable.  In most (all?) languages, it should be the empty string.  If unsure, ask yourself if any word should go after 'x' in the expression 'x + 1'.",

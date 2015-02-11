@@ -602,6 +602,7 @@ Blockly.Msg.VARIABLES_TYPE_BOOLEAN = "true/false";
 Blockly.Msg.VARIABLES_TYPE_COLOUR = "colour";
 Blockly.Msg.VARIABLES_TYPE_INSTANCE = "instance";
 Blockly.Msg.VARIABLES_TYPE_NUMBER = "number";
+Blockly.Msg.VARIABLES_TYPE_SOUND = "sound";
 Blockly.Msg.VARIABLES_TYPE_STRING = "text";
 Blockly.Msg.PROCEDURES_DEFRETURN_TITLE = Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE;
 Blockly.Msg.LISTS_GET_SUBLIST_INPUT_IN_LIST = Blockly.Msg.LISTS_INLIST;
