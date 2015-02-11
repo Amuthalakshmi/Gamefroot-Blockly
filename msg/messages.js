@@ -1622,3 +1622,19 @@ Blockly.Msg.KF_MESSAGING_EVERYONE_HELPURL = '';
 Blockly.Msg.KF_MESSAGING_EVERYONE_MESSAGE = 'send every gameobject a message of';
 ///
 Blockly.Msg.KF_MESSAGING_EVERYONE_TOOLTIP = 'Sends a message to every gameobject.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_MESSAGE = 'collidable object exists at';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_TOOLTIP = 'Returns a boolean indiciating if a colliable object (with the collision shape as selected) exists at the cooridnates passed. ';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_TOOLTIP = 'Returns a boolean indiciating if a colliable object (with the collision shape AND layer as passed) exists at the coordinates passed.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_ONE = 'collidable object of';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_TWO = 'side exists at';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_THREE = 'and is on the layer';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_HELPURL = '';

@@ -142,5 +142,27 @@ Blockly.Kiwifroot['kiwi_arcadephysics_get_gravity'] = function(block) {
   var dropdown_prop = block.getFieldValue('PROP');
   var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.system.gravity.' + dropdown_prop;
 
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_arcadephysics_probe'] = function(block) {
+
+  var value_x_pos = Blockly.Kiwifroot.valueToCode(block, 'X_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_y_pos = Blockly.Kiwifroot.valueToCode(block, 'Y_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
+
+  var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.system.probe( ' + value_x_pos + ', ' + value_y_pos + ')';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_arcadephysics_probe_layer'] = function(block) {
+  var value_x_pos = Blockly.Kiwifroot.valueToCode(block, 'X_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_y_pos = Blockly.Kiwifroot.valueToCode(block, 'Y_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_layer = Blockly.Kiwifroot.valueToCode(block, 'LAYER', Blockly.Kiwifroot.ORDER_ATOMIC);
+
+  var dropdown_side = block.getFieldValue('SIDE');
+ 
+  var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.system.probe( ' + value_x_pos + ', ' + value_y_pos + ', ' + dropdown_side + ', ' + value_layer + ')';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
