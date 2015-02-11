@@ -66,8 +66,8 @@ Blockly.Blocks['controls_if'] = {
     this.elseCount_ = 0;
   },
   /**
-   * Create JSON to represent the number of else-if and else inputs.
-   * @return {object} JSON storage element.
+   * Create object to represent the number of else-if and else inputs.
+   * @return {object} Object to store mutation.
    * @this Blockly.Block
    */
   mutationToObject: function(){
@@ -103,7 +103,7 @@ Blockly.Blocks['controls_if'] = {
   },
   /**
    * Restores a mutation from a JSON object.
-   * @param {!Element} xmlElement JSON storage element.
+   * @param {object} obj JSON storage element.
    * @this Blockly.Block
    */
   objectToMutation: function(obj){
