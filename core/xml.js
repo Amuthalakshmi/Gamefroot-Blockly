@@ -244,6 +244,7 @@ Blockly.Xml.domToBlock = function(workspace, xmlBlock, opt_reuseBlock) {
   // Create top-level block.
   var topBlock = Blockly.Xml.domToBlockHeadless_(workspace, xmlBlock,
                                                  opt_reuseBlock);
+  
   if (workspace.rendered) {
     // Hide connections to speed up assembly.
     topBlock.setConnectionsHidden(true);
@@ -264,15 +265,6 @@ Blockly.Xml.domToBlock = function(workspace, xmlBlock, opt_reuseBlock) {
     topBlock.updateDisabled();
     // Fire an event to allow scrollbars to resize.
     Blockly.fireUiEvent(window, 'resize');
-  }
-
-  // Once all the initialization is done, fire the postInit notification
-  var blocks = topBlock.getDescendants();
-  // Render each block.
-  for (var i = blocks.length - 1; i >= 0; i--) {
-    blocks[i].initSvg();
-    var func = blocks[i].postInit;
-    if (func) func.call(blocks[i]);
   }
   
   return topBlock;
@@ -434,6 +426,10 @@ Blockly.Xml.domToBlockHeadless_ =
   if (collapsed) {
     block.setCollapsed(collapsed == 'true');
   }
+  // Once the block is all set up, call post init
+  var func = block.postInit;
+  if (func) func.call(block);
+
   return block;
 };
 

@@ -269,13 +269,6 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
     Blockly.fireUiEvent(window, 'resize');
   }
 
-  // Once all the initialization is done, fire the postInit notification
-  var blocks = topBlock.getDescendants();
-  for (var i = blocks.length - 1; i >= 0; i--) {
-    var func = blocks[i].postInit;
-    if (func) func.call(blocks[i]);
-  }
-
   return topBlock;
 };
 
@@ -393,6 +386,10 @@ Blockly.Json.objectToBlockHeadless_ = function(workspace, jsonBlock) {
   if (editable) {
     block.setEditable(true);
   }
+
+  var func = block.postInit;
+  if (func) func.call(block);
+
   return block;
 };
 

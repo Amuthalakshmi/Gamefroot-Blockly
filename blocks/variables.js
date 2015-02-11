@@ -60,7 +60,8 @@ Blockly.Blocks['variables_get'] = {
     // Try to use the main workspace (blocks in the flyout)
     var workspace = Blockly.mainWorkspace || this.workspace;
     var name = this.getFieldValue('VAR');
-    var type = Blockly.Variables.typeOf(name, workspace);
+    var type = Blockly.Variables.typeOf(name, workspace) 
+      || this.getFieldValue('TYPE');
     if (type) this.setType(type);
   },
   /**
@@ -188,7 +189,8 @@ Blockly.Blocks['variables_set'] = {
     // Try to use the main workspace (blocks in the flyout)
     var workspace = Blockly.mainWorkspace || this.workspace;
     var name = this.getFieldValue('VAR');
-    var type = Blockly.Variables.typeOf(name,workspace);
+    var type = Blockly.Variables.typeOf(name,workspace) 
+      || this.getFieldValue('TYPE');
     if (type) this.setType(type);
   },
   /**

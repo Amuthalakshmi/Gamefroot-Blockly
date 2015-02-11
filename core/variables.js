@@ -314,10 +314,8 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
     }
     var getBlock = Blockly.Blocks['variables_get'] ?
         Blockly.Block.obtain(workspace, 'variables_get') : null;
-    getBlock && getBlock.initSvg();
     var setBlock = Blockly.Blocks['variables_set'] ?
         Blockly.Block.obtain(workspace, 'variables_set') : null;
-    setBlock && setBlock.initSvg();
     if (variableList[i] === null) {
       defaultVariable = (getBlock || setBlock).getVars()[0];
     }
@@ -336,6 +334,9 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
       && getBlock.postInit.call(getBlock);
     setBlock && typeof setBlock.postInit === 'function' 
       && setBlock.postInit.call(setBlock);
+
+    getBlock && getBlock.initSvg();
+    setBlock && setBlock.initSvg();
   }
 };
 
