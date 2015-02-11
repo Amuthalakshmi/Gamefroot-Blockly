@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-12 10:53:42.455478",
+		"lastupdated": "2015-02-12 11:12:57.356619",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -410,6 +410,10 @@
 	"KF_EVENT_TIME_SINGLE_HELPURL": "",
 	"KF_EVENT_TIME_SINGLE_MESSAGE_AFTER": "milliseconds have passed",
 	"KF_EVENT_TIME_SINGLE_TOOLTIP": "Triggers the inner blocks after the set period of time has occured. Warning: Does not check to see if the object was destroyed before the event fires.",
+	"KF_EVENT_ANIMATION_HELPURL": "",
+	"KF_EVENT_ANIMATION_MESSAGE_BEFORE": "When the",
+	"KF_EVENT_ANIMATION_MESSAGE_AFTER": "animation has",
+	"KF_EVENT_ANIMATION_TOOLTIP": "Fires events when a selected event occurs on the animation passed.",
 	"KF_EVENT_REMOVE_HELPURL": "",
 	"KF_EVENT_REMOVE_TOOLTIP": "The event is triggered when this gameobject is destroyed.",
 	"KF_EVENT_REMOVE_MESSAGE": "When removed",
