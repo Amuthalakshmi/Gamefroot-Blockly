@@ -229,6 +229,33 @@ Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
 };
 
 
+Blockly.Kiwifroot['kiwi_event_animation'] = function(block) {
+
+  	Blockly.Kiwifroot.addAnimationToConstructor_();
+
+  	var value_anim = Blockly.Kiwifroot.valueToCode( block, 'ANIM', Blockly.Kiwifroot.ORDER_ATOMIC );
+  	var dropdown_type = block.getFieldValue( 'TYPE' );
+  
+
+	var funcName = defineFunctionFromBranch( 'onAnimation', block );
+
+	var bootCode  = 'var anim = ' + Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.getAnimation(' + value_anim + ');\n';
+		bootCode += '\tif( anim ) {\n';
+		bootCode += '\t\tanim.' + dropdown_type + '.add(this.' + funcName + ', this);\n';
+		bootCode += '\t}\n';
+
+
+	var destructorCode  = 'var anim = ' + Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.getAnimation(' + value_anim + ');\n';
+		destructorCode += '\tif( anim ) {\n';
+		destructorCode += '\t\tanim.' + dropdown_type + '.remove(this.' + funcName + ', this);\n';
+		destructorCode += '\t}\n';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.BOOT, bootCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
+  	return null;
+};
+
 function defineFunctionFromBranch(desiredName, block){
 	// Define a procedure with a return value.
 	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName(desiredName, Blockly.Procedures.NAME_TYPE);

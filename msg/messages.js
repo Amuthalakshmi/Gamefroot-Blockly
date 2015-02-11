@@ -1210,6 +1210,14 @@ Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_BEFORE = 'After' ;
 Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_AFTER = 'milliseconds have passed';
 ///
 Blockly.Msg.KF_EVENT_TIME_SINGLE_TOOLTIP = 'Triggers the inner blocks after the set period of time has occured. Warning: Does not check to see if the object was destroyed before the event fires.';
+///
+Blockly.Msg.KF_EVENT_ANIMATION_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE = 'When the';
+///
+Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER = 'animation has';
+///
+Blockly.Msg.KF_EVENT_ANIMATION_TOOLTIP = 'Fires events when a selected event occurs on the animation passed.';
 
 ///
 Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
