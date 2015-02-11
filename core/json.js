@@ -290,7 +290,7 @@ Blockly.Json.objectToBlockHeadless_ = function(workspace, jsonBlock) {
   var block = null;
   var prototypeName = jsonBlock[Blockly.Json.fieldLabels.type];
   if (!prototypeName) {
-    throw 'Block type unspecified: \n' + xmlBlock.outerHTML;
+    throw 'Block type unspecified: \n' + jsonBlock;
   }
   block = Blockly.Block.obtain(workspace, prototypeName);
   if (jsonBlock[Blockly.Json.fieldLabels.jsonMutation] && block.objectToMutation) {
