@@ -85,11 +85,12 @@ Blockly.Json.blockToObject_ = function(block) {
   var element = {};
   element[Blockly.Json.fieldLabels.type]= block.type;
   if (block.mutationToObject) {
- var mutation = block.mutationToObject();
+    var mutation = block.mutationToObject();
     if (mutation) {
       element[Blockly.Json.fieldLabels.jsonMutation]=mutation;
     }
   }else  if (block.mutationToDom) {
+    console.warn('You should implement a mutationToObject in order to fully support JSON');
     // Custom data for an advanced block.
     var mutation = block.mutationToDom();
     if (mutation) {
@@ -243,25 +244,67 @@ Blockly.Json.objectToText = function(object){
  * @private
  */
 Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
-  var prototypeName = jsonBlock[Blockly.Json.fieldLabels.type];
-  //var block = new Blockly.Block(workspace, prototypeName);
-  try{
-  var block = Blockly.Block.obtain(workspace, prototypeName);
-  } catch (e){
-   return;
-  }
-  
-  if (block.initSvg) {
-    block.initSvg();
+  // Create the top-level block
+  var topBlock = Blockly.Json.objectToBlockHeadless_(workspace, jsonBlock);
+
+  if (workspace.rendered) {
+    // Hide connections to speed up assembly.
+    topBlock.setConnectionsHidden(true);
+    // Generate list of all blocks.
+    var blocks = topBlock.getDescendants();
+    // Render each block.
+    for (var i = blocks.length - 1; i >= 0; i--) {
+      blocks[i].initSvg();
+    }
+    for (var i = blocks.length - 1; i >= 0; i--) {
+      blocks[i].render(false);
+    }
+    // Populating the connection database may be defered until after the blocks
+    // have renderend.
+    setTimeout(function() {
+      topBlock.setConnectionsHidden(false);
+    }, 1);
+    topBlock.updateDisabled();
+    // Fire an event to allow scrollbars to resize.
+    Blockly.fireUiEvent(window, 'resize');
   }
 
+  // Once all the initialization is done, fire the postInit notification
+  var blocks = topBlock.getDescendants();
+  for (var i = blocks.length - 1; i >= 0; i--) {
+    var func = blocks[i].postInit;
+    if (func) func.call(blocks[i]);
+  }
+
+  return topBlock;
+};
+
+/**
+ * Decode an Json block without rendering.
+ * @param {!Blockly.Workspace} workspace The workspace.
+ * @param {!Element} JsonBlock Json block element.
+ * @return {!Blockly.Block} The root block created.
+ * @private
+ */
+Blockly.Json.objectToBlockHeadless_ = function(workspace, jsonBlock) {
+  var block = null;
+  var prototypeName = jsonBlock[Blockly.Json.fieldLabels.type];
+  if (!prototypeName) {
+    throw 'Block type unspecified: \n' + xmlBlock.outerHTML;
+  }
+  block = Blockly.Block.obtain(workspace, prototypeName);
   if (jsonBlock[Blockly.Json.fieldLabels.jsonMutation] && block.objectToMutation) {
     block.objectToMutation(jsonBlock[Blockly.Json.fieldLabels.jsonMutation]);
-  } else if (jsonBlock[Blockly.Json.fieldLabels.xmlMutation] && block.domToMutation && document) {
-    //we check for document only because it may not be defined (nodejs)
-    var mutationDom = document.createElement('div');
-    mutationDom.innerHTML = jsonBlock[Blockly.Json.fieldLabels.xmlMutation];
-    block.domToMutation(mutationDom.firstChild);
+  } else if (jsonBlock[Blockly.Json.fieldLabels.xmlMutation] && block.domToMutation) {
+    console.warn('You should implement an objectToMutation method in order to fully support JSON');
+    if (!document || !document.createElement) {
+      throw 'Can not create mutator on block "'+prototypeName+'", no document and no JSON mutator';
+    }
+    else {
+      var mutationDom = document.createElement('div');
+      mutationDom.innerHTML = jsonBlock[Blockly.Json.fieldLabels.xmlMutation];
+      block.domToMutation(mutationDom.firstChild);
+    }
   }
   
   if (jsonBlock[Blockly.Json.fieldLabels.comment]){
@@ -290,8 +333,6 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
     }  
   }
   
-
-  
   if (jsonBlock[Blockly.Json.fieldLabels.inputList]){
    for(var i=0,jsonInput; jsonInput = jsonBlock[Blockly.Json.fieldLabels.inputList][i];i++){
        var input = block.getInput(jsonInput[Blockly.Json.fieldLabels.inputName]);
@@ -300,7 +341,7 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
        continue;
      }
      if (jsonInput[Blockly.Json.fieldLabels.childBlocks]) {  
-       var blockChild = Blockly.Json.objectToBlock_(workspace, jsonInput[Blockly.Json.fieldLabels.childBlocks]);
+       var blockChild = Blockly.Json.objectToBlockHeadless_(workspace, jsonInput[Blockly.Json.fieldLabels.childBlocks]);
        if (blockChild && blockChild.outputConnection) {
         if(input.connection)input.connection.connect(blockChild.outputConnection);
        } else if (blockChild && blockChild.previousConnection) {
@@ -320,7 +361,7 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
             // This could happen if there is more than one Json 'lNext' tag.
             throw 'Next statement is already connected.';
           }
-          blockChild = Blockly.Json.objectToBlock_(workspace, jsonNext);
+          blockChild = Blockly.Json.objectToBlockHeadless_(workspace, jsonNext);
           if (!blockChild.previousConnection) {
             throw 'Next block does not have previous statement.';
           }
@@ -352,22 +393,9 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
   if (editable) {
     block.setEditable(true);
   }
-
-  if (workspace.rendered){
-    var next = block.nextConnection && block.nextConnection.targetBlock();
-    if (next) {
-      // Next block in a stack needs to square off its corners.
-      // Rendering a child will render its parent.
-      next.render();
-    } else {
-      block.render();
-    }
-  }
-
-  typeof block.postInit === 'function' && block.postInit.call(block);
-
   return block;
 };
+
 
 // Export symbols that would otherwise be renamed by Closure compiler.
 if (!goog.global['Blockly']) {

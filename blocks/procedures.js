@@ -101,6 +101,17 @@ Blockly.Blocks['procedures_defnoreturn'] = {
     this.setFieldValue(paramString, 'PARAMS');
   },
   /**
+   * Create an object to represent the argument inputs.
+   * @return {object} mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function() {
+    return {
+      'arguments' : this.arguments_.concat()
+      ,'statements' : this.hasStatements_
+    };
+  },
+  /**
    * Create XML to represent the argument inputs.
    * @return {Element} XML storage element.
    * @this Blockly.Block
@@ -118,6 +129,16 @@ Blockly.Blocks['procedures_defnoreturn'] = {
       container.setAttribute('statements', 'false');
     }
     return container;
+  },
+  /**
+   * Parse mutation data to restore the argument inputs.
+   * @param {object} obj The mutation data.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    this.arguments_ = obj.arguments.concat();
+    this.updateParams_();
+    this.setStatements_(!!obj.statements);
   },
   /**
    * Parse XML to restore the argument inputs.
@@ -349,7 +370,9 @@ Blockly.Blocks['procedures_defreturn'] = {
   setStatements_: Blockly.Blocks['procedures_defnoreturn'].setStatements_,
   updateParams_: Blockly.Blocks['procedures_defnoreturn'].updateParams_,
   mutationToDom: Blockly.Blocks['procedures_defnoreturn'].mutationToDom,
+  mutationToObject: Blockly.Blocks['procedures_defnoreturn'].mutationToObject,
   domToMutation: Blockly.Blocks['procedures_defnoreturn'].domToMutation,
+  objectToMutation: Blockly.Blocks['procedures_defnoreturn'].objectToMutation,
   decompose: Blockly.Blocks['procedures_defnoreturn'].decompose,
   compose: Blockly.Blocks['procedures_defnoreturn'].compose,
   dispose: Blockly.Blocks['procedures_defnoreturn'].dispose,
@@ -553,6 +576,17 @@ Blockly.Blocks['procedures_callnoreturn'] = {
     }
   },
   /**
+   * Create an object to represent the (non-editable) name and arguments.
+   * @return {object} Mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject:function(){
+    return {
+      'name' : this.getProcedureCall()
+      ,'arguments' : this.arguments_.concat()
+    };
+  },
+  /**
    * Create XML to represent the (non-editable) name and arguments.
    * @return {Element} XML storage element.
    * @this Blockly.Block
@@ -566,6 +600,28 @@ Blockly.Blocks['procedures_callnoreturn'] = {
       container.appendChild(parameter);
     }
     return container;
+  },
+  /**
+   * Parse an object to restore the (non-editable) name and parameters.
+   * @param {object} obj The mutation data.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    var name = obj.name;
+    this.setFieldValue(name, 'NAME');
+    this.setTooltip(
+        (this.outputConnection ? Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP :
+         Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP).replace('%1', name));
+    var def = Blockly.Procedures.getDefinition(name, this.workspace);
+    if (def && def.mutator.isVisible()) {
+      // Initialize caller with the mutator's IDs.
+      this.setProcedureParameters(def.arguments_, def.paramIds_);
+    } else {
+      this.arguments_ = obj.arguments_.concat();
+      // For the second argument (paramIds) use the arguments list as a dummy
+      // list.
+      this.setProcedureParameters(this.arguments_, this.arguments_);
+    }
   },
   /**
    * Parse XML to restore the (non-editable) name and parameters.
@@ -700,6 +756,16 @@ Blockly.Blocks['procedures_ifreturn'] = {
     this.hasReturnValue_ = true;
   },
   /**
+   * Create an object to represent whether this block has a return value.
+   * @return {object} mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    return {
+      'value': this.hasReturnValue_
+    };
+  },
+  /**
    * Create XML to represent whether this block has a return value.
    * @return {Element} XML storage element.
    * @this Blockly.Block
@@ -708,6 +774,19 @@ Blockly.Blocks['procedures_ifreturn'] = {
     var container = document.createElement('mutation');
     container.setAttribute('value', Number(this.hasReturnValue_));
     return container;
+  },
+  /**
+   * Parse an object to restore whether this block has a return value.
+   * @param {object} obj The mutation data
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj){
+    this.hasReturnValue_ = !!obj.value;
+    if (!this.hasReturnValue_) {
+      this.removeInput('VALUE');
+      this.appendDummyInput('VALUE')
+        .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
+    }
   },
   /**
    * Parse XML to restore whether this block has a return value.
