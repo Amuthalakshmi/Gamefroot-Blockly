@@ -31,6 +31,7 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks['kiwi_classes_selector'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_SELECTOR_HELPURL );
     this.setColour( Blockly.Variables.HUE_CLASS );
     this.appendDummyInput()

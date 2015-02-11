@@ -1137,6 +1137,9 @@ Blockly.Msg.PROCEDURES_IFRETURN_TOOLTIP = 'If a value is true, then return a sec
 /// warning - This appears if the user tries to use this block outside of a function definition.
 Blockly.Msg.PROCEDURES_IFRETURN_WARNING = 'Warning: This block may be used only within a function definition.';
 
+/// warning - This appears when a block is being removed from use and can be replaced with another block
+Blockly.Msg.KF_BLOCK_DEPRECATED = 'Warning: This block is being discontinued';
+
 /// The display name of the boolean type
 Blockly.Msg.KF_TYPE_BOOLEAN = 'True/False';
 /// The display name of the boolean type
