@@ -159,6 +159,24 @@ Blockly.Blocks['kiwi_event_time'] = {
 };
 
 
+Blockly.Blocks['kiwi_event_time_single'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_TIME_SINGLE_HELPURL );
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_BEFORE );
+    this.appendValueInput("MILLISECOND")
+        .setCheck("Number");
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_AFTER );
+    this.setTooltip(Blockly.Msg.KF_EVENT_TIME_SINGLE_TOOLTIP );
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+  }
+};
+
 Blockly.Blocks['kiwi_event_message'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_MESSAGE_HELPURL );

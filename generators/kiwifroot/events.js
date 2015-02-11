@@ -192,6 +192,17 @@ Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
 	return null;
 };
 
+Blockly.Kiwifroot['kiwi_event_time_single'] = function(block) {
+
+	var funcName = defineFunctionFromBranch('onSingleTick', block);
+
+	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+
+	var code = 'this.' + funcName + '_ = this.game.time.clock.setTimeout( this.' + funcName + ', ' + tick + ', this);';
+	
+	return code;
+};
+
 Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
 
 	var t = Blockly.Kiwifroot.INDENT;

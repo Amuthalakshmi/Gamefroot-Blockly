@@ -1202,6 +1202,14 @@ Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'Every' ;
 Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'milliseconds';
 ///
 Blockly.Msg.KF_EVENT_TIME_TOOLTIP = 'Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.';
+///
+Blockly.Msg.KF_EVENT_TIME_SINGLE_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_BEFORE = 'After' ;
+///
+Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_AFTER = 'milliseconds have passed';
+///
+Blockly.Msg.KF_EVENT_TIME_SINGLE_TOOLTIP = 'Triggers the inner blocks after the set period of time has occured. Warning: Does not check to see if the object was destroyed before the event fires.';
 
 ///
 Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
