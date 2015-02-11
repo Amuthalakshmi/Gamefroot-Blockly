@@ -257,7 +257,8 @@ Blockly.Json.objectToBlock_ = function(workspace, jsonBlock) {
 
   if (jsonBlock[Blockly.Json.fieldLabels.jsonMutation] && block.objectToMutation) {
    block.objectToMutation(jsonBlock[Blockly.Json.fieldLabels.jsonMutation]);
-  }else if (jsonBlock[Blockly.Json.fieldLabels.xmlMutation] && block.domToMutation) {
+  }else if (jsonBlock[Blockly.Json.fieldLabels.xmlMutation] && block.domToMutation && document) {
+    //we check for document only because it may not be defined (nodejs)
    var mutationDom = document.createElement('div');
   mutationDom.innerHTML = jsonBlock[Blockly.Json.fieldLabels.xmlMutation];
   block.domToMutation(mutationDom.firstChild);
