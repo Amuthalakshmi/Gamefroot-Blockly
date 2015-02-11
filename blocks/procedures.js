@@ -103,6 +103,17 @@ Blockly.Blocks['procedures_defnoreturn'] = {
     this.setFieldValue(paramString, 'PARAMS');
   },
   /**
+   * Create an object to represent the argument inputs.
+   * @return {object} mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function() {
+    return {
+      'arguments' : this.arguments_.concat()
+      ,'statements' : this.hasStatements_
+    };
+  },
+  /**
    * Create XML to represent the argument inputs.
    * @return {Element} XML storage element.
    * @this Blockly.Block
@@ -120,6 +131,16 @@ Blockly.Blocks['procedures_defnoreturn'] = {
       container.setAttribute('statements', 'false');
     }
     return container;
+  },
+  /**
+   * Parse mutation data to restore the argument inputs.
+   * @param {object} obj The mutation data.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    this.arguments_ = obj.arguments.concat();
+    this.updateParams_();
+    this.setStatements_(obj.statements);
   },
   /**
    * Parse XML to restore the argument inputs.
