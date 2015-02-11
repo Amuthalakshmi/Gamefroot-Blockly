@@ -168,7 +168,7 @@ Blockly.Kiwifroot['math_number_property'] = function(block) {
     // Prime is a special case as it is not a one-liner test.
     var functionName = Blockly.Kiwifroot.provideFunction_(
         'math_isPrime',
-        [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + '(n) {',
+        [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function' + '(n) {',
           '  // https://en.wikipedia.org/wiki/Primality_test#Naive_methods',
           '  if (n == 2 || n == 3) {',
           '    return true;',
@@ -187,7 +187,7 @@ Blockly.Kiwifroot['math_number_property'] = function(block) {
           '  }',
           '  return true;',
           '}']);
-    code = functionName + '(' + number_to_check + ')';
+    code = 'this.' + functionName + '(' + number_to_check + ')';
     return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
   }
   switch (dropdown_property) {
@@ -254,20 +254,20 @@ Blockly.Kiwifroot['math_on_list'] = function(block) {
       // math_median([null,null,1,3]) == 2.0.
       var functionName = Blockly.Kiwifroot.provideFunction_(
           'math_mean',
-          [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ +
+          [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function' +
               '(myList) {',
             '  return myList.reduce(function(x, y) {return x + y;}) / ' +
                   'myList.length;',
             '}']);
       list = Blockly.Kiwifroot.valueToCode(block, 'LIST',
           Blockly.Kiwifroot.ORDER_NONE) || '[]';
-      code = functionName + '(' + list + ')';
+      code = 'this.' + functionName + '(' + list + ')';
       break;
     case 'MEDIAN':
       // math_median([null,null,1,3]) == 2.0.
       var functionName = Blockly.Kiwifroot.provideFunction_(
           'math_median',
-          [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ +
+          [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function' +
               '(myList) {',
             '  var localList = myList.filter(function (x) ' +
               '{return typeof x == \'number\';});',
@@ -282,7 +282,7 @@ Blockly.Kiwifroot['math_on_list'] = function(block) {
             '}']);
       list = Blockly.Kiwifroot.valueToCode(block, 'LIST',
           Blockly.Kiwifroot.ORDER_NONE) || '[]';
-      code = functionName + '(' + list + ')';
+      code = 'this.' + functionName + '(' + list + ')';
       break;
     case 'MODE':
       // As a list of numbers can contain more than one mode,
@@ -290,7 +290,7 @@ Blockly.Kiwifroot['math_on_list'] = function(block) {
       // Mode of [3, 'x', 'x', 1, 1, 2, '3'] -> ['x', 1].
       var functionName = Blockly.Kiwifroot.provideFunction_(
           'math_modes',
-          [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ +
+          [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function' +
               '(values) {',
             '  var modes = [];',
             '  var counts = [];',
@@ -321,12 +321,12 @@ Blockly.Kiwifroot['math_on_list'] = function(block) {
             '}']);
       list = Blockly.Kiwifroot.valueToCode(block, 'LIST',
           Blockly.Kiwifroot.ORDER_NONE) || '[]';
-      code = functionName + '(' + list + ')';
+      code = 'this.' + functionName + '(' + list + ')';
       break;
     case 'STD_DEV':
       var functionName = Blockly.Kiwifroot.provideFunction_(
           'math_standard_deviation',
-          [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ +
+          [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function' +
               '(numbers) {',
             '  var n = numbers.length;',
             '  if (!n) return null;',
@@ -340,19 +340,19 @@ Blockly.Kiwifroot['math_on_list'] = function(block) {
             '}']);
       list = Blockly.Kiwifroot.valueToCode(block, 'LIST',
           Blockly.Kiwifroot.ORDER_NONE) || '[]';
-      code = functionName + '(' + list + ')';
+      code = 'this.' + functionName + '(' + list + ')';
       break;
     case 'RANDOM':
       var functionName = Blockly.Kiwifroot.provideFunction_(
           'math_random_list',
-          [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ +
+          [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function' +
               '(list) {',
             '  var x = Math.floor(Math.random() * list.length);',
             '  return list[x];',
             '}']);
       list = Blockly.Kiwifroot.valueToCode(block, 'LIST',
           Blockly.Kiwifroot.ORDER_NONE) || '[]';
-      code = functionName + '(' + list + ')';
+      code = 'this.' + functionName + '(' + list + ')';
       break;
     default:
       throw 'Unknown operator: ' + func;
@@ -391,17 +391,17 @@ Blockly.Kiwifroot['math_random_int'] = function(block) {
       Blockly.Kiwifroot.ORDER_COMMA) || '0';
   var functionName = Blockly.Kiwifroot.provideFunction_(
       'math_random_int',
-      [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ +
+      [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function' +
           '(a, b) {',
-        '  if (a > b) {',
-        '    // Swap a and b to ensure a is smaller.',
-        '    var c = a;',
-        '    a = b;',
-        '    b = c;',
-        '  }',
-        '  return Math.floor(Math.random() * (b - a + 1) + a);',
+        '\tif (a > b) {',
+        '\t\t// Swap a and b to ensure a is smaller.',
+        '\t\tvar c = a;',
+        '\t\ta = b;',
+        '\t\tb = c;',
+        '\t}',
+        '\treturn Math.floor(Math.random() * (b - a + 1) + a);',
         '}']);
-  var code = functionName + '(' + argument0 + ', ' + argument1 + ')';
+  var code = 'this.' + functionName + '(' + argument0 + ', ' + argument1 + ')';
   return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
 };
 

@@ -115,9 +115,10 @@ Blockly.Blocks['kiwi_game_get_time'] = {
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_GAME_GET_TIME_MESSAGE )
         .appendField(new Blockly.FieldDropdown( [
-    ["elapsed", "clock.elapsed()"], 
-    ["delta", "delta()"], 
-    ["rate", "clock.rate"]] ), "METHOD");
+            ['elapsed', 'elapsed'], 
+            ["delta", 'delta()'], 
+            ["rate", "clock.rate"]
+        ] ), "METHOD");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
     this.setTooltip( Blockly.Msg.KF_GAME_GET_TIME_TOOLTIP );

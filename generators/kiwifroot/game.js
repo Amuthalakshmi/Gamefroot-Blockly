@@ -75,7 +75,11 @@ Blockly.Kiwifroot['kiwi_game_get_time'] = function(block) {
 
   	var dropdown_method = block.getFieldValue('METHOD');
 
-	var code = 'this.game.time.' + dropdown_method;
+  	if( dropdown_method === 'elapsed') {
+  		var code = '(this.game.time.clock.elapsed() * this.game.time.clock.units)';
+  	} else {
+		var code = 'this.game.time.' + dropdown_method;
+	}
 
   	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
