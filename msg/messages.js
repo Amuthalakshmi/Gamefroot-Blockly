@@ -1174,6 +1174,13 @@ Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = 'The event triggered when the playe
 /// url - Information on the kiwifroot stage release event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
 
+///
+Blockly.Msg.KF_EVENT_STAGE_INPUT_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_STAGE_INPUT_MESSAGE = 'When the stage is';
+///
+Blockly.Msg.KF_EVENT_STAGE_INPUT_TOOLTIP = 'The event is trggered when the player either pressed or releases anywhere in the game scene.';
+
 // Label text for the kiwifroot instance pressed event.
 Blockly.Msg.KF_EVENT_INST_PRESS_MESSAGE = 'When the player presses on ';
 //// tooltip - The event triggered when the player presses a click/touch on the given instance.
@@ -1187,6 +1194,13 @@ Blockly.Msg.KF_EVENT_INST_RELEASE_TOOLTIP = 'The event triggered when the player
 /// url - Information on the kiwifroot instance pressed event.
 Blockly.Msg.KF_EVENT_INST_RELEASE_HELPURL = '';
 
+///
+Blockly.Msg.KF_EVENT_INST_INPUT_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_INST_INPUT_MESSAGE = 'When the player ';
+///
+Blockly.Msg.KF_EVENT_INST_INPUT_TOOLTIP = 'The event is triggered when the player releases/presses (click/touch) a given instance';
+
 /// Label text for the kiwifroot key pressed event
 Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE = 'When the player presses';
 /// tooltip - The event triggered when the player presses the given key on their keyboard.
@@ -1199,6 +1213,14 @@ Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE = 'When the player releases';
 Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = 'The event triggered when the player releases the given key on their keyboard.';
 /// url - Information on the kiwifroot key release event
 Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
+
+///
+Blockly.Msg.KF_EVENT_KEY_INPUT_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_KEY_INPUT_MESSAGE = 'When the player';
+///
+Blockly.Msg.KF_EVENT_KEY_INPUT_TOOLTIP = 'The event is triggered when the player presses/releases the given key on their keyboard.';
+
 ///
 Blockly.Msg.KF_EVENT_TIME_HELPURL = '';
 ///
@@ -1657,6 +1679,15 @@ Blockly.Msg.KF_MESSAGING_EVERYONE_HELPURL = '';
 Blockly.Msg.KF_MESSAGING_EVERYONE_MESSAGE = 'send every gameobject a message of';
 ///
 Blockly.Msg.KF_MESSAGING_EVERYONE_TOOLTIP = 'Sends a message to every gameobject.';
+///
+Blockly.Msg.KF_MESSAGING_LIST_HELPURL = '';
+///
+Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_BEFORE = 'send message';
+///
+Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_AFTER = 'to each instance in';
+///
+Blockly.Msg.KF_MESSAGING_LIST_TOOLTIP = 'Sends a message to every instance in a list.';
+
 ///
 Blockly.Msg.KF_ARCADEPHYSICS_PROBE_HELPURL = '';
 ///

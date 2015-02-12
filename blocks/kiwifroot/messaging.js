@@ -46,20 +46,21 @@ Blockly.Blocks['kiwi_messaging_instance'] = {
   }
 };
 
-Blockly.Blocks['kiwi_messaging_class'] = {
+
+Blockly.Blocks['kiwi_messaging_list'] = {
   init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_MESSAGING_CLASS_HELPURL );
+    this.setHelpUrl( Blockly.Msg.KF_MESSAGING_LIST_HELPURL );
     this.setColour( Blockly.Blocks.STATEMENT_HUE );
     this.appendValueInput("MESSAGE")
         .setCheck("String")
-        .appendField( Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_BEFORE );
-    this.appendValueInput("CLASS")
-        .setCheck("Class")
-        .appendField( Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_AFTER );
+        .appendField( Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_BEFORE );
+    this.appendValueInput("LIST")
+        .setCheck("List")
+        .appendField( Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_AFTER );
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip( Blockly.Msg.KF_MESSAGING_CLASS_TOOLTIP );
+    this.setTooltip( Blockly.Msg.KF_MESSAGING_LIST_TOOLTIP );
   }
 };
 

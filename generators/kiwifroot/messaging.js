@@ -37,17 +37,20 @@ Blockly.Kiwifroot['kiwi_messaging_instance'] = function(block) {
   return code;
 };
 
-Blockly.Kiwifroot['kiwi_messaging_class'] = function(block) {
+Blockly.Kiwifroot['kiwi_messaging_list'] = function(block) {
   var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_list = Blockly.Kiwifroot.valueToCode(block, 'LIST', Blockly.Kiwifroot.ORDER_ATOMIC);
 
-  var code  = 'var classes = this.state.getAllChildrenByName(' + value_class +');\n' +
-  			  'for( var i = 0; i < classes.length; i++) {\n' +
-  			  '\tclasses[ i ].properties.set("_messaging_", ' + value_message + ');\n' +
-  			  '}\n';
+  var code = 'var list = ' + value_list +';\n' +
+          'for( var i = 0; i < list.length; i++) {\n' +
+          '\tif( list[ i ].properties ) {\n' +
+          '\t\tlist[ i ].properties.set("_messaging_", ' + value_message + ');\n' +
+          '\t}\n' +
+          '}\n';
 
   return code;
 };
+
 
 Blockly.Kiwifroot['kiwi_messaging_everyone'] = function(block) {
   var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC);

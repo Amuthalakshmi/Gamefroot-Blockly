@@ -41,3 +41,119 @@ Blockly.Blocks['kiwi_classes_selector'] = {
     this.setTooltip( Blockly.Msg.KF_CLASSES_SELECTOR_TOOLTIP );
   }
 };
+
+// 12 - 02 - 2015
+
+Blockly.Blocks['kiwi_messaging_class'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_MESSAGING_CLASS_HELPURL );
+    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.appendValueInput("MESSAGE")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_BEFORE );
+    this.appendValueInput("CLASS")
+        .setCheck("Class")
+        .appendField( Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_AFTER );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_MESSAGING_CLASS_TOOLTIP );
+  }
+};
+
+// 12 - 02 - 2015
+
+Blockly.Blocks['kiwi_event_stage_press'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL);
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE);
+    this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP);
+    this.appendStatementInput('STACK');
+  }
+};
+
+// 12 - 02 - 2015
+
+Blockly.Blocks['kiwi_event_stage_release'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL);
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE);
+    this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP);
+    this.appendStatementInput('STACK');
+  }
+};
+
+// 12 - 02 - 2015
+
+Blockly.Blocks['kiwi_event_inst_press'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_INST_PRESS_HELPURL);
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_INST_PRESS_MESSAGE);
+    this.appendValueInput("INST")
+      .setCheck("Instance");
+    this.setTooltip(Blockly.Msg.KF_EVENT_INST_PRESS_TOOLTIP);
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+  }
+};
+
+// 12 - 02 - 2015
+
+Blockly.Blocks['kiwi_event_inst_release'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_INST_RELEASE_HELPURL);
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_INST_RELEASE_MESSAGE);
+    this.appendValueInput("INST")
+      .setCheck("Instance");
+    this.setTooltip(Blockly.Msg.KF_EVENT_INST_RELEASE_TOOLTIP);
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+  }
+};
+
+// 12 - 02 - 2015
+
+Blockly.Blocks['kiwi_event_key_press'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_KEY_PRESS_HELPURL);
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE);
+    this.appendValueInput("KEY")
+        .setCheck("Number");
+    this.setTooltip(Blockly.Msg.KF_EVENT_KEY_PRESS_TOOLTIP);
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+  }
+};
+
+// 12 - 02 - 2015
+
+Blockly.Blocks['kiwi_event_key_release'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL);
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendDummyInput()
+      .appendField(Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE);
+    this.appendValueInput("KEY")
+        .setCheck("Number");
+    this.setTooltip(Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP);
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+  }
+};
