@@ -31,15 +31,34 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks['kiwi_intersects_instance_to_instance'] = {
   init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_INSTANCE_OVERLAPS_HELPURL );
+    this.setHelpUrl( Blockly.Msg.KF_INTERSECTS_OVERLAPS_HELPURL );
     this.setColour( Blockly.Variables.HUE_BOOLEAN );
     this.appendValueInput("INST_ONE")
         .setCheck("Instance");
     this.appendValueInput("INST_TWO")
         .setCheck("Instance")
-        .appendField( Blockly.Msg.KF_INSTANCE_OVERLAPS_MESSAGE );
+        .appendField( Blockly.Msg.KF_INTERSECTS_OVERLAPS_MESSAGE );
     this.setInputsInline(true);
     this.setOutput(true, "Boolean");
-    this.setTooltip( Blockly.Msg.KF_INSTANCE_OVERLAPS_TOOLTIP );
+    this.setTooltip( Blockly.Msg.KF_INTERSECTS_OVERLAPS_TOOLTIP );
   }
 };
+
+Blockly.Blocks['kiwi_intersects_instance_to_xy'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INTERSECTS_CONTAINS_HELPURL );
+    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.appendValueInput("X_LOC")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_INTERSECTS_CONTAINS_MESSAGE );
+    this.appendValueInput("Y_LOC")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setOutput(true);
+    this.setTooltip( Blockly.Msg.KF_INTERSECTS_CONTAINS_TOOLTIP );
+  }
+};
+
+

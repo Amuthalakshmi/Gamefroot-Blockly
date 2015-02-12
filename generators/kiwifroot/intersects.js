@@ -50,5 +50,32 @@ Blockly.Kiwifroot['kiwi_intersects_instance_to_instance'] = function(block) {
 
   var code = 'this.' + funcName + '( ' + value_inst_one + ', ' + value_inst_two + ')';
 
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+
+Blockly.Kiwifroot['kiwi_intersects_instance_to_xy'] = function(block) {
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_x_loc = Blockly.Kiwifroot.valueToCode(block, 'X_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_y_loc = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
+
+  var t = Blockly.Kiwifroot.INDENT;
+
+  var funcName = Blockly.Kiwifroot.provideFunction_( 
+    'instContains', 
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function(ins, x, y) {',
+        t+'if( !ins ) return false;',
+        t+'x = x || 0',
+        t+'y = y || 0',
+        t+'var box = ins.components.getComponent("Box");',
+        t+'if( !box ) {',
+        t+t+'return false;',
+        t+'}',
+        t+'return box.worldHitbox.contains( x, y );',
+    '};']
+  ); 
+
+  var code = 'this.' + funcName + '( ' + value_inst + ', ' + value_x_loc + ', ' + value_y_loc + ' )';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

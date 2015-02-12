@@ -1354,12 +1354,19 @@ Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_MESSAGE = 'get all children by tag';
 ///
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP = 'Returns a list of all the instances that have the tag passed.';
+
 ///
-Blockly.Msg.KF_INSTANCE_OVERLAPS_HELPURL = '';
+Blockly.Msg.KF_INTERSECTS_OVERLAPS_HELPURL = '';
 ///
-Blockly.Msg.KF_INSTANCE_OVERLAPS_MESSAGE = 'overlaps';
+Blockly.Msg.KF_INTERSECTS_OVERLAPS_MESSAGE = 'overlaps';
 ///
-Blockly.Msg.KF_INSTANCE_OVERLAPS_TOOLTIP = 'Checks to see if the two passed instances overlap.';
+Blockly.Msg.KF_INTERSECTS_OVERLAPS_TOOLTIP = 'Checks to see if the two passed instances overlap.';
+///
+Blockly.Msg.KF_INTERSECTS_CONTAINS_HELPURL = '';
+///
+Blockly.Msg.KF_INTERSECTS_CONTAINS_MESSAGE = 'contains';
+///
+Blockly.Msg.KF_INTERSECTS_CONTAINS_TOOLTIP = 'Checks to see if an x/y location is within an instance\'s hitbox.';
 
 /// Label for the keyboard key block
 Blockly.Msg.KF_KEY_SPECIAL_MESSAGE = 'key:';
