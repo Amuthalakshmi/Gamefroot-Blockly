@@ -44,7 +44,7 @@ Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_ = function() {
 };
 
 Blockly.Kiwifroot['kiwi_arcadephysics_get_numeric'] = function(block) {
-	Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+	  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
 
   	var dropdown_prop = block.getFieldValue('PROP');
   	var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.' + dropdown_prop;

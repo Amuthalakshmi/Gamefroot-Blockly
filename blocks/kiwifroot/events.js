@@ -214,3 +214,16 @@ Blockly.Blocks['kiwi_event_animation'] = {
     this.setTooltip( Blockly.Msg.KF_EVENT_ANIMATION_TOOLTIP );
   }
 };
+
+Blockly.Blocks['kiwi_event_touch_on'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_ON_HELPURL );
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_EVENT_TOUCH_ON_MESSAGE );
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+    this.setTooltip( Blockly.Msg.KF_EVENT_TOUCH_ON_TOOLTIP );
+  }
+};

@@ -1220,6 +1220,12 @@ Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE = 'When the';
 Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER = 'animation has';
 ///
 Blockly.Msg.KF_EVENT_ANIMATION_TOOLTIP = 'Fires events when a selected event occurs on the animation passed.';
+///
+Blockly.Msg.KF_EVENT_TOUCH_ON_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_TOUCH_ON_MESSAGE = 'When I am touched by';
+///
+Blockly.Msg.KF_EVENT_TOUCH_ON_TOOLTIP = 'Triggers the inner blocks when this instance collides with the instance passed.';
 
 ///
 Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
