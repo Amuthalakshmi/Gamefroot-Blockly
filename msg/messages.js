@@ -1525,6 +1525,13 @@ Blockly.Msg.KF_CAMERA_GET_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_CAMERA_GET_TOOLTIP = 'Returns a selected property on the camera.';
 
+///
+Blockly.Msg.KF_CAMERA_GET_READ_ONLY_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_GET_READ_ONLY_MESSAGE = 'camera';
+///
+Blockly.Msg.KF_CAMERA_GET_READ_ONLY_TOOLTIP = 'Returns a selected read only property on the camera.';
+
 /// message - 
 Blockly.Msg.KF_CAMERA_LOCK_ON_MESSAGE = 'lock camera on';
 /// url -
@@ -1565,7 +1572,7 @@ Blockly.Msg.KF_CAMERA_SET_SPEED_HELPURL = '';
 ///
 Blockly.Msg.KF_CAMERA_SET_SPEED_MESSAGE = 'set camera pan speed';
 ///
-Blockly.Msg.KF_CAMERA_SET_SPEED_HELPURL = 'Sets the cameras pan speed to a value passed.';
+Blockly.Msg.KF_CAMERA_SET_SPEED_TOOLTIP = 'Sets the cameras pan speed to a value passed.';
 
 ///
 Blockly.Msg.KF_CAMERA_GET_SPEED_HELPURL = '';
