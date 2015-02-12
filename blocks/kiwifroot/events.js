@@ -72,8 +72,8 @@ Blockly.Blocks['kiwi_event_stage_input'] = {
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_EVENT_STAGE_INPUT_MESSAGE)
         .appendField(new Blockly.FieldDropdown([
-            ["presses", "onDown"], 
-            ["releases", "onUp"]
+            ["pressed", "onDown"], 
+            ["released", "onUp"]
         ]), "TYPE");
     this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_INPUT_TOOLTIP);
     this.appendStatementInput('STACK');

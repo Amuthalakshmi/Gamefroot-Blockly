@@ -1240,9 +1240,9 @@ Blockly.Msg.KF_EVENT_TIME_SINGLE_TOOLTIP = 'Triggers the inner blocks after the 
 ///
 Blockly.Msg.KF_EVENT_ANIMATION_HELPURL = '';
 ///
-Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE = 'When the';
+Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE = 'When the animation';
 ///
-Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER = 'animation has';
+Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER = 'has';
 ///
 Blockly.Msg.KF_EVENT_ANIMATION_TOOLTIP = 'Fires events when a selected event occurs on the animation passed.';
 ///
@@ -1525,6 +1525,13 @@ Blockly.Msg.KF_CAMERA_GET_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_CAMERA_GET_TOOLTIP = 'Returns a selected property on the camera.';
 
+///
+Blockly.Msg.KF_CAMERA_GET_READ_ONLY_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_GET_READ_ONLY_MESSAGE = 'camera';
+///
+Blockly.Msg.KF_CAMERA_GET_READ_ONLY_TOOLTIP = 'Returns a selected read only property on the camera.';
+
 /// message - 
 Blockly.Msg.KF_CAMERA_LOCK_ON_MESSAGE = 'lock camera on';
 /// url -
@@ -1546,6 +1553,33 @@ Blockly.Msg.KF_CAMERA_STATE_MESSAGE = 'is camera';
 Blockly.Msg.KF_CAMERA_STATE_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_CAMERA_STATE_TOOLTIP = 'Returns true if the statement is correct.';
+
+///
+Blockly.Msg.KF_CAMERA_SCALE_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_SCALE_MESSAGE = 'camera scale';
+///
+Blockly.Msg.KF_CAMERA_SCALE_TOOLTIP = 'Sets the camera scale on the selected axis to a value passed.';
+///
+Blockly.Msg.KF_CAMERA_SCALE_GET_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_SCALE_GET_MESSAGE = 'camera scale';
+///
+Blockly.Msg.KF_CAMERA_SCALE_GET_TOOLTIP = 'Returns the values for the cameras scale on the selected axis.';
+
+///
+Blockly.Msg.KF_CAMERA_SET_SPEED_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_SET_SPEED_MESSAGE = 'set camera pan speed';
+///
+Blockly.Msg.KF_CAMERA_SET_SPEED_TOOLTIP = 'Sets the cameras pan speed to a value passed.';
+
+///
+Blockly.Msg.KF_CAMERA_GET_SPEED_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_GET_SPEED_MESSAGE = 'camera pan speed';
+///
+Blockly.Msg.KF_CAMERA_GET_SPEED_TOOLTIP = 'Returns the cameras pan speed.';
 
 ///
 Blockly.Msg.KF_MATH_INSTANCE_HELPURL = '';

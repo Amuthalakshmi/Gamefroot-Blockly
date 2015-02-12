@@ -87,7 +87,8 @@ Blockly.Kiwifroot['kiwi_event_inst_input'] = function(block) {
   
   var funcName = Blockly.Kiwifroot.provideFunction_(
     ( 'onInstanceInput' + dropdown_namespace ),
-    [ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function(x,y) {',
+    [ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function(x,y,timeDown,timeUp,duration,pointer) {',
+    	t + 'var point = this.game.cameras.defaultCamera.transformPoint( pointer.point );\n',
         '{{,' + SECTION_EVENT + ',\n}}',
         '};']);
   // Add the add/remove listeners in the constructor/desctructor
@@ -101,7 +102,7 @@ Blockly.Kiwifroot['kiwi_event_inst_input'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
 
   var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
-    var code = 'if ('+inst+'.box.worldHitbox.contains(x,y)) {\n' + branch + '}';  
+    var code = 'if ('+inst+'.box.worldHitbox.containsPoint( point )) {\n' + branch + '}';  
     code = Blockly.Kiwifroot.prefixLines(code, Blockly.Kiwifroot.INDENT);
 
   Blockly.Kiwifroot.provideAddition( SECTION_EVENT, code );
