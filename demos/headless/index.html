@@ -39,7 +39,7 @@
   <table style="width: 100%">
     <tr>
       <td style="width:50%">
-        <textarea id="json_input">
+        <textarea id="text_input">
         </textarea>
       </td>
       <td>
@@ -51,17 +51,35 @@
   </table>
 
   <div style="text-align: center">
-    <button onclick="generate()">Generate Kiwifroot &#10548;</button>
+    <button onclick="generateFromXml()">Generate from XML &#10548;</button>
+    <button onclick="generateFromJson()">Generate from JSON &#10548;</button>
   </div>
 
   <script>
     function loadOutput(){
-      document.getElementById('json_input').value = window.localStorage['blocklyOutput'];
+      document.getElementById('text_input').value = window.localStorage['blocklyOutput'];
     }
 
-    function generate() {
+    function generateFromXml() {
       // Parse the XML into a tree.
-      var jsonText = document.getElementById('json_input').value;
+      var xmlText = document.getElementById('text_input').value;
+      var xml;
+      try {
+        xml = Blockly.Xml.textToDom(xmlText);
+      } catch (e) {
+        alert(e);
+        return;
+      }
+      // Create a headless workspace.
+      var workspace = new Blockly.Workspace();
+      Blockly.Xml.domToWorkspace(workspace, xml);
+      var code = Blockly.Kiwifroot.workspaceToCode(workspace);
+      document.getElementById('code_output').value = code;
+    }
+
+    function generateFromJson() {
+      // Parse the XML into a tree.
+      var jsonText = document.getElementById('text_input').value;
       try {
         var json = JSON.parse(jsonText);
       } catch (e) {
