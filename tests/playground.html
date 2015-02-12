@@ -531,12 +531,16 @@ h1 {
         </block>
         <block type="kiwi_event_message">
           <value name="MESSAGE">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">message</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_event_animation">
           <value name="ANIM">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">name</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_event_touch_on">
@@ -583,7 +587,9 @@ h1 {
         </block>
         <block type="kiwi_instance_tag_management">
           <value name="TAG">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">tag name</field>
+            </block>
           </value>
           <value name="INSTANCE">
             <block type="kiwi_instance_self"></block>
@@ -591,7 +597,9 @@ h1 {
         </block>
         <block type="kiwi_instance_has_tags">
           <value name="TAG">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">tag name</field>
+            </block>
           </value>
           <value name="INSTANCE">
             <block type="kiwi_instance_self"></block>
@@ -599,12 +607,16 @@ h1 {
         </block>
         <block type="kiwi_instance_get_by_tag">
           <value name="TAG">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">tag name</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_instance_get_all_by_tag">
           <value name="TAG">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">tag name</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_instance_move">
@@ -656,7 +668,9 @@ h1 {
       <category name="Messaging">
         <block type="kiwi_messaging_instance">
           <value name="MESSAGE">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">message</field>
+            </block>
           </value>
           <value name="INST">
             <block type="kiwi_instance_select"></block>
@@ -664,7 +678,9 @@ h1 {
         </block>
         <block type="kiwi_messaging_list">
           <value name="MESSAGE">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">message</field>
+            </block>
           </value>
           <value name="LIST">
         <block type="kiwi_classes_get_all_instances">
@@ -679,7 +695,9 @@ h1 {
         </block>
         <block type="kiwi_messaging_everyone">
           <value name="MESSAGE">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">message</field>
+            </block>
           </value>
         </block>
       </category>
@@ -715,7 +733,9 @@ h1 {
         <block type="kiwi_sound_get_volume"></block>
         <block type="kiwi_sound_set_volume">
           <value name="VOLUME">
-            <block type="math_number"></block>
+            <block type="math_number">
+              <field name="NUM">100</field>
+            </block>
           </value>
         </block>
       </category>
@@ -723,7 +743,9 @@ h1 {
         <block type="kiwi_animation_current"></block>
         <block type="kiwi_animation_play">
           <value name="TEXT">
-            <block type="text"></block>
+            <block type="text">
+              <field name="TEXT">name</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_animation_state"></block>

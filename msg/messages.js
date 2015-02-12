@@ -1240,9 +1240,9 @@ Blockly.Msg.KF_EVENT_TIME_SINGLE_TOOLTIP = 'Triggers the inner blocks after the 
 ///
 Blockly.Msg.KF_EVENT_ANIMATION_HELPURL = '';
 ///
-Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE = 'When the';
+Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE = 'When the animation';
 ///
-Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER = 'animation has';
+Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER = 'has';
 ///
 Blockly.Msg.KF_EVENT_ANIMATION_TOOLTIP = 'Fires events when a selected event occurs on the animation passed.';
 ///
