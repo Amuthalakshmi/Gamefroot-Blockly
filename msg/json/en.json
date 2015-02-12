@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-12 11:12:57.356619",
+		"lastupdated": "2015-02-12 13:39:39.549908",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -376,6 +376,7 @@
 	"PROCEDURES_CREATE_DO": "Create '%1'",
 	"PROCEDURES_IFRETURN_TOOLTIP": "If a value is true, then return a second value.",
 	"PROCEDURES_IFRETURN_WARNING": "Warning: This block may be used only within a function definition.",
+	"KF_BLOCK_DEPRECATED": "Warning: This block is being discontinued",
 	"KF_TYPE_BOOLEAN": "True/False",
 	"KF_TYPE_NUMBER": "Number",
 	"KF_TYPE_STRING": "Text",
@@ -414,6 +415,9 @@
 	"KF_EVENT_ANIMATION_MESSAGE_BEFORE": "When the",
 	"KF_EVENT_ANIMATION_MESSAGE_AFTER": "animation has",
 	"KF_EVENT_ANIMATION_TOOLTIP": "Fires events when a selected event occurs on the animation passed.",
+	"KF_EVENT_TOUCH_ON_HELPURL": "",
+	"KF_EVENT_TOUCH_ON_MESSAGE": "When I am touched by",
+	"KF_EVENT_TOUCH_ON_TOOLTIP": "Triggers the inner blocks when this instance collides with the instance passed.",
 	"KF_EVENT_REMOVE_HELPURL": "",
 	"KF_EVENT_REMOVE_TOOLTIP": "The event is triggered when this gameobject is destroyed.",
 	"KF_EVENT_REMOVE_MESSAGE": "When removed",
@@ -550,8 +554,8 @@
 	"KF_MATH_INSTANCE_MESSAGE_BEFORE": "from",
 	"KF_MATH_INSTANCE_MESSAGE_AFTER": "to",
 	"KF_MATH_INSTANCE_TOOLTIP": "Returns the selected value between two instances.",
-	"KF_MATH_INSTANCE_TO_XY_HELPURL": "",
-	"KF_MATH_INSTANCE_TO_XY_TOOLTIP": "Returns the selected value between an instance and a set of coordinates passed.",
+	"KF_MATH_XY_TO_XY_HELPURL": "",
+	"KF_MATH_XY_TO_XY_TOOLTIP": "Returns the selected value between an instance and a set of coordinates passed.",
 	"KF_MATH_UTILS_HELPURL": "",
 	"KF_MATH_UTILS_TOOLTIP": "",
 	"KF_CLASSES_INSTANCE_MESSAGE": "class of",
