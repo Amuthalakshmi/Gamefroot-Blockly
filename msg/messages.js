@@ -1215,6 +1215,20 @@ Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_BEFORE = 'After' ;
 Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_AFTER = 'milliseconds have passed';
 ///
 Blockly.Msg.KF_EVENT_TIME_SINGLE_TOOLTIP = 'Triggers the inner blocks after the set period of time has occured. Warning: Does not check to see if the object was destroyed before the event fires.';
+///
+Blockly.Msg.KF_EVENT_ANIMATION_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE = 'When the';
+///
+Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER = 'animation has';
+///
+Blockly.Msg.KF_EVENT_ANIMATION_TOOLTIP = 'Fires events when a selected event occurs on the animation passed.';
+///
+Blockly.Msg.KF_EVENT_TOUCH_ON_HELPURL = '';
+///
+Blockly.Msg.KF_EVENT_TOUCH_ON_MESSAGE = 'When I am touched by';
+///
+Blockly.Msg.KF_EVENT_TOUCH_ON_TOOLTIP = 'Triggers the inner blocks when this instance collides with the instance passed.';
 
 ///
 Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
@@ -1514,13 +1528,13 @@ Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER = 'to';
 Blockly.Msg.KF_MATH_INSTANCE_TOOLTIP = 'Returns the selected value between two instances.';
 
 ///
-Blockly.Msg.KF_MATH_INSTANCE_TO_XY_HELPURL = '';
+Blockly.Msg.KF_MATH_XY_TO_XY_HELPURL = '';
 ///
-Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_BEFORE = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE;
+Blockly.Msg.KF_MATH_XY_TO_XY_MESSAGE_BEFORE = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE;
 ///
-Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_AFTER = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER;
+Blockly.Msg.KF_MATH_XY_TO_XY_MESSAGE_AFTER = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER;
 ///
-Blockly.Msg.KF_MATH_INSTANCE_TO_XY_TOOLTIP = 'Returns the selected value between an instance and a set of coordinates passed.';
+Blockly.Msg.KF_MATH_XY_TO_XY_TOOLTIP = 'Returns the selected value between an instance and a set of coordinates passed.';
 ///
 Blockly.Msg.KF_MATH_UTILS_HELPURL = '';
 ///

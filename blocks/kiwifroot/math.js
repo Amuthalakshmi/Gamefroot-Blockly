@@ -49,25 +49,27 @@ Blockly.Blocks['kiwi_math_instance'] = {
   }
 };
 
-Blockly.Blocks['kiwi_math_instance_to_xy'] = {
+Blockly.Blocks['kiwi_math_xy_to_xy'] = {
   init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_MATH_INSTANCE_TO_XY_HELPURL );
+    this.setHelpUrl( Blockly.Msg.KF_MATH_XY_TO_XY_HELPURL );
     this.setColour( Blockly.Variables.HUE_NUMBER  );
-    this.appendValueInput("INST_ONE")
-        .setCheck("Instance")
+    this.appendValueInput("X_LOC_ONE")
+        .setCheck("Number")
         .appendField(new Blockly.FieldDropdown( [ 
             ["angle", "angleToXY"], 
             ["distance", "distanceToXY"]
         ]), "METHOD")
-        .appendField( Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_BEFORE );
-    this.appendValueInput("X_LOC")
+        .appendField( Blockly.Msg.KF_MATH_XY_TO_XY_MESSAGE_BEFORE );
+    this.appendValueInput("Y_LOC_ONE")
+        .setCheck("Number");
+    this.appendValueInput("X_LOC_TWO")
         .setCheck("Number")
-        .appendField( Blockly.Msg.KF_MATH_INSTANCE_TO_XY_MESSAGE_AFTER );
-    this.appendValueInput("Y_LOC")
+        .appendField( Blockly.Msg.KF_MATH_XY_TO_XY_MESSAGE_AFTER );
+    this.appendValueInput("Y_LOC_TWO")
         .setCheck("Number");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
-    this.setTooltip( Blockly.Msg.KF_MATH_INSTANCE_TO_XY_TOOLTIP );
+    this.setTooltip( Blockly.Msg.KF_MATH_XY_TO_XY_TOOLTIP );
   }
 };
 

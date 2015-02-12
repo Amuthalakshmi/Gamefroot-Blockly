@@ -429,13 +429,17 @@ Blockly.Kiwifroot['kiwi_math_instance'] = function(block) {
 };
 
 
-Blockly.Kiwifroot['kiwi_math_instance_to_xy'] = function(block) {
+Blockly.Kiwifroot['kiwi_math_xy_to_xy'] = function(block) {
   var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_x_loc = Blockly.Kiwifroot.valueToCode(block, 'X_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_y_loc = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
+  
+  var value_x_loc_one = Blockly.Kiwifroot.valueToCode(block, 'X_LOC_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_y_loc_one = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_x_loc_two = Blockly.Kiwifroot.valueToCode(block, 'X_LOC_TWO', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_y_loc_two = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC_TWO', Blockly.Kiwifroot.ORDER_ATOMIC);
+
   var dropdown_method = block.getFieldValue('METHOD');
 
-  var code = value_inst_one + '.transform.getPositionPoint().' + dropdown_method + '( '+ value_x_loc + ', ' + value_y_loc + ' )';
+  var code = 'Kiwi.Geom.Point.prototype.' + dropdown_method + '.call( { x: ' + value_x_loc_one + ', y: ' + value_y_loc_one + ' }, '+ value_x_loc_two + ', ' + value_y_loc_two + ' )';
 
   if( dropdown_method == 'angleToXY' ) {
     code = '(' + code + ' * Kiwi.Utils.GameMath.RAD_TO_DEG)';

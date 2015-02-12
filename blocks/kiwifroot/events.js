@@ -192,3 +192,38 @@ Blockly.Blocks['kiwi_event_message'] = {
     this.setInputsInline(true);
   }
 };
+
+Blockly.Blocks['kiwi_event_animation'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_ANIMATION_HELPURL );
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendValueInput("ANIM")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER )
+        .appendField(new Blockly.FieldDropdown([
+            ["completed", "onComplete"], 
+            ["stopped", "onStop"], 
+            ["started", "onPlay"], 
+            ["looped", "onLoop"], 
+            ["updated", "onUpdate"]
+        ]), "TYPE");
+    this.appendStatementInput("STACK");
+    this.setInputsInline(true);
+    this.setTooltip( Blockly.Msg.KF_EVENT_ANIMATION_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_event_touch_on'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_ON_HELPURL );
+    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_EVENT_TOUCH_ON_MESSAGE );
+    this.appendStatementInput('STACK');
+    this.setInputsInline(true);
+    this.setTooltip( Blockly.Msg.KF_EVENT_TOUCH_ON_TOOLTIP );
+  }
+};

@@ -208,7 +208,7 @@ Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
 	var t = Blockly.Kiwifroot.INDENT;
 	var funcName = Blockly.Kiwifroot.provideFunction_(
 		'onMessageRecieved',
-		[ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function( name, message ) {',
+		[ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( name, message ) {',
         t + 'switch( message ) {',
         '{{'+t+t+',EVENT_MESSAGE_RELEASED,\n}}',
         t + '}',
@@ -228,6 +228,60 @@ Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
 	return null;
 };
 
+
+Blockly.Kiwifroot['kiwi_event_animation'] = function(block) {
+
+  	Blockly.Kiwifroot.addAnimationToConstructor_();
+
+  	var value_anim = Blockly.Kiwifroot.valueToCode( block, 'ANIM', Blockly.Kiwifroot.ORDER_ATOMIC );
+  	var dropdown_type = block.getFieldValue( 'TYPE' );
+  
+
+	var funcName = defineFunctionFromBranch( 'onAnimation', block );
+
+	var bootCode  = 'var anim = ' + Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.getAnimation(' + value_anim + ');\n';
+		bootCode += '\tif( anim ) {\n';
+		bootCode += '\t\tanim.' + dropdown_type + '.add(this.' + funcName + ', this);\n';
+		bootCode += '\t}\n';
+
+
+	var destructorCode  = 'var anim = ' + Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.getAnimation(' + value_anim + ');\n';
+		destructorCode += '\tif( anim ) {\n';
+		destructorCode += '\t\tanim.' + dropdown_type + '.remove(this.' + funcName + ', this);\n';
+		destructorCode += '\t}\n';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.BOOT, bootCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
+  	return null;
+};
+
+Blockly.Kiwifroot['kiwi_event_touch_on'] = function(block) {
+
+	Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+
+  	var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+
+	var funcName = Blockly.Kiwifroot.provideFunction_(
+		'onTouch',
+		[ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( instanceA, instanceB ) {',
+        '{{\t,EVENT_TOUCH_ON,\n}}',
+        '};']);
+
+  	var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.system.onCollision.add( this.' + funcName + ', this );';
+	Blockly.Kiwifroot.provideAdditionOnce( 'EventMessageRecieved', Blockly.Kiwifroot.BOOT, code );
+
+	var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX +'.system.onCollision.remove( this.' + funcName + ', this );';
+	Blockly.Kiwifroot.provideAddition( Blockly.Kiwifroot.DESTRUCTOR, code );
+
+	var funcName = defineFunctionFromBranch( 'touchedByInstance', block );
+	var code = 'if( instanceA === this.owner && instanceB === ' + value_inst + ' || \n\tinstanceA === ' + value_inst + ' && instanceB === this.owner) {\n\t\t this.' + funcName + '(); \n\t\t }\n';
+	Blockly.Kiwifroot.provideAddition('EVENT_TOUCH_ON', code);
+
+
+
+  	return null;
+};
 
 function defineFunctionFromBranch(desiredName, block){
 	// Define a procedure with a return value.
