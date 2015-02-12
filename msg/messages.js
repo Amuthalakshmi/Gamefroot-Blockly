@@ -1548,6 +1548,33 @@ Blockly.Msg.KF_CAMERA_STATE_HELPURL = '';
 Blockly.Msg.KF_CAMERA_STATE_TOOLTIP = 'Returns true if the statement is correct.';
 
 ///
+Blockly.Msg.KF_CAMERA_SCALE_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_SCALE_MESSAGE = 'camera scale';
+///
+Blockly.Msg.KF_CAMERA_SCALE_TOOLTIP = 'Sets the camera scale on the selected axis to a value passed.';
+///
+Blockly.Msg.KF_CAMERA_SCALE_GET_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_SCALE_GET_MESSAGE = 'camera scale';
+///
+Blockly.Msg.KF_CAMERA_SCALE_GET_TOOLTIP = 'Returns the values for the cameras scale on the selected axis.';
+
+///
+Blockly.Msg.KF_CAMERA_SET_SPEED_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_SET_SPEED_MESSAGE = 'set camera pan speed';
+///
+Blockly.Msg.KF_CAMERA_SET_SPEED_HELPURL = 'Sets the cameras pan speed to a value passed.';
+
+///
+Blockly.Msg.KF_CAMERA_GET_SPEED_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_GET_SPEED_MESSAGE = 'camera pan speed';
+///
+Blockly.Msg.KF_CAMERA_GET_SPEED_TOOLTIP = 'Returns the cameras pan speed.';
+
+///
 Blockly.Msg.KF_MATH_INSTANCE_HELPURL = '';
 ///
 Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE = 'from';

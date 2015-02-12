@@ -742,10 +742,20 @@ h1 {
         </block>
         <block type="kiwi_camera_set">
           <value name="VALUE">
-            <block type="math_number"></block>
+            <block type="math_number">
+              <field name="NUM">100</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_camera_get"></block>
+        <block type="kiwi_camera_set_speed">
+          <value name="VALUE">
+            <block type="math_number">
+              <field name="NUM">100</field>
+            </block>
+          </value>
+        </block>
+        <block type="kiwi_camera_get_speed"></block>
         <block type="kiwi_camera_lock_on">
           <value name="INSTANCE">
             <block type="kiwi_instance_self"></block>
@@ -753,6 +763,14 @@ h1 {
         </block>
         <block type="kiwi_camera_unlock"></block>
         <block type="kiwi_camera_state"></block>
+        <block type="kiwi_camera_scale">
+          <value name="VALUE">
+            <block type="math_number">
+              <field name="NUM">1</field>
+            </block>
+          </value>
+        </block>
+        <block type="kiwi_camera_scale_get"></block>
       </category>
       <category name="Intersects">
         <block type="kiwi_intersects_instance_to_instance">
