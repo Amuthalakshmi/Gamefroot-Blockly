@@ -52,6 +52,16 @@ Here are some simple rules to follow when creating blocks;
 - If a block performs a function it should be coloured with Blockly.Blocks.STATEMENT_HUE.
 - Blocks that serve as an entry point for other blocks (events/functions/etc) should be coloured with Blockly.Blocks.CALLABLE_HUE.
 
+## Deprecating Blocks
+
+To deprecated a block, remove any warnings from the block and add this line to the block definition;
+
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+
+Then move the block and the generator into their respective deprecated files under a heading recording
+the date they were deprecated. We will remove blocks that are over a year old, or perhaps create some kind
+of analytics that will list how many people are still actively using those scripts.
+
 ## Checking Code Generation
 
 The headless demo in the blockly repo has been edited to allow easy testing for our server. The first
