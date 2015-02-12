@@ -1604,7 +1604,6 @@ Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_AFTER = 'at';
 ///
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP = 'Creates a new instance of a class type at the location specified.';
 
-
 ///
 Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_HELPURL = '';
 ///
