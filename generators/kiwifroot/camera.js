@@ -124,6 +124,8 @@ Blockly.Kiwifroot['kiwi_camera_state'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_camera_scale'] = function(block) {
+  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+
   var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC);
   var dropdown_name = block.getFieldValue('PROP');
 
@@ -133,6 +135,8 @@ Blockly.Kiwifroot['kiwi_camera_scale'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_camera_scale_get'] = function(block) {
+  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  
   var dropdown_name = block.getFieldValue('PROP');
   var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_name;
 

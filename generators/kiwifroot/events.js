@@ -87,7 +87,7 @@ Blockly.Kiwifroot['kiwi_event_inst_input'] = function(block) {
   
   var funcName = Blockly.Kiwifroot.provideFunction_(
     ( 'onInstanceInput' + dropdown_namespace ),
-    [ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function(x,y,timeDown,timeUp,duration,pointer) {',
+    [ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function(x, y, timeDown, timeUp, duration, pointer) {',
     	t + 'var point = this.game.cameras.defaultCamera.transformPoint( pointer.point );\n',
         '{{,' + SECTION_EVENT + ',\n}}',
         '};']);
