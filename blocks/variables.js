@@ -28,8 +28,6 @@ goog.provide('Blockly.Blocks.variables');
 
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks.variables.HUE = 330;
-
 
 Blockly.Blocks['variables_get'] = {
   /**
