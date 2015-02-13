@@ -162,7 +162,7 @@ Blockly.Blocks['variables_set'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_SET_HELPURL);
-    this.setColour(Blockly.Blocks.variables.HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.interpolateMsg(
         // TODO: Combine these messages instead of using concatenation.
         Blockly.Msg.VARIABLES_SET_TITLE + ' %1 %2' +

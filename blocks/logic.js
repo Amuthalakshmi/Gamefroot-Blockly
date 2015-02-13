@@ -36,7 +36,7 @@ Blockly.Blocks['controls_if'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.CONTROLS_IF_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.appendValueInput('IF0')
         .setCheck('Boolean')
         .appendField(Blockly.Msg.CONTROLS_IF_MSG_IF);
@@ -255,7 +255,7 @@ Blockly.Blocks['controls_if_if'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Blocks.STATEMENT_HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.appendDummyInput()
         .appendField(Blockly.Msg.CONTROLS_IF_IF_TITLE_IF);
     this.appendStatementInput('STACK');
@@ -270,7 +270,7 @@ Blockly.Blocks['controls_if_elseif'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Blocks.STATEMENT_HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.appendDummyInput()
         .appendField(Blockly.Msg.CONTROLS_IF_ELSEIF_TITLE_ELSEIF);
     this.setPreviousStatement(true);
@@ -286,7 +286,7 @@ Blockly.Blocks['controls_if_else'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Blocks.STATEMENT_HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.appendDummyInput()
         .appendField(Blockly.Msg.CONTROLS_IF_ELSE_TITLE_ELSE);
     this.setPreviousStatement(true);
