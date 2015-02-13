@@ -317,7 +317,7 @@ Blockly.Blocks['logic_compare'] = {
           ['\u2265', 'GTE']
         ];
     this.setHelpUrl(Blockly.Msg.LOGIC_COMPARE_HELPURL);
-    this.setColour(Blockly.Variables.HUE_BOOLEAN);
+    this.setColour(Blockly.Variables.COLOUR_BOOLEAN);
     this.setOutput(true, 'Boolean');
     this.appendValueInput('A');
     this.appendValueInput('B')
@@ -378,7 +378,7 @@ Blockly.Blocks['logic_operation'] = {
         [[Blockly.Msg.LOGIC_OPERATION_AND, 'AND'],
          [Blockly.Msg.LOGIC_OPERATION_OR, 'OR']];
     this.setHelpUrl(Blockly.Msg.LOGIC_OPERATION_HELPURL);
-    this.setColour(Blockly.Variables.HUE_BOOLEAN);
+    this.setColour(Blockly.Variables.COLOUR_BOOLEAN);
     this.setOutput(true, 'Boolean');
     this.appendValueInput('A')
         .setCheck('Boolean');
@@ -406,7 +406,7 @@ Blockly.Blocks['logic_negate'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.LOGIC_NEGATE_HELPURL);
-    this.setColour(Blockly.Variables.HUE_BOOLEAN);
+    this.setColour(Blockly.Variables.COLOUR_BOOLEAN);
     this.setOutput(true, 'Boolean');
     this.interpolateMsg(Blockly.Msg.LOGIC_NEGATE_TITLE,
                         ['BOOL', 'Boolean', Blockly.ALIGN_RIGHT],
@@ -425,7 +425,7 @@ Blockly.Blocks['logic_boolean'] = {
         [[Blockly.Msg.LOGIC_BOOLEAN_TRUE, 'TRUE'],
          [Blockly.Msg.LOGIC_BOOLEAN_FALSE, 'FALSE']];
     this.setHelpUrl(Blockly.Msg.LOGIC_BOOLEAN_HELPURL);
-    this.setColour(Blockly.Variables.HUE_BOOLEAN);
+    this.setColour(Blockly.Variables.COLOUR_BOOLEAN);
     this.setOutput(true, 'Boolean');
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown(BOOLEANS), 'BOOL');
@@ -440,7 +440,7 @@ Blockly.Blocks['logic_null'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.LOGIC_NULL_HELPURL);
-    this.setColour(Blockly.Variables.HUE_ANY);
+    this.setColour(Blockly.Variables.COLOUR_ANY);
     this.setOutput(true);
     this.appendDummyInput()
         .appendField(Blockly.Msg.LOGIC_NULL);
@@ -455,7 +455,7 @@ Blockly.Blocks['logic_ternary'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.LOGIC_TERNARY_HELPURL);
-    this.setColour(Blockly.Variables.HUE_ANY);
+    this.setColour(Blockly.Variables.COLOUR_ANY);
     this.appendValueInput('IF')
         .setCheck('Boolean')
         .appendField(Blockly.Msg.LOGIC_TERNARY_CONDITION);

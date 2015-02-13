@@ -31,7 +31,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_animation_current'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL);
-    this.setColour( Blockly.Variables.HUE_STRING );
+    this.setColour( Blockly.Variables.COLOUR_STRING );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE);
     this.setOutput(true, "String");
@@ -42,7 +42,7 @@ Blockly.Blocks['kiwi_animation_current'] = {
 Blockly.Blocks['kiwi_animation_play'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_ANIMATION_PLAY_HELPURL);
-    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_ANIMATION_PLAY_MESSAGE);
     this.appendValueInput("TEXT")
@@ -59,7 +59,7 @@ Blockly.Blocks['kiwi_animation_play'] = {
 Blockly.Blocks['kiwi_animation_state'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ANIMATION_STATE_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
             ["pause", "pause()"],
@@ -77,7 +77,7 @@ Blockly.Blocks['kiwi_animation_state'] = {
 Blockly.Blocks['kiwi_animation_frame'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ANIMATION_FRAME_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_ANIMATION_FRAME_MESSAGE_BEFORE )
         .appendField(new Blockly.FieldDropdown([
@@ -95,7 +95,7 @@ Blockly.Blocks['kiwi_animation_frame'] = {
 Blockly.Blocks['kiwi_animation_numbers'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ANIMATION_NUMBERS_HELPURL );
-    this.setColour( Blockly.Variables.HUE_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR_NUMBER );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE )
         .appendField(new Blockly.FieldDropdown([
@@ -112,7 +112,7 @@ Blockly.Blocks['kiwi_animation_numbers'] = {
 Blockly.Blocks['kiwi_animation_booleans'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL );
-    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE )
         .appendField(new Blockly.FieldDropdown([

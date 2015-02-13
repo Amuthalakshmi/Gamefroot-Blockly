@@ -48,9 +48,9 @@ messages function.
 Here are some simple rules to follow when creating blocks;
 
 - All block text should be lower case, unless they are an event/function.
-- If a block outputs a type, it should be coloured with Blockly.Variables.HUE_BOOLEAN/NUMBER/ETC.
-- If a block performs a function it should be coloured with Blockly.Blocks.STATEMENT_HUE.
-- Blocks that serve as an entry point for other blocks (events/functions/etc) should be coloured with Blockly.Blocks.CALLABLE_HUE.
+- If a block outputs a type, it should be coloured with Blockly.Variables.COLOUR_BOOLEAN/NUMBER/ETC.
+- If a block performs a function it should be coloured with Blockly.Blocks.STATEMENT_COLOUR.
+- Blocks that serve as an entry point for other blocks (events/functions/etc) should be coloured with Blockly.Blocks.CALLABLE_COLOUR.
 
 ## Deprecating Blocks
 

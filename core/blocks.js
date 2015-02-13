@@ -36,12 +36,12 @@ goog.provide('Blockly.Blocks');
  * The hue to use for statements
  * @const
  */
-Blockly.Blocks.STATEMENT_HUE = '#ff0000';
+Blockly.Blocks.STATEMENT_COLOUR = '#ff0000';
 /**
  * The hue to use for blocks that are callbacks / functions / events etc.
  * @const
  */
-Blockly.Blocks.CALLABLE_HUE = '#ff00ff';
+Blockly.Blocks.CALLABLE_COLOUR = '#ff00ff';
 
 /**
  * Unique ID counter for created blocks.

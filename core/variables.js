@@ -81,47 +81,47 @@ Blockly.Variables.TYPE_SOUND = 'Sound';
  * The colour that should be applied to a block that outputs type 'any'
  * @const
  */
-Blockly.Variables.HUE_ANY = '#ff0000';
+Blockly.Variables.COLOUR_ANY = '#ff0000';
 /**
  * The colour that should be applied to a block that outputs type 'boolean'
  * @const
  */
-Blockly.Variables.HUE_BOOLEAN = '#00ff00';
+Blockly.Variables.COLOUR_BOOLEAN = '#00ff00';
 /**
  * The colour that should be applied to a block that outputs type 'number'
  * @const
  */
-Blockly.Variables.HUE_NUMBER = '#0000ff';
+Blockly.Variables.COLOUR_NUMBER = '#0000ff';
 /**
  * The colour that should be applied to a block that outputs type 'string'
  * @const
  */
-Blockly.Variables.HUE_STRING = '#ffff00';
+Blockly.Variables.COLOUR_STRING = '#ffff00';
 /**
  * The colour that should be applied to a block that outputs type 'colour'
  * @const
  */
-Blockly.Variables.HUE_COLOUR = '#00ffff';
+Blockly.Variables.COLOUR_COLOUR = '#00ffff';
 /**
  * The colour that should be applied to a block that outputs type 'array'
  * @const
  */
-Blockly.Variables.HUE_ARRAY = '#ff00ff';
+Blockly.Variables.COLOUR_ARRAY = '#ff00ff';
 /**
  * The colour that should be applied to a block that outputs type 'instance'
  * @const
  */
-Blockly.Variables.HUE_INSTANCE = '#ff7700';
+Blockly.Variables.COLOUR_INSTANCE = '#ff7700';
 /**
  * The colour that should be applied to a block that outputs type 'class'
  * @const
  */
-Blockly.Variables.HUE_CLASS = '#0077ff';
+Blockly.Variables.COLOUR_CLASS = '#0077ff';
 /**
  * The colour that should be applied to a block that outputs type 'sound'
  * @const
  */
-Blockly.Variables.HUE_SOUND = '#ff0077';
+Blockly.Variables.COLOUR_SOUND = '#ff0077';
 
 /**
  * Category to separate variable names from procedures and generated functions.
@@ -133,15 +133,15 @@ Blockly.Variables.NAME_TYPE = 'VARIABLE';
 /**
  * The hue that corresponds to each variable type
  */
-Blockly.Variables.HUE_FOR_TYPE = {};
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN] = Blockly.Variables.HUE_BOOLEAN;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_NUMBER] = Blockly.Variables.HUE_NUMBER;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_STRING] = Blockly.Variables.HUE_STRING;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_COLOUR] = Blockly.Variables.HUE_COLOUR;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_ARRAY] = Blockly.Variables.HUE_ARRAY;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = Blockly.Variables.HUE_INSTANCE;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_CLASS] = Blockly.Variables.HUE_CLASS;
-Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_SOUND] = Blockly.Variables.HUE_SOUND;
+Blockly.Variables.COLOUR_FOR_TYPE = {};
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN] = Blockly.Variables.COLOUR_BOOLEAN;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_NUMBER] = Blockly.Variables.COLOUR_NUMBER;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_STRING] = Blockly.Variables.COLOUR_STRING;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_COLOUR] = Blockly.Variables.COLOUR_COLOUR;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_ARRAY] = Blockly.Variables.COLOUR_ARRAY;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = Blockly.Variables.COLOUR_INSTANCE;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_CLASS] = Blockly.Variables.COLOUR_CLASS;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_SOUND] = Blockly.Variables.COLOUR_SOUND;
 
 /**
  * A Complete list of all variables types available.
