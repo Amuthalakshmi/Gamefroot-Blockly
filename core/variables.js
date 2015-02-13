@@ -81,47 +81,47 @@ Blockly.Variables.TYPE_SOUND = 'Sound';
  * The colour that should be applied to a block that outputs type 'any'
  * @const
  */
-Blockly.Variables.HUE_ANY = 100;
+Blockly.Variables.HUE_ANY = '#ff0000';
 /**
  * The colour that should be applied to a block that outputs type 'boolean'
  * @const
  */
-Blockly.Variables.HUE_BOOLEAN = 210;
+Blockly.Variables.HUE_BOOLEAN = '#00ff00';
 /**
  * The colour that should be applied to a block that outputs type 'number'
  * @const
  */
-Blockly.Variables.HUE_NUMBER = 230;
+Blockly.Variables.HUE_NUMBER = '#0000ff';
 /**
  * The colour that should be applied to a block that outputs type 'string'
  * @const
  */
-Blockly.Variables.HUE_STRING = 160;
+Blockly.Variables.HUE_STRING = '#ffff00';
 /**
  * The colour that should be applied to a block that outputs type 'colour'
  * @const
  */
-Blockly.Variables.HUE_COLOUR = 20;
+Blockly.Variables.HUE_COLOUR = '#00ffff';
 /**
  * The colour that should be applied to a block that outputs type 'array'
  * @const
  */
-Blockly.Variables.HUE_ARRAY = 260;
+Blockly.Variables.HUE_ARRAY = '#ff00ff';
 /**
  * The colour that should be applied to a block that outputs type 'instance'
  * @const
  */
-Blockly.Variables.HUE_INSTANCE = 0;
+Blockly.Variables.HUE_INSTANCE = '#ff7700';
 /**
  * The colour that should be applied to a block that outputs type 'class'
  * @const
  */
-Blockly.Variables.HUE_CLASS = 50;
+Blockly.Variables.HUE_CLASS = '#0077ff';
 /**
  * The colour that should be applied to a block that outputs type 'sound'
  * @const
  */
-Blockly.Variables.HUE_SOUND = 300;
+Blockly.Variables.HUE_SOUND = '#ff0077';
 
 /**
  * Category to separate variable names from procedures and generated functions.

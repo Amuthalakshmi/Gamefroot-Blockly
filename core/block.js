@@ -567,18 +567,19 @@ Blockly.Block.prototype.setTooltip = function(newTip) {
 
 /**
  * Get the colour of a block.
- * @return {number} HSV hue value.
+ * @return {number} The colour value.
  */
 Blockly.Block.prototype.getColour = function() {
-  return this.colourHue_;
+  return this.colour || '#000000';
 };
 
 /**
  * Change the colour of a block.
- * @param {number} colourHue HSV hue value.
+ * @param {number} colour The new colour for the block.
  */
-Blockly.Block.prototype.setColour = function(colourHue) {
-  this.colourHue_ = colourHue;
+Blockly.Block.prototype.setColour = function(colour) {
+  goog.asserts.assertString(colour, 'Set the full hex colour now, no more of that hue business.');
+  this.colour = colour;
   if (this.rendered) {
     this.updateColour();
   }
