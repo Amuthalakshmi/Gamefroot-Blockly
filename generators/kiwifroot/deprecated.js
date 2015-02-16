@@ -177,3 +177,22 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
   Blockly.Kiwifroot.provideAddition('EVENT_KEY_RELEASED', code);
   return null;
 };
+
+// 17 - 02 - 2015
+
+Blockly.Kiwifroot['kiwi_camera_lock_on'] = function(block) {
+  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+
+    var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC);
+    var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.lock(' + value_instance + '.transform, ' + value_instance + '.width * 0.5, ' + value_instance + '.height * 0.5);\n';
+    return code;
+};
+
+// 17 - 02 - 2015
+
+Blockly.Kiwifroot['kiwi_camera_unlock'] = function(block) {
+  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+
+    var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.unlock();\n';
+    return code;
+};

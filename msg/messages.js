@@ -1582,6 +1582,13 @@ Blockly.Msg.KF_CAMERA_GET_SPEED_MESSAGE = 'camera pan speed';
 Blockly.Msg.KF_CAMERA_GET_SPEED_TOOLTIP = 'Returns the cameras pan speed.';
 
 ///
+Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_MESSAGE = 'center camera on';
+///
+Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_TOOLTIP = 'Centers the cameras to the instances current position.';
+
+///
 Blockly.Msg.KF_MATH_INSTANCE_HELPURL = '';
 ///
 Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE = 'from';
