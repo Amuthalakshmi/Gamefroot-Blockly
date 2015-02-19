@@ -134,9 +134,9 @@ Blockly.Kiwifroot['kiwi_camera_center_on_instance'] = function(block) {
 
   var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC);
 
-  	var code = 	'var x = ' + value_instance + '.transform.x + (' + value_instance + '.width * ' + value_instance + '.scaleX) * 0.5;\n' + 
+  	var code = 	'var x = ' + value_instance + '.transform.x + (' + value_instance + '.anchorPointX);\n' + 
   				'x -= ' + Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.camera.width / 2;\n' +
-				'var y = ' + value_instance + '.transform.y + (' + value_instance + '.height * ' + value_instance + '.scaleY) * 0.5;\n' +
+				'var y = ' + value_instance + '.transform.y + (' + value_instance + '.anchorPointY);\n' +
   				'y -= ' + Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.camera.height / 2;\n' +
 				Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.snapTo(x,y);\n';
 
