@@ -49,7 +49,7 @@ Blockly.Kiwifroot['kiwi_instance_set'] = function(block) {
   var code = inst + '.' + prop + ' = ' + val;
 
   if( prop === 'rotation' ) {
-    code = inst + '.' + prop + ' = (' + val + ' * Kiwi.Utils.GameMath.DEG_TO_RAD)';
+    code = inst + '.' + prop + ' = (' + val + ') * Kiwi.Utils.GameMath.DEG_TO_RAD';
   }
 
   code += ';\n';
