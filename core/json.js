@@ -90,7 +90,7 @@ Blockly.Json.blockToObject_ = function(block) {
       element[Blockly.Json.fieldLabels.jsonMutation]=mutation;
     }
   }else  if (block.mutationToDom) {
-    console.warn('You should implement a mutationToObject in order to fully support JSON');
+    console.warn('You should implement a mutationToObject on block "'+block.type+'" in order to fully support JSON');
     // Custom data for an advanced block.
     var mutation = block.mutationToDom();
     if (mutation) {

@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-02-13 12:17:35.759457",
+		"lastupdated": "2015-02-19 14:31:19.029612",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -576,6 +576,9 @@
 	"KF_CAMERA_GET_SPEED_HELPURL": "",
 	"KF_CAMERA_GET_SPEED_MESSAGE": "camera pan speed",
 	"KF_CAMERA_GET_SPEED_TOOLTIP": "Returns the cameras pan speed.",
+	"KF_CAMERA_CENTER_ON_INSTANCE_HELPURL": "",
+	"KF_CAMERA_CENTER_ON_INSTANCE_MESSAGE": "center camera on",
+	"KF_CAMERA_CENTER_ON_INSTANCE_TOOLTIP": "Centers the cameras to the instances current position.",
 	"KF_MATH_INSTANCE_HELPURL": "",
 	"KF_MATH_INSTANCE_MESSAGE_BEFORE": "from",
 	"KF_MATH_INSTANCE_MESSAGE_AFTER": "to",

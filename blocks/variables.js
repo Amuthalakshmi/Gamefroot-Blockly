@@ -44,8 +44,8 @@ Blockly.Blocks['variables_get'] = {
         .appendField(new Blockly.FieldDropdown(
           Blockly.Variables.allTypes(), 
           this.typeChangedHandler), 'TYPE')
-        .appendField(new Blockly.FieldVariable(
-        Blockly.Msg.VARIABLES_GET_ITEM), 'VAR')
+        .appendField(new Blockly.FieldVariable(Blockly.Msg.VARIABLES_GET_ITEM,
+          this.nameChangedHandler), 'VAR')
         .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
     this.setOutput(true);
     this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
