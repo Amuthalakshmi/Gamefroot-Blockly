@@ -148,6 +148,8 @@ Blockly.Kiwifroot['kiwi_arcadephysics_get_gravity'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_arcadephysics_probe'] = function(block) {
+  
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
 
   var value_x_pos = Blockly.Kiwifroot.valueToCode(block, 'X_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
   var value_y_pos = Blockly.Kiwifroot.valueToCode(block, 'Y_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
@@ -158,6 +160,9 @@ Blockly.Kiwifroot['kiwi_arcadephysics_probe'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_arcadephysics_probe_layer'] = function(block) {
+
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+
   var value_x_pos = Blockly.Kiwifroot.valueToCode(block, 'X_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
   var value_y_pos = Blockly.Kiwifroot.valueToCode(block, 'Y_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
   var value_layer = Blockly.Kiwifroot.valueToCode(block, 'LAYER', Blockly.Kiwifroot.ORDER_ATOMIC);

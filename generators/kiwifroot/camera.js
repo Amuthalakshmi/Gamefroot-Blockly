@@ -140,5 +140,5 @@ Blockly.Kiwifroot['kiwi_camera_center_on_instance'] = function(block) {
   				'y -= ' + Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.camera.height / 2;\n' +
 				Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.snapTo(x,y);\n';
 
-  return code;
+  	return code;
 };
