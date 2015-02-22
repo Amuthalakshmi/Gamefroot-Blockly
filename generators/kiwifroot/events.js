@@ -34,7 +34,7 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	var funcName = defineFunctionFromBranch('onCreate', block);
 	var constructorCode = '//Attach an special onSpawn call.\n' + 
 		'\t//This is to make sure all the components are loaded/attached before executing any code.\n' +
-		'\tthis.state.robots.onPreUpdate.addOnce( this.' + funcName + ', this);';
+		'\tthis.state.updateSystem.onPreUpdate.addOnce( this.' + funcName + ', this);';
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
 	return null;
 };
