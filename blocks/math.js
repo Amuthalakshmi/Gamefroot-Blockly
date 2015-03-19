@@ -218,6 +218,16 @@ Blockly.Blocks['math_number_property'] = {
     return container;
   },
   /**
+   * Create object to represent whether the 'divisorInput' should be present.
+   * @return {object} JSON storage element.
+   * @this Blockly.Block
+   */
+  mutationToObject: function() {
+    return {
+      'divisor_input' : (this.getFieldValue('PROPERTY') == 'DIVISIBLE_BY')
+    };
+  },
+  /**
    * Parse XML to restore the 'divisorInput'.
    * @param {!Element} xmlElement XML storage element.
    * @this Blockly.Block
@@ -225,6 +235,14 @@ Blockly.Blocks['math_number_property'] = {
   domToMutation: function(xmlElement) {
     var divisorInput = (xmlElement.getAttribute('divisor_input') == 'true');
     this.updateShape_(divisorInput);
+  },
+  /**
+   * Restore the 'divisorInput'.
+   * @param {!object} obj JSON storage element.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    this.updateShape_(obj.divisor_input);
   },
   /**
    * Modify this block to have (or not have) an input for 'is divisible by'.

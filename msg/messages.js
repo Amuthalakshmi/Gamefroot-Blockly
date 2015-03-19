@@ -50,13 +50,13 @@ goog.require('Blockly.Msg');
 
 /// default name - A simple, general default name for a variable, preferably short.
 /// For more context, see
-/// [[Translating:Blockly#infrequent_message_types]].
+/// [[Translating:Blockly#infrequent_message_types]].\n{{Identical|Item}}
 Blockly.Msg.VARIABLES_DEFAULT_NAME = 'item';
 /// button text - Botton that sets a calendar to today's date.\n{{Identical|Today}}
 Blockly.Msg.TODAY = 'Today';
 
 // Context menus.
-/// context menu - Make a copy of the selected block (and any blocks it contains).
+/// context menu - Make a copy of the selected block (and any blocks it contains).\n{{Identical|Duplicate}}
 Blockly.Msg.DUPLICATE_BLOCK = 'Duplicate';
 /// context menu - Add a descriptive comment to the selected block.
 Blockly.Msg.ADD_COMMENT = 'Add Comment';
@@ -1580,6 +1580,13 @@ Blockly.Msg.KF_CAMERA_GET_SPEED_HELPURL = '';
 Blockly.Msg.KF_CAMERA_GET_SPEED_MESSAGE = 'camera pan speed';
 ///
 Blockly.Msg.KF_CAMERA_GET_SPEED_TOOLTIP = 'Returns the cameras pan speed.';
+
+///
+Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_HELPURL = '';
+///
+Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_MESSAGE = 'center camera on';
+///
+Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_TOOLTIP = 'Centers the cameras to the instances current position.';
 
 ///
 Blockly.Msg.KF_MATH_INSTANCE_HELPURL = '';

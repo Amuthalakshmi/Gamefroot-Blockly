@@ -39,10 +39,12 @@ Blockly.Blocks['procedures_defnoreturn'] = {
     this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
     var name = Blockly.Procedures.findLegalName(
         Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE, this);
+    var nameField = new Blockly.FieldTextInput(name,
+        Blockly.Procedures.rename);
+    nameField.setSpellcheck(false);
     this.appendDummyInput()
         .appendField(Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE)
-        .appendField(new Blockly.FieldTextInput(name,
-        Blockly.Procedures.rename), 'NAME')
+        .appendField(nameField, 'NAME')
         .appendField('', 'PARAMS');
     this.setMutator(new Blockly.Mutator(['procedures_mutatorarg']));
     this.setTooltip(Blockly.Msg.PROCEDURES_DEFNORETURN_TOOLTIP);
@@ -353,10 +355,12 @@ Blockly.Blocks['procedures_defreturn'] = {
     this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
     var name = Blockly.Procedures.findLegalName(
         Blockly.Msg.PROCEDURES_DEFRETURN_PROCEDURE, this);
+    var nameField = new Blockly.FieldTextInput(name,
+        Blockly.Procedures.rename);
+    nameField.setSpellcheck(false);
     this.appendDummyInput()
         .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_TITLE)
-        .appendField(new Blockly.FieldTextInput(name,
-        Blockly.Procedures.rename), 'NAME')
+        .appendField(nameField, 'NAME')
         .appendField('', 'PARAMS');
     this.appendValueInput('RETURN')
         .setAlign(Blockly.ALIGN_RIGHT)
@@ -629,10 +633,10 @@ Blockly.Blocks['procedures_callnoreturn'] = {
       // Initialize caller with the mutator's IDs.
       this.setProcedureParameters(def.arguments_, def.paramIds_);
     } else {
-      this.arguments_ = obj.arguments.concat();
+      var args = obj.arguments.concat();
       // For the second argument (paramIds) use the arguments list as a dummy
       // list.
-      this.setProcedureParameters(this.arguments_, this.arguments_);
+      this.setProcedureParameters(args, args);
     }
   },
   /**
@@ -651,15 +655,15 @@ Blockly.Blocks['procedures_callnoreturn'] = {
       // Initialize caller with the mutator's IDs.
       this.setProcedureParameters(def.arguments_, def.paramIds_);
     } else {
-      this.arguments_ = [];
+      var args = [];
       for (var i = 0, childNode; childNode = xmlElement.childNodes[i]; i++) {
         if (childNode.nodeName.toLowerCase() == 'arg') {
-          this.arguments_.push(childNode.getAttribute('name'));
+          args.push(childNode.getAttribute('name'));
         }
       }
       // For the second argument (paramIds) use the arguments list as a dummy
       // list.
-      this.setProcedureParameters(this.arguments_, this.arguments_);
+      this.setProcedureParameters(args, args);
     }
   },
   /**

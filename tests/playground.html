@@ -6,10 +6,10 @@
 <script src="../blockly_uncompressed.js"></script>
 <script src="../generators/javascript.js"></script>
 <script src="../generators/javascript/logic.js"></script>
-<script src="../generators/javascript/text.js"></script>
 <script src="../generators/javascript/lists.js"></script>
 <script src="../generators/javascript/variables.js"></script>
 <script src="../generators/kiwifroot.js"></script>
+<script src="../generators/kiwifroot/text.js"></script>
 <script src="../generators/kiwifroot/loops.js"></script>
 <script src="../generators/kiwifroot/math.js"></script>
 <script src="../generators/kiwifroot/colour.js"></script>
@@ -72,6 +72,11 @@ function start() {
            comments: true,
            disable: true,
            collapse: true,
+           grid:
+             {spacing: 25,
+              length: 3,
+              colour: '#ccc',
+              snap: true},
            realtime: false,
            realtimeOptions:
              {clientId: 'YOUR CLIENT ID GOES HERE',
@@ -704,6 +709,15 @@ h1 {
       <category name="Input">
         <block type="kiwi_key_special"></block>
         <block type="kiwi_input_mouse"></block>
+        <block type="math_arithmetic">
+          <value name="A">
+            <block type="kiwi_input_mouse"></block>
+          </value>
+          <value name="B">
+            <block type="kiwi_camera_get_read_only"></block>
+          </value>
+        </block>
+
       </category>
       <category name="Sound">
         <block type="kiwi_sound_play_background">
@@ -779,12 +793,11 @@ h1 {
           </value>
         </block>
         <block type="kiwi_camera_get_speed"></block>
-        <block type="kiwi_camera_lock_on">
+        <block type="kiwi_camera_center_on_instance">
           <value name="INSTANCE">
             <block type="kiwi_instance_self"></block>
           </value>
         </block>
-        <block type="kiwi_camera_unlock"></block>
         <block type="kiwi_camera_state"></block>
         <block type="kiwi_camera_scale">
           <value name="VALUE">

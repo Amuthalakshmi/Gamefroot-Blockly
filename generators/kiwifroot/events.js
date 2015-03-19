@@ -34,7 +34,7 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	var funcName = defineFunctionFromBranch('onCreate', block);
 	var constructorCode = '//Attach an special onSpawn call.\n' + 
 		'\t//This is to make sure all the components are loaded/attached before executing any code.\n' +
-		'\tthis.state.robots.onPreUpdate.addOnce( this.' + funcName + ', this);';
+		'\tthis.state.updateSystem.onPreUpdate.addOnce( this.' + funcName + ', this);';
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
 	return null;
 };
@@ -87,7 +87,7 @@ Blockly.Kiwifroot['kiwi_event_inst_input'] = function(block) {
   
   var funcName = Blockly.Kiwifroot.provideFunction_(
     ( 'onInstanceInput' + dropdown_namespace ),
-    [ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function(x,y,timeDown,timeUp,duration,pointer) {',
+    [ Blockly.JavaScript.FUNCTION_NAME_PLACEHOLDER_ + ' = function(x, y, timeDown, timeUp, duration, pointer) {',
     	t + 'var point = this.game.cameras.defaultCamera.transformPoint( pointer.point );\n',
         '{{,' + SECTION_EVENT + ',\n}}',
         '};']);
@@ -235,10 +235,10 @@ Blockly.Kiwifroot['kiwi_event_touch_on'] = function(block) {
         '{{\t,EVENT_TOUCH_ON,\n}}',
         '};']);
 
-  	var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.system.onCollision.add( this.' + funcName + ', this );';
+  	var code = Blockly.Kiwifroot.arcadephysics.SYSTEM_PREFIX + '.onCollision.add( this.' + funcName + ', this );';
 	Blockly.Kiwifroot.provideAdditionOnce( 'EventMessageRecieved', Blockly.Kiwifroot.BOOT, code );
 
-	var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX +'.system.onCollision.remove( this.' + funcName + ', this );';
+	var code = Blockly.Kiwifroot.arcadephysics.SYSTEM_PREFIX +'.onCollision.remove( this.' + funcName + ', this );';
 	Blockly.Kiwifroot.provideAddition( Blockly.Kiwifroot.DESTRUCTOR, code );
 
 	var funcName = defineFunctionFromBranch( 'touchedByInstance', block );

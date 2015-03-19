@@ -30,14 +30,17 @@ goog.require('Blockly.Kiwifroot');
 
 
 Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX  = 'this.arcadephysics';
+Blockly.Kiwifroot.arcadephysics.SYSTEM_PREFIX = 'this.arcadesystem';
 
 
 Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_ = function() {
 
-	var constructorCode = 'this.arcadephysics = this.owner.components.getComponent( "ArcadePhysics" );\n\n';
+	var constructorCode = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + ' = this.owner.components.getComponent( "ArcadePhysics" );\n\n';
 	constructorCode    += '\tif( !this.arcadephysics ) {\n';
 	constructorCode    += '\t\tKiwi.Log.error("ArcadePhysics component not found on the state. ArcadePhysics blocks will not work.", "#arcadephysics");\n'
-	constructorCode    += '\t}\n';
+	constructorCode    += '\t} else {\n';
+  constructorCode    += '\t\t' + Blockly.Kiwifroot.arcadephysics.SYSTEM_PREFIX + ' = ' + Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.system;\n';
+  constructorCode    += '\t}\n';
 
 	Blockly.Kiwifroot.provideAdditionOnce('arcadePhysicsConstructor', Blockly.Kiwifroot.BOOT, constructorCode);
 
@@ -146,6 +149,8 @@ Blockly.Kiwifroot['kiwi_arcadephysics_get_gravity'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_arcadephysics_probe'] = function(block) {
+  
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
 
   var value_x_pos = Blockly.Kiwifroot.valueToCode(block, 'X_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
   var value_y_pos = Blockly.Kiwifroot.valueToCode(block, 'Y_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
@@ -156,6 +161,9 @@ Blockly.Kiwifroot['kiwi_arcadephysics_probe'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_arcadephysics_probe_layer'] = function(block) {
+
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+
   var value_x_pos = Blockly.Kiwifroot.valueToCode(block, 'X_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
   var value_y_pos = Blockly.Kiwifroot.valueToCode(block, 'Y_POS', Blockly.Kiwifroot.ORDER_ATOMIC);
   var value_layer = Blockly.Kiwifroot.valueToCode(block, 'LAYER', Blockly.Kiwifroot.ORDER_ATOMIC);

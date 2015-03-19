@@ -10,8 +10,211 @@
 
 		{
 			"id": 1,
-			"url": "./level-one.json",
-			"name": "Level 1"
+			"name": "Level 1",
+			"data": 
+			{
+				"name": "Level Name",
+
+				"color": {
+					"r": 255,
+					"g": 255,
+					"b": 255,
+					"a": 1
+				},
+
+				"loader": {
+				
+				},
+
+				"systems": {
+
+				},
+
+				"gameObjects": [
+				
+					{
+						"id": "undercover-mushroom",
+						"type": "static-image",
+						"name": "undercover-mushroom",
+						"tags": ["undercover-mushroom"],
+						"imageId": 8,
+						"cellIndex": 1,
+						"x": 400,
+						"y": 350,
+						"rotation": -1.57,
+
+						"components": {
+						
+							"arcadephysics": {
+								"immovable": true,
+								"gravity": false
+							},
+
+							"animation": {
+
+								"flashing": {
+									"cells": [0, 1],
+									"loop": true,
+									"play": true,
+									"speed": 0.1
+								},
+								"red": {
+									"cells": [0],
+									"loop": true,
+									"play": false,
+									"speed": 0.1
+								},
+								"green": {
+									"cells": [ 1 ],
+									"loop": false,
+									"play": true,
+									"speed": 0.1
+								}
+						
+							}
+
+
+						}
+
+					},
+
+					{
+						"id": "red-mushroom",
+						"type": "static-image",
+						"name": "red-mushroom",
+						"tags": ["red-mushroom"],
+						"imageId": 8,
+						"cellIndex": 1,
+						"x": 100,
+						"y": 170,
+
+						"components": {
+						
+							"arcadephysics": {
+								"immovable": true,
+								"gravity": false,
+								"velocity": {
+									"x": 10,
+									"y": 0
+								}
+							},
+
+							"animation": {
+
+								"flashing": {
+									"cells": [0, 1],
+									"loop": true,
+									"play": false,
+									"speed": 0.1
+								},
+								"red": {
+									"cells": [0],
+									"loop": true,
+									"play": true,
+									"speed": 0.1
+								},
+								"green": {
+									"cells": [1],
+									"loop": false,
+									"play": false,
+									"speed": 0.1
+								}
+						
+							}
+
+
+						}
+
+					},
+
+					{
+						"id": "green-mushroom",
+						"type": "static-image",
+						"name": "green-mushroom",
+						"tags": ["green-mushroom"],
+						"imageId": 8,
+						"cellIndex": 1,
+						"x": 400,
+						"y": 170,
+
+						"components": {
+						
+							"animation": {
+
+								"flashing": {
+									"cells": [0, 1],
+									"loop": true,
+									"play": false,
+									"speed": 0.1
+								},
+								"red": {
+									"cells": [0],
+									"loop": false,
+									"play": false,
+									"speed": 0.1
+								},
+								"green": {
+									"cells": [1],
+									"loop": false,
+									"play": false,
+									"speed": 0.1
+								}
+						
+							},
+
+							"arcadephysics": {
+
+							},
+
+							"MyScript": {
+								
+							}
+
+						}
+
+					}
+
+				],
+
+				"assets": [
+
+					{
+						"id": 7,
+						"type": "image",
+						"url": "assets/mushroom.png"
+					},
+
+					{
+						"id": 8,
+						"type": "spritesheet",
+						"url": "assets/mushroom.png",
+						"frameWidth": 144,
+						"frameHeight": 144
+					}, 
+
+					{
+						"id": 9,
+						"type": "json",
+						"url": "assets/tilemap.json"
+					},
+
+					{
+						"id": 10,
+						"type": "spritesheet",
+						"url": "assets/terrain.png",
+						"frameWidth": 48,
+						"frameHeight": 48
+					},
+
+					{
+						"id": 11,
+						"type": "sound",
+						"url": "assets/machine_gun.mp3"
+					}
+
+				]
+
+			}
 		},
 
 		{
