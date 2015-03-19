@@ -553,7 +553,7 @@ Blockly.Blocks['procedures_callnoreturn'] = {
           .setAlign(Blockly.ALIGN_RIGHT)
           .appendField(this.arguments_[i]);
       // If we can derive a type from the workspace, set a check for it
-      var type = Blockly.Variables.typeOf(this.arguments_[i], Blockly.mainWorkspace);
+      var type = Blockly.Variables.typeOf(this.arguments_[i], Blockly.mainWorkspace || this.workspace);
       if (type) input.setCheck(type);
       if (this.quarkArguments_) {
         // Reconnect any child blocks.
