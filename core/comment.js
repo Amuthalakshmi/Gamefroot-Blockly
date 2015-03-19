@@ -138,8 +138,10 @@ Blockly.Comment.prototype.resizeBubble_ = function() {
   var doubleBorderWidth = 2 * Blockly.Bubble.BORDER_WIDTH;
   this.foreignObject_.setAttribute('width', size.width - doubleBorderWidth);
   this.foreignObject_.setAttribute('height', size.height - doubleBorderWidth);
-  this.textarea_.style.width = (size.width - doubleBorderWidth - 4) + 'px';
-  this.textarea_.style.height = (size.height - doubleBorderWidth - 4) + 'px';
+  this.textarea_.style.width = (size.width - doubleBorderWidth) + 'px';
+  this.textarea_.style.height = (size.height - doubleBorderWidth) + 'px';
+  // TODO handle all the cross browser issues - here's a snippet for Chrome
+  //this.textarea_.style['margin-top'] = Blockly.Bubble.BORDER_WIDTH;
 };
 
 /**
