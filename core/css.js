@@ -420,6 +420,10 @@ Blockly.Css.CONTENT = [
   '  height: 28px;',
   '}',
 
+  '.blocklyTreeRoot > [role=group] > [role=treeitem] {',
+  '  border-bottom: 1px solid #d7d7d7;',
+  '}',
+
   '.blocklyToolboxDiv[dir="RTL"] .blocklyTreeRow {',
   '  padding-right: 0;',
   '  padding-left: 1em !important;',
