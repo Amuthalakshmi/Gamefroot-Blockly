@@ -27,6 +27,22 @@
 
 goog.require('Blockly.Blocks');
 
+// 19 - 03 - 2015
+
+Blockly.Blocks['kiwi_instance_select'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_INSTANCE_SELECT_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_INSTANCE_SELECT_MESSAGE )
+        .appendField(new Blockly.FieldDropdown( Blockly.Kiwifroot.instances_ ), "ID");
+    this.setInputsInline(true);
+    this.setOutput(true, "Instance");
+    this.setTooltip( Blockly.Msg.KF_INSTANCE_SELECT_TOOLTIP );
+  }
+};
+
 // 12 - 02 - 2015
 
 Blockly.Blocks['kiwi_classes_selector'] = {

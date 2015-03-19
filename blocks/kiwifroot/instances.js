@@ -29,7 +29,6 @@ goog.provide('Blockly.Blocks.Kiwifroot.instances');
 
 goog.require('Blockly.Blocks');
 
-
 Blockly.Blocks['kiwi_instance_self'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
@@ -41,20 +40,6 @@ Blockly.Blocks['kiwi_instance_self'] = {
     this.setTooltip(Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP);
   }
 };
-
-Blockly.Blocks['kiwi_instance_select'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_INSTANCE_SELECT_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
-    this.appendDummyInput()
-        .appendField( Blockly.Msg.KF_INSTANCE_SELECT_MESSAGE )
-        .appendField(new Blockly.FieldDropdown( Blockly.Kiwifroot.instances_ ), "ID");
-    this.setInputsInline(true);
-    this.setOutput(true, "Instance");
-    this.setTooltip( Blockly.Msg.KF_INSTANCE_SELECT_TOOLTIP );
-  }
-};
-
 
 Blockly.Blocks['kiwi_instance_set'] = {
   init: function() {
