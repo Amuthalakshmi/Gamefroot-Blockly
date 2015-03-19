@@ -224,6 +224,12 @@ Blockly.Css.CONTENT = [
   '  stroke-width: 2;',
   '}',
 
+  '.blocklyDisabled .blocklyNonEditableText>text,',
+  '.blocklyDisabled .blocklyEditableText>text {',
+  '  fill: #999;',
+  '  fill-opacity: .6;',
+  '}',
+
   '.blocklyBubbleText {',
   '  fill: #000;',
   '}',

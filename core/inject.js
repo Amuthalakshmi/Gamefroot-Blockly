@@ -281,9 +281,9 @@ Blockly.createDom_ = function(container) {
       {'id': 'blocklyDisabledPattern', 'patternUnits': 'userSpaceOnUse',
        'width': 10, 'height': 10}, defs);
   Blockly.createSvgElement('rect',
-      {'width': 10, 'height': 10, 'fill': '#aaa'}, pattern);
+      {'width': 10, 'height': 10, 'fill': '#ccc'}, pattern);
   Blockly.createSvgElement('path',
-      {'d': 'M 0 0 L 10 10 M 10 0 L 0 10', 'stroke': '#cc0'}, pattern);
+      {'d': 'M 10 0 L 0 10', 'stroke': '#ddd'}, pattern);
   /*
     <pattern id="blocklyGridPattern" patternUnits="userSpaceOnUse"
              width="10" height="10">
