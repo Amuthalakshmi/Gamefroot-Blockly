@@ -180,7 +180,7 @@ Blockly.Flyout.prototype.getMetrics_ = function() {
   return {
     viewHeight: viewHeight,
     viewWidth: viewWidth,
-    contentHeight: optionBox.height + optionBox.y,
+    contentHeight: optionBox.height + this.GAP*2 + optionBox.y,
     viewTop: -this.workspace_.scrollY,
     contentTop: 0,
     absoluteTop: this.CORNER_RADIUS,
@@ -391,7 +391,7 @@ Blockly.Flyout.prototype.show = function(xmlList) {
   }
 
   // Lay out the blocks vertically.
-  var cursorY = margin;
+  var cursorY = margin*2;
   for (var i = 0, block; block = blocks[i]; i++) {
     var allBlocks = block.getDescendants();
     for (var j = 0, child; child = allBlocks[j]; j++) {
