@@ -286,6 +286,14 @@ Blockly.Css.CONTENT = [
   '  fill: #fff;',
   '}',
 
+  '.blocklyDisabled .blocklyIconShield {',
+  '  fill: #999;',
+  '}',
+
+  '.blocklyDisabled .blocklyIconShield {',
+  '  fill: #999;',
+  '}',
+
   '.blocklyIconMark {',
   '  cursor: default !important;',
   '  fill: #ccc;',
