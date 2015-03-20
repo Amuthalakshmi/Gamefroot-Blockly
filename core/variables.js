@@ -81,27 +81,27 @@ Blockly.Variables.TYPE_SOUND = 'Sound';
  * The colour that should be applied to a block that outputs type 'any'
  * @const
  */
-Blockly.Variables.COLOUR_ANY = '#96de39';
+Blockly.Variables.COLOUR_ANY = '#71cd04';
 /**
  * The colour that should be applied to a block that outputs type 'boolean'
  * @const
  */
-Blockly.Variables.COLOUR_BOOLEAN = '#17d8f5';
+Blockly.Variables.COLOUR_BOOLEAN = '#2db1f9';
 /**
  * The colour that should be applied to a block that outputs type 'number'
  * @const
  */
-Blockly.Variables.COLOUR_NUMBER = '#375eee';
+Blockly.Variables.COLOUR_NUMBER = '#1b6fe9';
 /**
  * The colour that should be applied to a block that outputs type 'string'
  * @const
  */
-Blockly.Variables.COLOUR_STRING = '#04d4b4';
+Blockly.Variables.COLOUR_STRING = '#40ce9e';
 /**
  * The colour that should be applied to a block that outputs type 'colour'
  * @const
  */
-Blockly.Variables.COLOUR_COLOUR = '#f65973';
+Blockly.Variables.COLOUR_COLOUR = '#b24ac5';
 /**
  * The colour that should be applied to a block that outputs type 'array'
  * @const
@@ -111,7 +111,7 @@ Blockly.Variables.COLOUR_ARRAY = '#8230e7';
  * The colour that should be applied to a block that outputs type 'instance'
  * @const
  */
-Blockly.Variables.COLOUR_INSTANCE = '#e33c1b';
+Blockly.Variables.COLOUR_INSTANCE = '#e74e48';
 /**
  * The colour that should be applied to a block that outputs type 'class'
  * @const
