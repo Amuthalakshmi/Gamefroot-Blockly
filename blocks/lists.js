@@ -335,6 +335,19 @@ Blockly.Blocks['lists_getIndex'] = {
     });
   },
   /**
+   * Create an object to represent mutation
+   * @return {object} mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    var isStatement = !this.outputConnection;
+    var isAt = this.getInput('AT').type == Blockly.INPUT_VALUE;
+    return {
+      'statement':isStatement,
+      'at':isAt
+    };
+  },
+  /**
    * Create XML to represent whether the block is a statement or a value.
    * Also represent whether there is an 'AT' input.
    * @return {Element} XML storage element.
@@ -347,6 +360,17 @@ Blockly.Blocks['lists_getIndex'] = {
     var isAt = this.getInput('AT').type == Blockly.INPUT_VALUE;
     container.setAttribute('at', isAt);
     return container;
+  },
+  /**
+   * Parse mutation data to restore mutation.
+   * @param {object} obj Mutation data object.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj){
+    var isStatement = obj.statement;
+    this.updateStatement_(isStatement);
+    var isAt = obj.at;
+    this.updateAt_(isAt);
   },
   /**
    * Parse XML to restore the 'AT' input.
