@@ -76,6 +76,7 @@ Blockly.Kiwifroot.defaultTemplate =
   //Boot method
   'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.boot = function() {\n' +
   '{{\t,BOOT,\n}}\n'+
+  '{{\t,BOOT_END,\n}}\n'+
   '};\n\n'+
 
   // Supply an add method for the plugin
@@ -151,6 +152,13 @@ Blockly.Kiwifroot.DESTRUCTOR = 'DESTRUCTOR';
  * @type {string}
  */
 Blockly.Kiwifroot.BOOT = 'BOOT';
+
+/** 
+ * At the end of the boot method.
+ * @const
+ * @type {string}
+ */
+Blockly.Kiwifroot.BOOT_END = 'BOOT_END';
 
 /**
  * The array of sounds, contains tuples of names and ids

@@ -32,10 +32,12 @@ goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	var funcName = defineFunctionFromBranch('onCreate', block);
-	var constructorCode = '//Attach an special onSpawn call.\n' + 
+
+	var bootCode = '//Attach the information to the boot method.\n' + 
 		'\t//This is to make sure all the components are loaded/attached before executing any code.\n' +
-		'\tthis.state.updateSystem.onPreUpdate.addOnce( this.' + funcName + ', this);';
-	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
+		'\tthis.' + funcName + '();';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.BOOT_END, bootCode);
 	return null;
 };
 
@@ -43,7 +45,7 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 Blockly.Kiwifroot['kiwi_event_remove'] = function(block) {
 	var funcName = defineFunctionFromBranch('onRemove', block);
 
-	var destructorCode = 'this.'+funcName + '();';
+	var destructorCode = 'this.'+funcName + '();';boot
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 
 	return null;
