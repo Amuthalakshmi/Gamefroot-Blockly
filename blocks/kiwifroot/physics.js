@@ -31,7 +31,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_arcadephysics_get_numeric'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_HELPURL );
-    this.setColour( Blockly.Variables.HUE_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR_NUMBER );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown( [
         	["velocity x", "velocity.x"], 
@@ -55,7 +55,7 @@ Blockly.Blocks['kiwi_arcadephysics_get_numeric'] = {
 Blockly.Blocks['kiwi_arcadephysics_set_numeric'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendValueInput("VALUE")
         .setCheck("Number")
         .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_MESSAGE )
@@ -82,7 +82,7 @@ Blockly.Blocks['kiwi_arcadephysics_set_numeric'] = {
 Blockly.Blocks['kiwi_arcadephysics_set_boolean'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendValueInput("VALUE")
         .setCheck("Boolean")
         .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_MESSAGE )
@@ -101,7 +101,7 @@ Blockly.Blocks['kiwi_arcadephysics_set_boolean'] = {
 Blockly.Blocks['kiwi_arcadephysics_get_boolean'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_HELPURL );
-    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
         	["reacts to gravity", "gravity"], 
@@ -118,7 +118,7 @@ Blockly.Blocks['kiwi_arcadephysics_get_boolean'] = {
 Blockly.Blocks['kiwi_arcadephysics_get_collisions'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_HELPURL );
-    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
         	["touching", "touching"], 
@@ -144,7 +144,7 @@ Blockly.Blocks['kiwi_arcadephysics_get_collisions'] = {
 Blockly.Blocks['kiwi_arcadephysics_set_collisions'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendValueInput("VALUE")
         .setCheck("Boolean")
         .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_COLLISIONS_MESSAGE_BEFORE )
@@ -167,7 +167,7 @@ Blockly.Blocks['kiwi_arcadephysics_set_collisions'] = {
 Blockly.Blocks['kiwi_arcadephysics_set_gravity'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendValueInput("VALUE")
         .setCheck("Number")
         .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_GRAVITY_MESSAGE )
@@ -185,7 +185,7 @@ Blockly.Blocks['kiwi_arcadephysics_set_gravity'] = {
 Blockly.Blocks['kiwi_arcadephysics_get_gravity'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_HELPURL );
-    this.setColour( Blockly.Variables.HUE_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR_NUMBER );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_MESSAGE )
         .appendField(new Blockly.FieldDropdown([["x", "x"], ["y", "y"]]), "PROP");
@@ -198,7 +198,7 @@ Blockly.Blocks['kiwi_arcadephysics_get_gravity'] = {
 Blockly.Blocks['kiwi_arcadephysics_probe'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_HELPURL );
-    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
     this.appendValueInput("X_POS")
         .setCheck("Number")
         .appendField( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_MESSAGE );
@@ -214,8 +214,8 @@ Blockly.Blocks['kiwi_arcadephysics_probe'] = {
 Blockly.Blocks['kiwi_arcadephysics_probe_layer'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_HELPURL );
-    this.setColour( Blockly.Variables.HUE_BOOLEAN );
-    this.setColour( Blockly.Variables.HUE_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
     this.appendValueInput("X_POS")
         .setCheck("Number")
         .appendField( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_ONE )

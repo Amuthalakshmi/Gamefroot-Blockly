@@ -27,13 +27,29 @@
 
 goog.require('Blockly.Blocks');
 
+// 19 - 03 - 2015
+
+Blockly.Blocks['kiwi_instance_select'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_INSTANCE_SELECT_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_INSTANCE_SELECT_MESSAGE )
+        .appendField(new Blockly.FieldDropdown( Blockly.Kiwifroot.instances_ ), "ID");
+    this.setInputsInline(true);
+    this.setOutput(true, "Instance");
+    this.setTooltip( Blockly.Msg.KF_INSTANCE_SELECT_TOOLTIP );
+  }
+};
+
 // 12 - 02 - 2015
 
 Blockly.Blocks['kiwi_classes_selector'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_SELECTOR_HELPURL );
-    this.setColour( Blockly.Variables.HUE_CLASS );
+    this.setColour( Blockly.Variables.COLOUR_CLASS );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown( Blockly.Kiwifroot.classes_ ), "NAME");
     this.setInputsInline(true);
@@ -48,7 +64,7 @@ Blockly.Blocks['kiwi_messaging_class'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_MESSAGING_CLASS_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_HUE );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendValueInput("MESSAGE")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_BEFORE );
@@ -68,7 +84,7 @@ Blockly.Blocks['kiwi_event_stage_press'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP);
@@ -82,7 +98,7 @@ Blockly.Blocks['kiwi_event_stage_release'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP);
@@ -96,7 +112,7 @@ Blockly.Blocks['kiwi_event_inst_press'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INST_PRESS_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_INST_PRESS_MESSAGE);
     this.appendValueInput("INST")
@@ -113,7 +129,7 @@ Blockly.Blocks['kiwi_event_inst_release'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INST_RELEASE_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_INST_RELEASE_MESSAGE);
     this.appendValueInput("INST")
@@ -130,7 +146,7 @@ Blockly.Blocks['kiwi_event_key_press'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.KF_EVENT_KEY_PRESS_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE);
     this.appendValueInput("KEY")
@@ -147,7 +163,7 @@ Blockly.Blocks['kiwi_event_key_release'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_HUE );
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_KEY_RELEASE_MESSAGE);
     this.appendValueInput("KEY")

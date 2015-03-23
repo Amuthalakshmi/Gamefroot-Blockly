@@ -224,6 +224,12 @@ Blockly.Css.CONTENT = [
   '  stroke-width: 2;',
   '}',
 
+  '.blocklyDisabled .blocklyNonEditableText>text,',
+  '.blocklyDisabled .blocklyEditableText>text {',
+  '  fill: #999;',
+  '  fill-opacity: .6;',
+  '}',
+
   '.blocklyBubbleText {',
   '  fill: #000;',
   '}',
@@ -267,18 +273,25 @@ Blockly.Css.CONTENT = [
 
   '.blocklyIconShield {',
   '  cursor: default;',
-  '  fill: #00c;',
-  '  stroke: #ccc;',
-  '  stroke-width: 1px;',
+  '  fill: #111;',
   '}',
 
   '.blocklyIconGroup:hover>.blocklyIconShield {',
-  '  fill: #00f;',
+  '  fill: #000;',
   '  stroke: #fff;',
+  '  stroke-weight: 1px;',
   '}',
 
   '.blocklyIconGroup:hover>.blocklyIconMark {',
   '  fill: #fff;',
+  '}',
+
+  '.blocklyDisabled .blocklyIconShield {',
+  '  fill: #999;',
+  '}',
+
+  '.blocklyDisabled .blocklyIconShield {',
+  '  fill: #999;',
   '}',
 
   '.blocklyIconMark {',
@@ -299,11 +312,14 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyCommentTextarea {',
-  '  background-color: #ffc;',
+  '  background-color: #fffff4;',
   '  border: 0;',
   '  margin: 0;',
-  '  padding: 2px;',
+  '  padding: 8px;',
   '  resize: none;',
+  '  color: #333;',
+  '  line-height: 18px;',
+  '  box-sizing: border-box;',
   '}',
 
   '.blocklyHtmlInput {',
@@ -312,6 +328,10 @@ Blockly.Css.CONTENT = [
   '  font-size: 11pt;',
   '  outline: none;',
   '  width: 100%',
+  '}',
+
+  '.blocklyMainBackground {',
+  '  fill: url(#blocklyGridPattern);',
   '}',
 
   '.blocklyMutatorBackground {',
@@ -387,7 +407,8 @@ Blockly.Css.CONTENT = [
 
   /* Category tree in Toolbox. */
   '.blocklyToolboxDiv {',
-  '  background-color: #eee;',
+  '  background-color: #fff;',
+  '  border: 1px solid #d7d7d7;',
   '  display: none;',
   '  overflow-x: visible;',
   '  overflow-y: auto;',
@@ -403,10 +424,20 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyTreeRow {',
-  '  line-height: 22px;',
-  '  height: 22px;',
+  '  line-height: 44px;',
+  '  height: 44px;',
   '  padding-right: 1em;',
   '  white-space: nowrap;',
+  '  margin-left: 5px;',
+  '}',
+
+  '[role=group] [role=group] .blocklyTreeRow {',
+  '  line-height: 28px;',
+  '  height: 28px;',
+  '}',
+
+  '.blocklyTreeRoot > [role=group] > [role=treeitem] {',
+  '  border-bottom: 1px solid #d7d7d7;',
   '}',
 
   '.blocklyToolboxDiv[dir="RTL"] .blocklyTreeRow {',
@@ -415,7 +446,7 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyTreeRow:hover {',
-  '  background-color: #e5e5e5;',
+  '  background-color: #eee;',
   '}',
 
   '.blocklyTreeSeparator {',
@@ -443,7 +474,7 @@ Blockly.Css.CONTENT = [
   '  background-position: -16px -1px;',
   '}',
 
-  '.blocklyTreeSelected>.blocklyTreeIconClosedLtr {',
+  /*'.blocklyTreeSelected>.blocklyTreeIconClosedLtr {',
   '  background-position: -32px -17px;',
   '}',
 
@@ -453,7 +484,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyTreeSelected>.blocklyTreeIconOpen {',
   '  background-position: -16px -17px;',
-  '}',
+  '}',*/
 
   '.blocklyTreeIconNone,',
   '.blocklyTreeSelected>.blocklyTreeIconNone {',
@@ -469,11 +500,9 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyTreeSelected  {',
-  '  background-color: #57e !important;',
-  '}',
-
-  '.blocklyTreeSelected .blocklyTreeLabel {',
-  '  color: #fff;',
+  '  background-color: #eee !important;',
+  '  border-left: 5px solid #ee4a27;',
+  '  margin-left: 0px;',
   '}',
 
   /* Copied from: goog/css/colorpicker-simplegrid.css */

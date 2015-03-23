@@ -36,7 +36,7 @@ Blockly.Blocks['text'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.TEXT_TEXT_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.appendDummyInput()
         .appendField(this.newQuote_(true))
         .appendField(new Blockly.FieldTextInput(''), 'TEXT')
@@ -67,7 +67,7 @@ Blockly.Blocks['text_join'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.TEXT_JOIN_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.itemCount_ = 2;
     this.updateShape_();
     this.setOutput(true, 'String');
@@ -212,7 +212,7 @@ Blockly.Blocks['text_create_join_container'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.appendDummyInput()
         .appendField(Blockly.Msg.TEXT_CREATE_JOIN_TITLE_JOIN);
     this.appendStatementInput('STACK');
@@ -227,7 +227,7 @@ Blockly.Blocks['text_create_join_item'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.appendDummyInput()
         .appendField(Blockly.Msg.TEXT_CREATE_JOIN_ITEM_TITLE_ITEM);
     this.setPreviousStatement(true);
@@ -244,7 +244,7 @@ Blockly.Blocks['text_append'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.TEXT_APPEND_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.appendValueInput('TEXT')
         .appendField(Blockly.Msg.TEXT_APPEND_TO)
         .appendField(new Blockly.FieldVariable(
@@ -268,6 +268,31 @@ Blockly.Blocks['text_append'] = {
     return [this.getFieldValue('VAR')];
   },
   /**
+   * Iterator is always a number type, return this.
+   * @return {string}
+   * @this Blockly.Block
+   */
+  typeOf: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return Blockly.Variables.TYPE_STRING;
+    }
+    else return undefined;
+  },
+  /**
+   * Notfication that the workspace wants to change this variables type.
+   * We can not change type! This is immutable.
+   * @this Blockly.Block
+   */
+  changeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      setTimeout(function(){
+        // This type is immutable, change it back!
+        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_STRING, 
+          Blockly.mainWorkspace);
+      },1);
+    }
+  },
+  /**
    * Notification that a variable is renaming.
    * If the name matches one of this block's variables, rename it.
    * @param {string} oldName Previous name of variable.
@@ -288,7 +313,7 @@ Blockly.Blocks['text_length'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.TEXT_LENGTH_HELPURL);
-    this.setColour(Blockly.Variables.HUE_NUMBER);
+    this.setColour(Blockly.Variables.COLOUR_NUMBER);
     this.interpolateMsg(Blockly.Msg.TEXT_LENGTH_TITLE,
                         ['VALUE', ['String', 'Array'], Blockly.ALIGN_RIGHT],
                         Blockly.ALIGN_RIGHT);
@@ -304,7 +329,7 @@ Blockly.Blocks['text_isEmpty'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.TEXT_ISEMPTY_HELPURL);
-    this.setColour(Blockly.Variables.HUE_BOOLEAN);
+    this.setColour(Blockly.Variables.COLOUR_BOOLEAN);
     this.interpolateMsg(Blockly.Msg.TEXT_ISEMPTY_TITLE,
                         ['VALUE', ['String', 'Array'], Blockly.ALIGN_RIGHT],
                         Blockly.ALIGN_RIGHT);
@@ -323,7 +348,7 @@ Blockly.Blocks['text_indexOf'] = {
         [[Blockly.Msg.TEXT_INDEXOF_OPERATOR_FIRST, 'FIRST'],
          [Blockly.Msg.TEXT_INDEXOF_OPERATOR_LAST, 'LAST']];
     this.setHelpUrl(Blockly.Msg.TEXT_INDEXOF_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.setOutput(true, 'Number');
     this.appendValueInput('VALUE')
         .setCheck('String')
@@ -352,7 +377,7 @@ Blockly.Blocks['text_charAt'] = {
          [Blockly.Msg.TEXT_CHARAT_LAST, 'LAST'],
          [Blockly.Msg.TEXT_CHARAT_RANDOM, 'RANDOM']];
     this.setHelpUrl(Blockly.Msg.TEXT_CHARAT_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.setOutput(true, 'String');
     this.appendValueInput('VALUE')
         .setCheck('String')
@@ -440,7 +465,7 @@ Blockly.Blocks['text_getSubstring'] = {
          [Blockly.Msg.TEXT_GET_SUBSTRING_END_FROM_END, 'FROM_END'],
          [Blockly.Msg.TEXT_GET_SUBSTRING_END_LAST, 'LAST']];
     this.setHelpUrl(Blockly.Msg.TEXT_GET_SUBSTRING_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.appendValueInput('STRING')
         .setCheck('String')
         .appendField(Blockly.Msg.TEXT_GET_SUBSTRING_INPUT_IN_TEXT);
@@ -541,7 +566,7 @@ Blockly.Blocks['text_changeCase'] = {
          [Blockly.Msg.TEXT_CHANGECASE_OPERATOR_LOWERCASE, 'LOWERCASE'],
          [Blockly.Msg.TEXT_CHANGECASE_OPERATOR_TITLECASE, 'TITLECASE']];
     this.setHelpUrl(Blockly.Msg.TEXT_CHANGECASE_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.appendValueInput('TEXT')
         .setCheck('String')
         .appendField(new Blockly.FieldDropdown(OPERATORS), 'CASE');
@@ -561,7 +586,7 @@ Blockly.Blocks['text_trim'] = {
          [Blockly.Msg.TEXT_TRIM_OPERATOR_LEFT, 'LEFT'],
          [Blockly.Msg.TEXT_TRIM_OPERATOR_RIGHT, 'RIGHT']];
     this.setHelpUrl(Blockly.Msg.TEXT_TRIM_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     this.appendValueInput('TEXT')
         .setCheck('String')
         .appendField(new Blockly.FieldDropdown(OPERATORS), 'MODE');
@@ -577,7 +602,7 @@ Blockly.Blocks['text_print'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.TEXT_PRINT_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.interpolateMsg(Blockly.Msg.TEXT_PRINT_TITLE,
                         ['TEXT', null, Blockly.ALIGN_RIGHT],
                         Blockly.ALIGN_RIGHT);
@@ -599,7 +624,7 @@ Blockly.Blocks['text_prompt'] = {
     // Assign 'this' to a variable for use in the closure below.
     var thisBlock = this;
     this.setHelpUrl(Blockly.Msg.TEXT_PROMPT_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     var dropdown = new Blockly.FieldDropdown(TYPES, function(newOp) {
       if (newOp == 'NUMBER') {
         thisBlock.changeOutput('Number');
@@ -636,7 +661,7 @@ Blockly.Blocks['text_prompt_ext'] = {
     // Assign 'this' to a variable for use in the closure below.
     var thisBlock = this;
     this.setHelpUrl(Blockly.Msg.TEXT_PROMPT_HELPURL);
-    this.setColour(Blockly.Variables.HUE_STRING);
+    this.setColour(Blockly.Variables.COLOUR_STRING);
     var dropdown = new Blockly.FieldDropdown(TYPES, function(newOp) {
       if (newOp == 'NUMBER') {
         thisBlock.changeOutput('Number');

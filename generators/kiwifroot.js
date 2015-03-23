@@ -51,19 +51,19 @@ Blockly.Kiwifroot.INDENT = '\t';
  */
 Blockly.Kiwifroot.defaultTemplate =
   // Define all the settings for the plugin (each new script is treated a component)
-  'Kiwi.Plugins.[[PLUGIN_NAME]] = {\n'+
-  '\tname:\'[[PLUGIN_NAME]]\',\n'+
-  '\tversion:\'[[PLUGIN_VERSION]]\',\n'+
-  '\tminimumKiwiVersion:\'[[MIN_KIWI_VERSION]]\',\n'+
-  '\tkiwifrootPlugins:[[KIWIFROOT_PLUGINS]]\n'+
+  'Kiwi.Plugins.##PLUGIN_NAME## = {\n'+
+  '\tname:\'##PLUGIN_NAME##\',\n'+
+  '\tversion:\'##PLUGIN_VERSION##\',\n'+
+  '\tminimumKiwiVersion:\'##MIN_KIWI_VERSION##\',\n'+
+  '\tkiwifrootPlugins:##KIWIFROOT_PLUGINS##\n'+
   '};\n\n'+
   // Register the plugin with Kiwi.js
-  'Kiwi.PluginManager.register(Kiwi.Plugins.[[PLUGIN_NAME]]);\n\n'+
+  'Kiwi.PluginManager.register(Kiwi.Plugins.##PLUGIN_NAME##);\n\n'+
 
   // Here we define the constructor for the plugin
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]] = function(gameObject){\n'+
+  'Kiwi.Plugins.##PLUGIN_NAME##.##CLASS_NAME## = function(gameObject){\n'+
   // Call the base component constructor
-  '\tKiwi.Component.call(this, gameObject, \'[[PLUGIN_NAME]]\');\n\n'+
+  '\tKiwi.Component.call(this, gameObject, \'##PLUGIN_NAME##\');\n\n'+
   // Set this components state property
   '\tthis.state = this.owner.state;\n'+
   '\tthis.box = this.owner.components.getComponent("Box");\n\n'+
@@ -71,26 +71,26 @@ Blockly.Kiwifroot.defaultTemplate =
   '{{\t,CONSTRUCTOR,\n}}\n'+
   '};\n\n'+
   // Extend GameObject
-  'Kiwi.extend(Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]], Kiwi.Component);\n\n'+
+  'Kiwi.extend(Kiwi.Plugins.##PLUGIN_NAME##.##CLASS_NAME##, Kiwi.Component);\n\n'+
 
   //Boot method
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.boot = function() {\n' +
+  'Kiwi.Plugins.##PLUGIN_NAME##.##CLASS_NAME##.prototype.boot = function() {\n' +
   '{{\t,BOOT,\n}}\n'+
   '{{\t,BOOT_END,\n}}\n'+
   '};\n\n'+
 
   // Supply an add method for the plugin
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].add = function(state, gameObject, params){\n'+
-  '\tvar component = new Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]](gameObject);\n'+
+  'Kiwi.Plugins.##PLUGIN_NAME##.##CLASS_NAME##.add = function(state, gameObject, params){\n'+
+  '\tvar component = new Kiwi.Plugins.##PLUGIN_NAME##.##CLASS_NAME##(gameObject);\n'+
   '\tgameObject.components.add(component);\n\n'+
   '{{\t,WHEN_ADDED,\n}}\n'+
   '};\n\n'+
   // Add all the definitions here, they will all be prefixed with the namespace and
   // will include two newline breaks after each definition.
-  '{{Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.,DEFINITIONS,\n\n}}\n\n'+
+  '{{Kiwi.Plugins.##PLUGIN_NAME##.##CLASS_NAME##.prototype.,DEFINITIONS,\n\n}}\n\n'+
 
   // Here we define the destructor for the plugin
-  'Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]].prototype.destroy = function(){\n'+
+  'Kiwi.Plugins.##PLUGIN_NAME##.##CLASS_NAME##.prototype.destroy = function(){\n'+
   // This is where the destructor additions will be made
   '{{\t,DESTRUCTOR,\n}}\n\n'+
   '\tKiwi.Component.prototype.destroy.call( this );\n' +
@@ -99,10 +99,10 @@ Blockly.Kiwifroot.defaultTemplate =
   '};\n\n' +
 
   // Add the component to the list of plugins
-  'Kiwi.Plugins.[[PLUGIN_NAME]].kiwifrootPlugins.push({\n'+
+  'Kiwi.Plugins.##PLUGIN_NAME##.kiwifrootPlugins.push({\n'+
     '\ttype: Kiwifroot.Plugins.COMPONENT,\n'+
-    '\tname: \'[[PLUGIN_NAME]]\',\n'+
-    '\tnamespace: Kiwi.Plugins.[[PLUGIN_NAME]].[[CLASS_NAME]]\n'+
+    '\tname: \'##PLUGIN_NAME##\',\n'+
+    '\tnamespace: Kiwi.Plugins.##PLUGIN_NAME##.##CLASS_NAME##\n'+
   '});\n\n';
 
 /**
@@ -172,23 +172,27 @@ Blockly.Kiwifroot.sounds_ = [
 ];
 
 /**
-* The array of instance ids. Contains tuples of names/ids
-* @type {array}
-*/
+ * The array of instance ids. Contains tuples of names/ids
+ * @type {array}
+ * @deprecated
+ */
 Blockly.Kiwifroot.instances_ = [
   ['RedMushroom', "red-mushroom"],
   ['GreenMushroom', "green-mushroom"]
 ];
 
 /**
-* The array of classes. 
-* @type {array}
-*/
+ * The array of classes. 
+ * @type {array}
+ * @deprecated
+ */
 Blockly.Kiwifroot.classes_ = [
   ["RedMushroom", "red-mushroom"], 
   ["GreenMushroom", "green-mushroom"]
 ];
 
+// TODO ensure that variables/commands do not conflict with template macros
+// TODO add the kiwi.js reserved words
 Blockly.Kiwifroot.addReservedWords();
 
 /**
@@ -259,8 +263,8 @@ Blockly.Kiwifroot.init = function(workspace) {
   // An object containing all the sections of code and the unique ids that have been added to them
   Blockly.Kiwifroot.sectionIds_ = {};
   // The special symbols to interpret from the template
-  Blockly.Kiwifroot.openMacroDelimeter_ = '[[';
-  Blockly.Kiwifroot.closeMacroDelimeter_ = ']]';
+  Blockly.Kiwifroot.openMacroDelimeter_ = '##';
+  Blockly.Kiwifroot.closeMacroDelimeter_ = '##';
   Blockly.Kiwifroot.openSectionDelimeter_ = '{{';
   Blockly.Kiwifroot.closeSectionDelimeter_ = '}}';
 

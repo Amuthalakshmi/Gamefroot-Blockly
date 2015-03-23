@@ -28,8 +28,6 @@ goog.provide('Blockly.Blocks.variables');
 
 goog.require('Blockly.Blocks');
 
-Blockly.Blocks.variables.HUE = 330;
-
 
 Blockly.Blocks['variables_get'] = {
   /**
@@ -38,7 +36,7 @@ Blockly.Blocks['variables_get'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
-    this.setColour(Blockly.Variables.HUE_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN]);
+    this.setColour(Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_BOOLEAN]);
     this.appendDummyInput()
         .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
         .appendField(new Blockly.FieldDropdown(
@@ -107,7 +105,7 @@ Blockly.Blocks['variables_get'] = {
     }
     this.setFieldValue(type, 'TYPE');
     this.changeOutput(type);
-    this.setColour(Blockly.Variables.HUE_FOR_TYPE[type]);
+    this.setColour(Blockly.Variables.COLOUR_FOR_TYPE[type]);
   },
   /**
    * Notification that a variable is renaming.
@@ -164,7 +162,7 @@ Blockly.Blocks['variables_set'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_SET_HELPURL);
-    this.setColour(Blockly.Blocks.variables.HUE);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.interpolateMsg(
         // TODO: Combine these messages instead of using concatenation.
         Blockly.Msg.VARIABLES_SET_TITLE + ' %1 %2' +
