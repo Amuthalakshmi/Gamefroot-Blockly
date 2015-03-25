@@ -503,6 +503,7 @@ Blockly.Css.CONTENT = [
   '  background-color: #eee !important;',
   '  border-left: 5px solid #ee4a27;',
   '  margin-left: 0px;',
+  '  font-weight: 500;',
   '}',
 
   /* Copied from: goog/css/colorpicker-simplegrid.css */
