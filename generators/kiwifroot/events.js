@@ -45,7 +45,7 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 Blockly.Kiwifroot['kiwi_event_remove'] = function(block) {
 	var funcName = defineFunctionFromBranch('onRemove', block);
 
-	var destructorCode = 'this.'+funcName + '();';boot
+	var destructorCode = 'this.'+funcName + '();';
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 
 	return null;
