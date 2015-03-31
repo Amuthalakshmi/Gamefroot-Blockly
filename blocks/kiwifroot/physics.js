@@ -89,7 +89,8 @@ Blockly.Blocks['kiwi_arcadephysics_set_boolean'] = {
         .appendField(new Blockly.FieldDropdown([
         	["reacts to gravity", "gravity"], 
         	["immovable", "immovable"], 
-        	["moves", "moves"]
+        	["moves", "moves"],
+            ["enabled", "enabled"]
         ]), "PROP");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
@@ -106,7 +107,8 @@ Blockly.Blocks['kiwi_arcadephysics_get_boolean'] = {
         .appendField(new Blockly.FieldDropdown([
         	["reacts to gravity", "gravity"], 
         	["immovable", "immovable"], 
-        	["moves", "moves"]
+        	["moves", "moves"],
+            ["enabled", "enabled"]
         ]), "PROP");
     this.setInputsInline(true);
     this.setOutput(true, "Boolean");
