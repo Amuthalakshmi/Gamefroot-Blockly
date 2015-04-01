@@ -1749,3 +1749,7 @@ Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_MOVE_HELPURL = '';
 ///
 Blockly.Msg.KF_INSTANCE_MOVE_TOOLTIP = 'Changes the depth (layer ordering) of an instance passed by the selected dropdown method.';
+
+///
+Blockly.Msg.LOG_MSG = "Log";
+Blockly.Msg.LOG_URL = "";
