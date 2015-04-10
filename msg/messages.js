@@ -1167,7 +1167,7 @@ Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = 'When stage is pressed';
 Blockly.Msg.KF_EVENT_STAGE_PRESS_TOOLTIP = 'The event triggered when the player presses a click/touch down anywhere in the game scene.';
 /// url - Information on the kiwifroot stage press event
 Blockly.Msg.KF_EVENT_STAGE_PRESS_HELPURL = '';
-/// Label text for the kiwifroot stage released event
+/// Label - text for the kiwifroot stage released event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_MESSAGE = 'When stage is released';
 /// tooltip - The event dispatched when the player releases a click/touch of the game stage
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = 'The event triggered when the player releases a click/touch anywhere in the game scene.';
@@ -1201,7 +1201,7 @@ Blockly.Msg.KF_EVENT_INST_INPUT_MESSAGE = 'When the player ';
 ///
 Blockly.Msg.KF_EVENT_INST_INPUT_TOOLTIP = 'The event is triggered when the player releases/presses (click/touch) a given instance';
 
-/// Label text for the kiwifroot key pressed event
+/// Label - text for the kiwifroot key pressed event
 Blockly.Msg.KF_EVENT_KEY_PRESS_MESSAGE = 'When the player presses';
 /// tooltip - The event triggered when the player presses the given key on their keyboard.
 Blockly.Msg.KF_EVENT_KEY_PRESS_TOOLTIP = 'The event triggered when the player presses the given key on their keyboard.';
@@ -1223,9 +1223,9 @@ Blockly.Msg.KF_EVENT_KEY_INPUT_TOOLTIP = 'The event is triggered when the player
 
 ///
 Blockly.Msg.KF_EVENT_TIME_HELPURL = '';
-///
+/// block text - text for Every Milli Seconds before the number failed
 Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'Every' ;
-///
+/// block text - text for Every Milli Seconds After the number failed
 Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'milliseconds';
 ///
 Blockly.Msg.KF_EVENT_TIME_TOOLTIP = 'Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.';
@@ -1271,7 +1271,7 @@ Blockly.Msg.KF_EVENT_MESSAGE_TOOLTIP = 'Send events when the player';
 Blockly.Msg.KF_GAME_LEVEL_SPECIAL_TOOLTIP = 'A list of special levels, they include previous/current/next and the first/last levels.';
 /// url - Information on the special level block
 Blockly.Msg.KF_GAME_LEVEL_SPECIAL_HELPURL = '';
-/// Label for the 'go to level numbered' block
+/// Label - for the 'go to level numbered' block
 Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_MESSAGE = 'go to';
 /// tooltip - Changes the current level to the level specified
 Blockly.Msg.KF_GAME_GOTO_LEVEL_NUM_TOOLTIP = 'Changes the current level to the level specified.';
@@ -1750,6 +1750,7 @@ Blockly.Msg.KF_INSTANCE_MOVE_HELPURL = '';
 ///
 Blockly.Msg.KF_INSTANCE_MOVE_TOOLTIP = 'Changes the depth (layer ordering) of an instance passed by the selected dropdown method.';
 
-///
+///block text - Log Text
 Blockly.Msg.LOG_MSG = "Log";
+///url - The url for the log information
 Blockly.Msg.LOG_URL = "";
