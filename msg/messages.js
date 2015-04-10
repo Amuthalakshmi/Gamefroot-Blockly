@@ -1223,15 +1223,10 @@ Blockly.Msg.KF_EVENT_KEY_INPUT_TOOLTIP = 'The event is triggered when the player
 
 /// url -
 Blockly.Msg.KF_EVENT_TIME_HELPURL = '';
-<<<<<<< HEAD
-/// block text - text for Every Milli Seconds before the number failed
-Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'Every' ;
-/// block text - text for Every Milli Seconds After the number failed
-=======
+
 /// Label - 
 Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'Every' ;
 /// Label - 
->>>>>>> eae36a1a70f9b32e792c50ed489502625607bd43
 Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'milliseconds';
 /// tooltip -
 Blockly.Msg.KF_EVENT_TIME_TOOLTIP = 'Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.';
@@ -1359,7 +1354,7 @@ Blockly.Msg.KF_INSTANCE_DEATH_TOOLTIP = 'Destroys the selected instance. Destruc
 /// Label - 
 Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_BEFORE = 'tag';
 /// Label - 
-Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_AFTER = 'to';
+Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_AFTER = 'from';
 /// url - 
 Blockly.Msg.KF_INSTANCE_ADD_TAG_HELPURL = '';
 /// tooltip -
