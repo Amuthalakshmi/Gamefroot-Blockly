@@ -1,5 +1,8 @@
-# Connector
-Just a Connector for ftp/ssh connections to our servers used by the gamefroot team.
+# Blockly
 
+Google's Blockly is a web-based, visual programming editor.  Users can drag
+blocks together to build programs.  All code is free and open source.
 
-You Need to have the core editor running with the correct configs to get this to work properly
+**The project page is https://developers.google.com/blockly/**
+
+![](https://developers.google.com/blockly/sample.png)
