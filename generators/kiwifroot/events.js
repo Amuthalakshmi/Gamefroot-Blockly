@@ -152,7 +152,11 @@ Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
 
 	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 
-	var constructorCode = 'this.' + funcName + '_ = this.game.time.clock.setInterval( this.' + funcName + ', ' + tick + ', this);';
+	var constructorCode = 'this.' + funcName + '_ = this.game.time.clock.setInterval( function() { \n' +
+		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'if( this.owner && this.owner.exists ) {\n' +
+		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + funcName + '();\n' + 
+		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + '}\n' + 
+		Blockly.Kiwifroot.INDENT + '}, ' + tick + ', this);';
 	var destructorCode = 'this.game.time.clock.removeTimer( this.' + funcName + '_ );';
 
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
@@ -167,7 +171,11 @@ Blockly.Kiwifroot['kiwi_event_time_single'] = function(block) {
 
 	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 
-	var code = 'this.' + funcName + '_ = this.game.time.clock.setTimeout( function() { \n\t\t if( this.owner) this.' + funcName + '();\n }, ' + tick + ', this);\n';
+	var code = 'this.' + funcName + '_ = this.game.time.clock.setTimeout( function() { \n' + 
+		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'if( this.owner && this.owner.exists ) {\n' +
+		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + funcName + '();\n' +
+		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + '}\n' +
+		Blockly.Kiwifroot.INDENT + '}, ' + tick + ', this);\n';
 	
 	return code;
 };
