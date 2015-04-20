@@ -76,7 +76,7 @@ Blockly.Blocks['kiwi_classes_get_all_instances'] = {
 Blockly.Blocks['kiwi_classes_create_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
     this.appendValueInput("CLASS")
         .setCheck("Class")
         .appendField( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_BEFORE );
@@ -86,8 +86,7 @@ Blockly.Blocks['kiwi_classes_create_instance'] = {
     this.appendValueInput("Y_LOC")
         .setCheck("Number");
     this.setInputsInline(true);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
+    this.setOutput(true, "Instance");
     this.setTooltip( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP );
   }
 };

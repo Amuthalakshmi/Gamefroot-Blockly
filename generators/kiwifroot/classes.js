@@ -59,7 +59,7 @@ Blockly.Kiwifroot['kiwi_classes_create_instance'] = function(block) {
   		  	 'if( obj ) {\n' +
   		  	 '\tobj.x = ' + value_x_loc + ';\n' +
   		  	 '\tobj.y = ' + value_y_loc + ';\n' +
-  		  	 '\tthis.state.objects.create( obj, this.owner.parent );\n' +
+  		  	 '\treturn this.state.objects.create( obj, this.owner.parent );\n' +
   		  	 '}\n';
   return code;
 };

@@ -628,8 +628,10 @@ Blockly.Blocks['text_prompt'] = {
     var dropdown = new Blockly.FieldDropdown(TYPES, function(newOp) {
       if (newOp == 'NUMBER') {
         thisBlock.changeOutput('Number');
+        thisBlock.setColour(Blockly.Variables.COLOUR_NUMBER);
       } else {
         thisBlock.changeOutput('String');
+        thisBlock.setColour(Blockly.Variables.COLOUR_STRING);
       }
     });
     this.appendDummyInput()
@@ -662,12 +664,16 @@ Blockly.Blocks['text_prompt_ext'] = {
     var thisBlock = this;
     this.setHelpUrl(Blockly.Msg.TEXT_PROMPT_HELPURL);
     this.setColour(Blockly.Variables.COLOUR_STRING);
-    var dropdown = new Blockly.FieldDropdown(TYPES, function(newOp) {
-      if (newOp == 'NUMBER') {
-        thisBlock.changeOutput('Number');
-      } else {
-        thisBlock.changeOutput('String');
-      }
+    var dropdown = new Blockly.FieldDropdown(TYPES, function( type ) {
+        if (type == 'NUMBER') {
+          thisBlock.changeOutput('Number');
+          thisBlock.setColour(Blockly.Variables.COLOUR_NUMBER);
+          thisBlock.getInput('TEXT').setCheck('Number');
+        } else {
+          thisBlock.changeOutput('String');
+          thisBlock.setColour(Blockly.Variables.COLOUR_STRING);
+          thisBlock.getInput('TEXT').setCheck('String');
+        }
     });
     this.appendValueInput('TEXT')
         .appendField(dropdown, 'TYPE');
