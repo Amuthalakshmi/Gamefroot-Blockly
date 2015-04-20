@@ -242,15 +242,23 @@ Blockly.Kiwifroot['text_prompt'] = function(block) {
   // Prompt function (internal message).
   var msg = Blockly.Kiwifroot.quote_(block.getFieldValue('TEXT'));
 
-  var code = 'window.prompt(' + msg + ')';
+  var functionName = Blockly.Kiwifroot.provideFunction_(
+        'promptUser',
+        [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function(msg) {',
+          Blockly.Kiwifroot.INDENT + 'this.state.paused = true;\n',
+          Blockly.Kiwifroot.INDENT + 'var val = window.prompt(msg);\n',
+          Blockly.Kiwifroot.INDENT + 'this.state.paused = false;\n',
+          Blockly.Kiwifroot.INDENT + 'return val;',
+        '};']);
+
+
+
+  var code = 'this.' + functionName + '(' + msg + ')';
   var toNumber = block.getFieldValue('TYPE') == 'NUMBER';
 
   if (toNumber) {
     code = 'parseFloat(' + code + ')';
   }
-
-  code  = 'this.state.paused = true;\n' + code + ';\n';
-  code += 'this.state.paused = false;\n';
 
   return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
 };
@@ -260,14 +268,21 @@ Blockly.Kiwifroot['text_prompt_ext'] = function(block) {
   var msg = Blockly.Kiwifroot.valueToCode(block, 'TEXT',
       Blockly.Kiwifroot.ORDER_NONE) || '\'\'';
 
-  var code = 'window.prompt(' + msg + ')';
+  var functionName = Blockly.Kiwifroot.provideFunction_(
+        'promptUser',
+        [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function(msg) {',
+          Blockly.Kiwifroot.INDENT + 'this.state.paused = true;\n',
+          Blockly.Kiwifroot.INDENT + 'var val = window.prompt(msg);\n',
+          Blockly.Kiwifroot.INDENT + 'this.state.paused = false;\n',
+          Blockly.Kiwifroot.INDENT + 'return val;',
+        '};']);
+
+ var code = 'this.' + functionName + '(' + msg + ')';
+
   var toNumber = block.getFieldValue('TYPE') == 'NUMBER';
   if (toNumber) {
     code = 'parseFloat(' + code + ')';
   }
-
-  code  = 'this.state.paused = true;\n' + code + ';\n';
-  code += 'this.state.paused = false;\n';
 
   return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
 };
