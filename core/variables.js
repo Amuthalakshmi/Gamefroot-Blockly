@@ -76,6 +76,11 @@ Blockly.Variables.TYPE_CLASS = 'Class';
  * @const
  */
 Blockly.Variables.TYPE_SOUND = 'Sound';
+/**
+ * The definition name of the finger type
+ * @const
+ */
+Blockly.Variables.TYPE_POINTER = 'Pointer';
 
 /**
  * The colour that should be applied to a block that outputs type 'any'
@@ -122,6 +127,11 @@ Blockly.Variables.COLOUR_CLASS = '#fc8607';
  * @const
  */
 Blockly.Variables.COLOUR_SOUND = '#d147ea';
+/**
+ * The colour that should be applied to a block that outputs type 'finger'
+ * @const
+ */
+Blockly.Variables.COLOUR_POINTER = '#ea8847';
 
 /**
  * Category to separate variable names from procedures and generated functions.
@@ -142,6 +152,7 @@ Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_ARRAY] = Blockly.Variab
 Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = Blockly.Variables.COLOUR_INSTANCE;
 Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_CLASS] = Blockly.Variables.COLOUR_CLASS;
 Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_SOUND] = Blockly.Variables.COLOUR_SOUND;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_POINTER] = Blockly.Variables.COLOUR_POINTER;
 
 /**
  * A Complete list of all variables types available.
@@ -169,7 +180,9 @@ Blockly.Variables.allTypes = function(){
     [Blockly.Msg.VARIABLES_TYPE_CLASS,
       Blockly.Variables.TYPE_CLASS],
     [Blockly.Msg.VARIABLES_TYPE_SOUND,
-      Blockly.Variables.TYPE_SOUND]
+      Blockly.Variables.TYPE_SOUND],
+    [Blockly.Msg.VARIABLES_TYPE_POINTER,
+      Blockly.Variables.TYPE_POINTER]
   ];
 };
 

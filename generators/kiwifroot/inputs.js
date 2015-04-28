@@ -38,3 +38,46 @@ Blockly.Kiwifroot['kiwi_input_mouse'] = function(block) {
 	var code = 'this.game.input.mouse.' + axis;
   	return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+Blockly.Kiwifroot['kiwi_input_fingers'] = function(block) {
+	var code = 'this.game.input.touch.fingers';
+  	return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_input_finger_select'] = function(block) {
+	var dropdown_number = block.getFieldValue('NUMBER');
+	var code = "this.game.input.touch['finger" + dropdown_number +"']";
+  	return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_input_finger_get_coords'] = function(block) {
+  var dropdown_prop = block.getFieldValue('PROP');
+  var value_name = Blockly.Kiwifroot.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
+  
+  var code = value_name + '.' + dropdown_prop;
+  
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_input_finger_get_bool'] = function(block) {
+  var value_name = Blockly.Kiwifroot.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_prop = block.getFieldValue('PROP');
+
+  var code = value_name + '.' + dropdown_prop;
+
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_input_finger_get_times'] = function(block) {
+  var value_pointer = Blockly.Kiwifroot.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_prop = block.getFieldValue('PROP');
+
+  var code = value_pointer + '.' + dropdown_prop;
+
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_input_finger_latest'] = function(block) {
+  var code = 'this.game.input.touch.latestFinger';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};

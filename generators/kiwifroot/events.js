@@ -260,6 +260,37 @@ Blockly.Kiwifroot['kiwi_event_touch_on'] = function(block) {
   	return null;
 };
 
+
+
+Blockly.Kiwifroot['kiwi_event_stage_touched'] = function(block) {
+	// For each loop.
+	var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+
+  	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
+
+	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onStageTouch', Blockly.Procedures.NAME_TYPE);
+
+	funcName = Blockly.Kiwifroot.provideFunction_(
+		funcName,
+		[ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( x, y, td, tu, dur, pointer ) {',
+		Blockly.Kiwifroot.INDENT + 'this.' + variable0 + ' = pointer;',
+        branch,
+        '};']);
+
+
+	var dropdown_type = block.getFieldValue( 'TYPE' );
+  	var constructorCode = 'this.game.input.' + dropdown_type + '.add(this.' + funcName + ', this, 25);';
+  	var destructorCode = 'this.game.input.' + dropdown_type + '.remove(this.' + funcName + ', this);';
+
+  	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+  	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
+	return null;
+};
+
+
+
 function defineFunctionFromBranch(desiredName, block){
 	// Define a procedure with a return value.
 	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName(desiredName, Blockly.Procedures.NAME_TYPE);

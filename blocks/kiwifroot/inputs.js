@@ -70,3 +70,111 @@ Blockly.Blocks['kiwi_input_mouse'] = {
     this.setTooltip(Blockly.Msg.KF_INPUT_MOUSE_TOOLTIP);
   }
 };
+
+Blockly.Blocks['kiwi_input_fingers'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGERS_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_ARRAY );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_INPUT_FINGERS_MESSAGE );
+    this.setOutput(true, "Array");
+    this.setTooltip( Blockly.Msg.KF_INPUT_FINGERS_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_input_finger_select'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_SELECT_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_POINTER );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_INPUT_FINGER_SELECT_MESSAGE )
+        .appendField(new Blockly.FieldDropdown([
+            ["1", "1"], 
+            ["2", "2"], 
+            ["3", "3"], 
+            ["4", "4"], 
+            ["5", "5"], 
+            ["6", "6"], 
+            ["7", "7"], 
+            ["8", "8"], 
+            ["9", "9"], 
+            ["10", "10"]
+        ]), "NUMBER");
+    this.setOutput(true, "Pointer");
+    this.setTooltip( Blockly.Msg.KF_INPUT_FINGER_SELECT_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_input_finger_get_coords'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([
+            ["x", "x"], 
+            ["y", "y"], 
+            ["startX", "startPoint.x"], 
+            ["startY", "startPoint.y"], 
+            ["endX", "endPoint.x"], 
+            ["endY", "endPoint.y"]
+        ]), "PROP")
+        .appendField(Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_MESSAGE);
+    this.appendValueInput("POINTER")
+        .setCheck("Pointer");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_input_finger_get_bool'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
+    this.appendValueInput("POINTER")
+        .setCheck("Pointer");
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_MESSAGE )
+        .appendField(new Blockly.FieldDropdown([
+            ["active", "active"], 
+            ["down", "isDown"], 
+            ["up", "isUp"]
+        ]), "PROP");
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_input_finger_get_times'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.appendDummyInput()
+        .appendField( new Blockly.FieldDropdown([
+            ["duration", "duration"], 
+            ["time down", "timeDown"], 
+            ["time up", "timeUp"],
+            ["id", "id"]
+        ]), "PROP")
+        .appendField( Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_MESSAGE );
+    this.appendValueInput("POINTER")
+        .setCheck("Pointer");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_input_finger_latest'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_LATEST_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_POINTER );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_INPUT_FINGER_LATEST_MESSAGE );
+    this.setInputsInline(true);
+    this.setOutput(true, "Pointer");
+    this.setTooltip( Blockly.Msg.KF_INPUT_FINGER_LATEST_TOOLTIP );
+  }
+};

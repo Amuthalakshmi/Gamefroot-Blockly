@@ -1018,6 +1018,8 @@ Blockly.Msg.VARIABLES_TYPE_INSTANCE = 'instance';
 Blockly.Msg.VARIABLES_TYPE_CLASS = 'class';
 /// The display name of the sound variable type
 Blockly.Msg.VARIABLES_TYPE_SOUND = 'sound';
+/// The display name of the pointer variable type
+Blockly.Msg.VARIABLES_TYPE_POINTER = 'finger/pointer';
 
 
 /// url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.
@@ -1252,6 +1254,12 @@ Blockly.Msg.KF_EVENT_TOUCH_ON_HELPURL = '';
 Blockly.Msg.KF_EVENT_TOUCH_ON_MESSAGE = 'When I am touched by';
 /// tooltip -
 Blockly.Msg.KF_EVENT_TOUCH_ON_TOOLTIP = 'Triggers the inner blocks when this instance collides with the instance passed.';
+/// helpurl -
+Blockly.Msg.KF_EVENT_STAGE_TOUCHED_HELPURL = '';
+/// message -
+Blockly.Msg.KF_EVENT_STAGE_TOUCHED_MESSAGE = 'When the stage is';
+/// tooltip -
+Blockly.Msg.KF_EVENT_STAGE_TOUCHED_TOOLTIP = 'Executes when the stage is touched.';
 
 /// url - 
 Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
@@ -1410,6 +1418,42 @@ Blockly.Msg.KF_INPUT_MOUSE_MESSAGE = 'of mouse';
 Blockly.Msg.KF_INPUT_MOUSE_TOOLTIP = 'The position of the mouse in the current level';
 /// url - Information on the mouse position block
 Blockly.Msg.KF_INPUT_MOUSE_HELPURL = '';
+/// helpurl - 
+Blockly.Msg.KF_INPUT_FINGERS_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_INPUT_FINGERS_MESSAGE = 'all fingers';
+/// tooltip -
+Blockly.Msg.KF_INPUT_FINGERS_TOOLTIP = 'Returns a list of all the finger objects.';
+/// helpurl -
+Blockly.Msg.KF_INPUT_FINGER_SELECT_HELPURL = '';
+/// message -
+Blockly.Msg.KF_INPUT_FINGER_SELECT_MESSAGE = 'finger';
+/// tooltip - 
+Blockly.Msg.KF_INPUT_FINGER_SELECT_TOOLTIP = 'Returns the finger associated with the number passed.';
+/// helpurl - 
+Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_MESSAGE = 'of';
+/// tooltip
+Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_TOOLTIP = '';
+/// helpurl - 
+Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_MESSAGE = 'is';
+/// tooltip -
+Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_TOOLTIP = 'Returns a boolean associated with the selected statement.';
+/// helpurl -
+Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_HELPURL = '';
+/// message -
+Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_MESSAGE = 'of';
+/// tooltip -
+Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_TOOLTIP = 'A number associated with the time selected.';
+/// helpurl -
+Blockly.Msg.KF_INPUT_FINGER_LATEST_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_INPUT_FINGER_LATEST_MESSAGE = 'latest finger';
+/// tooltip - 
+Blockly.Msg.KF_INPUT_FINGER_LATEST_TOOLTIP = 'The finger which was used in the last event.';
 
 /// tooltip - A list of all the sounds included in the game
 Blockly.Msg.KF_SOUND_TOOLTIP = 'A list of all the sounds included in the game.';
