@@ -174,3 +174,15 @@ Blockly.Kiwifroot['kiwi_arcadephysics_probe_layer'] = function(block) {
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
+Blockly.Kiwifroot['kiwi_arcadephysics_get_rotation_from'] = function(block) {
+    Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+
+    var dropdown_prop = block.getFieldValue('PROP');
+    var code  = 'Kiwi.Utils.GameMath.radiansToDegrees( Math.atan2( ';
+        code += Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.' + dropdown_prop + '.y, ';
+        code += Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.' + dropdown_prop + '.x) )';
+
+    return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+

@@ -239,3 +239,20 @@ Blockly.Blocks['kiwi_arcadephysics_probe_layer'] = {
     this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_TOOLTIP );
   }
 };
+
+
+Blockly.Blocks['kiwi_arcadephysics_get_rotation_from'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_MESSAGE )
+        .appendField(new Blockly.FieldDropdown( [
+            ["velocity", "velocity"], 
+            ["acceleration", "acceleration"]
+        ]), "PROP");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_TOOLTIP );
+  }
+};

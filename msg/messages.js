@@ -1673,6 +1673,13 @@ Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_TOOLTIP = 'Sets a boolean property sele
 Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_TOOLTIP = 'Returns the state of a property selected.';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_MESSAGE = 'get rotation based on';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_HELPURL = '';
+///
+Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_TOOLTIP = 'Returns a rotation for the property based on a selected property.';
+
 
 /// url -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_HELPURL = '';
