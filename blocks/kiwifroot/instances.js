@@ -228,3 +228,19 @@ Blockly.Blocks['kiwi_instance_move'] = {
     this.setTooltip( Blockly.Msg.KF_INSTANCE_MOVE_TOOLTIP );
   }
 };
+
+
+
+Blockly.Blocks['kiwi_instance_execute'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_EXECUTE_HELPURL);
+    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
+    this.appendValueInput("TEXT")
+        .setCheck("TEXT")
+        .appendField( Blockly.Msg.KF_INSTANCE_EXECUTE_MESSAGE );
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setInputsInline(true);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_EXECUTE_TOOLTIP);
+  }
+};

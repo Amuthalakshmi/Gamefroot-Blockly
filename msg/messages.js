@@ -1377,6 +1377,13 @@ Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_MESSAGE = 'get all children by tag';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP = 'Returns a list of all the instances that have the tag passed.';
+/// message -
+Blockly.Msg.KF_INSTANCE_EXECUTE_MESSAGE = 'Execute';
+/// tooltip -
+Blockly.Msg.KF_INSTANCE_EXECUTE_TOOLTIP = 'Executes the text directly pasted as code.';
+/// helpurl
+Blockly.Msg.KF_INSTANCE_EXECUTE_HELPURL = '';
+
 
 /// url - 
 Blockly.Msg.KF_INTERSECTS_OVERLAPS_HELPURL = '';

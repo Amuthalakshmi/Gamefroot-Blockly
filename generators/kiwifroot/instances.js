@@ -127,3 +127,13 @@ Blockly.Kiwifroot['kiwi_instance_move'] = function(block) {
   var code = 'this.state.' + dropdown_method + '(' + value_inst_one + ', ' + value_inst_two + ');\n';
   return code;
 };
+
+Blockly.Kiwifroot['kiwi_instance_execute'] = function(block) {
+  // Print statement.
+  var argument0 = Blockly.Kiwifroot.valueToCode(block, 'TEXT',
+      Blockly.Kiwifroot.ORDER_NONE) || '\'\'';
+  
+  var code  = 'eval('+argument0+')';
+
+  return code;
+};
