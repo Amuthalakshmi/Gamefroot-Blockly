@@ -34,12 +34,11 @@ Blockly.Blocks['kiwi_log'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_LOG_URL );
     this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.KF_LOG_MSG);
     this.appendValueInput("LOG")
+        .appendField(Blockly.Msg.KF_LOG_MSG)
         .setCheck("String");
 
-    this.setInputsInline(true);
+    //this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip( Blockly.Msg.KF_LOG_TOOLTIP );

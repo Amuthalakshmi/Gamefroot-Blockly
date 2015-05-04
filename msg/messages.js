@@ -1769,6 +1769,18 @@ Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_HELPURL = '';
 Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_MESSAGE = 'gravity';
 /// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_TOOLTIP = 'Returns the selected gravity value.';
+/// helpurl - 
+Blockly.Msg.KF_ARCADEPHYSICS_SET_PHYSICS_ENABLED_HELPURL = '';
+/// tooltip -
+Blockly.Msg.KF_ARCADEPHYSICS_SET_PHYSICS_ENABLED_TOOLTIP = 'Set the state of this objects arcadephysics component.';
+/// message -
+Blockly.Msg.KF_ARCADEPHYSICS_SET_PHYSICS_ENABLED_MESSAGE = 'set physics enabled';
+/// helpurl -
+Blockly.Msg.KF_ARCADEPHYSICS_GET_PHYSICS_ENABLED_HELPURL = '';
+///message -
+Blockly.Msg.KF_ARCADEPHYSICS_GET_PHYSICS_ENABLED_MESSAGE = 'get physics enabled';
+/// tooltip -
+Blockly.Msg.KF_ARCADEPHYSICS_GET_PHYSICS_ENABLED_TOOLTIP = 'A boolean indicating if physics are enabled or not.';
 
 /// url -
 Blockly.Msg.KF_MESSAGING_INSTANCE_HELPURL = '';
@@ -1824,6 +1836,6 @@ Blockly.Msg.KF_INSTANCE_MOVE_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_MOVE_TOOLTIP = 'Changes the depth (layer ordering) of an instance passed by the selected dropdown method.';
 
 ///block text - Log Text
-Blockly.Msg.LOG_MSG = "Log";
+Blockly.Msg.LOG_MSG = "log";
 ///url - The url for the log information
 Blockly.Msg.LOG_URL = "";

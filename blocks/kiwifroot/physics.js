@@ -217,7 +217,6 @@ Blockly.Blocks['kiwi_arcadephysics_probe_layer'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_HELPURL );
     this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
-    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
     this.appendValueInput("X_POS")
         .setCheck("Number")
         .appendField( Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_ONE )
@@ -254,5 +253,32 @@ Blockly.Blocks['kiwi_arcadephysics_get_rotation_from'] = {
     this.setInputsInline(true);
     this.setOutput(true, "Number");
     this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_arcadephysics_set_enabled'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_SET_PHYSICS_ENABLED_HELPURL );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.appendValueInput("VALUE")
+        .setCheck("Boolean")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_PHYSICS_ENABLED_MESSAGE );
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setInputsInline(true);
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_SET_PHYSICS_ENABLED_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_arcadephysics_get_enabled'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_PHYSICS_ENABLED_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_GET_PHYSICS_ENABLED_MESSAGE );
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setTooltip(Blockly.Msg.KF_ARCADEPHYSICS_GET_PHYSICS_ENABLED_TOOLTIP);
   }
 };

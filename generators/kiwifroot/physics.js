@@ -186,3 +186,21 @@ Blockly.Kiwifroot['kiwi_arcadephysics_get_rotation_from'] = function(block) {
     return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
+
+Blockly.Kiwifroot['kiwi_arcadephysics_set_enabled'] = function(block) {
+
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+
+  var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.enabled = ' + value_value + ';\n'; 
+
+  return code;
+};
+
+Blockly.JavaScript['kiwi_arcadephysics_get_enabled'] = function(block) {
+
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+  
+  var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.enabled';
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
