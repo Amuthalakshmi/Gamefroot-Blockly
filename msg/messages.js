@@ -1261,6 +1261,13 @@ Blockly.Msg.KF_EVENT_STAGE_TOUCHED_MESSAGE = 'When the stage is';
 /// tooltip -
 Blockly.Msg.KF_EVENT_STAGE_TOUCHED_TOOLTIP = 'Executes when the stage is touched.';
 
+/// helpurl - 
+Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_EVENT_TOUCH_RETURN_MESSAGE = 'When I am touched get';
+/// tooltip -
+Blockly.Msg.KF_EVENT_TOUCH_RETURN_TOOLTIP = 'Whenever this instance is touched by another instance (using arcadephysics) it will set a variable to that instance who touched it.';
+
 /// url - 
 Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
 /// tooltip -

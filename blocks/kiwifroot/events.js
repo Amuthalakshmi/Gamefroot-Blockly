@@ -207,7 +207,37 @@ Blockly.Blocks['kiwi_event_touch_on'] = {
   }
 };
 
-
+Blockly.Blocks['kiwi_event_touch_return_instance'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL );
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_EVENT_TOUCH_RETURN_MESSAGE )
+        .appendField(new Blockly.FieldVariable('instance'), 'VAR');
+    this.appendStatementInput("STACK");
+    this.setTooltip( Blockly.Msg.KF_EVENT_TOUCH_RETURN_TOOLTIP );
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Notification that a variable is renaming.
+   * If the name matches one of this block's variables, rename it.
+   * @param {string} oldName Previous name of variable.
+   * @param {string} newName Renamed variable.
+   * @this Blockly.Block
+   */
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
 
 Blockly.Blocks['kiwi_event_stage_touched'] = {
   init: function() {
@@ -219,7 +249,7 @@ Blockly.Blocks['kiwi_event_stage_touched'] = {
           ["pressed", "onDown"], 
           ["released", "onUp"]
         ]), "TYPE")
-        .appendField(new Blockly.FieldVariable(null), 'VAR');
+        .appendField(new Blockly.FieldVariable('pointer'), 'VAR');
     this.appendStatementInput("STACK");
     this.setTooltip( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_TOOLTIP );
   },
