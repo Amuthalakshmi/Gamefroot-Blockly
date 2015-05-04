@@ -30,6 +30,23 @@ goog.provide('Blockly.Kiwifroot.events');
 goog.require('Blockly.Kiwifroot');
 
 
+function addMessageRecievedBlock() {
+
+	var t = Blockly.Kiwifroot.INDENT;
+	var funcName = Blockly.Kiwifroot.provideFunction_(
+		'onMessageRecieved',
+		[ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( name, message ) {',
+        t + 'switch( message ) {',
+        '{{'+t+t+',EVENT_MESSAGE_RELEASED,\n}}',
+        t + '}',
+        '};']);
+
+
+	var constructorCode = 'this.owner.properties.onUpdate( this.' + funcName + ', this, "_messaging_");';
+	Blockly.Kiwifroot.provideAdditionOnce('EventMessageRecieved', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	
+};
+
 Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 	var funcName = defineFunctionFromBranch('onCreate', block);
 
@@ -182,18 +199,7 @@ Blockly.Kiwifroot['kiwi_event_time_single'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
 
-	var t = Blockly.Kiwifroot.INDENT;
-	var funcName = Blockly.Kiwifroot.provideFunction_(
-		'onMessageRecieved',
-		[ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( name, message ) {',
-        t + 'switch( message ) {',
-        '{{'+t+t+',EVENT_MESSAGE_RELEASED,\n}}',
-        t + '}',
-        '};']);
-
-
-	var constructorCode = 'this.owner.properties.onUpdate( this.' + funcName + ', this, "_messaging_");';
-	Blockly.Kiwifroot.provideAdditionOnce('EventMessageRecieved', Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	addMessageRecievedBlock();
 
 	var funcName = defineFunctionFromBranch('executeMessageRecieved', block);
 	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
@@ -300,7 +306,7 @@ Blockly.Kiwifroot['kiwi_event_touch_return_instance'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_event_stage_touched'] = function(block) {
-	// For each loop.
+
 	var variable0 = Blockly.Kiwifroot.variableDB_.getName(
 		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 
@@ -326,6 +332,26 @@ Blockly.Kiwifroot['kiwi_event_stage_touched'] = function(block) {
 };
 
 
+Blockly.Kiwifroot['kiwi_event_message_value'] = function(block) {
+
+	addMessageRecievedBlock();
+
+	var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+
+	var funcName = defineFunctionFromBranch('executeMessageRecieved', block);
+	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+
+	// Generate the code for the switch
+	var code  = 'case ' + message + ':';
+		code += '\t' + 'this.' + variable0 + ' = this.owner.properties.get("_messaging-value_");';
+		code += '\t' + 'this.' + funcName + '();';
+		code += 'break;';
+
+	Blockly.Kiwifroot.provideAddition('EVENT_MESSAGE_RELEASED', code);
+
+	return null;
+};
 
 function defineFunctionFromBranch(desiredName, block){
 	// Define a procedure with a return value.

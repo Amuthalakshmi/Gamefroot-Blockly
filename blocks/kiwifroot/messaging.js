@@ -77,3 +77,38 @@ Blockly.Blocks['kiwi_messaging_everyone'] = {
     this.setTooltip( Blockly.Msg.KF_MESSAGING_EVERYONE_TOOLTIP );
   }
 };
+
+Blockly.Blocks['kiwi_messaging_everyone_value'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_HELPURL );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.appendValueInput("MESSAGE")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_MESSAGE_ONE );
+    this.appendValueInput("VALUE")
+        .appendField( Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_MESSAGE_TWO );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_messaging_instance_value'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_HELPURL );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.appendValueInput("MESSAGE")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_ONE );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_TWO );
+    this.appendValueInput("VALUE")
+        .appendField( Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_THREE );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_TOOLTIP );
+  }
+};

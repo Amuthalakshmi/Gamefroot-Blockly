@@ -447,6 +447,33 @@ h1 {
             </block>
           </value>
         </block>
+        <block type="kiwi_event_message_value">
+          <value name="MESSAGE">
+            <block type="text">
+              <field name="TEXT">message</field>
+            </block>
+          </value>
+        </block>
+        <block type="kiwi_messaging_instance_value">
+          <value name="MESSAGE">
+            <block type="text">
+              <field name="TEXT">message</field>
+            </block>
+          </value>
+          <value name="INST">
+            <block type="variables_get">
+              <field name="TYPE">Instance</field>
+              <field name="VAR">Other</field>
+            </block>
+          </value>
+        </block>
+        <block type="kiwi_messaging_everyone_value">
+          <value name="MESSAGE">
+            <block type="text">
+              <field name="TEXT">message</field>
+            </block>
+          </value>
+        </block>
       </category>
       <category name="Sound">
         <block type="kiwi_sound_play_background">

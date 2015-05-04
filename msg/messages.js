@@ -1282,6 +1282,14 @@ Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_BEFORE = 'When a message of';
 Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_AFTER = 'is retrieved';
 /// tooltip -
 Blockly.Msg.KF_EVENT_MESSAGE_TOOLTIP = 'Send events when the player';
+/// helpurl - 
+Blockly.Msg.KF_EVENT_MESSAGE_VALUE_HELPURL = '';
+/// message one -
+Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_ONE = 'When a message of';
+/// message two -
+Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO = 'is retreived';
+/// tooltip - 
+Blockly.Msg.KF_EVENT_MESSAGE_VALUE_TOOLTIP = 'Executed when a message is retrieved. You can use this block to get a value send from the message with value blocks.';
 
 /// tooltip - A list of special levels, they include previous/current/next and the first/last levels
 Blockly.Msg.KF_GAME_LEVEL_SPECIAL_TOOLTIP = 'A list of special levels, they include previous/current/next and the first/last levels.';
@@ -1812,6 +1820,24 @@ Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_BEFORE = 'send message';
 Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_AFTER = 'to each instance in';
 /// tooltip -
 Blockly.Msg.KF_MESSAGING_LIST_TOOLTIP = 'Sends a message to every instance in a list.';
+/// helpurl
+Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_HELPURL = '';
+/// message one -
+Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_MESSAGE_ONE = 'send message to everyone';
+/// message two -
+Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_MESSAGE_TWO = 'with a value of';
+/// tooltip -
+Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_TOOLTIP = 'Sends a message and value defined to every gameobject.';
+/// tooltip - 
+Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_TOOLTIP = 'Sends a message and value to an instance.';
+/// helpurl -
+Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_HELPURL = '';
+/// message one - 
+Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_ONE = 'send message';
+/// message two - 
+Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_TWO = 'to';
+/// message three -
+Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_THREE = 'with a value of';
 
 /// url -
 Blockly.Msg.KF_ARCADEPHYSICS_PROBE_HELPURL = '';
@@ -1839,3 +1865,5 @@ Blockly.Msg.KF_INSTANCE_MOVE_TOOLTIP = 'Changes the depth (layer ordering) of an
 Blockly.Msg.LOG_MSG = "log";
 ///url - The url for the log information
 Blockly.Msg.LOG_URL = "";
+
+
