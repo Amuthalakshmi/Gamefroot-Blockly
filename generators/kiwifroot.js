@@ -193,7 +193,10 @@ Blockly.Kiwifroot.classes_ = [
 
 // TODO ensure that variables/commands do not conflict with template macros
 // TODO add the kiwi.js reserved words
-Blockly.Kiwifroot.addReservedWords();
+Blockly.Kiwifroot.addReservedWords(
+  'state,game,arcadesystem,arcadephysics,component,box,owner,getComponent,' +
+  'animation,this,destroy,boot,objType,postUpdate,preUpdate,update,active,name'
+  );
 
 /**
  * Adds a new addition to the given section (spectified in the template)
