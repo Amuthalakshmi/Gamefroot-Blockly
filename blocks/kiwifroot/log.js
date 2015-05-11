@@ -35,8 +35,7 @@ Blockly.Blocks['kiwi_log'] = {
     this.setHelpUrl( Blockly.Msg.KF_LOG_URL );
     this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
     this.appendValueInput("LOG")
-        .appendField(Blockly.Msg.KF_LOG_MSG)
-        .setCheck("String");
+        .appendField(Blockly.Msg.KF_LOG_MSG);
 
     //this.setInputsInline(true);
     this.setPreviousStatement(true);

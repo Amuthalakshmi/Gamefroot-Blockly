@@ -133,7 +133,7 @@ Blockly.Kiwifroot['kiwi_instance_execute'] = function(block) {
   var argument0 = Blockly.Kiwifroot.valueToCode(block, 'TEXT',
       Blockly.Kiwifroot.ORDER_NONE) || '\'\'';
   
-  var code  = 'eval('+argument0+')';
+  var code  = 'eval('+argument0+');\n';
 
   return code;
 };

@@ -102,9 +102,9 @@ Blockly.Kiwifroot['controls_for'] = function(block) {
       Blockly.isNumber(increment)) {
     // All arguments are simple numbers.
     var up = parseFloat(argument0) <= parseFloat(argument1);
-    code = 'for (' + variable0 + ' = ' + argument0 + '; ' +
-        variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' +
-        variable0;
+    code = 'for ( this.' + variable0 + ' = ' + argument0 + '; ' +
+        'this.' + variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' +
+        'this.' + variable0;
     var step = Math.abs(parseFloat(increment));
     if (step == 1) {
       code += up ? '++' : '--';
@@ -140,11 +140,11 @@ Blockly.Kiwifroot['controls_for'] = function(block) {
     code += 'if (' + startVar + ' > ' + endVar + ') {\n';
     code += Blockly.Kiwifroot.INDENT + incVar + ' = -' + incVar + ';\n';
     code += '}\n';
-    code += 'for (' + variable0 + ' = ' + startVar + ';\n' +
+    code += 'for (this.' + variable0 + ' = ' + startVar + ';\n' +
         '     ' + incVar + ' >= 0 ? ' +
-        variable0 + ' <= ' + endVar + ' : ' +
-        variable0 + ' >= ' + endVar + ';\n' +
-        '     ' + variable0 + ' += ' + incVar + ') {\n' +
+        'this.' + variable0 + ' <= ' + endVar + ' : ' +
+        'this.' + variable0 + ' >= ' + endVar + ';\n' +
+        '     ' + 'this.' + variable0 + ' += ' + incVar + ') {\n' +
         branch + '}\n';
   }
   return code;
