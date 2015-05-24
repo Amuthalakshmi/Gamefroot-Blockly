@@ -168,7 +168,7 @@ Blockly.Kiwifroot['kiwi_event_key_input'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
 
-	var funcName = defineFunctionFromBranch('onTick', block);
+	var funcName = defineFunctionFromBranch('onTick', block, 'Executed after time period of time.');
 
 	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 
@@ -177,7 +177,9 @@ Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + funcName + '();\n' + 
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + '}\n' + 
 		Blockly.Kiwifroot.INDENT + '}, ' + tick + ', this);';
-	var destructorCode = 'this.game.time.clock.removeTimer( this.' + funcName + '_ );';
+
+	var destructorCode = 'if( this.' + funcName + '_ ) this.' + funcName + '_.stop();\n';
+	destructorCode += 'this.game.time.clock.removeTimer( this.' + funcName + '_ );';
 
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR,constructorCode);
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
@@ -187,16 +189,21 @@ Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_event_time_single'] = function(block) {
 
-	var funcName = defineFunctionFromBranch('onSingleTick', block);
+	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onSingleTick', Blockly.Procedures.NAME_TYPE);
+	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
 
 	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 
 	var code = 'this.' + funcName + '_ = this.game.time.clock.setTimeout( function() { \n' + 
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'if( this.owner && this.owner.exists ) {\n' +
-		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + funcName + '();\n' +
+		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + branch +  
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + '}\n' +
 		Blockly.Kiwifroot.INDENT + '}, ' + tick + ', this);\n';
 	
+	var destructorCode = 'if( this.' + funcName + '_ ) this.' + funcName + '_.stop();\n'; 
+	destructorCode += 'this.game.time.clock.removeTimer( this.' + funcName + '_ );';
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
 	return code;
 };
 
@@ -360,6 +367,7 @@ Blockly.Kiwifroot['kiwi_event_message_value'] = function(block) {
 };
 
 function defineFunctionFromBranch(desiredName, block, codeComment){
+
 	// Define a procedure with a return value.
 	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName(desiredName, Blockly.Procedures.NAME_TYPE);
 	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
