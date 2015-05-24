@@ -34,3 +34,22 @@ Blockly.Kiwifroot['kiwi_log'] = function(block) {
     var val = Blockly.Kiwifroot.valueToCode(block, 'LOG', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
     return 'console.log('+val+');\n';
 };
+
+//Hack
+Blockly.Kiwifroot['lists_add'] = function(block) {
+  var value_list = Blockly.Kiwifroot.valueToCode(block, 'LIST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_input = Blockly.Kiwifroot.valueToCode(block, 'INPUT', Blockly.Kiwifroot.ORDER_ATOMIC);
+
+  var dropdown_position = block.getFieldValue('POSITION');
+
+  // TODO: Assemble JavaScript into code variable.
+  var code = value_list;
+
+  if( dropdown_position === "front" ) {
+  	code += '.unshift( ' + value_input + ' );\n'; 
+  } else {
+  	code += '.push( ' + value_input + ' );\n';
+  }
+
+  return code;
+};

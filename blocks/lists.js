@@ -694,3 +694,25 @@ Blockly.Blocks['lists_split'] = {
     });
   }
 };
+
+Blockly.Blocks['lists_add'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.LISTS_ADD_HELPURL );
+    this.setColour(Blockly.Variables.COLOUR_ARRAY);
+    this.appendValueInput("LIST")
+        .setCheck("Array")
+        .appendField( Blockly.Msg.LISTS_ADD_MESSAGE_ONE );
+    this.appendValueInput("INPUT")
+        .appendField( Blockly.Msg.LISTS_ADD_MESSAGE_TWO );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.LISTS_ADD_MESSAGE_THREE )
+        .appendField(new Blockly.FieldDropdown([
+          ["end", "end"], 
+          ["front", "front"]
+        ]), "POSITION");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.LISTS_ADD_TOOLTIP );
+  }
+};

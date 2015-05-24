@@ -672,12 +672,16 @@ h1 {
       <category name="Timing">
         <block type="kiwi_event_time">
           <value name="MILLISECOND">
-            <block type="math_number"></block>
+            <block type="math_number">
+              <field name="NUM">100</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_event_time_single">
           <value name="MILLISECOND">
-            <block type="math_number"></block>
+            <block type="math_number">
+              <field name="NUM">100</field>
+            </block>
           </value>
         </block>
         <block type="kiwi_game_get_time"></block>
@@ -877,6 +881,14 @@ h1 {
           <value name="DELIM">
             <block type="text">
               <field name="TEXT">,</field>
+            </block>
+          </value>
+        </block>
+        <block type="lists_add">
+          <value name="LIST">
+            <block type="variables_get">
+              <field name="TYPE">Array</field>
+              <field name="VAR">list</field>
             </block>
           </value>
         </block>
