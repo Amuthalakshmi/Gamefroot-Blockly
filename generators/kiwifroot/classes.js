@@ -49,29 +49,26 @@ Blockly.Kiwifroot['kiwi_classes_get_all_instances'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
-Blockly.Kiwifroot['kiwi_classes_create_instance'] = function(block) {
+Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
+
   var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_x_loc = Blockly.Kiwifroot.valueToCode(block, 'X_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_y_loc = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 
   var createInstanceFuncName = Blockly.Kiwifroot.provideFunction_(
-    'createInstanceByClass',
-    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( className, x, y ) {',
+    'createInstance',
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( className ) {',
         Blockly.Kiwifroot.INDENT + '//Get the object configuration, modify it, and then create an object.',
         Blockly.Kiwifroot.INDENT + 'var obj = this.state.objects.get( className );',
-        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT +'if( obj ) {',
-        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'obj.x = x;',
-        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'obj.y = y;',
+        Blockly.Kiwifroot.INDENT +'if( obj ) {',
         Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return this.state.objects.create( obj, this.owner.parent );',
         Blockly.Kiwifroot.INDENT + '}',
         Blockly.Kiwifroot.INDENT + 'return null;',
         '};']);
 
   //value_class
-  //value_x_loc
-  //value_y_loc
 
-  var code = 'this.' + createInstanceFuncName + '(' + value_class + ', ' + value_x_loc + ', ' + value_y_loc + ')';
+  var code = 'this.' + variable0 + ' = this.' + createInstanceFuncName + '(' + value_class + ');\n';
 
-  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+  return code;
 };

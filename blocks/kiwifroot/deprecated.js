@@ -205,3 +205,25 @@ Blockly.Blocks['kiwi_camera_unlock'] = {
     this.setTooltip( Blockly.Msg.KF_CAMERA_UNLOCK_TOOLTIP );
   }
 };
+
+
+// 25 - 05 - 2015
+
+
+Blockly.Blocks['kiwi_classes_create_instance'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.appendValueInput("CLASS")
+        .setCheck("Class")
+        .appendField( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_BEFORE );
+    this.appendValueInput("X_LOC")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_AFTER );
+    this.appendValueInput("Y_LOC")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setOutput(true, "Instance");
+    this.setTooltip( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP );
+  }
+};

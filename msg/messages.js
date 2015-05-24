@@ -1731,6 +1731,15 @@ Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_AFTER = 'at';
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP = 'Creates a new instance of a class type at the location specified.';
 
 /// url -
+Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_HELPURL = '';
+/// label - 
+Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_BEFORE = 'create new';
+/// label - 
+Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_AFTER = 'of';
+/// tooltip - 
+Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_TOOLTIP = 'Creates a new instance of a class and assigns a variable to the instance.';
+
+/// url -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_TOOLTIP = 'Returns a value for the selected property.';

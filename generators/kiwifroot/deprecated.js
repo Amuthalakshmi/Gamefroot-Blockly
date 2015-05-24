@@ -196,3 +196,33 @@ Blockly.Kiwifroot['kiwi_camera_unlock'] = function(block) {
     var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.unlock();\n';
     return code;
 };
+
+
+// 25 - 05 - 2015
+
+Blockly.Kiwifroot['kiwi_classes_create_instance'] = function(block) {
+  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_x_loc = Blockly.Kiwifroot.valueToCode(block, 'X_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_y_loc = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
+
+  var createInstanceFuncName = Blockly.Kiwifroot.provideFunction_(
+    'createInstanceByClass',
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( className, x, y ) {',
+        Blockly.Kiwifroot.INDENT + '//Get the object configuration, modify it, and then create an object.',
+        Blockly.Kiwifroot.INDENT + 'var obj = this.state.objects.get( className );',
+        Blockly.Kiwifroot.INDENT +'if( obj ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'obj.x = x;',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'obj.y = y;',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return this.state.objects.create( obj, this.owner.parent );',
+        Blockly.Kiwifroot.INDENT + '}',
+        Blockly.Kiwifroot.INDENT + 'return null;',
+        '};']);
+
+  //value_class
+  //value_x_loc
+  //value_y_loc
+
+  var code = 'this.' + createInstanceFuncName + '(' + value_class + ', ' + value_x_loc + ', ' + value_y_loc + ')';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
