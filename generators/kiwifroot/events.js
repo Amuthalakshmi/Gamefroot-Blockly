@@ -34,7 +34,7 @@ function addMessageRecievedBlock() {
 
 	var t = Blockly.Kiwifroot.INDENT;
 	var funcName = Blockly.Kiwifroot.provideFunction_(
-		'onMessageRecieved',
+		'onMessageReceived',
 		[ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( name, message ) {',
         t + 'switch( message ) {',
         '{{'+t+t+',EVENT_MESSAGE_RELEASED,\n}}',
@@ -48,7 +48,7 @@ function addMessageRecievedBlock() {
 };
 
 Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
-	var funcName = defineFunctionFromBranch('onCreate', block);
+	var funcName = defineFunctionFromBranch('onCreate', block, 'Executed when this script is initially created.');
 
 	var bootCode = '//Attach the information to the boot method.\n' + 
 		'\t//This is to make sure all the components are loaded/attached before executing any code.\n' +
@@ -60,7 +60,10 @@ Blockly.Kiwifroot['kiwi_event_create'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_event_remove'] = function(block) {
-	var funcName = defineFunctionFromBranch('onRemove', block);
+	var codeComment = 'Executed when this script is to be removed.\n';
+	codeComment += 'Either because the level is now being changed, or because it has been destroyed';
+
+	var funcName = defineFunctionFromBranch('onRemove', block, codeComment);
 
 	var destructorCode = 'this.'+funcName + '();';
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
@@ -69,7 +72,7 @@ Blockly.Kiwifroot['kiwi_event_remove'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_event_constantly'] = function(block){
-	var funcName = defineFunctionFromBranch('onUpdate', block);
+	var funcName = defineFunctionFromBranch('onUpdate', block, 'Executed every frame.');
 	var constructorCode = 'this.state.robots.onUpdate.add(this.'+funcName + ', this);';
 	var destructorCode = 'this.state.robots.onUpdate.remove(this.'+funcName+ ', this);';
 
@@ -84,7 +87,7 @@ Blockly.Kiwifroot['kiwi_event_stage_input'] = function(block) {
 
   var dropdown_type = block.getFieldValue( 'TYPE' );
 
-  var funcName = defineFunctionFromBranch('onStageInput', block);
+  var funcName = defineFunctionFromBranch('onStageInput', block, 'Executed whenever the stage is pressed.');
 
   var constructorCode = 'this.game.input.' + dropdown_type + '.add(this.'+funcName+', this, 25);';
   var destructorCode = 'this.game.input.' + dropdown_type + '.remove(this.'+funcName+', this);';
@@ -201,11 +204,14 @@ Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
 
 	addMessageRecievedBlock();
 
-	var funcName = defineFunctionFromBranch('executeMessageRecieved', block);
 	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+	var funcName = defineFunctionFromBranch('executeMessage' + message.slice(1, message.length - 1), block, "Executed when the " + message + " is received.");
 
 	// Generate the code for the switch
-	var code = 'case ' + message + ': this.'+funcName+'(); break;';
+	var code = 'case ' + message + ':\n';
+	code += '\t\t\tthis.'+funcName+'();\n';
+	code += '\t\t\tbreak;';
+
 	Blockly.Kiwifroot.provideAddition('EVENT_MESSAGE_RELEASED', code);
 
 	return null;
@@ -338,36 +344,48 @@ Blockly.Kiwifroot['kiwi_event_message_value'] = function(block) {
 
 	var variable0 = Blockly.Kiwifroot.variableDB_.getName(
 		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-
-	var funcName = defineFunctionFromBranch('executeMessageRecieved', block);
 	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 
+	var funcName = defineFunctionFromBranch('executeMessage'+ message.slice(1, message.length - 1), block, "Executed when the " + message + " is received.");
+
 	// Generate the code for the switch
-	var code  = 'case ' + message + ':';
-		code += '\t' + 'this.' + variable0 + ' = this.owner.properties.get("_messaging-value_");';
-		code += '\t' + 'this.' + funcName + '();';
-		code += 'break;';
+	var code  = 'case ' + message + ':\n';
+		code += '\t\t\t' + 'this.' + variable0 + ' = this.owner.properties.get("_messaging-value_");\n';
+		code += '\t\t\t' + 'this.' + funcName + '();\n';
+		code += '\t\t\tbreak;';
 
 	Blockly.Kiwifroot.provideAddition('EVENT_MESSAGE_RELEASED', code);
 
 	return null;
 };
 
-function defineFunctionFromBranch(desiredName, block){
+function defineFunctionFromBranch(desiredName, block, codeComment){
 	// Define a procedure with a return value.
 	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName(desiredName, Blockly.Procedures.NAME_TYPE);
 	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
+
 	if (Blockly.Kiwifroot.STATEMENT_PREFIX) {
 		branch = Blockly.Kiwifroot.prefixLines(
 			Blockly.Kiwifroot.STATEMENT_PREFIX.replace(/%1/g,
 			'\'' + block.id + '\''), Blockly.Kiwifroot.INDENT) + branch;
 	}
+
 	if (Blockly.Kiwifroot.INFINITE_LOOP_TRAP) {
 		branch = Blockly.Kiwifroot.INFINITE_LOOP_TRAP.replace(/%1/g,
 			'\'' + block.id + '\'') + branch;
 	}
+
 	branch = Blockly.Kiwifroot.scrub_(block, branch);
-	var code = funcName + ' = function() {\n' + branch + '};';
+	
+	var code = funcName + ' = function() {\n';
+
+	if( codeComment ) {
+		code += '\t/*\n';
+		code += '\t' + codeComment + '\n';
+		code += '\t*/\n\n';
+	}
+
+	code += branch + '};';
 
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DEFINITIONS,code);
 	return funcName;
