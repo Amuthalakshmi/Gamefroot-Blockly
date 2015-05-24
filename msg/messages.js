@@ -1388,7 +1388,7 @@ Blockly.Msg.KF_INSTANCE_DEATH_TOOLTIP = 'Destroys the selected instance. Destruc
 /// Label - 
 Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_BEFORE = 'tag';
 /// Label - 
-Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_AFTER = 'from';
+Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_AFTER = 'on';
 /// url - 
 Blockly.Msg.KF_INSTANCE_ADD_TAG_HELPURL = '';
 /// tooltip -

@@ -54,12 +54,24 @@ Blockly.Kiwifroot['kiwi_classes_create_instance'] = function(block) {
   var value_x_loc = Blockly.Kiwifroot.valueToCode(block, 'X_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
   var value_y_loc = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
 
-  var code = '//Get the object configuration, modify it, and then create an object.\n' +
-  			 'var obj = this.state.objects.get(' + value_class + ');\n' +
-  		  	 'if( obj ) {\n' +
-  		  	 '\tobj.x = ' + value_x_loc + ';\n' +
-  		  	 '\tobj.y = ' + value_y_loc + ';\n' +
-  		  	 '\treturn this.state.objects.create( obj, this.owner.parent );\n' +
-  		  	 '}\n';
-  return code;
+  var createInstanceFuncName = Blockly.Kiwifroot.provideFunction_(
+    'createInstanceByClass',
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( className, x, y ) {',
+        Blockly.Kiwifroot.INDENT + '//Get the object configuration, modify it, and then create an object.',
+        Blockly.Kiwifroot.INDENT + 'var obj = this.state.objects.get( className );',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT +'if( obj ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'obj.x = x;',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'obj.y = y;',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return this.state.objects.create( obj, this.owner.parent );',
+        Blockly.Kiwifroot.INDENT + '}',
+        Blockly.Kiwifroot.INDENT + 'return null;',
+        '};']);
+
+  //value_class
+  //value_x_loc
+  //value_y_loc
+
+  var code = 'this.' + createInstanceFuncName + '(' + value_class + ', ' + value_x_loc + ', ' + value_y_loc + ')';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
