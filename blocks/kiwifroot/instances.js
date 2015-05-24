@@ -236,7 +236,6 @@ Blockly.Blocks['kiwi_instance_execute'] = {
     this.setHelpUrl(Blockly.Msg.KF_INSTANCE_EXECUTE_HELPURL);
     this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
     this.appendValueInput("TEXT")
-        .setCheck("TEXT")
         .appendField( Blockly.Msg.KF_INSTANCE_EXECUTE_MESSAGE );
     this.setPreviousStatement(true);
     this.setNextStatement(true);
