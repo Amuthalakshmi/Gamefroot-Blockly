@@ -1689,7 +1689,7 @@ Blockly.Msg.KF_MATH_UTILS_HELPURL = '';
 Blockly.Msg.KF_MATH_UTILS_TOOLTIP = '';
 
 /// message - 
-Blockly.Msg.KF_LOG_MSG = "Log";
+Blockly.Msg.KF_LOG_MSG = "log";
 /// url -
 Blockly.Msg.KF_LOG_URL = "";
 /// tooltip - 

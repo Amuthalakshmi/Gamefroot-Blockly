@@ -745,6 +745,8 @@ Blockly.Blocks['procedures_callreturn'] = {
       Blockly.Blocks['procedures_callnoreturn'].setProcedureParameters,
   mutationToDom: Blockly.Blocks['procedures_callnoreturn'].mutationToDom,
   domToMutation: Blockly.Blocks['procedures_callnoreturn'].domToMutation,
+  mutationToObject: Blockly.Blocks['procedures_callnoreturn'].mutationToObject,
+  objectToMutation: Blockly.Blocks['procedures_callnoreturn'].objectToMutation,
   renameVar: Blockly.Blocks['procedures_callnoreturn'].renameVar,
   typeOf: Blockly.Blocks['procedures_callnoreturn'].typeOf,
   changeType: Blockly.Blocks['procedures_callnoreturn'].changeType,
