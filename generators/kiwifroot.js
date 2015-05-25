@@ -21,13 +21,13 @@
 /**
  * @fileoverview Helper functions for generating Kiwifroot plugins for blocks.
  * @author rani_sputnik@hotmail.com (Ryan Loader)
+ * @author benjamin.p.harding@gmail.com (Benjmamin Harding)
  */
 'use strict';
 
 goog.provide('Blockly.Kiwifroot');
 
 goog.require('Blockly.JavaScript');
-goog.require('Blockly.JavaScript.lists');
 goog.require('Blockly.JavaScript.logic');
 goog.require('Blockly.JavaScript.variables');
 

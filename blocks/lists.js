@@ -486,6 +486,26 @@ Blockly.Blocks['lists_setIndex'] = {
     });
   },
   /**
+   * Create an object to represent mutation
+   * @return {object} mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    var isAt = this.getInput('AT').type == Blockly.INPUT_VALUE;
+    return {
+      'at':isAt
+    };
+  },
+  /**
+   * Parse mutation data to restore mutation.
+   * @param {object} obj Mutation data object.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj){
+    var isAt = obj.at;
+    this.updateAt_(isAt);
+  },
+  /**
    * Create XML to represent whether there is an 'AT' input.
    * @return {Element} XML storage element.
    * @this Blockly.Block
@@ -578,6 +598,30 @@ Blockly.Blocks['lists_getSublist'] = {
     this.updateAt_(1, true);
     this.updateAt_(2, true);
     this.setTooltip(Blockly.Msg.LISTS_GET_SUBLIST_TOOLTIP);
+  },
+  /**
+   * Create an object to represent mutation
+   * @return {object} mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    var isAt1 = this.getInput('AT1').type == Blockly.INPUT_VALUE;
+    var isAt2 = this.getInput('AT2').type == Blockly.INPUT_VALUE;
+    return {
+      'at1':isAt1,
+      'at2':isAt2
+    };
+  },
+  /**
+   * Parse mutation data to restore mutation.
+   * @param {object} obj Mutation data object.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj){
+    var isAt1 = obj.at1;
+    var isAt2 = obj.at2;
+    this.updateAt_(1, isAt1);
+    this.updateAt_(2, isAt2);
   },
   /**
    * Create XML to represent whether there are 'AT' inputs.
