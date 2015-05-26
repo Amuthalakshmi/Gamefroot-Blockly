@@ -240,14 +240,7 @@ Blockly.Kiwifroot['kiwi_event_animation'] = function(block) {
 		bootCode += '\t\tanim.' + dropdown_type + '.add(this.' + funcName + ', this);\n';
 		bootCode += '\t}\n';
 
-
-	var destructorCode  = 'var anim = ' + Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.getAnimation(' + value_anim + ');\n';
-		destructorCode += '\tif( anim ) {\n';
-		destructorCode += '\t\tanim.' + dropdown_type + '.remove(this.' + funcName + ', this);\n';
-		destructorCode += '\t}\n';
-
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.BOOT, bootCode);
-	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 
   	return null;
 };
