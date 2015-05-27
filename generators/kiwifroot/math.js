@@ -221,7 +221,7 @@ Blockly.Kiwifroot['math_change'] = function(block) {
       Blockly.Kiwifroot.ORDER_ADDITION) || '0';
   var varName = Blockly.Kiwifroot.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-  return varName + ' = (typeof ' + varName + ' == \'number\' ? ' + varName +
+  return 'this.' + varName + ' = (typeof this.' + varName + ' == \'number\' ? this.' + varName +
       ' : 0) + ' + argument0 + ';\n';
 };
 

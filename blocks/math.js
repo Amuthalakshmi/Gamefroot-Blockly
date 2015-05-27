@@ -193,7 +193,7 @@ Blockly.Blocks['math_number_property'] = {
          [Blockly.Msg.MATH_IS_POSITIVE, 'POSITIVE'],
          [Blockly.Msg.MATH_IS_NEGATIVE, 'NEGATIVE'],
          [Blockly.Msg.MATH_IS_DIVISIBLE_BY, 'DIVISIBLE_BY']];
-    this.setColour(Blockly.Variables.COLOUR_NUMBER );
+    this.setColour(Blockly.Variables.COLOUR_BOOLEAN );
     this.appendValueInput('NUMBER_TO_CHECK')
         .setCheck('Number');
     var dropdown = new Blockly.FieldDropdown(PROPERTIES, function(option) {
