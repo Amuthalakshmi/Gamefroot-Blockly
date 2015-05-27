@@ -399,6 +399,17 @@ Blockly.Blocks['text_charAt'] = {
     return container;
   },
   /**
+   * Create an object to represent number of text inputs.
+   * @return {object} the mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    var isAt = this.getInput('AT').type == Blockly.INPUT_VALUE;
+    return {
+      'at': isAt
+    };
+  },
+  /**
    * Parse XML to restore the 'AT' input.
    * @param {!Element} xmlElement XML storage element.
    * @this Blockly.Block
@@ -407,6 +418,15 @@ Blockly.Blocks['text_charAt'] = {
     // Note: Until January 2013 this block did not have mutations,
     // so 'at' defaults to true.
     var isAt = (xmlElement.getAttribute('at') != 'false');
+    this.updateAt_(isAt);
+  },
+  /**
+   * Parse object to restore the text inputs.
+   * @param {object} obj The mutation data.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    var isAt = obj['at'];
     this.updateAt_(isAt);
   },
   /**
@@ -480,6 +500,30 @@ Blockly.Blocks['text_getSubstring'] = {
     this.updateAt_(1, true);
     this.updateAt_(2, true);
     this.setTooltip(Blockly.Msg.TEXT_GET_SUBSTRING_TOOLTIP);
+  },
+  /**
+   * Create an object to represent number of text inputs.
+   * @return {object} the mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    var isAt1 = this.getInput('AT1').type == Blockly.INPUT_VALUE;
+    var isAt2 = this.getInput('AT2').type == Blockly.INPUT_VALUE;
+    return {
+      'at1': isAt1,
+      'at2': isAt2
+    };
+  },
+  /**
+   * Parse object to restore the text inputs.
+   * @param {object} obj The mutation data.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    var isAt1 = obj['at1'];
+    var isAt2 = obj['at2'];
+    this.updateAt_(1, isAt1);
+    this.updateAt_(2, isAt2);
   },
   /**
    * Create XML to represent whether there are 'AT' inputs.

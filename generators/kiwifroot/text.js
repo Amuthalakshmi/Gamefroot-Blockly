@@ -69,7 +69,7 @@ Blockly.Kiwifroot['text_append'] = function(block) {
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Kiwifroot.valueToCode(block, 'TEXT',
       Blockly.Kiwifroot.ORDER_NONE) || '\'\'';
-  return varName + ' = String(' + varName + ') + String(' + argument0 + ');\n';
+  return 'this.' + varName + ' = String( this.' + varName + ' ) + String(' + argument0 + ');\n';
 };
 
 Blockly.Kiwifroot['text_length'] = function(block) {
@@ -130,12 +130,11 @@ Blockly.Kiwifroot['text_charAt'] = function(block) {
     case 'RANDOM':
       var functionName = Blockly.Kiwifroot.provideFunction_(
           'text_random_letter',
-          [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ +
-              '(text) {',
+          [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( text ) {',
             '  var x = Math.floor(Math.random() * text.length);',
             '  return text[x];',
             '}']);
-      code = functionName + '(' + text + ')';
+      code = 'this.' + functionName + '(' + text + ')';
       return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
   }
   throw 'Unhandled option (text_charAt).';
@@ -156,8 +155,7 @@ Blockly.Kiwifroot['text_getSubstring'] = function(block) {
   } else {
     var functionName = Blockly.Kiwifroot.provideFunction_(
         'text_get_substring',
-        [ 'function ' + Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ +
-            '(text, where1, at1, where2, at2) {',
+        [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function(text, where1, at1, where2, at2) {',
           '  function getAt(where, at) {',
           '    if (where == \'FROM_START\') {',
           '      at--;',
@@ -176,7 +174,7 @@ Blockly.Kiwifroot['text_getSubstring'] = function(block) {
           '  at2 = getAt(where2, at2) + 1;',
           '  return text.slice(at1, at2);',
           '}']);
-    var code = functionName + '(' + text + ', \'' +
+    var code = 'this.' + functionName + '(' + text + ', \'' +
         where1 + '\', ' + at1 + ', \'' + where2 + '\', ' + at2 + ')';
   }
   return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
@@ -200,15 +198,14 @@ Blockly.Kiwifroot['text_changeCase'] = function(block) {
     // Title case is not a native Kiwifroot function.  Define one.
     var functionName = Blockly.Kiwifroot.provideFunction_(
         'text_toTitleCase',
-        [ 'function ' +
-            Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + '(str) {',
+        [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function(str) {',
           '  return str.replace(/\\S+/g,',
           '      function(txt) {return txt[0].toUpperCase() + ' +
               'txt.substring(1).toLowerCase();});',
           '}']);
     var argument0 = Blockly.Kiwifroot.valueToCode(block, 'TEXT',
         Blockly.Kiwifroot.ORDER_NONE) || '\'\'';
-    code = functionName + '(' + argument0 + ')';
+    code = 'this.' + functionName + '(' + argument0 + ')';
   }
   return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
 };
