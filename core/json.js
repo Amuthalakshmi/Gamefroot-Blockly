@@ -301,14 +301,17 @@ Blockly.Json.objectToBlockHeadless_ = function(workspace, jsonBlock) {
   }
   
   if (jsonBlock[Blockly.Json.fieldLabels.comment]){
+
     block.setCommentText(jsonBlock[Blockly.Json.fieldLabels.comment][Blockly.Json.fieldLabels.commentText]);
         var visible = jsonBlock[Blockly.Json.fieldLabels.comment][Blockly.Json.fieldLabels.commentPinned];
-        if (visible) {
+
+        if (visible && block.comment && block.comment.setVisible) {
           block.comment.setVisible(true);
         }
+
         var bubbleW = jsonBlock[Blockly.Json.fieldLabels.comment][Blockly.Json.fieldLabels.commentWidth];
         var bubbleH = jsonBlock[Blockly.Json.fieldLabels.comment][Blockly.Json.fieldLabels.commentHeight];
-        if (!isNaN(bubbleW) && !isNaN(bubbleH)) {
+        if (!isNaN(bubbleW) && !isNaN(bubbleH) && block.comment && block.comment.setBubbleSize) {
           block.comment.setBubbleSize(bubbleW, bubbleH);
         }    
   }
