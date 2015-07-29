@@ -359,6 +359,34 @@ Blockly.Kiwifroot['kiwi_event_message_value'] = function(block) {
 	return null;
 };
 
+Blockly.Kiwifroot['kiwi_event_level_start'] = function(block){
+	
+	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
+  	var dropdown_type = block.getFieldValue( 'TYPE' );
+
+	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onLevelEvent', Blockly.Procedures.NAME_TYPE);
+
+	funcName = Blockly.Kiwifroot.provideFunction_(
+		funcName,
+		[ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( event ) {',
+		'\t/*',
+		'\t Executed when the level starts.',
+		'\t*/',
+		'\tif( event !== Kiwifroot.States.Level.EVENTS["' + dropdown_type + '"] ) {',
+		'\t\treturn;',
+        '\t}\n',
+        branch,
+        '};']);
+
+
+	var constructorCode = 'this.state.onExecute.add(this.' + funcName + ', this);';
+	var destructorCode = 'this.state.onExecute.remove(this.' + funcName + ', this);';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+	return null;
+};
+
 function defineFunctionFromBranch(desiredName, block, codeComment){
 
 	// Define a procedure with a return value.

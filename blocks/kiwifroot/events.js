@@ -207,6 +207,25 @@ Blockly.Blocks['kiwi_event_touch_on'] = {
   }
 };
 
+
+
+Blockly.Blocks['kiwi_event_level_start'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_LEVEL_START_HELPURL );
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_EVENT_LEVEL_START_MESSAGE)
+        .appendField(new Blockly.FieldDropdown([
+            ["starts", "START"], 
+            ["switches", "SHUT_DOWN"]
+        ]), "TYPE");
+    this.setTooltip(Blockly.Msg.KF_EVENT_LEVEL_START_TOOLTIP);
+    this.appendStatementInput('STACK');
+  }
+};
+
+
+
 Blockly.Blocks['kiwi_event_touch_return_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL );

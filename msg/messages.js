@@ -1302,6 +1302,14 @@ Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO = 'is retreived';
 /// tooltip - 
 Blockly.Msg.KF_EVENT_MESSAGE_VALUE_TOOLTIP = 'Executed when a message is retrieved. You can use this block to get a value send from the message with value blocks.';
 
+/// helpurl -
+Blockly.Msg.KF_EVENT_LEVEL_START_HELPURL = '';
+/// message -
+Blockly.Msg.KF_EVENT_LEVEL_START_MESSAGE = 'When the level';
+/// tooltip - 
+Blockly.Msg.KF_EVENT_LEVEL_START_TOOLTIP = 'Executes when the current level starts. Only executes when a level starts up.';
+
+
 /// tooltip - A list of special levels, they include previous/current/next and the first/last levels
 Blockly.Msg.KF_GAME_LEVEL_SPECIAL_TOOLTIP = 'A list of special levels, they include previous/current/next and the first/last levels.';
 /// url - Information on the special level block
