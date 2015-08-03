@@ -470,6 +470,35 @@ h1 {
           </value>
         </block>
       </category>
+      <category name="Properties">
+        <block type="kiwi_event_instance_properties_set">
+          <value name="PROP_NAME">
+            <block type="text">
+              <field name="TEXT">name</field>
+            </block>
+          </value>
+        </block>
+        <block type="kiwi_instance_properties_set">
+          <value name="PROP_NAME">
+            <block type="text">
+              <field name="TEXT">name</field>
+            </block>
+          </value>
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
+        <block type="kiwi_instance_properties_get">
+          <value name="PROP_NAME">
+            <block type="text">
+              <field name="TEXT">name</field>
+            </block>
+          </value>
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
+        </block>
+      </category>
       <category name="Sound">
         <block type="kiwi_sound_play_background">
           <value name="SOUND">

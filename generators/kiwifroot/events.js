@@ -387,6 +387,21 @@ Blockly.Kiwifroot['kiwi_event_level_start'] = function(block){
 	return null;
 };
 
+
+Blockly.Kiwifroot['kiwi_event_instance_properties_set'] = function(block){
+	
+	var value_name = Blockly.Kiwifroot.valueToCode(block, 'PROP_NAME', Blockly.Kiwifroot.ORDER_ATOMIC);
+	var funcName = defineFunctionFromBranch('onPropertySet', block, "When the property " + value_name + " updates.");
+
+
+	var constructorCode = 'this.owner.properties.onUpdate( this.' + funcName + ', this, ' + value_name + ' );';
+	var destructorCode = 'this.owner.properties.removeOnUpdate( this.' + funcName + ', this, ' + value_name + ');';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+	return null;
+};
+
 function defineFunctionFromBranch(desiredName, block, codeComment){
 
 	// Define a procedure with a return value.

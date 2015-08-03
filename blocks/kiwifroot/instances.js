@@ -243,3 +243,43 @@ Blockly.Blocks['kiwi_instance_execute'] = {
     this.setTooltip(Blockly.Msg.KF_INSTANCE_EXECUTE_TOOLTIP);
   }
 };
+
+
+Blockly.Blocks['kiwi_instance_properties_set'] = {
+  init: function() {
+
+    this.setHelpUrl( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_HELPURL );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+
+    this.appendValueInput("PROP_NAME")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_ONE );
+    this.appendValueInput("VALUE")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_TWO );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_THREE );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_instance_properties_get'] = {
+  init: function() {
+
+    this.setHelpUrl( Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_HELPURL );
+
+    this.appendValueInput("PROP_NAME")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_ONE );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_TWO );
+    this.setInputsInline(true);
+    this.setOutput(true, null);
+    this.setTooltip( Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_TOOLTIP );
+  }
+};

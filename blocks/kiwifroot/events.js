@@ -379,3 +379,19 @@ Blockly.Blocks['kiwi_event_message_value'] = {
     }
   }
 };
+
+
+Blockly.Blocks['kiwi_event_instance_properties_set'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_HELPURL );
+    this.setTooltip(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_TOOLTIP );
+    this.setInputsInline(true);
+    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.appendValueInput('PROP_NAME')
+        .setCheck("String")
+        .appendField(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_ONE );
+    this.appendDummyInput()
+        .appendField(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_TWO );
+    this.appendStatementInput('STACK');
+  }
+};

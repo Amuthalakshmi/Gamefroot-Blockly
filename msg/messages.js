@@ -1309,6 +1309,15 @@ Blockly.Msg.KF_EVENT_LEVEL_START_MESSAGE = 'When the level';
 /// tooltip - 
 Blockly.Msg.KF_EVENT_LEVEL_START_TOOLTIP = 'Executes when the current level starts. Only executes when a level starts up.';
 
+/// url -
+Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_HELPURL = '';
+/// tooltip -
+Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_TOOLTIP = '';
+/// message - 
+Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_ONE = 'When property';
+/// message - 
+Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_TWO = 'updates';
+
 
 /// tooltip - A list of special levels, they include previous/current/next and the first/last levels
 Blockly.Msg.KF_GAME_LEVEL_SPECIAL_TOOLTIP = 'A list of special levels, they include previous/current/next and the first/last levels.';
@@ -1426,6 +1435,25 @@ Blockly.Msg.KF_INSTANCE_EXECUTE_TOOLTIP = 'Executes the text directly pasted as 
 /// helpurl
 Blockly.Msg.KF_INSTANCE_EXECUTE_HELPURL = '';
 
+/// tooltip -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_TOOLTIP = '';
+/// url -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_HELPURL = '';
+/// message -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_ONE = 'set property';
+/// message -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_TWO = 'to';
+/// message -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_THREE = 'on';
+
+/// url -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_HELPURL = '';
+/// tooltip -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_TOOLTIP = '';
+/// message -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_ONE = 'get property';
+/// message -
+Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_TWO = 'on';
 
 /// url - 
 Blockly.Msg.KF_INTERSECTS_OVERLAPS_HELPURL = '';
