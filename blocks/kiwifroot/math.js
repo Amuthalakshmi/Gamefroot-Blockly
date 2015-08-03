@@ -85,3 +85,22 @@ Blockly.Blocks['kiwi_math_utils'] = {
     this.setTooltip( Blockly.Msg.KF_MATH_UTILS_TOOLTIP );
   }
 };
+
+Blockly.Blocks['kiwi_math_lerp'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_MATH_LERP_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_NUMBER  );
+    this.appendValueInput("VALUE_A")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_MATH_LERP_MESSAGE_ONE );
+    this.appendValueInput("VALUE_B")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_MATH_LERP_MESSAGE_TWO );
+    this.appendValueInput("TIME")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_MATH_LERP_MESSAGE_THREE );
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_MATH_LERP_MESSAGE_TOOLTIP );
+  }
+};

@@ -460,5 +460,22 @@ Blockly.Kiwifroot['kiwi_math_utils'] = function(block) {
 
   code += ' )';
 
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_math_lerp'] = function(block) {
+  var value_value_a = Blockly.Kiwifroot.valueToCode(block, 'VALUE_A', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_value_b = Blockly.Kiwifroot.valueToCode(block, 'VALUE_B', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_time = Blockly.Kiwifroot.valueToCode(block, 'TIME', Blockly.Kiwifroot.ORDER_ATOMIC);
+
+  var functionName = Blockly.Kiwifroot.provideFunction_(
+      'math_lerp',
+      [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function' +
+          '(a, b, t) {',
+        '\treturn ( ( b - a ) * t ) + a;',
+        '}']);
+
+  var code = 'this.' + functionName + '(' + value_value_a + ', ' + value_value_b + ', ' + value_time + ' )';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

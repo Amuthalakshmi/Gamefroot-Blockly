@@ -1702,6 +1702,17 @@ Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_MESSAGE = 'center camera on';
 /// tooltip -
 Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_TOOLTIP = 'Centers the cameras to the instances current position.';
 
+/// helpurl - 
+Blockly.Msg.KF_MATH_LERP_HELPURL = '';
+/// tooltip -
+Blockly.Msg.KF_MATH_LERP_MESSAGE_TOOLTIP = '';
+/// message -
+Blockly.Msg.KF_MATH_LERP_MESSAGE_ONE = 'linear interpolation from';
+/// message -
+Blockly.Msg.KF_MATH_LERP_MESSAGE_TWO = 'to';
+/// message -
+Blockly.Msg.KF_MATH_LERP_MESSAGE_THREE = 'by';
+
 /// url -
 Blockly.Msg.KF_MATH_INSTANCE_HELPURL = '';
 /// Label - 
