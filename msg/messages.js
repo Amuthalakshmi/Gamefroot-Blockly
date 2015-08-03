@@ -1314,7 +1314,7 @@ Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_TOOLTIP = '';
 /// message - 
-Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_ONE = 'When property';
+Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_ONE = 'When key';
 /// message - 
 Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_TWO = 'updates';
 
@@ -1440,7 +1440,7 @@ Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_TOOLTIP = '';
 /// url -
 Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_HELPURL = '';
 /// message -
-Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_ONE = 'set property';
+Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_ONE = 'set key';
 /// message -
 Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_TWO = 'to';
 /// message -
@@ -1451,7 +1451,7 @@ Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_TOOLTIP = '';
 /// message -
-Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_ONE = 'get property';
+Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_ONE = 'get key';
 /// message -
 Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_TWO = 'on';
 
