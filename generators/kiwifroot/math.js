@@ -452,7 +452,13 @@ Blockly.Kiwifroot['kiwi_math_utils'] = function(block) {
   var value_input = Blockly.Kiwifroot.valueToCode(block, 'INPUT', Blockly.Kiwifroot.ORDER_ATOMIC);
   var dropdown_method = block.getFieldValue('METHOD');
 
-  var code = 'Kiwi.Utils.GameMath.' + dropdown_method + '( ' + value_input + ', false )';
+  var code = 'Kiwi.Utils.GameMath.' + dropdown_method + '( ' + value_input;
+
+  if( dropdown_method == 'normalizeAngle' ) {
+    code += ', false';
+  }
+
+  code += ' )';
 
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
