@@ -55,7 +55,7 @@ Blockly.Blocks['kiwi_messaging_list'] = {
         .setCheck("String")
         .appendField( Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_BEFORE );
     this.appendValueInput("LIST")
-        .setCheck("List")
+        .setCheck("Array")
         .appendField( Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_AFTER );
     this.setInputsInline(true);
     this.setPreviousStatement(true);
