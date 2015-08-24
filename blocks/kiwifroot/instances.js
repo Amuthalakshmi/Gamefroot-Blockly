@@ -255,7 +255,6 @@ Blockly.Blocks['kiwi_instance_properties_set'] = {
         .setCheck("String")
         .appendField( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_ONE );
     this.appendValueInput("VALUE")
-        .setCheck("String")
         .appendField( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_MESSAGE_TWO );
     this.appendValueInput("INST")
         .setCheck("Instance")
