@@ -1187,6 +1187,21 @@ Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = 'The event triggered when the playe
 /// url - Information on the kiwifroot stage release event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
 
+/// helpurl - 
+Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_MESSAGE = 'Pre Constantly';
+/// tooltip -
+Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_TOOLTIP = 'Triggered every frame BEFORE the constantly event blocks.'; 
+
+/// helpurl - 
+Blockly.Msg.KF_EVENT_POST_CONSTANTLY_HELPURL = '';
+/// message -
+Blockly.Msg.KF_EVENT_POST_CONSTANTLY_MESSAGE = 'Post Constantly';
+/// tooltip -
+Blockly.Msg.KF_EVENT_POST_CONSTANTLY_TOOLTIP = 'Triggered every frame AFTER the constantly event blocks.';
+
+
 /// url -
 Blockly.Msg.KF_EVENT_STAGE_INPUT_HELPURL = '';
 /// Label - 
