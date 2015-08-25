@@ -1821,11 +1821,11 @@ Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_TOOLTIP = 'Sets a boolean property sele
 Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_TOOLTIP = 'Returns the state of a property selected.';
-///
+/// message - 
 Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_MESSAGE = 'get rotation based on';
-///
+/// helpurl - 
 Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_HELPURL = '';
-///
+/// tooltip - 
 Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_TOOLTIP = 'Returns a rotation for the property based on a selected property.';
 
 
@@ -1980,7 +1980,7 @@ Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_MESSAGE_THREE = 'with a width of';
 /// tooltip - 
 Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_TOOLTIP = 'Creates a new line from the transforms origin to a point in space.';
 
-/// 
+/// helpurl -
 Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_TOOLTIP = 'Creates a new star with a specified number of points.';
