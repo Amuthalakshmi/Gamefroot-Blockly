@@ -1993,3 +1993,18 @@ Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_THREE = 'and';
 /// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_FOUR = 'points';
 
+/// helpurl - 
+Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_MESSAGE_ONE = 'set colour of';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_MESSAGE_TWO = 'to';
+/// tooltip -
+Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_TOOLTIP = 'Sets the colour a shape will render to a particular value.';
+
+/// helpurl - 
+Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_MESSAGE = 'get colour of';
+/// tooltip -
+Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_TOOLTIP = 'Returns the colour of a shape passed.';

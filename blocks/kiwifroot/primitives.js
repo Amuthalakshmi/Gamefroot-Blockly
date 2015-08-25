@@ -288,3 +288,33 @@ Blockly.Blocks['kiwi_primitives_create_star'] = {
     }
   }
 };
+
+Blockly.Blocks['kiwi_primitives_change_colour'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_COLOUR );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_MESSAGE_ONE );
+    this.appendValueInput("COLOUR")
+        .setCheck("Colour")
+        .appendField( Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_MESSAGE_TWO );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_primitives_get_colour'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_COLOUR );
+    this.appendValueInput("INST")
+        .setCheck("Instance")
+        .appendField( Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_MESSAGE );
+    this.setOutput(true, 'Colour');
+    this.setInputsInline(true);
+    this.setTooltip( Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_TOOLTIP );
+  }
+};

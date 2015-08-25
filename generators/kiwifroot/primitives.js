@@ -102,3 +102,38 @@ Blockly.Kiwifroot['kiwi_primitives_create_star'] = function(block) {
   	
   	return code;
 };
+
+Blockly.Kiwifroot['kiwi_primitives_change_colour'] = function(block) {
+
+	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC );
+	var value_colour = Blockly.Kiwifroot.valueToCode( block, 'COLOUR', Blockly.Kiwifroot.ORDER_ATOMIC );
+
+	var code  = 'var inst = ' + value_inst + ';\n';
+		code += 'if( inst._color && inst._strokeColor ) {\n';
+		code += '\tvar color = ' + value_colour + ';\n';
+		code += '\tinst._color.set( color );\n';
+		code += '\tinst._strokeColor.set( color );\n';
+		code += '}\n';
+  	
+  	return code;
+};
+
+Blockly.Kiwifroot['kiwi_primitives_get_colour'] = function(block) {
+
+	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC );
+
+	var funcName = Blockly.Kiwifroot.provideFunction_(
+    'getColorOfPrimitive',
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( instance ) {',
+		Blockly.Kiwifroot.INDENT + '//Returns the colour of a primitive passed.',
+		Blockly.Kiwifroot.INDENT + "//If the primitive doesn't have a colour, then #ffffff will be returned.",
+		Blockly.Kiwifroot.INDENT + 'if( instance._color ) {',
+		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return "#" + instance._color.getHex();',
+		Blockly.Kiwifroot.INDENT + '}',
+		Blockly.Kiwifroot.INDENT + 'return "#ffffff";',
+        '};']);
+
+	var code = 'this.' + funcName + '(' + value_inst + ')';
+
+	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};

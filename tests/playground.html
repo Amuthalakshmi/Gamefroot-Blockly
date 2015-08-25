@@ -1029,8 +1029,8 @@ h1 {
       </category>
     </category>
 
-    <category name="Shapes">
-        <category name="Create">
+    <category name="Plugins">
+        <category name="Shapes">
             <block type="kiwi_primitives_create_rectangle">
                 <value name="WIDTH">
                   <block type="math_number">
@@ -1077,6 +1077,17 @@ h1 {
                   <block type="math_number">
                       <field name="NUM">5</field>
                   </block>
+                </value>
+            </block>
+            <block type="kiwi_primitives_change_colour">
+                <value name="INST">
+                </value>
+                <value name="COLOUR">
+                  <block type="colour_picker"></block>
+                </value>
+            </block>
+            <block type="kiwi_primitives_get_colour">
+                <value name="INST">
                 </value>
             </block>
         </category>
