@@ -24,7 +24,7 @@
  */
 'use strict';
 
-goog.provide('Blockly.Kiwifroot.primitives');
+goog.provide('Blockly.Kiwifroot.plugins.primitives');
 
 goog.require('Blockly.Kiwifroot');
 

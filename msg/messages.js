@@ -2008,3 +2008,99 @@ Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_HELPURL = '';
 Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_MESSAGE = 'get colour of shape';
 /// tooltip -
 Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_TOOLTIP = 'Returns the colour of a shape passed.';
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_CREATE_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_CREATE_MESSAGE_ONE = 'create new';
+/// message - 
+Blockly.Msg.KF_TEXT_CREATE_MESSAGE_TWO = 'with text';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_CREATE_TOOLTIP = 'Creates a new textfield.';
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_NUMERIC_SET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_NUMERIC_SET_MESSAGE_ONE = 'set';
+/// message - 
+Blockly.Msg.KF_TEXT_NUMERIC_SET_MESSAGE_TWO = 'of';
+/// message - 
+Blockly.Msg.KF_TEXT_NUMERIC_SET_MESSAGE_THREE = 'to';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_NUMERIC_SET_TOOLTIP = 'Sets the numeric value of a textfield to the value passed';
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_COLOUR_SET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_COLOUR_SET_MESSAGE_ONE = 'set font colour of';
+/// message - 
+Blockly.Msg.KF_TEXT_COLOUR_SET_MESSAGE_TWO = 'to';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_COLOUR_SET_TOOLTIP = 'Sets the font colour of a passed textfield to a colour passed';
+
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_TEXT_SET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_TEXT_SET_MESSAGE_ONE = 'set text of';
+/// message - 
+Blockly.Msg.KF_TEXT_TEXT_SET_MESSAGE_TWO = 'to';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_TEXT_SET_TOOLTIP = 'Sets the text which a textfield should display textfield to a string passed';
+
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_ALIGNMENT_SET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_ALIGNMENT_SET_MESSAGE_ONE = 'set text alignment of';
+/// message - 
+Blockly.Msg.KF_TEXT_ALIGNMENT_SET_MESSAGE_TWO = 'to';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_ALIGNMENT_SET_TOOLTIP = 'Sets the alignment of a textfield to a selected value in the dropdown';
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_WEIGHT_SET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_WEIGHT_SET_MESSAGE_ONE = 'set text weight of';
+/// message - 
+Blockly.Msg.KF_TEXT_WEIGHT_SET_MESSAGE_TWO = 'to';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_WEIGHT_SET_TOOLTIP = 'Sets the font weight of a textfield to a selected value in the dropdown';
+
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_FAMILY_SET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_FAMILY_SET_MESSAGE_ONE = 'set font family of';
+/// message - 
+Blockly.Msg.KF_TEXT_FAMILY_SET_MESSAGE_TWO = 'to';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_FAMILY_SET_TOOLTIP = 'Sets the font family that a textfield should use.';
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_FONT_PRESETS_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_FONT_PRESETS_TOOLTIP = 'Returns the string which identifies the font family selected';
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_NUMERIC_GET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_NUMERIC_GET_MESSAGE_ONE = 'get';
+/// message -
+Blockly.Msg.KF_TEXT_NUMERIC_GET_MESSAGE_TWO = 'of';
+/// tooltip -
+Blockly.Msg.KF_TEXT_NUMERIC_GET_TOOLTIP = 'Returns the current value of the selected property from a textfield';
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_COLOUR_GET_HELPURL = '';
+/// message -
+Blockly.Msg.KF_TEXT_COLOUR_GET_MESSAGE = 'get font colour of';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_COLOUR_GET_TOOLTIP = 'Returns the font colour of a textfield';
+
+/// helpurl - 
+Blockly.Msg.KF_TEXT_TEXT_GET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_TEXT_TEXT_GET_MESSAGE = 'get text of';
+/// tooltip - 
+Blockly.Msg.KF_TEXT_TEXT_GET_TOOLTIP = 'Returns the text of a textfield';

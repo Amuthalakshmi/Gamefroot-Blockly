@@ -31,7 +31,8 @@
 <script src="../generators/kiwifroot/messaging.js"></script>
 <script src="../generators/kiwifroot/deprecated.js"></script>
 <script src="../generators/kiwifroot/log.js"></script>
-<script src="../generators/kiwifroot/primitives.js"></script>
+<script src="../generators/kiwifroot/plugins/primitives.js"></script>
+<script src="../generators/kiwifroot/plugins/text.js"></script>
 <!-- add new kiwifroot generators here -->
 <script src="../msg/messages.js"></script>
 <script src="../blocks/logic.js"></script>
@@ -56,7 +57,8 @@
 <script src="../blocks/kiwifroot/messaging.js"></script>
 <script src="../blocks/kiwifroot/deprecated.js"></script>
 <script src="../blocks/kiwifroot/log.js"></script>
-<script src="../blocks/kiwifroot/primitives.js"></script>
+<script src="../blocks/kiwifroot/plugins/primitives.js"></script>
+<script src="../blocks/kiwifroot/plugins/text.js"></script>
 <!-- Load the Google Drive SDK Realtime libraries. -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
@@ -1081,14 +1083,117 @@ h1 {
             </block>
             <block type="kiwi_primitives_change_colour">
                 <value name="INST">
+                  <block type="variables_get">
+                    <field name="TYPE">Instance</field>
+                    <field name="VAR">shape</field>
+                  </block>
                 </value>
                 <value name="COLOUR">
                   <block type="colour_picker"></block>
                 </value>
             </block>
             <block type="kiwi_primitives_get_colour">
-                <value name="INST">
-                </value>
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">shape</field>
+                </block>
+              </value>
+            </block>
+        </category>
+        <category name="Text">
+            <block type="kiwi_text_create">
+              <value name="TEXT">
+                <block type="text"></block>
+              </value>
+            </block>
+            <block type="kiwi_text_numeric_set">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+              <value name="NUMBER">
+                  <block type="math_number">
+                      <field name="NUM">32</field>
+                  </block>
+              </value>
+            </block>
+            <block type="kiwi_text_numeric_get">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+            </block>
+            <block type="kiwi_text_colour_set">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+              <value name="COLOUR">
+                <block type="colour_picker"></block>
+              </value>
+            </block>
+            <block type="kiwi_text_colour_get">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+            </block>
+            <block type="kiwi_text_text_set">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+              <value name="TEXT">
+                <block type="text"></block>
+              </value>
+            </block>
+            <block type="kiwi_text_text_get">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+            </block>
+            <block type="kiwi_text_alignment_set">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+            </block>
+            <block type="kiwi_text_weight_set">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+            </block>
+            <block type="kiwi_text_font_presets">
+            </block>
+            <block type="kiwi_text_family_set">
+              <value name="INST">
+                <block type="variables_get">
+                  <field name="TYPE">Instance</field>
+                  <field name="VAR">textfield</field>
+                </block>
+              </value>
+              <value name="FAMILY">
+                <block type="kiwi_text_font_presets"></block>
+              </value>
             </block>
         </category>
     </category>
