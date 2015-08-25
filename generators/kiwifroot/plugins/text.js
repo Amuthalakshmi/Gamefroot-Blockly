@@ -80,7 +80,7 @@ Blockly.Kiwifroot['kiwi_text_alignment_set'] = function(block) {
 	var value_value = block.getFieldValue('VALUE');
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC );
 
-	var code  = value_inst + '.alignment = ' + value_value + ';\n';
+	var code  = value_inst + '.alignment = "' + value_value + '";\n';
   	
   	return code;
 };
@@ -90,7 +90,7 @@ Blockly.Kiwifroot['kiwi_text_weight_set'] = function(block) {
 	var value_value = block.getFieldValue('VALUE');
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC );
 
-	var code  = value_inst + '.fontWeight = ' + value_value + ';\n';
+	var code  = value_inst + '.fontWeight = "' + value_value + '";\n';
   	
   	return code;
 };
@@ -109,7 +109,7 @@ Blockly.Kiwifroot['kiwi_text_family_set'] = function(block) {
 Blockly.Kiwifroot['kiwi_text_font_presets'] = function(block) {
 
 	var value_font = block.getFieldValue('FONT');
-	var code = value_font;
+	var code = '"' + value_font + '"';
 
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
