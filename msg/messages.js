@@ -1949,3 +1949,47 @@ Blockly.Msg.LOG_MSG = "log";
 Blockly.Msg.LOG_URL = "";
 
 
+/// helpurl - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_MESSAGE_BEFORE = 'create new';
+/// message -
+Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_MESSAGE_AFTER = 'with a width/height of';
+/// tooltip - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_TOOLTIP = 'Creates a new rectangle with a width and height that you set.';
+
+
+/// helpurl - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_MESSAGE_BEFORE = 'create new';
+/// message -
+Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_MESSAGE_AFTER = 'with a radius of';
+/// tooltip - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_TOOLTIP = 'Creates a new circle with a radius that you set.';
+
+
+/// helpurl - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_MESSAGE_ONE = 'create new';
+/// message -
+Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_MESSAGE_TWO = 'from origin to';
+/// message -
+Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_MESSAGE_THREE = 'with a width of';
+/// tooltip - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_TOOLTIP = 'Creates a new line from the transforms origin to a point in space.';
+
+/// 
+Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_TOOLTIP = 'Creates a new star with a specified number of points.';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_ONE = 'create new';
+/// message -
+Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_TWO = 'with a radius of';
+/// message -
+Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_THREE = 'and';
+/// message -
+Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_FOUR = 'points';
+

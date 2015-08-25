@@ -80,10 +80,11 @@
 
 					{
 						"id": "red-mushroom",
-						"type": "static-image",
+						"type": "rectangle",
 						"name": "red-mushroom",
-						"tags": ["red-mushroom"],
-						"imageId": 8,
+						"tags": [ "red-mushroom" ],
+						"width": 100,
+						"height": 100,
 						"cellIndex": 1,
 						"x": 100,
 						"y": 170,
@@ -97,34 +98,8 @@
 									"x": 10,
 									"y": 0
 								}
-							},
-
-							"animation": {
-
-								"flashing": {
-									"cells": [0, 1],
-									"loop": true,
-									"play": false,
-									"speed": 0.1
-								},
-								"red": {
-									"cells": [0],
-									"loop": true,
-									"play": true,
-									"speed": 0.1
-								},
-								"green": {
-									"cells": [1],
-									"loop": false,
-									"play": false,
-									"speed": 0.1
-								}
-						
 							}
-
-
 						}
-
 					},
 
 					{
@@ -225,7 +200,14 @@
 
 	],
 
-	"plugins": [ "MyScript" ],
+	"plugins": [ 
+		"Primitives",
+		"GamefrootPrimitives",
+		"ParticlesGL", 
+		"GamefrootParticles", 
+		"GamefrootText",
+		"MyScript" 
+	],
 
 	"assets": [
 	
