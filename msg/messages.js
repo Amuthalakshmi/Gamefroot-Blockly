@@ -1031,6 +1031,8 @@ Blockly.Msg.VARIABLES_TYPE_CLASS = 'class';
 Blockly.Msg.VARIABLES_TYPE_SOUND = 'sound';
 /// The display name of the pointer variable type
 Blockly.Msg.VARIABLES_TYPE_POINTER = 'finger/pointer';
+/// The display name of the location variable type
+Blockly.Msg.VARIABLES_TYPE_COORDINATE = 'coordinate';
 
 
 /// url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.
@@ -2104,3 +2106,30 @@ Blockly.Msg.KF_TEXT_TEXT_GET_HELPURL = '';
 Blockly.Msg.KF_TEXT_TEXT_GET_MESSAGE = 'get text of';
 /// tooltip - 
 Blockly.Msg.KF_TEXT_TEXT_GET_TOOLTIP = 'Returns the text of a textfield';
+
+/// helpurl - 
+Blockly.Msg.KF_COORDINATE_GET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_COORDINATE_GET_MESSAGE_ONE = 'get';
+/// message - 
+Blockly.Msg.KF_COORDINATE_GET_MESSAGE_TWO = 'of';
+/// tooltip - 
+Blockly.Msg.KF_COORDINATE_GET_TOOLTIP = 'Returns the numeric value for the passed coordinate';
+
+/// helpurl - 
+Blockly.Msg.KF_COORDINATE_SET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_COORDINATE_SET_MESSAGE_ONE = 'set';
+/// message - 
+Blockly.Msg.KF_COORDINATE_SET_MESSAGE_TWO = 'of';
+/// message - 
+Blockly.Msg.KF_COORDINATE_SET_MESSAGE_THREE = 'to';
+/// tooltip - 
+Blockly.Msg.KF_COORDINATE_SET_TOOLTIP = 'Sets the selected axis to a defined value for the passed coordinate';
+
+/// helpurl - 
+Blockly.Msg.KF_COORDINATE_CREATE_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_COORDINATE_CREATE_MESSAGE = 'create new coordinate at';
+/// tooltip - 
+Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP = 'Creates a new coordinate';

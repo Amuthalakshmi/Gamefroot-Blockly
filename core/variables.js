@@ -81,6 +81,11 @@ Blockly.Variables.TYPE_SOUND = 'Sound';
  * @const
  */
 Blockly.Variables.TYPE_POINTER = 'Pointer';
+/**
+* The definition name of the location type
+* @const
+*/ 
+Blockly.Variables.TYPE_COORDINATE = 'Coordinate';
 
 /**
  * The colour that should be applied to a block that outputs type 'any'
@@ -132,6 +137,11 @@ Blockly.Variables.COLOUR_SOUND = '#d147ea';
  * @const
  */
 Blockly.Variables.COLOUR_POINTER = '#ea8847';
+/**
+* The colour that should be applied to a block that outs type 'location'
+* @const
+*/
+Blockly.Variables.COLOUR_COORDINATE = '#388e3c';
 
 /**
  * Category to separate variable names from procedures and generated functions.
@@ -153,6 +163,7 @@ Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_INSTANCE] = Blockly.Var
 Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_CLASS] = Blockly.Variables.COLOUR_CLASS;
 Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_SOUND] = Blockly.Variables.COLOUR_SOUND;
 Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_POINTER] = Blockly.Variables.COLOUR_POINTER;
+Blockly.Variables.COLOUR_FOR_TYPE[Blockly.Variables.TYPE_COORDINATE] = Blockly.Variables.COLOUR_COORDINATE;
 
 /**
  * A Complete list of all variables types available.
@@ -182,7 +193,9 @@ Blockly.Variables.allTypes = function(){
     [Blockly.Msg.VARIABLES_TYPE_SOUND,
       Blockly.Variables.TYPE_SOUND],
     [Blockly.Msg.VARIABLES_TYPE_POINTER,
-      Blockly.Variables.TYPE_POINTER]
+      Blockly.Variables.TYPE_POINTER],
+    [Blockly.Msg.VARIABLES_TYPE_COORDINATE,
+      Blockly.Variables.TYPE_COORDINATE]
   ];
 };
 
