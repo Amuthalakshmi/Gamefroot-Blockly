@@ -341,6 +341,7 @@
 	"VARIABLES_TYPE_CLASS": "The display name of the class variable type",
 	"VARIABLES_TYPE_SOUND": "The display name of the sound variable type",
 	"VARIABLES_TYPE_POINTER": "The display name of the pointer variable type",
+	"VARIABLES_TYPE_COORDINATE": "The display name of the location variable type",
 	"VARIABLES_GET_HELPURL": "url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.",
 	"VARIABLES_GET_TITLE": "block text - This precedes the name of a variable when getting its values.  In most (all?) languages, it should be the empty string.  If unsure, ask yourself if any word should go before 'x' in the expression 'x + 1'.",
 	"VARIABLES_GET_TAIL": "block text - This follows the name of a variable.  In most (all?) languages, it should be the empty string.  If unsure, ask yourself if any word should go after 'x' in the expression 'x + 1'.",
@@ -795,5 +796,17 @@
 	"KF_TEXT_COLOUR_GET_TOOLTIP": "tooltip -",
 	"KF_TEXT_TEXT_GET_HELPURL": "helpurl -",
 	"KF_TEXT_TEXT_GET_MESSAGE": "message -",
-	"KF_TEXT_TEXT_GET_TOOLTIP": "tooltip -"
+	"KF_TEXT_TEXT_GET_TOOLTIP": "tooltip -",
+	"KF_COORDINATE_GET_HELPURL": "helpurl -",
+	"KF_COORDINATE_GET_MESSAGE_ONE": "message -",
+	"KF_COORDINATE_GET_MESSAGE_TWO": "message -",
+	"KF_COORDINATE_GET_TOOLTIP": "tooltip -",
+	"KF_COORDINATE_SET_HELPURL": "helpurl -",
+	"KF_COORDINATE_SET_MESSAGE_ONE": "message -",
+	"KF_COORDINATE_SET_MESSAGE_TWO": "message -",
+	"KF_COORDINATE_SET_MESSAGE_THREE": "message -",
+	"KF_COORDINATE_SET_TOOLTIP": "tooltip -",
+	"KF_COORDINATE_CREATE_HELPURL": "helpurl -",
+	"KF_COORDINATE_CREATE_MESSAGE": "message -",
+	"KF_COORDINATE_CREATE_TOOLTIP": "tooltip -"
 }

@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-08-26 11:21:39.803855",
+		"lastupdated": "2015-08-27 11:50:13.792953",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -347,6 +347,7 @@
 	"VARIABLES_TYPE_CLASS": "class",
 	"VARIABLES_TYPE_SOUND": "sound",
 	"VARIABLES_TYPE_POINTER": "finger/pointer",
+	"VARIABLES_TYPE_COORDINATE": "coordinate",
 	"VARIABLES_GET_HELPURL": "https://github.com/google/blockly/wiki/Variables#get",
 	"VARIABLES_GET_TITLE": "",
 	"VARIABLES_GET_TAIL": "",
@@ -801,5 +802,17 @@
 	"KF_TEXT_COLOUR_GET_TOOLTIP": "Returns the font colour of a textfield",
 	"KF_TEXT_TEXT_GET_HELPURL": "",
 	"KF_TEXT_TEXT_GET_MESSAGE": "get text of",
-	"KF_TEXT_TEXT_GET_TOOLTIP": "Returns the text of a textfield"
+	"KF_TEXT_TEXT_GET_TOOLTIP": "Returns the text of a textfield",
+	"KF_COORDINATE_GET_HELPURL": "",
+	"KF_COORDINATE_GET_MESSAGE_ONE": "get",
+	"KF_COORDINATE_GET_MESSAGE_TWO": "of",
+	"KF_COORDINATE_GET_TOOLTIP": "Returns the numeric value for the passed coordinate",
+	"KF_COORDINATE_SET_HELPURL": "",
+	"KF_COORDINATE_SET_MESSAGE_ONE": "set",
+	"KF_COORDINATE_SET_MESSAGE_TWO": "of",
+	"KF_COORDINATE_SET_MESSAGE_THREE": "to",
+	"KF_COORDINATE_SET_TOOLTIP": "Sets the selected axis to a defined value for the passed coordinate",
+	"KF_COORDINATE_CREATE_HELPURL": "",
+	"KF_COORDINATE_CREATE_MESSAGE": "create new coordinate at",
+	"KF_COORDINATE_CREATE_TOOLTIP": "Creates a new coordinate"
 }
