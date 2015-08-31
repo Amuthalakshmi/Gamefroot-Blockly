@@ -53,3 +53,15 @@ Blockly.Kiwifroot['lists_add'] = function(block) {
 
   return code;
 };
+
+//SET_DEBUG
+Blockly.Kiwifroot['kiwi_set_debug_mode'] = function(block) {
+    var val = Blockly.Kiwifroot.valueToCode(block, 'SET_DEBUG', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
+    return 'this.game.debugMode = ' + val + ';\n';
+};
+
+
+Blockly.Kiwifroot['kiwi_get_debug_mode'] = function(block) {
+  var code = 'this.game.debugMode';
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
