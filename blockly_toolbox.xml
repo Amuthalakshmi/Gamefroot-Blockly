@@ -1,4 +1,4 @@
- <xml id="toolbox" style="display: none">
+<xml id="toolbox" style="display: none">
 
     <!-- ******************************************* -->
     <category name="Game Mechanics">
@@ -738,6 +738,7 @@
             </block>
           </value>
         </block>
+      </category>
     </category>
 
     <!-- ******************************************* -->
@@ -961,4 +962,4 @@
     <!--<sep></sep>-->
     <category name="Variables" custom="VARIABLE"></category>
     <category name="Functions" custom="PROCEDURE"></category>
-  </xml>
+</xml>
