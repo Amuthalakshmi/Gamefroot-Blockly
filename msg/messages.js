@@ -2134,16 +2134,16 @@ Blockly.Msg.KF_COORDINATE_CREATE_MESSAGE = 'create new coordinate at';
 /// tooltip - 
 Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP = 'Creates a new coordinate';
 
-// helpurl -
+// helpurl - 
 Blockly.Msg.KF_SET_DEBUG_MODE_URL = '';
-// message -
+// message - 
 Blockly.Msg.KF_SET_DEBUG_MODE_MESSAGE = 'set debug mode';
 // tooltip - 
 Blockly.Msg.KF_SET_DEBUG_MODE_TOOLTIP = 'Sets the debug mode of the game';
 
-// helpurl -
+// helpurl - 
 Blockly.Msg.KF_GET_DEBUG_MODE_URL = '';
-// message -
+// message - 
 Blockly.Msg.KF_GET_DEBUG_MODE_MESSAGE = 'get debug mode';
 // tooltip - 
 Blockly.Msg.KF_GET_DEBUG_MODE_TOOLTIP = 'Returns the boolean indiciating if debug mode is currently on or off';

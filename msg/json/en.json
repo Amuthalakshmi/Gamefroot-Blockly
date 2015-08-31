@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-08-27 11:50:13.792953",
+		"lastupdated": "2015-09-01 09:32:48.601669",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -814,5 +814,11 @@
 	"KF_COORDINATE_SET_TOOLTIP": "Sets the selected axis to a defined value for the passed coordinate",
 	"KF_COORDINATE_CREATE_HELPURL": "",
 	"KF_COORDINATE_CREATE_MESSAGE": "create new coordinate at",
-	"KF_COORDINATE_CREATE_TOOLTIP": "Creates a new coordinate"
+	"KF_COORDINATE_CREATE_TOOLTIP": "Creates a new coordinate",
+	"KF_SET_DEBUG_MODE_URL": "",
+	"KF_SET_DEBUG_MODE_MESSAGE": "set debug mode",
+	"KF_SET_DEBUG_MODE_TOOLTIP": "Sets the debug mode of the game",
+	"KF_GET_DEBUG_MODE_URL": "",
+	"KF_GET_DEBUG_MODE_MESSAGE": "get debug mode",
+	"KF_GET_DEBUG_MODE_TOOLTIP": "Returns the boolean indiciating if debug mode is currently on or off"
 }
