@@ -282,15 +282,24 @@ Blockly.Kiwifroot.init = function(workspace) {
   }
 
   // Provide all the custom variables
-  var variables = Blockly.Variables.allVariables(workspace);
+  var variables = Blockly.Variables.allVariablesAndTypes(workspace);
   for (var x = 0; x < variables.length; x++) {
-    var variableName = variables[x];
-    var safeVariableName = Blockly.Kiwifroot.variableDB_.getName(variables[x],
+    var variableName = variables[x][0];
+    var variableType = variables[x][1];
+
+    var safeVariableName = Blockly.Kiwifroot.variableDB_.getName(variables[x][0],
         Blockly.Variables.NAME_TYPE);
+
     // For now gamefroot will pass the variable params with their unsafe names
     // that's fine, maybe we'll want to change it to prevent some weird behaviour
     // but it *should* be okay.
-    var code = 'component.' + safeVariableName + ' = params["'+variableName+'"];'; 
+    if( variableType === "Instance") {
+      var code  = 'if( params["'+variableName+'"] ) {\t';
+          code += 'component.' + safeVariableName + ' = state.getChildByID( params["' + variableName + '"], true );\t';
+          code += '}';
+    } else {
+      var code = 'component.' + safeVariableName + ' = params["'+variableName+'"];'; 
+    }
     Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.WHEN_ADDED,code);
   }
 };

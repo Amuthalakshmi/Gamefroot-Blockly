@@ -1,6 +1,5 @@
  <xml id="toolbox" style="display: none">
 
-    <!-- ******************************************* -->
     <category name="Game Mechanics">
       <category name="Levels">
         <block type="kiwi_event_level_start"></block>
@@ -421,6 +420,13 @@
           </value>
         </block>
         <block type="kiwi_arcadephysics_get_enabled"></block>
+        <block type="kiwi_set_debug_mode">
+          <value name="SET_DEBUG">
+            <block type="logic_boolean"></block>
+          </value>
+        </block>
+        <block type="kiwi_get_debug_mode">
+        </block>
       </category>
     </category>
 

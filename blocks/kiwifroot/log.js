@@ -43,3 +43,32 @@ Blockly.Blocks['kiwi_log'] = {
     this.setTooltip( Blockly.Msg.KF_LOG_TOOLTIP );
   }
 };
+
+
+Blockly.Blocks['kiwi_set_debug_mode'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_SET_DEBUG_MODE_URL );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.appendValueInput("SET_DEBUG")
+        .setCheck('Boolean')
+        .appendField( Blockly.Msg.KF_SET_DEBUG_MODE_MESSAGE );
+
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_SET_DEBUG_MODE_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_get_debug_mode'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_GET_DEBUG_MODE_URL );
+    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_GET_DEBUG_MODE_MESSAGE );
+
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_GET_DEBUG_MODE_TOOLTIP );
+  }
+};
