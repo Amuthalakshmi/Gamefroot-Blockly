@@ -38,7 +38,7 @@ Blockly.Kiwifroot['kiwi_text_create'] = function(block) {
 		code += '\t"x": 0,\n';
 		code += '\t"y": 0,\n';
 		code += '\t"maxWidth": Infinity,\n';
-		code += '\t"text": ' + value_text + '\n';
+		code += '\t"text": ' + value_text.replace(/\\\\n/g, "\\n") + '\n';
 		code += '}, this.owner.parent, true);\n';
   	
   	return code;
@@ -70,7 +70,7 @@ Blockly.Kiwifroot['kiwi_text_text_set'] = function(block) {
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC );
 	var value_text = Blockly.Kiwifroot.valueToCode( block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC ); 
 
-	var code  = value_inst + '.text = ' + value_text + ';\n';
+	var code  = value_inst + '.text = ' + value_text.replace(/\\\\n/g, "\\n") + ';\n';
   	
   	return code;
 };
