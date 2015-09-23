@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-09-01 09:32:48.601669",
+		"lastupdated": "2015-09-23 15:15:13.706061",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -820,5 +820,8 @@
 	"KF_SET_DEBUG_MODE_TOOLTIP": "Sets the debug mode of the game",
 	"KF_GET_DEBUG_MODE_URL": "",
 	"KF_GET_DEBUG_MODE_MESSAGE": "get debug mode",
-	"KF_GET_DEBUG_MODE_TOOLTIP": "Returns the boolean indiciating if debug mode is currently on or off"
+	"KF_GET_DEBUG_MODE_TOOLTIP": "Returns the boolean indiciating if debug mode is currently on or off",
+	"KF_CLASSES_GET_BY_TEXT_HELPURL": "",
+	"KF_CLASSES_GET_BY_TEXT_MESSAGE": "get class of",
+	"KF_CLASSES_GET_BY_TEXT_TOOLTIP": "Returns a class of the text passed."
 }
