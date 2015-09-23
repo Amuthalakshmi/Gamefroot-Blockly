@@ -30,6 +30,15 @@
 
 				},
 
+				"definitions": [
+					{
+						"name": "something.png",
+						"imageId": 8,
+						"cellIndex": 1,
+						"type": "static-image"
+					}
+				],
+
 				"gameObjects": [
 				
 					{

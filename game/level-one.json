@@ -17,6 +17,15 @@
 
 	},
 
+	"definitions": [
+		{
+			"name": "something.png",
+			"imageId": 9,
+			"cellIndex": 1,
+			"type": "static-image"
+		}
+	],
+
 	"gameObjects": [
 	
 		{

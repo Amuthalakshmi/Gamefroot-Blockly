@@ -135,3 +135,16 @@ Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
     }
   }
 };
+
+Blockly.Blocks['kiwi_classes_get_by_text'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR_CLASS );
+    this.appendValueInput("TEXT")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_MESSAGE );
+    this.setInputsInline(true);
+    this.setOutput(true, "Class");
+    this.setTooltip( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_TOOLTIP );
+  }
+};

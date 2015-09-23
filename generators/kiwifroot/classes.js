@@ -72,3 +72,22 @@ Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
 
   return code;
 };
+
+
+Blockly.Kiwifroot['kiwi_classes_get_by_text'] = function(block) {
+  var value_text = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC);
+
+  var getClassFuncName = Blockly.Kiwifroot.provideFunction_(
+    'getClass',
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( className ) {',
+        Blockly.Kiwifroot.INDENT + '//Check to see if the class exists, if not return null.',
+        Blockly.Kiwifroot.INDENT + 'if( this.state.objects.exists( className ) ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return className;',
+        Blockly.Kiwifroot.INDENT + '}',
+        Blockly.Kiwifroot.INDENT + 'return null;',
+        '};']);
+
+  var code = 'this.' + getClassFuncName + '(' + value_text + ')';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};

@@ -232,7 +232,7 @@ Blockly.Blocks['kiwi_event_touch_return_instance'] = {
     this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_EVENT_TOUCH_RETURN_MESSAGE )
-        .appendField(new Blockly.FieldVariable('instance'), 'VAR');
+        .appendField(new Blockly.FieldVariable('toucher'), 'VAR');
     this.appendStatementInput("STACK");
     this.setTooltip( Blockly.Msg.KF_EVENT_TOUCH_RETURN_TOOLTIP );
   },

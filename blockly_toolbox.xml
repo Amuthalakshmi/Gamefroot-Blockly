@@ -100,6 +100,11 @@
               <field name="TEXT">code</field>
             </block>
           </value>
+        </block>  
+        <block type="kiwi_instance_death">
+          <value name="INST">
+            <block type="kiwi_instance_self"></block>
+          </value>
         </block>
       </category>
       <category name="Classes">
@@ -131,10 +136,12 @@
               <field name="VAR">Class</field>
             </block>
           </value>
-        </block>      
-        <block type="kiwi_instance_death">
-          <value name="INST">
-            <block type="kiwi_instance_self"></block>
+        </block>    
+        <block type="kiwi_classes_get_by_text">
+          <value name="TEXT">
+            <block type="text">
+              <field name="TEXT">name</field>
+            </block>
           </value>
         </block>
       </category>

@@ -2147,3 +2147,10 @@ Blockly.Msg.KF_GET_DEBUG_MODE_URL = '';
 Blockly.Msg.KF_GET_DEBUG_MODE_MESSAGE = 'get debug mode';
 // tooltip - 
 Blockly.Msg.KF_GET_DEBUG_MODE_TOOLTIP = 'Returns the boolean indiciating if debug mode is currently on or off';
+
+// helpurl - 
+Blockly.Msg.KF_CLASSES_GET_BY_TEXT_HELPURL = '';
+// message -
+Blockly.Msg.KF_CLASSES_GET_BY_TEXT_MESSAGE = 'get class of';
+// tooltip -
+Blockly.Msg.KF_CLASSES_GET_BY_TEXT_TOOLTIP = 'Returns a class of the text passed.';
