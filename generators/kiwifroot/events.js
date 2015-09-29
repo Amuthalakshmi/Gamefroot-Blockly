@@ -395,10 +395,10 @@ Blockly.Kiwifroot['kiwi_event_instance_properties_set'] = function(block){
 
 
 	var constructorCode = 'this.owner.properties.onUpdate( this.' + funcName + ', this, ' + value_name + ' );';
-	var destructorCode = 'this.owner.properties.removeOnUpdate( this.' + funcName + ', this, ' + value_name + ');';
+	//var destructorCode = 'this.owner.properties.removeOnUpdate( this.' + funcName + ', this, ' + value_name + ');';
 
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
-	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+	//Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 	return null;
 };
 
