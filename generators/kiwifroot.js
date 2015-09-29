@@ -294,9 +294,9 @@ Blockly.Kiwifroot.init = function(workspace) {
     // that's fine, maybe we'll want to change it to prevent some weird behaviour
     // but it *should* be okay.
     if( variableType === "Instance") {
-      var code  = 'if( params["'+variableName+'"] ) {\t';
-          code += 'component.' + safeVariableName + ' = state.getChildByID( params["' + variableName + '"], true );\t';
-          code += '}';
+      var code  = 'component.' + safeVariableName + ' = ( params["'+variableName+'"] ) ? ';
+          code += 'state.getChildByID( params["' + variableName + '"], true ) : ';
+          code += 'null;'; 
     } else {
       var code = 'component.' + safeVariableName + ' = params["'+variableName+'"];'; 
     }
