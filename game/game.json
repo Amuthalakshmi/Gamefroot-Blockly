@@ -59,22 +59,22 @@
 								"gravity": false
 							},
 
-							"animation": {
+							"TextureAnimation": {
 
 								"flashing": {
-									"cells": [0, 1],
+									"cells": [8,0, 8,1],
 									"loop": true,
 									"play": true,
 									"speed": 0.1
 								},
 								"red": {
-									"cells": [0],
+									"cells": [8,0],
 									"loop": true,
 									"play": false,
 									"speed": 0.1
 								},
 								"green": {
-									"cells": [ 1 ],
+									"cells": [ 8,1 ],
 									"loop": false,
 									"play": true,
 									"speed": 0.1
@@ -123,22 +123,22 @@
 
 						"components": {
 						
-							"animation": {
+							"TextureAnimation": {
 
 								"flashing": {
-									"cells": [0, 1],
+									"cells": [8,0, 8,1],
 									"loop": true,
 									"play": false,
 									"speed": 0.1
 								},
 								"red": {
-									"cells": [0],
+									"cells": [8,0],
 									"loop": false,
 									"play": false,
 									"speed": 0.1
 								},
 								"green": {
-									"cells": [1],
+									"cells": [8,1],
 									"loop": false,
 									"play": false,
 									"speed": 0.1

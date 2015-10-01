@@ -32,9 +32,9 @@ Blockly.Kiwifroot.animation.COMPONENT_PREFIX = 'this.animation';
 
 Blockly.Kiwifroot.addAnimationToConstructor_ = function() {
 
-	var constructorCode = 'this.animation = this.owner.components.getComponent( "Animation" );\n\n';
+	var constructorCode = 'this.animation = this.owner.components.getComponent( "TextureAnimation" );\n\n';
 	constructorCode    += '\tif( !this.animation ) {\n';
-	constructorCode    += '\t\tKiwi.Log.error("Animation component not found on object. Animation blocks will not work.", "#animation");\n'
+	constructorCode    += '\t\tKiwi.Log.error("TextureAnimation component not found on object. TextureAnimation blocks will not work.", "#animation");\n'
 	constructorCode    += '\t}\n';
 
 	Blockly.Kiwifroot.provideAdditionOnce('animationConstructor', Blockly.Kiwifroot.BOOT, constructorCode);
