@@ -1,0 +1,19 @@
+{
+	"name": "gamefroot",
+	"package": "gamefroot-cli",
+	"creator": "Ryan Clough",
+	"author": {
+		"name": "Ryan Clough",
+		"email": "ryanc1256@gmail.com"
+	},
+	"dependencies": {
+		"commander": "latest",
+		"colors": "latest",
+		"mysql": "latest"
+	},
+	"main": "./bin/index.js",
+	"bin": {
+		"gamefroot": "./bin/index.js"
+	},
+	"version": "0.1.0"
+}
