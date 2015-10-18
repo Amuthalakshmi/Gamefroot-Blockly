@@ -168,10 +168,11 @@ class Gen_compressed(threading.Thread):
   def run(self):
     self.gen_core()
     self.gen_blocks()
-    self.gen_generator("javascript")
-    self.gen_generator("python")
-    self.gen_generator("php")
-    self.gen_generator("dart")
+    #self.gen_generator("javascript")
+    #self.gen_generator("python")
+    #self.gen_generator("php")
+    #self.gen_generator("dart")
+    self.gen_generator("kiwifroot")
 
   def gen_core(self):
     target_filename = "blockly_compressed.js"
@@ -215,10 +216,12 @@ class Gen_compressed(threading.Thread):
     # Add Blockly.Blocks to be compatible with the compiler.
     params.append(("js_code", "goog.provide('Blockly.Blocks');"))
     filenames = glob.glob(os.path.join("blocks", "*.js"))
+    filenames.extend(glob.glob(os.path.join('blocks/kiwifroot', '*.js')))
     for filename in filenames:
       f = open(filename)
       params.append(("js_code", "".join(f.readlines())))
       f.close()
+    filenames.insert(0, '[goog.provide]')
 
     # Remove Blockly.Blocks to be compatible with Blockly.
     remove = "var Blockly={Blocks:{}};"
