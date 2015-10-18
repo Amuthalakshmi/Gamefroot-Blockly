@@ -30,7 +30,6 @@ goog.require('goog.Timer');
 goog.require('goog.dom');
 goog.require('goog.math');
 goog.require('goog.math.Rect');
-goog.require('goog.color');
 
 
 /**
@@ -64,25 +63,18 @@ Blockly.Trashcan.prototype.BODY_HEIGHT_ = 44;
 Blockly.Trashcan.prototype.LID_HEIGHT_ = 16;
 
 /**
- * The angle that the trashcan lid opens to
- * @type {number}
- * @private
- */
-Blockly.Trashcan.prototype.OPEN_LID_ANGLE_ = 10;
-
-/**
  * Distance between trashcan and bottom edge of workspace.
  * @type {number}
  * @private
  */
-Blockly.Trashcan.prototype.MARGIN_BOTTOM_ = 50;
+Blockly.Trashcan.prototype.MARGIN_BOTTOM_ = 20;
 
 /**
  * Distance between trashcan and right edge of workspace.
  * @type {number}
  * @private
  */
-Blockly.Trashcan.prototype.MARGIN_SIDE_ = 54;
+Blockly.Trashcan.prototype.MARGIN_SIDE_ = 20;
 
 /**
  * Extent of hotspot on all sides beyond the size of the image.
@@ -90,20 +82,6 @@ Blockly.Trashcan.prototype.MARGIN_SIDE_ = 54;
  * @private
  */
 Blockly.Trashcan.prototype.MARGIN_HOTSPOT_ = 25;
-
-/**
- * The colour of the background cirlce when not highlighted
- * @type {string}
- * @private
- */
-Blockly.Trashcan.prototype.CIRCLE_COLOUR_ = '#333';
-
-/**
- * The colour of the background cirlce when highlighted
- * @type {string}
- * @private
- */
-Blockly.Trashcan.prototype.CIRCLE_HIGHLIGHT_ = '#1294f6';
 
 /**
  * Current open/close state of the lid.
@@ -175,9 +153,6 @@ Blockly.Trashcan.prototype.createDom = function() {
   this.svgGroup_ = Blockly.createSvgElement('g',
       {'class': 'blocklyTrash'}, null);
   var rnd = String(Math.random()).substring(2);
-  this.svgBackground_ = Blockly.createSvgElement('circle',
-      {'cx':23, 'cy':32, 'r':40 },
-      this.svgGroup_);
   var clip = Blockly.createSvgElement('clipPath',
       {'id': 'blocklyTrashBodyClipPath' + rnd},
       this.svgGroup_);
@@ -288,21 +263,13 @@ Blockly.Trashcan.prototype.setOpen_ = function(state) {
 Blockly.Trashcan.prototype.animateLid_ = function() {
   this.lidOpen_ += this.isOpen ? 0.2 : -0.2;
   this.lidOpen_ = goog.math.clamp(this.lidOpen_, 0, 1);
-  var lidAngle = this.lidOpen_ * this.OPEN_LID_ANGLE_;
+  var lidAngle = this.lidOpen_ * 45;
   this.svgLid_.setAttribute('transform', 'rotate(' +
       (this.workspace_.RTL ? -lidAngle : lidAngle) + ',' +
       (this.workspace_.RTL ? 4 : this.WIDTH_ - 4) + ',' +
       (this.LID_HEIGHT_ - 2) + ')');
-  /*var opacity = goog.math.lerp(0.4, 1, this.lidOpen_);
-  this.svgGroup_.style.opacity = opacity;*/
-  /*var circleColour = goog.color.hexToRgb(this.CIRCLE_COLOUR_
-);
-  var highlightColour = goog.color.hexToRgb(this.CIRCLE_HIGHLIGHT_);
-  var blendedColour = goog.color.blend(
-    highlightColour,circleColour,this.lidOpen_);
-  this.svgBackground_.style.fill = goog.color.rgbToHex(
-    blendedColour[0],blendedColour[1],blendedColour[2]);*/
-  this.svgBackground_.style.fill = this.CIRCLE_HIGHLIGHT_;
+  var opacity = goog.math.lerp(0.4, 0.8, this.lidOpen_);
+  this.svgGroup_.style.opacity = opacity;
   if (this.lidOpen_ > 0 && this.lidOpen_ < 1) {
     this.lidTask_ = goog.Timer.callOnce(this.animateLid_, 20, this);
   }

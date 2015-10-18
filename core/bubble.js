@@ -86,18 +86,13 @@ Blockly.Bubble = function(workspace, content, shape,
 /**
  * Width of the border around the bubble.
  */
-Blockly.Bubble.BORDER_WIDTH = 3;
-
-/**
- * The amount to round the corners of the bubble.
- */
-Blockly.Bubble.BORDER_RADIUS = 0;
+Blockly.Bubble.BORDER_WIDTH = 6;
 
 /**
  * Determines the thickness of the base of the arrow in relation to the size
  * of the bubble.  Higher numbers result in thinner arrows.
  */
-Blockly.Bubble.ARROW_THICKNESS = 20;
+Blockly.Bubble.ARROW_THICKNESS = 10;
 
 /**
  * The number of degrees that the arrow bends counter-clockwise.
@@ -225,11 +220,11 @@ Blockly.Bubble.prototype.createDom_ = function(content, hasResize) {
     filter = {};
   }
   var bubbleEmboss = Blockly.createSvgElement('g',
-      {'filter': 'url(#blocklyEmboss)'}, this.bubbleGroup_);
+      filter, this.bubbleGroup_);
   this.bubbleArrow_ = Blockly.createSvgElement('path', {}, bubbleEmboss);
   this.bubbleBack_ = Blockly.createSvgElement('rect',
       {'class': 'blocklyDraggable', 'x': 0, 'y': 0,
-      'rx': Blockly.Bubble.BORDER_RADIUS, 'ry': Blockly.Bubble.BORDER_RADIUS},
+      'rx': Blockly.Bubble.BORDER_WIDTH, 'ry': Blockly.Bubble.BORDER_WIDTH},
       bubbleEmboss);
   if (hasResize) {
     this.resizeGroup_ = Blockly.createSvgElement('g',
