@@ -102,6 +102,9 @@ Blockly.Toolbox.prototype.init = function() {
   this.HtmlDiv.setAttribute('dir', workspace.RTL ? 'RTL' : 'LTR');
   document.body.appendChild(this.HtmlDiv);
 
+  // CUSTOM HACK: Create SVG 'flyout' 
+  this.Svg = Blockly.createDom_( this.HtmlDiv, { hasCss: false, RTL: false, pathToMedia:'', gridOptions:{length:0,spacing:0}} );
+
   // Clicking on toolbar closes popups.
   Blockly.bindEvent_(this.HtmlDiv, 'mousedown', this,
       function(e) {
@@ -113,11 +116,13 @@ Blockly.Toolbox.prototype.init = function() {
           Blockly.hideChaff(true);
         }
       });
+
   var workspaceOptions = {
     parentWorkspace: workspace,
     RTL: workspace.RTL,
-    svg: workspace.options.svg
+    svg: workspace.options.Svg
   };
+
   /**
    * @type {!Blockly.Flyout}
    * @private
@@ -138,9 +143,15 @@ Blockly.Toolbox.prototype.init = function() {
   this.hasColours_ = false;
   this.populate_(workspace.options.languageTree);
   tree.render(this.HtmlDiv);
+
+  //Create custom svg
+  this.HtmlDiv.appendChild( this.Svg );
+  this.Svg.setAttribute('class', 'blocklyToolboxFlyout');
+
   if (this.hasColours_) {
     this.addColour_(tree);
   }
+
   this.position();
 };
 
@@ -192,13 +203,16 @@ Blockly.Toolbox.prototype.populate_ = function(newTree) {
   var rootOut = this.tree_;
   rootOut.removeChildren();  // Delete any existing content.
   rootOut.blocks = [];
+
   var hasColours = false;
+
   function syncTrees(treeIn, treeOut) {
     for (var i = 0, childIn; childIn = treeIn.childNodes[i]; i++) {
       if (!childIn.tagName) {
         // Skip over text.
         continue;
       }
+      
       switch (childIn.tagName.toUpperCase()) {
         case 'CATEGORY':
           var childOut = rootOut.createNode(childIn.getAttribute('name'));

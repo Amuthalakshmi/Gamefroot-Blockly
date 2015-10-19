@@ -49,6 +49,7 @@ Blockly.inject = function(container, opt_options) {
   }
   var options = Blockly.parseOptions_(opt_options || {});
   var workspace;
+
   var startUi = function() {
     var svg = Blockly.createDom_(container, options);
     workspace = Blockly.createMainWorkspace_(svg, options);
@@ -56,6 +57,7 @@ Blockly.inject = function(container, opt_options) {
     workspace.markFocused();
     Blockly.bindEvent_(svg, 'focus', workspace, workspace.markFocused);
   };
+
   if (options.enableRealtime) {
     var realtimeElement = document.getElementById('realtime');
     if (realtimeElement) {
