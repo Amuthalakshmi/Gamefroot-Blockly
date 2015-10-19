@@ -79,6 +79,9 @@ Blockly.Flyout = function(workspaceOptions) {
    * @private
    */
   this.listeners_ = [];
+
+  //HACK - FIX the broken mutators.
+  this.GAP = 10;
 };
 
 /**
