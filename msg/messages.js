@@ -55,6 +55,10 @@ Blockly.Msg.VARIABLES_DEFAULT_NAME = 'item';
 /// button text - Botton that sets a calendar to today's date.\n{{Identical|Today}}
 Blockly.Msg.TODAY = 'Today';
 
+Blockly.Msg.VARIABLES_SET_MESSAGE_ONE = 'set';
+
+Blockly.Msg.VARIABLES_SET_MESSAGE_TWO = 'to';
+
 // Context menus.
 /// context menu - Make a copy of the selected block (and any blocks it contains).\n{{Identical|Duplicate}}
 Blockly.Msg.DUPLICATE_BLOCK = 'Duplicate';

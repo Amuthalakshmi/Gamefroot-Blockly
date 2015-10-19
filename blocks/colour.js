@@ -29,18 +29,29 @@ goog.provide('Blockly.Blocks.colour');
 goog.require('Blockly.Blocks');
 
 
+/**
+ * Common HSV hue for all blocks in this category.
+ */
 Blockly.Blocks['colour_picker'] = {
   /**
    * Block for colour picker.
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.COLOUR_PICKER_HELPURL);
-    this.setColour(Blockly.Variables.COLOUR_COLOUR);
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldColour('#ff0000'), 'COLOUR');
-    this.setOutput(true, 'Colour');
-    this.setTooltip(Blockly.Msg.COLOUR_PICKER_TOOLTIP);
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_colour",
+          "name": "COLOUR",
+          "colour": "#ff0000"
+        }
+      ],
+      "output": "Colour",
+      "colour": Blockly.Variables.COLOUR_COLOUR,
+      "tooltip": Blockly.Msg.COLOUR_PICKER_TOOLTIP,
+      "helpUrl": Blockly.Msg.COLOUR_PICKER_HELPURL
+    });
   }
 };
 
@@ -50,12 +61,13 @@ Blockly.Blocks['colour_random'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.COLOUR_RANDOM_HELPURL);
-    this.setColour(Blockly.Variables.COLOUR_COLOUR);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.COLOUR_RANDOM_TITLE);
-    this.setOutput(true, 'Colour');
-    this.setTooltip(Blockly.Msg.COLOUR_RANDOM_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.COLOUR_RANDOM_TITLE,
+      "output": "Colour",
+      "colour": Blockly.Variables.COLOUR_COLOUR,
+      "tooltip": Blockly.Msg.COLOUR_RANDOM_TOOLTIP,
+      "helpUrl": Blockly.Msg.COLOUR_RANDOM_HELPURL
+    });
   }
 };
 

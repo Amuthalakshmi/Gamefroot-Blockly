@@ -405,13 +405,20 @@ Blockly.Blocks['logic_negate'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.LOGIC_NEGATE_HELPURL);
-    this.setColour(Blockly.Variables.COLOUR_BOOLEAN);
-    this.setOutput(true, 'Boolean');
-    this.interpolateMsg(Blockly.Msg.LOGIC_NEGATE_TITLE,
-                        ['BOOL', 'Boolean', Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.setTooltip(Blockly.Msg.LOGIC_NEGATE_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.LOGIC_NEGATE_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "BOOL",
+          "check": "Boolean"
+        }
+      ],
+      "output": "Boolean",
+      "colour": Blockly.Variables.COLOUR_BOOLEAN,
+      "tooltip": Blockly.Msg.LOGIC_NEGATE_TOOLTIP,
+      "helpUrl": Blockly.Msg.LOGIC_NEGATE_HELPURL
+    });
   }
 };
 

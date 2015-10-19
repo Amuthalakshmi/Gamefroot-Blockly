@@ -29,9 +29,7 @@ goog.provide('Blockly.Blocks.procedures');
 goog.require('Blockly.Blocks');
 
 
-/**
- * Common HSV hue for all blocks in this category.
- */
+
 Blockly.Blocks['procedures_defnoreturn'] = {
   /**
    * Block for defining a procedure with no return value.
@@ -126,6 +124,16 @@ Blockly.Blocks['procedures_defnoreturn'] = {
     };
   },
   /**
+   * Parse mutation data to restore the argument inputs.
+   * @param {object} obj The mutation data.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj) {
+    this.arguments_ = obj.arguments.concat();
+    this.updateParams_();
+    this.setStatements_(!!obj.statements);
+  },
+  /**
    * Create XML to represent the argument inputs.
    * @return {!Element} XML storage element.
    * @this Blockly.Block
@@ -143,16 +151,6 @@ Blockly.Blocks['procedures_defnoreturn'] = {
       container.setAttribute('statements', 'false');
     }
     return container;
-  },
-  /**
-   * Parse mutation data to restore the argument inputs.
-   * @param {object} obj The mutation data.
-   * @this Blockly.Block
-   */
-  objectToMutation: function(obj) {
-    this.arguments_ = obj.arguments.concat();
-    this.updateParams_();
-    this.setStatements_(!!obj.statements);
   },
   /**
    * Parse XML to restore the argument inputs.
@@ -386,8 +384,8 @@ Blockly.Blocks['procedures_defreturn'] = {
   validate: Blockly.Blocks['procedures_defnoreturn'].validate,
   updateParams_: Blockly.Blocks['procedures_defnoreturn'].updateParams_,
   mutationToDom: Blockly.Blocks['procedures_defnoreturn'].mutationToDom,
-  mutationToObject: Blockly.Blocks['procedures_defnoreturn'].mutationToObject,
   domToMutation: Blockly.Blocks['procedures_defnoreturn'].domToMutation,
+  mutationToObject: Blockly.Blocks['procedures_defnoreturn'].mutationToObject,
   objectToMutation: Blockly.Blocks['procedures_defnoreturn'].objectToMutation,
   decompose: Blockly.Blocks['procedures_defnoreturn'].decompose,
   compose: Blockly.Blocks['procedures_defnoreturn'].compose,
@@ -464,7 +462,7 @@ Blockly.Blocks['procedures_callnoreturn'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLNORETURN_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
+    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
     this.appendDummyInput('TOPROW')
         .appendField(Blockly.Msg.PROCEDURES_CALLNORETURN_CALL)
         .appendField('', 'NAME');
@@ -561,9 +559,6 @@ Blockly.Blocks['procedures_callnoreturn'] = {
     this.arguments_ = [].concat(paramNames);
     this.renderArgs_();
     this.quarkArguments_ = paramIds;
-      // If we can derive a type from the workspace, set a check for it
-      var type = Blockly.Variables.typeOf(this.arguments_[i], Blockly.mainWorkspace || this.workspace);
-      if (type) input.setCheck(type);
     // Reconnect any child blocks.
     if (this.quarkArguments_) {
       for (var i = 0; i < this.arguments_.length; i++) {
@@ -626,21 +621,6 @@ Blockly.Blocks['procedures_callnoreturn'] = {
     };
   },
   /**
-   * Create XML to represent the (non-editable) name and arguments.
-   * @return {!Element} XML storage element.
-   * @this Blockly.Block
-   */
-  mutationToDom: function() {
-    var container = document.createElement('mutation');
-    container.setAttribute('name', this.getProcedureCall());
-    for (var i = 0; i < this.arguments_.length; i++) {
-      var parameter = document.createElement('arg');
-      parameter.setAttribute('name', this.arguments_[i]);
-      container.appendChild(parameter);
-    }
-    return container;
-  },
-  /**
    * Parse an object to restore the (non-editable) name and parameters.
    * @param {object} obj The mutation data.
    * @this Blockly.Block
@@ -661,6 +641,21 @@ Blockly.Blocks['procedures_callnoreturn'] = {
       // list.
       this.setProcedureParameters(args, args);
     }
+  },
+  /**
+   * Create XML to represent the (non-editable) name and arguments.
+   * @return {!Element} XML storage element.
+   * @this Blockly.Block
+   */
+  mutationToDom: function() {
+    var container = document.createElement('mutation');
+    container.setAttribute('name', this.getProcedureCall());
+    for (var i = 0; i < this.arguments_.length; i++) {
+      var parameter = document.createElement('arg');
+      parameter.setAttribute('name', this.arguments_[i]);
+      container.appendChild(parameter);
+    }
+    return container;
   },
   /**
    * Parse XML to restore the (non-editable) name and parameters.
@@ -705,28 +700,6 @@ Blockly.Blocks['procedures_callnoreturn'] = {
     }
   },
   /**
-   * Notification that a block wants type information
-   * @param {string} name The name of the variable being queried
-   * @this Blockly.Block
-   */
-  typeOf: function(name) {
-    // A function does not need to offer any type information
-  },
-  /**
-   * Notification that a variable is changing type. If it's one
-   * of ours we need to update our inputs
-   * @param {string} name The name of the variable that's changing
-   * @param {string} type The type the variable is changing to
-   * @this Blockly.Block
-   */
-  changeType: function(name, type) {
-     for (var i = 0; i < this.arguments_.length; i++) {
-      if (Blockly.Names.equals(name, this.arguments_[i])) {
-        this.getInput('ARG' + i).setCheck(type);
-      }
-    } 
-  },
-  /**
    * Add menu option to find the definition block for this call.
    * @param {!Array} options List of menu options to add to.
    * @this Blockly.Block
@@ -750,9 +723,8 @@ Blockly.Blocks['procedures_callreturn'] = {
    * @this Blockly.Block
    */
   init: function() {
-    // TODO type!
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLRETURN_HELPURL);
-    this.setColour(Blockly.Variables.COLOUR_ANY);
+    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
     this.appendDummyInput('TOPROW')
         .appendField(Blockly.Msg.PROCEDURES_CALLRETURN_CALL)
         .appendField('', 'NAME');
@@ -772,8 +744,6 @@ Blockly.Blocks['procedures_callreturn'] = {
   mutationToObject: Blockly.Blocks['procedures_callnoreturn'].mutationToObject,
   objectToMutation: Blockly.Blocks['procedures_callnoreturn'].objectToMutation,
   renameVar: Blockly.Blocks['procedures_callnoreturn'].renameVar,
-  typeOf: Blockly.Blocks['procedures_callnoreturn'].typeOf,
-  changeType: Blockly.Blocks['procedures_callnoreturn'].changeType,
   customContextMenu: Blockly.Blocks['procedures_callnoreturn'].customContextMenu
 };
 
@@ -784,7 +754,7 @@ Blockly.Blocks['procedures_ifreturn'] = {
    */
   init: function() {
     this.setHelpUrl('http://c2.com/cgi/wiki?GuardClause');
-    this.setColour(Blockly.Variables.COLOUR_ANY);
+    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
     this.appendValueInput('CONDITION')
         .setCheck('Boolean')
         .appendField(Blockly.Msg.CONTROLS_IF_MSG_IF);
@@ -807,16 +777,6 @@ Blockly.Blocks['procedures_ifreturn'] = {
     };
   },
   /**
-   * Create XML to represent whether this block has a return value.
-   * @return {!Element} XML storage element.
-   * @this Blockly.Block
-   */
-  mutationToDom: function() {
-    var container = document.createElement('mutation');
-    container.setAttribute('value', Number(this.hasReturnValue_));
-    return container;
-  },
-  /**
    * Parse an object to restore whether this block has a return value.
    * @param {object} obj The mutation data
    * @this Blockly.Block
@@ -828,6 +788,16 @@ Blockly.Blocks['procedures_ifreturn'] = {
       this.appendDummyInput('VALUE')
         .appendField(Blockly.Msg.PROCEDURES_DEFRETURN_RETURN);
     }
+  },
+  /**
+   * Create XML to represent whether this block has a return value.
+   * @return {!Element} XML storage element.
+   * @this Blockly.Block
+   */
+  mutationToDom: function() {
+    var container = document.createElement('mutation');
+    container.setAttribute('value', Number(this.hasReturnValue_));
+    return container;
   },
   /**
    * Parse XML to restore whether this block has a return value.

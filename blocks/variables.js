@@ -104,7 +104,7 @@ Blockly.Blocks['variables_get'] = {
       this.unplug();
     }
     this.setFieldValue(type, 'TYPE');
-    this.changeOutput(type);
+    this.setOutput(true, type);
     this.setColour(Blockly.Variables.COLOUR_FOR_TYPE[type]);
   },
   /**
@@ -163,21 +163,24 @@ Blockly.Blocks['variables_set'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.VARIABLES_SET_HELPURL);
     this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
-    this.interpolateMsg(
-        // TODO: Combine these messages instead of using concatenation.
-        Blockly.Msg.VARIABLES_SET_TITLE + ' %1 %2' +
-        Blockly.Msg.VARIABLES_SET_TAIL + ' %3',
-        ['TYPE', new Blockly.FieldDropdown(Blockly.Variables.allTypes(),
-          this.typeChangedHandler)],
-        ['VAR', new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM,
-          this.nameChangedHandler)],
-        ['VALUE', null, Blockly.ALIGN_RIGHT],
-        Blockly.ALIGN_RIGHT);
+
+    this.appendValueInput('VALUE')
+      .appendField(Blockly.Msg.VARIABLES_SET_MESSAGE_ONE)
+      .appendField( new Blockly.FieldDropdown(
+          Blockly.Variables.allTypes(),
+          this.typeChangedHandler), 'TYPE')
+      .appendField( new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM,
+          this.nameChangedHandler), 'VAR')
+      .appendField(Blockly.Msg.VARIABLES_SET_MESSAGE_TWO);
+
+    this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
     this.contextMenuType_ = 'variables_get';
+
+
   },
   /**
    * Notification that all the properties have been applied

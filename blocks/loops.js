@@ -56,17 +56,21 @@ Blockly.Blocks['controls_repeat_ext'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.CONTROLS_REPEAT_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
-    this.interpolateMsg(Blockly.Msg.CONTROLS_REPEAT_TITLE,
-                        ['TIMES', 'Number', Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.appendStatementInput('DO')
-        .appendField(Blockly.Msg.CONTROLS_REPEAT_INPUT_DO);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setInputsInline(true);
-    this.setTooltip(Blockly.Msg.CONTROLS_REPEAT_TOOLTIP);
+    this.jsonInit({
+      "message0": Blockly.Msg.CONTROLS_REPEAT_TITLE,
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "TIMES",
+          "check": "Number"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": Blockly.Blocks.STATEMENT_COLOUR,
+      "tooltip": Blockly.Msg.CONTROLS_REPEAT_TOOLTIP,
+      "helpUrl": Blockly.Msg.CONTROLS_REPEAT_HELPURL
+    });
   }
 };
 
@@ -107,26 +111,38 @@ Blockly.Blocks['controls_for'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.CONTROLS_FOR_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
-    this.appendDummyInput()
-        .appendField(Blockly.Msg.CONTROLS_FOR_INPUT_WITH)
-        .appendField(new Blockly.FieldVariable(null), 'VAR');
-    this.interpolateMsg(Blockly.Msg.CONTROLS_FOR_INPUT_FROM_TO_BY,
-                        ['FROM', 'Number', Blockly.ALIGN_RIGHT],
-                        ['TO', 'Number', Blockly.ALIGN_RIGHT],
-                        ['BY', 'Number', Blockly.ALIGN_RIGHT],
-                        Blockly.ALIGN_RIGHT);
-    this.appendStatementInput('DO')
-        .appendField(Blockly.Msg.CONTROLS_FOR_INPUT_DO);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setInputsInline(true);
-    // Assign 'this' to a variable for use in the tooltip closure below.
-    var thisBlock = this;
-    this.setTooltip(function() {
-      return Blockly.Msg.CONTROLS_FOR_TOOLTIP.replace('%1',
-          thisBlock.getFieldValue('VAR'));
+    this.jsonInit({
+      "message0": Blockly.Msg.CONTROLS_FOR_TITLE,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "VAR",
+          "variable": null
+        },
+        {
+          "type": "input_value",
+          "name": "FROM",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "TO",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "BY",
+          "check": "Number",
+          "align": "RIGHT"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": Blockly.Blocks.STATEMENT_COLOUR,
+      "helpUrl": Blockly.Msg.CONTROLS_FOR_HELPURL
     });
   },
   /**

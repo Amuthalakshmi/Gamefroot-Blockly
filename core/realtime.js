@@ -740,7 +740,7 @@ Blockly.Realtime.startRealtime = function(uiInitialize, uiContainer, options) {
  */
 Blockly.Realtime.addAuthUi_ = function(uiContainer) {
   // Add progress indicator to the UI container.
-  uiContainer.style.background = 'url(' + Blockly.pathToMedia +
+  uiContainer.style.background = 'url(' + Blockly.mainWorkspace.options.pathToMedia +
       Blockly.Realtime.PROGRESS_URL_ + ') no-repeat center center';
   // Setup authorization button
   var blocklyDivBounds = goog.style.getBounds(uiContainer);
