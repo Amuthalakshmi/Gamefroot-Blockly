@@ -61,17 +61,23 @@ Blockly.Json.fieldLabels = {
  * @return {!Element} Json document.
  */
 Blockly.Json.workspaceToObject = function(workspace) {
-  var width = Blockly.svgSize().width;
+  var width;  // Not used in LTR.
+  if (workspace.RTL) {
+    width = workspace.getWidth();
+  }
+
   var blocks = workspace.getTopBlocks(true);
   var Json = [];
+  
   for (var i = 0, block; block = blocks[i]; i++) {
     var element = Blockly.Json.blockToObject_(block);
- if(!element) continue;
+    if(!element) continue;
     var xy = block.getRelativeToSurfaceXY();
     element[Blockly.Json.fieldLabels.positionX]= Blockly.RTL ? width - xy.x : xy.x;
     element[Blockly.Json.fieldLabels.positionY]= xy.y;
     Json.push(element);
   }
+  
   return Json;
 };
 
