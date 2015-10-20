@@ -481,6 +481,7 @@ Blockly.BlockSvg.prototype.onMouseDown_ = function(e) {
  */
 Blockly.BlockSvg.prototype.onMouseUp_ = function(e) {
   var this_ = this;
+
   Blockly.doCommand(function() {
     Blockly.terminateDrag_();
     if (Blockly.selected && Blockly.highlightedConnection_) {

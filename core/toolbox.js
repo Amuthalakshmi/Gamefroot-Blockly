@@ -114,10 +114,11 @@ Blockly.Toolbox.prototype.init = function() {
   //Create a new workspace for the drag workspace
 
   this.DragSvgWorkspace = new Blockly.WorkspaceSvg( {
-    getMetrics: Blockly.getMainWorkspaceMetrics_, 
+    getMetrics: Blockly.getMainWorkspaceMetrics_.bind( Blockly.mainWorkspace ), 
     setMetrics: function() {
       return null;
-    }
+    },
+    svg: this.DragSvg
   } );
   this.DragSvg.appendChild( this.DragSvgWorkspace.createDom() );
 
@@ -136,7 +137,7 @@ Blockly.Toolbox.prototype.init = function() {
 
 
   var workspaceOptions = {
-    parentWorkspace: workspace,
+    parentWorkspace: this.DragSvgWorkspace || workspace,
     RTL: workspace.RTL,
     svg: this.Svg
   };
@@ -145,13 +146,13 @@ Blockly.Toolbox.prototype.init = function() {
    * @type {!Blockly.Flyout}
    * @private
    */
-  this.flyout_ = new Blockly.Flyout( workspaceOptions );
+  this.flyout_ = new Blockly.Flyout( workspaceOptions, this );
   //goog.dom.insertSiblingAfter( this.flyout_.createDom(), this.Svg );
   
   // CUSTOM HACK: 
   this.Svg.appendChild( this.flyout_.createDom() );
 
-  this.flyout_.init( workspace );
+  this.flyout_.init( this.DragSvgWorkspace, workspace );
 
   this.CONFIG_['cleardotPath'] = workspace.options.pathToMedia + '1x1.gif';
   this.CONFIG_['cssCollapsedFolderIcon'] =
