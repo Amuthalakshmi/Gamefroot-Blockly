@@ -109,8 +109,18 @@ Blockly.Toolbox.prototype.init = function() {
   this.DragSvg = Blockly.createDom_();
   this.DragSvg.setAttribute('class', 'blocklyDragSvg');
   document.body.appendChild( this.DragSvg );
-
   this.DragSvg.style.position = 'absolute';
+
+  //Create a new workspace for the drag workspace
+
+  this.DragSvgWorkspace = new Blockly.WorkspaceSvg( {
+    getMetrics: Blockly.getMainWorkspaceMetrics_, 
+    setMetrics: function() {
+      return null;
+    }
+  } );
+  this.DragSvg.appendChild( this.DragSvgWorkspace.createDom() );
+
 
   // Clicking on toolbar closes popups.
   Blockly.bindEvent_(this.HtmlDiv, 'mousedown', this,

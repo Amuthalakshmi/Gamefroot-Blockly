@@ -320,6 +320,16 @@ Blockly.getSvgXY_ = function(element, workspace) {
     element = element.parentNode;
   //CUSTOM HACK: Any SVG support
   } while (element && element.nodeName.toUpperCase() != 'SVG' );
+
+  if( element && element.nodeName.toUpperCase() === 'SVG' ) {
+    if( element.parentNode && element.parentNode.className === 'blocklyToolboxDiv' ) {
+      var eBounding = element.getClientRects()[0];
+      var pBounding = element.parentNode.getClientRects()[0];
+
+      y += (eBounding.top - pBounding.top); 
+    }
+  }
+
   return new goog.math.Coordinate(x, y);
 };
 

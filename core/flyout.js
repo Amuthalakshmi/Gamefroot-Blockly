@@ -88,7 +88,7 @@ Blockly.Flyout = function(workspaceOptions) {
  * Does the flyout automatically close when a block is created?
  * @type {boolean}
  */
-Blockly.Flyout.prototype.autoClose = true;
+Blockly.Flyout.prototype.autoClose = false;
 
 /**
  * Corner radius of the flyout background.
@@ -628,6 +628,7 @@ Blockly.Flyout.prototype.createBlockFunc_ = function(originBlock) {
       // Beyond capacity.
       return;
     }
+
     // Create the new block by cloning the block in the flyout (via XML).
     var xml = Blockly.Xml.blockToDom_(originBlock);
     var block = Blockly.Xml.domToBlock(workspace, xml);
@@ -662,7 +663,7 @@ Blockly.Flyout.prototype.createBlockFunc_ = function(originBlock) {
       flyout.filterForCapacity_();
     }
     // Start a dragging operation on the new block.
-    block.onMouseDown_(e);
+    block.onMouseDown_( e );
   };
 };
 
