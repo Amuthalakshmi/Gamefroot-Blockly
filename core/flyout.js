@@ -271,7 +271,7 @@ Blockly.Flyout.prototype.position = function() {
   path.push('z');
   this.svgBackground_.setAttribute('d', path.join(' '));
 
-  var x = metrics.absoluteLeft;
+  var x = 0; //metrics.absoluteLeft;
   if (this.RTL) {
     x += metrics.viewWidth;
     x -= this.width_;

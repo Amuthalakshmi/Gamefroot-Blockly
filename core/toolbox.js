@@ -103,7 +103,14 @@ Blockly.Toolbox.prototype.init = function() {
   document.body.appendChild(this.HtmlDiv);
 
   // CUSTOM HACK: Create SVG 'flyout' 
-  this.Svg = Blockly.createDom_( this.HtmlDiv, { hasCss: false, RTL: false, pathToMedia:'', gridOptions:{length:0,spacing:0}} );
+  this.Svg = Blockly.createDom_();
+
+  //CUSTOM HACK: Create 'drag' HUD
+  this.DragSvg = Blockly.createDom_();
+  this.DragSvg.setAttribute('class', 'blocklyDragSvg');
+  document.body.appendChild( this.DragSvg );
+
+  this.DragSvg.style.position = 'absolute';
 
   // Clicking on toolbar closes popups.
   Blockly.bindEvent_(this.HtmlDiv, 'mousedown', this,
@@ -117,19 +124,24 @@ Blockly.Toolbox.prototype.init = function() {
         }
       });
 
+
   var workspaceOptions = {
     parentWorkspace: workspace,
     RTL: workspace.RTL,
-    svg: workspace.options.Svg
+    svg: this.Svg
   };
 
   /**
    * @type {!Blockly.Flyout}
    * @private
    */
-  this.flyout_ = new Blockly.Flyout(workspaceOptions);
-  goog.dom.insertSiblingAfter(this.flyout_.createDom(), workspace.svgGroup_);
-  this.flyout_.init(workspace);
+  this.flyout_ = new Blockly.Flyout( workspaceOptions );
+  //goog.dom.insertSiblingAfter( this.flyout_.createDom(), this.Svg );
+  
+  // CUSTOM HACK: 
+  this.Svg.appendChild( this.flyout_.createDom() );
+
+  this.flyout_.init( workspace );
 
   this.CONFIG_['cleardotPath'] = workspace.options.pathToMedia + '1x1.gif';
   this.CONFIG_['cssCollapsedFolderIcon'] =
@@ -144,7 +156,7 @@ Blockly.Toolbox.prototype.init = function() {
   this.populate_(workspace.options.languageTree);
   tree.render(this.HtmlDiv);
 
-  //Create custom svg
+  //CUSTOM HACK: Create custom svg
   this.HtmlDiv.appendChild( this.Svg );
   this.Svg.setAttribute('class', 'blocklyToolboxFlyout');
 
@@ -191,6 +203,13 @@ Blockly.Toolbox.prototype.position = function() {
     // For some reason the LTR toolbox now reports as 1px too wide.
     this.width -= 1;
   }
+
+
+  this.DragSvg.setAttribute('width', svg.getAttribute("width") );
+  this.DragSvg.setAttribute('height', svg.getAttribute("height") );
+  this.DragSvg.style.top = treeDiv.style.left;
+  this.DragSvg.style.left = treeDiv.style.top;
+
   this.flyout_.position();
 };
 

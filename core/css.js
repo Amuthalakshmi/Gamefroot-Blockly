@@ -817,6 +817,12 @@ Blockly.Css.CONTENT = [
   '.blocklyToolboxFlyout {',
     'outline: none;',
     'width: 100%;',
+    'height: 80%;',
+  '}',
+
+  '.blocklyDragSvg {',
+    'position: absolute;',
+    'z-index: -1;',
   '}',
 
 ];

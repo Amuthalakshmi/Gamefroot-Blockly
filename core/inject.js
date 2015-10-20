@@ -53,6 +53,7 @@ Blockly.inject = function(container, opt_options) {
   var startUi = function() {
     var svg = Blockly.createDom_(container, options);
     workspace = Blockly.createMainWorkspace_(svg, options);
+
     Blockly.init_(workspace);
     workspace.markFocused();
     Blockly.bindEvent_(svg, 'focus', workspace, workspace.markFocused);
@@ -260,10 +261,16 @@ Blockly.parseOptions_ = function(options) {
  * @private
  */
 Blockly.createDom_ = function(container, options) {
+
+  //CUSTOM HACK
+  if( !options ) {
+    options = { hasCss: false, RTL: false, pathToMedia:'', gridOptions:{length:0,spacing:0}};
+  }
+
   // Sadly browsers (Chrome vs Firefox) are currently inconsistent in laying
   // out content in RTL mode.  Therefore Blockly forces the use of LTR,
   // then manually positions content in RTL as needed.
-  container.setAttribute('dir', 'LTR');
+  if( container ) container.setAttribute('dir', 'LTR');
   // Closure can be trusted to create HTML widgets with the proper direction.
   goog.ui.Component.setDefaultRightToLeft(options.RTL);
 
@@ -378,6 +385,7 @@ Blockly.createMainWorkspace_ = function(svg, options) {
   options.parentWorkspace = null;
   options.getMetrics = Blockly.getMainWorkspaceMetrics_;
   options.setMetrics = Blockly.setMainWorkspaceMetrics_;
+
   var mainWorkspace = new Blockly.WorkspaceSvg(options);
   svg.appendChild(mainWorkspace.createDom('blocklyMainBackground'));
   mainWorkspace.markFocused();

@@ -318,7 +318,8 @@ Blockly.getSvgXY_ = function(element, workspace) {
     x += xy.x * scale;
     y += xy.y * scale;
     element = element.parentNode;
-  } while (element && element != workspace.options.svg);
+  //CUSTOM HACK: Any SVG support
+  } while (element && element.nodeName.toUpperCase() != 'SVG' );
   return new goog.math.Coordinate(x, y);
 };
 
