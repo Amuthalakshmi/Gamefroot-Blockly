@@ -144,7 +144,7 @@ Blockly.Trashcan.prototype.CIRCLE_COLOUR_ = '#333';
  * @type {string}
  * @private
  */
-Blockly.Trashcan.prototype.CIRCLE_HIGHLIGHT_ = '#1294f6';
+Blockly.Trashcan.prototype.CIRCLE_HIGHLIGHT_ = '#0091fa';
 
 
 /**
@@ -285,13 +285,14 @@ Blockly.Trashcan.prototype.setOpen_ = function(state) {
 Blockly.Trashcan.prototype.animateLid_ = function() {
   this.lidOpen_ += this.isOpen ? 0.2 : -0.2;
   this.lidOpen_ = goog.math.clamp(this.lidOpen_, 0, 1);
-  var lidAngle = this.lidOpen_ * 45;
+  var lidAngle = this.lidOpen_ * 15;
   this.svgLid_.setAttribute('transform', 'rotate(' +
       (this.workspace_.RTL ? -lidAngle : lidAngle) + ',' +
       (this.workspace_.RTL ? 4 : this.WIDTH_ - 4) + ',' +
       (this.LID_HEIGHT_ - 2) + ')');
-  var opacity = goog.math.lerp(0.4, 0.8, this.lidOpen_);
-  this.svgGroup_.style.opacity = opacity;
+
+  // var opacity = goog.math.lerp(0.4, 0.8, this.lidOpen_);
+  // this.svgGroup_.style.opacity = opacity;
 
   this.svgBackground_.style.fill = this.CIRCLE_HIGHLIGHT_;
 

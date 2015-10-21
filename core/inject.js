@@ -329,6 +329,20 @@ Blockly.createDom_ = function(container, options) {
       {'in': 'SourceGraphic', 'in2': 'specOut', 'operator': 'arithmetic',
        'k1': 0, 'k2': 1, 'k3': 1, 'k4': 0}, embossFilter);
   options.embossFilterId = embossFilter.id;
+
+  /*
+  *
+  */
+  var filter = Blockly.createSvgElement('filter',
+      {'id': 'blocklyTrashcanShadowFilter'}, defs);
+  Blockly.createSvgElement('feGaussianBlur',
+      {'in': 'SourceAlpha', 'stdDeviation': 2, 'result': 'blur'}, filter);
+  Blockly.createSvgElement('feOffset',
+      {'in': 'blur', 'dx': 0, 'dy': 1, 'result': 'offsetBlur'}, filter);
+  var feMerge = Blockly.createSvgElement('feMerge', {}, filter);
+  Blockly.createSvgElement('feMergeNode', {'in': 'offsetBlur'}, feMerge);
+  Blockly.createSvgElement('feMergeNode', {'in': 'SourceGraphic'}, feMerge);
+
   /*
     <pattern id="blocklyDisabledPattern837493" patternUnits="userSpaceOnUse"
              width="10" height="10">
