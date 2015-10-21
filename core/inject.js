@@ -262,15 +262,11 @@ Blockly.parseOptions_ = function(options) {
  */
 Blockly.createDom_ = function(container, options) {
 
-  //CUSTOM HACK
-  if( !options ) {
-    options = { hasCss: false, RTL: false, pathToMedia:'', gridOptions:{length:0,spacing:0}};
-  }
 
   // Sadly browsers (Chrome vs Firefox) are currently inconsistent in laying
   // out content in RTL mode.  Therefore Blockly forces the use of LTR,
   // then manually positions content in RTL as needed.
-  if( container ) container.setAttribute('dir', 'LTR');
+  container.setAttribute('dir', 'LTR');
   // Closure can be trusted to create HTML widgets with the proper direction.
   goog.ui.Component.setDefaultRightToLeft(options.RTL);
 
