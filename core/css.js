@@ -308,8 +308,8 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyFlyoutBackground {',
-    'fill: #ddd;',
-    'fill-opacity: .8;',
+    'fill: #f0f0f0;',
+    'fill-opacity: 1;',
   '}',
 
   '.blocklyScrollbarBackground {',
@@ -391,14 +391,15 @@ Blockly.Css.CONTENT = [
 
   /* Category tree in Toolbox. */
   '.blocklyToolboxDiv {',
-    'background-color: #ddd;',
+    'background-color: #f0f0f0;',
     'overflow-x: visible;',
     'overflow-y: auto;',
     'position: absolute;',
+    'width: 190px',
   '}',
 
   '.blocklyTreeRoot {',
-    'padding: 4px 0;',
+    'padding: 10px;',
   '}',
 
   '.blocklyTreeRoot:focus {',
@@ -406,10 +407,6 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyTreeRow {',
-    'height: 22px;',
-    'line-height: 22px;',
-    'margin-bottom: 3px;',
-    'padding-right: 8px;',
     'white-space: nowrap;',
   '}',
 
@@ -425,21 +422,6 @@ Blockly.Css.CONTENT = [
     'border-bottom: solid #e5e5e5 1px;',
     'height: 0px;',
     'margin: 5px 0;',
-  '}',
-
-  '.blocklyTreeIcon {',
-    'background-image: url(<<<PATH>>>/sprites.png);',
-    'height: 16px;',
-    'vertical-align: middle;',
-    'width: 16px;',
-  '}',
-
-  '.blocklyTreeIconClosedLtr {',
-    'background-position: -32px -1px;',
-  '}',
-
-  '.blocklyTreeIconClosedRtl {',
-    'background-position: 0px -1px;',
   '}',
 
   '.blocklyTreeIconOpen {',
@@ -465,9 +447,8 @@ Blockly.Css.CONTENT = [
 
   '.blocklyTreeLabel {',
     'cursor: default;',
-    'font-family: sans-serif;',
-    'font-size: 16px;',
-    'padding: 0 3px;',
+    'font-family: Roboto, sans-serif;',
+    'font-size: 14px;',
     'vertical-align: middle;',
   '}',
 
@@ -728,5 +709,96 @@ Blockly.Css.CONTENT = [
     'padding: 0;',
   '}',
 
-  ''
+  /**
+   *
+   * Custom CSS for gamefroot editor
+   * 
+   */
+
+  //Sexy buttons
+
+  '.blocklyHidden, .blocklyTreeRow.blocklyHidden {',
+    'display: none;',
+  '}', 
+
+  '.blocklyTreeRow {',
+    'display: block;',
+    'text-overflow: ellipsis;',
+    'overflow: hidden;',
+    'position: relative;',
+    'height: 33px;',
+    'line-height: 33px;',
+    'text-indent: 18px;',
+    'background-color: #fff;',
+    'border-radius: 3px;',
+    'box-shadow: 0 2px 5px rgba(0,0,0,0.2);',
+    'margin-bottom: 5px;',
+  '}',
+
+  '.blocklyTreeRow:before {',
+    'content: " ";',
+    'display: inline-block;',
+    'position: absolute;',
+    'top: 0;',
+    'left: 0;',
+    'width: 10px;',
+    'height: 100%;',
+    'float: left;',
+  '}',
+
+  //blocklyTreeSelected
+
+  '.blocklyTreeRow.events:before {',
+    'background-color: #edae00',
+  '}',
+  '.blocklyTreeRow.control:before {',
+    'background-color: #ff8601',
+  '}',
+  '.blocklyTreeRow.motion:before {',
+    'background-color: #e84a3f',
+  '}',
+  '.blocklyTreeRow.animation:before {',
+    'background-color: #df358e',
+  '}',
+  '.blocklyTreeRow.looks:before {',
+    'background-color: #b248c6',
+  '}',
+  '.blocklyTreeRow.sensing:before {',
+    'background-color: #851df0',
+  '}',
+  '.blocklyTreeRow.sound:before {',
+    'background-color: #0f6bf0',
+  '}',
+  '.blocklyTreeRow.operators:before {',
+    'background-color: #1daefd',
+  '}',
+  '.blocklyTreeRow.draw:before {',
+    'background-color: #35cf9d',
+  '}',
+  '.blocklyTreeRow.variables:before {',
+    'background-color: #358f38',
+  '}',
+  '.blocklyTreeRow.functions:before {',
+    'background-color: #6cce05',
+  '}',
+  '.blocklyTreeRow.favourites:before {',
+    'background-color: #7a7a7a',
+  '}',
+
+  //Dropdown Button
+
+  '.blocklyTreeRow {',
+    'border-left-color: white !important;',
+    'border-left-width: 0px !important;',
+    'padding-left: 0 !important;',
+  '}', 
+
+  'div[role="treeitem"] > div[role="group"] {',
+    'margin-left: 10px;',
+  '}',
+
+  '.blocklyFlyout {',
+    'max-width: 360px;',
+    'width: 100%;',
+  '}',
 ];

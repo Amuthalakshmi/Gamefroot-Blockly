@@ -80,22 +80,22 @@ Blockly.Flyout = function(workspaceOptions) {
    */
   this.listeners_ = [];
 
-  //HACK - FIX the broken mutators.
-  this.GAP = 10;
 };
+
+Blockly.Flyout.prototype.GAP = 10;
 
 /**
  * Does the flyout automatically close when a block is created?
  * @type {boolean}
  */
-Blockly.Flyout.prototype.autoClose = true;
+Blockly.Flyout.prototype.autoClose = false;
 
 /**
  * Corner radius of the flyout background.
  * @type {number}
  * @const
  */
-Blockly.Flyout.prototype.CORNER_RADIUS = 8;
+Blockly.Flyout.prototype.CORNER_RADIUS = 1;
 
 /**
  * Top/bottom padding between scrollbar and edge of flyout background.
@@ -103,6 +103,8 @@ Blockly.Flyout.prototype.CORNER_RADIUS = 8;
  * @const
  */
 Blockly.Flyout.prototype.SCROLLBAR_PADDING = 2;
+
+Blockly.Flyout.prototype.MARGIN = 5;
 
 /**
  * Width of flyout.
@@ -117,6 +119,7 @@ Blockly.Flyout.prototype.width_ = 0;
  * @private
  */
 Blockly.Flyout.prototype.height_ = 0;
+
 
 /**
  * Creates the flyout's DOM.  Only needs to be called once.
@@ -368,7 +371,7 @@ Blockly.Flyout.prototype.show = function(xmlList) {
   }
   this.buttons_.length = 0;
 
-  var margin = this.CORNER_RADIUS;
+  var margin = this.CORNER_RADIUS + this.MARGIN;
   this.svgGroup_.style.display = 'block';
 
   // Create the blocks to be shown in this flyout.

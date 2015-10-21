@@ -79,15 +79,15 @@ Blockly.Toolbox.prototype.lastCategory_ = null;
  * @private
  */
 Blockly.Toolbox.prototype.CONFIG_ = {
-  indentWidth: 19,
+  indentWidth: 0,
   cssRoot: 'blocklyTreeRoot',
   cssHideRoot: 'blocklyHidden',
   cssItem: '',
   cssTreeRow: 'blocklyTreeRow',
   cssItemLabel: 'blocklyTreeLabel',
   cssTreeIcon: 'blocklyTreeIcon',
-  cssExpandedFolderIcon: 'blocklyTreeIconOpen',
-  cssFileIcon: 'blocklyTreeIconNone',
+  cssExpandedFolderIcon: '',
+  cssFileIcon: '',
   cssSelectedRow: 'blocklyTreeSelected'
 };
 
