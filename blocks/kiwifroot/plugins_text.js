@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_text_create'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_CREATE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_TEXT_CREATE_MESSAGE_ONE )
         .appendField(new Blockly.FieldVariable('textfield'), 'VAR');
@@ -94,7 +94,7 @@ Blockly.Blocks['kiwi_text_create'] = {
 Blockly.Blocks['kiwi_text_numeric_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_NUMERIC_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_NUMERIC_SET_MESSAGE_ONE )
@@ -117,7 +117,7 @@ Blockly.Blocks['kiwi_text_numeric_set'] = {
 Blockly.Blocks['kiwi_text_colour_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_COLOUR_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_COLOUR_SET_MESSAGE_ONE );
@@ -134,7 +134,7 @@ Blockly.Blocks['kiwi_text_colour_set'] = {
 Blockly.Blocks['kiwi_text_text_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_TEXT_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_STRING );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_TEXT_SET_MESSAGE_ONE );
@@ -151,7 +151,7 @@ Blockly.Blocks['kiwi_text_text_set'] = {
 Blockly.Blocks['kiwi_text_alignment_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_ALIGNMENT_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_STRING );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_ALIGNMENT_SET_MESSAGE_ONE );
@@ -172,7 +172,7 @@ Blockly.Blocks['kiwi_text_alignment_set'] = {
 Blockly.Blocks['kiwi_text_weight_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_WEIGHT_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_STRING );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_WEIGHT_SET_MESSAGE_ONE );
@@ -202,7 +202,7 @@ Blockly.Blocks['kiwi_text_weight_set'] = {
 Blockly.Blocks['kiwi_text_family_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_FAMILY_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_STRING );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_FAMILY_SET_MESSAGE_ONE );
@@ -219,7 +219,7 @@ Blockly.Blocks['kiwi_text_family_set'] = {
 Blockly.Blocks['kiwi_text_font_presets'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_FONT_PRESETS_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_STRING );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown( [ 
           ["sans-serif", "sans-serif"], 
@@ -240,7 +240,7 @@ Blockly.Blocks['kiwi_text_font_presets'] = {
 Blockly.Blocks['kiwi_text_numeric_get'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_NUMERIC_GET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_NUMERIC_GET_MESSAGE_ONE )
@@ -259,7 +259,7 @@ Blockly.Blocks['kiwi_text_numeric_get'] = {
 Blockly.Blocks['kiwi_text_colour_get'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_COLOUR_GET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_COLOUR_GET_MESSAGE );
@@ -272,7 +272,7 @@ Blockly.Blocks['kiwi_text_colour_get'] = {
 Blockly.Blocks['kiwi_text_text_get'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_TEXT_TEXT_GET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_STRING );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_TEXT_TEXT_GET_MESSAGE );

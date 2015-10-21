@@ -137,3 +137,20 @@ Blockly.Kiwifroot['kiwi_primitives_get_colour'] = function(block) {
 
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
+Blockly.Kiwifroot['kiwi_primitives_create_polygon'] = function(block) {
+
+	var value_radius = Blockly.Kiwifroot.valueToCode( block, 'RADIUS', Blockly.Kiwifroot.ORDER_ATOMIC );
+	var value_edges = Blockly.Kiwifroot.valueToCode( block, 'NUM_EDGES', Blockly.Kiwifroot.ORDER_ATOMIC );
+	var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+
+	var code  = 'this.' + variable0 + ' = this.state.objects.create( {\n';
+		code += '\t"type": "ellipse",\n';
+		code += '\t"x": 0,\n';
+		code += '\t"y": 0,\n';
+		code += '\t"segments": ' + value_edges + ',\n';
+		code += '\t"radius": ' + value_radius + '\n';
+		code += '}, this.owner.parent, true);\n';
+  	
+  	return code;
+};

@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_intersects_instance_to_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INTERSECTS_OVERLAPS_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("INST_ONE")
         .setCheck("Instance");
     this.appendValueInput("INST_TWO")
@@ -47,7 +47,7 @@ Blockly.Blocks['kiwi_intersects_instance_to_instance'] = {
 Blockly.Blocks['kiwi_intersects_instance_to_xy'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INTERSECTS_CONTAINS_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("INST")
         .setCheck("Instance");
     this.appendValueInput("X_LOC")
@@ -56,7 +56,7 @@ Blockly.Blocks['kiwi_intersects_instance_to_xy'] = {
     this.appendValueInput("Y_LOC")
         .setCheck("Number");
     this.setInputsInline(true);
-    this.setOutput(true);
+    this.setOutput(true, "Boolean");
     this.setTooltip( Blockly.Msg.KF_INTERSECTS_CONTAINS_TOOLTIP );
   }
 };

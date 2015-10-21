@@ -36,7 +36,7 @@ Blockly.Blocks['controls_repeat'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.CONTROLS_REPEAT_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendDummyInput()
         .appendField(Blockly.Msg.CONTROLS_REPEAT_TITLE_REPEAT)
         .appendField(new Blockly.FieldTextInput('10',
@@ -67,7 +67,7 @@ Blockly.Blocks['controls_repeat_ext'] = {
       ],
       "previousStatement": null,
       "nextStatement": null,
-      "colour": Blockly.Blocks.STATEMENT_COLOUR,
+      "colour": Blockly.Variables.COLOUR.CONTROL,
       "tooltip": Blockly.Msg.CONTROLS_REPEAT_TOOLTIP,
       "helpUrl": Blockly.Msg.CONTROLS_REPEAT_HELPURL
     });
@@ -84,7 +84,7 @@ Blockly.Blocks['controls_whileUntil'] = {
         [[Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE, 'WHILE'],
          [Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL, 'UNTIL']];
     this.setHelpUrl(Blockly.Msg.CONTROLS_WHILEUNTIL_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
+    this.setColour(Blockly.Variables.COLOUR.CONTROL);
     this.appendValueInput('BOOL')
         .setCheck('Boolean')
         .appendField(new Blockly.FieldDropdown(OPERATORS), 'MODE');
@@ -141,7 +141,7 @@ Blockly.Blocks['controls_for'] = {
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
-      "colour": Blockly.Blocks.STATEMENT_COLOUR,
+      "colour": Blockly.Variables.COLOUR.CONTROL,
       "helpUrl": Blockly.Msg.CONTROLS_FOR_HELPURL
     });
   },
@@ -217,7 +217,7 @@ Blockly.Blocks['controls_forEach'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.CONTROLS_FOREACH_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
+    this.setColour(Blockly.Variables.COLOUR.CONTROL);
     this.appendValueInput('LIST')
         .setCheck('Array')
         .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_ITEM)
@@ -272,7 +272,7 @@ Blockly.Blocks['controls_flow_statements'] = {
         [[Blockly.Msg.CONTROLS_FLOW_STATEMENTS_OPERATOR_BREAK, 'BREAK'],
          [Blockly.Msg.CONTROLS_FLOW_STATEMENTS_OPERATOR_CONTINUE, 'CONTINUE']];
     this.setHelpUrl(Blockly.Msg.CONTROLS_FLOW_STATEMENTS_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
+    this.setColour(Blockly.Variables.COLOUR.CONTROL);
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown(OPERATORS), 'FLOW');
     this.setPreviousStatement(true);

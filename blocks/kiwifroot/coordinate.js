@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_coordinate_create'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_COORDINATE_CREATE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_COORDINATE );
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
 
     this.appendValueInput("X")
         .setCheck("Number")
@@ -49,7 +49,7 @@ Blockly.Blocks['kiwi_coordinate_create'] = {
 Blockly.Blocks['kiwi_coordinate_get'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_COORDINATE_GET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
 
     this.appendValueInput("COORDINATE")
         .setCheck("Coordinate")
@@ -70,7 +70,7 @@ Blockly.Blocks['kiwi_coordinate_get'] = {
 Blockly.Blocks['kiwi_coordinate_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_COORDINATE_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_COORDINATE );
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
 
     this.appendValueInput("COORDINATE")
         .setCheck("Coordinate")

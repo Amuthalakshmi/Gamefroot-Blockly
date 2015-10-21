@@ -1997,6 +1997,19 @@ Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_MESSAGE = 'get colour of shape';
 /// tooltip -
 Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_TOOLTIP = 'Returns the colour of a shape passed.';
 
+// helpurl - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_ONE = 'create new';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_TWO = 'with a radius of';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_THREE = ' and ';
+/// message - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_FOUR = ' edges';
+/// tooltip - 
+Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_TOOLTIP = 'Creates a new polygon.';
+
 /// helpurl - 
 Blockly.Msg.KF_TEXT_CREATE_HELPURL = '';
 /// message - 

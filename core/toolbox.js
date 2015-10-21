@@ -208,12 +208,15 @@ Blockly.Toolbox.prototype.populate_ = function(newTree) {
           childOut.blocks = [];
           treeOut.add(childOut);
           var custom = childIn.getAttribute('custom');
+
+          //HACK: To support adding blocks to custom categories
+          syncTrees(childIn, childOut);
+
           if (custom) {
             // Variables and procedures are special dynamic categories.
-            childOut.blocks = custom;
-          } else {
-            syncTrees(childIn, childOut);
+            childOut.blocks.push( custom );
           }
+
           var hue = childIn.getAttribute('colour');
           if (goog.isString(hue)) {
             //HACK

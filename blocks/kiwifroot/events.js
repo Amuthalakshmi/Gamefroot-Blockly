@@ -33,7 +33,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_event_create'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_CREATE_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
     	.appendField(Blockly.Msg.KF_EVENT_CREATE_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_CREATE_TOOLTIP);
@@ -44,7 +44,7 @@ Blockly.Blocks['kiwi_event_create'] = {
 Blockly.Blocks['kiwi_event_remove'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_REMOVE_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_REMOVE_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_REMOVE_TOOLTIP);
@@ -55,7 +55,7 @@ Blockly.Blocks['kiwi_event_remove'] = {
 Blockly.Blocks['kiwi_event_constantly'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_CONSTANTLY_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_CONSTANTLY_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_CONSTANTLY_TOOLTIP);
@@ -68,7 +68,7 @@ Blockly.Blocks['kiwi_event_constantly'] = {
 Blockly.Blocks['kiwi_event_stage_input'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_STAGE_INPUT_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_EVENT_STAGE_INPUT_MESSAGE)
         .appendField(new Blockly.FieldDropdown([
@@ -85,7 +85,7 @@ Blockly.Blocks['kiwi_event_stage_input'] = {
 Blockly.Blocks['kiwi_event_inst_input'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INST_INPUT_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_INST_INPUT_MESSAGE)
         .appendField(new Blockly.FieldDropdown([
@@ -104,7 +104,7 @@ Blockly.Blocks['kiwi_event_inst_input'] = {
 Blockly.Blocks['kiwi_event_key_input'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_KEY_INPUT_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_KEY_INPUT_MESSAGE)
         .appendField(new Blockly.FieldDropdown([
@@ -124,7 +124,7 @@ Blockly.Blocks['kiwi_event_key_input'] = {
 Blockly.Blocks['kiwi_event_time'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_TIME_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE );
     this.appendValueInput("MILLISECOND")
@@ -141,7 +141,7 @@ Blockly.Blocks['kiwi_event_time'] = {
 Blockly.Blocks['kiwi_event_time_single'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_TIME_SINGLE_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_BEFORE );
     this.appendValueInput("MILLISECOND")
@@ -159,7 +159,7 @@ Blockly.Blocks['kiwi_event_time_single'] = {
 Blockly.Blocks['kiwi_event_message'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_MESSAGE_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
       .appendField( Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_BEFORE );
     this.appendValueInput( "MESSAGE" )
@@ -175,7 +175,7 @@ Blockly.Blocks['kiwi_event_message'] = {
 Blockly.Blocks['kiwi_event_animation'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_ANIMATION_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput("ANIM")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE );
@@ -197,7 +197,7 @@ Blockly.Blocks['kiwi_event_animation'] = {
 Blockly.Blocks['kiwi_event_touch_on'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_ON_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_EVENT_TOUCH_ON_MESSAGE );
@@ -212,7 +212,7 @@ Blockly.Blocks['kiwi_event_touch_on'] = {
 Blockly.Blocks['kiwi_event_level_start'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_LEVEL_START_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_EVENT_LEVEL_START_MESSAGE)
         .appendField(new Blockly.FieldDropdown([
@@ -229,7 +229,7 @@ Blockly.Blocks['kiwi_event_level_start'] = {
 Blockly.Blocks['kiwi_event_touch_return_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_EVENT_TOUCH_RETURN_MESSAGE )
         .appendField(new Blockly.FieldVariable('instance'), 'VAR');
@@ -286,7 +286,7 @@ Blockly.Blocks['kiwi_event_touch_return_instance'] = {
 Blockly.Blocks['kiwi_event_stage_touched'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_MESSAGE )
         .appendField(new Blockly.FieldDropdown( [ 
@@ -347,7 +347,7 @@ Blockly.Blocks['kiwi_event_stage_touched'] = {
 Blockly.Blocks['kiwi_event_message_value'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_HELPURL );
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput("MESSAGE")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_ONE );
@@ -386,7 +386,7 @@ Blockly.Blocks['kiwi_event_instance_properties_set'] = {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_HELPURL );
     this.setTooltip(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_TOOLTIP );
     this.setInputsInline(true);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput('PROP_NAME')
         .setCheck("String")
         .appendField(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_ONE );
@@ -400,7 +400,7 @@ Blockly.Blocks['kiwi_event_instance_properties_set'] = {
 Blockly.Blocks['kiwi_event_pre_constantly'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_TOOLTIP);
@@ -411,7 +411,7 @@ Blockly.Blocks['kiwi_event_pre_constantly'] = {
 Blockly.Blocks['kiwi_event_post_constantly'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_POST_CONSTANTLY_HELPURL);
-    this.setColour( Blockly.Blocks.CALLABLE_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
       .appendField(Blockly.Msg.KF_EVENT_POST_CONSTANTLY_MESSAGE);
     this.setTooltip(Blockly.Msg.KF_EVENT_POST_CONSTANTLY_TOOLTIP);

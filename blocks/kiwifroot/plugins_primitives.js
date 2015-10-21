@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_primitives_create_rectangle'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_MESSAGE_BEFORE )
         .appendField(new Blockly.FieldVariable('rectangle'), 'VAR');
@@ -96,7 +96,7 @@ Blockly.Blocks['kiwi_primitives_create_rectangle'] = {
 Blockly.Blocks['kiwi_primitives_create_circle'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_MESSAGE_BEFORE )
         .appendField(new Blockly.FieldVariable('circle'), 'VAR');
@@ -158,7 +158,7 @@ Blockly.Blocks['kiwi_primitives_create_circle'] = {
 Blockly.Blocks['kiwi_primitives_create_line'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_MESSAGE_ONE)
         .appendField(new Blockly.FieldVariable('line'), 'VAR');
@@ -225,7 +225,7 @@ Blockly.Blocks['kiwi_primitives_create_line'] = {
 Blockly.Blocks['kiwi_primitives_create_star'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_ONE)
         .appendField(new Blockly.FieldVariable('star'), 'VAR');
@@ -292,7 +292,7 @@ Blockly.Blocks['kiwi_primitives_create_star'] = {
 Blockly.Blocks['kiwi_primitives_change_colour'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_MESSAGE_ONE );
@@ -309,12 +309,80 @@ Blockly.Blocks['kiwi_primitives_change_colour'] = {
 Blockly.Blocks['kiwi_primitives_get_colour'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_MESSAGE );
     this.setOutput(true, 'Colour');
     this.setInputsInline(true);
     this.setTooltip( Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_primitives_create_polygon'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_ONE )
+        .appendField(new Blockly.FieldVariable('polygon'), 'VAR');
+    this.appendValueInput("RADIUS")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_TWO );
+    this.appendValueInput("NUM_EDGES")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_THREE );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_FOUR )
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_TOOLTIP );
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Iterator is always a number type, return this.
+   * @return {string}
+   * @this Blockly.Block
+   */
+  typeOf: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return Blockly.Variables.TYPE_INSTANCE;
+    }
+    else return undefined;
+  },
+  /**
+   * Notfication that the workspace wants to change this variables type.
+   * We can not change type! This is immutable.
+   * @this Blockly.Block
+   */
+  changeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      setTimeout(function(){
+        // This type is immutable, change it back!
+        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+          Blockly.mainWorkspace);
+      },1);
+    }
+  },
+  /**
+   * Notification that a variable is renaming.
+   * If the name matches one of this block's variables, rename it.
+   * @param {string} oldName Previous name of variable.
+   * @param {string} newName Renamed variable.
+   * @this Blockly.Block
+   */
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
   }
 };

@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_key_special'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_KEY_SPECIAL_HELPURL);
-    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendDummyInput()
         .appendField("key:")
         .appendField(new Blockly.FieldDropdown([
@@ -58,7 +58,7 @@ Blockly.Blocks['kiwi_key_special'] = {
 Blockly.Blocks['kiwi_input_mouse'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_INPUT_MOUSE_HELPURL);
-    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
             ["x position", "x"]
@@ -74,7 +74,7 @@ Blockly.Blocks['kiwi_input_mouse'] = {
 Blockly.Blocks['kiwi_input_fingers'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGERS_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_ARRAY );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_INPUT_FINGERS_MESSAGE );
     this.setOutput(true, "Array");
@@ -85,7 +85,7 @@ Blockly.Blocks['kiwi_input_fingers'] = {
 Blockly.Blocks['kiwi_input_finger_select'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_SELECT_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_POINTER );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_INPUT_FINGER_SELECT_MESSAGE )
         .appendField(new Blockly.FieldDropdown([
@@ -109,7 +109,7 @@ Blockly.Blocks['kiwi_input_finger_select'] = {
 Blockly.Blocks['kiwi_input_finger_get_coords'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
             ["x", "x"], 
@@ -131,7 +131,7 @@ Blockly.Blocks['kiwi_input_finger_get_coords'] = {
 Blockly.Blocks['kiwi_input_finger_get_bool'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("POINTER")
         .setCheck("Pointer");
     this.appendDummyInput()
@@ -150,7 +150,7 @@ Blockly.Blocks['kiwi_input_finger_get_bool'] = {
 Blockly.Blocks['kiwi_input_finger_get_times'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendDummyInput()
         .appendField( new Blockly.FieldDropdown([
             ["duration", "duration"], 
@@ -170,7 +170,7 @@ Blockly.Blocks['kiwi_input_finger_get_times'] = {
 Blockly.Blocks['kiwi_input_finger_latest'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INPUT_FINGER_LATEST_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_POINTER );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_INPUT_FINGER_LATEST_MESSAGE );
     this.setInputsInline(true);

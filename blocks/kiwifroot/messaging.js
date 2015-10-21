@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_messaging_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MESSAGING_INSTANCE_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput("MESSAGE")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_MESSAGING_INSTANCE_MESSAGE_BEFORE );
@@ -50,7 +50,7 @@ Blockly.Blocks['kiwi_messaging_instance'] = {
 Blockly.Blocks['kiwi_messaging_list'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MESSAGING_LIST_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput("MESSAGE")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_MESSAGING_LIST_MESSAGE_BEFORE );
@@ -67,7 +67,7 @@ Blockly.Blocks['kiwi_messaging_list'] = {
 Blockly.Blocks['kiwi_messaging_everyone'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MESSAGING_EVERYONE_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput( "MESSAGE" )
         .setCheck("String")
         .appendField( Blockly.Msg.KF_MESSAGING_EVERYONE_MESSAGE );
@@ -81,7 +81,7 @@ Blockly.Blocks['kiwi_messaging_everyone'] = {
 Blockly.Blocks['kiwi_messaging_everyone_value'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput("MESSAGE")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_MESSAGE_ONE );
@@ -97,7 +97,7 @@ Blockly.Blocks['kiwi_messaging_everyone_value'] = {
 Blockly.Blocks['kiwi_messaging_instance_value'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput("MESSAGE")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_ONE );

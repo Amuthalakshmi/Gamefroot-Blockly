@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_math_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MATH_INSTANCE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER  );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("INST_ONE")
         .setCheck("Instance")
         .appendField(new Blockly.FieldDropdown( [ 
@@ -52,7 +52,7 @@ Blockly.Blocks['kiwi_math_instance'] = {
 Blockly.Blocks['kiwi_math_xy_to_xy'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MATH_XY_TO_XY_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER  );
+    this.setColour( Blockly.Variables.COLOUR.SENSING  );
     this.appendValueInput("X_LOC_ONE")
         .setCheck("Number")
         .appendField(new Blockly.FieldDropdown( [ 
@@ -76,7 +76,7 @@ Blockly.Blocks['kiwi_math_xy_to_xy'] = {
 Blockly.Blocks['kiwi_math_utils'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MATH_UTILS_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER  );
+    this.setColour( Blockly.Variables.COLOUR.OPERATORS  );
     this.appendValueInput("INPUT")
         .setCheck("Number")
         .appendField(new Blockly.FieldDropdown([["normalize angle", "normalizeAngle"], ["radians to degrees ", "radiansToDegrees "], ["degrees to radians ", "degreesToRadians "]]), "METHOD");
@@ -89,7 +89,7 @@ Blockly.Blocks['kiwi_math_utils'] = {
 Blockly.Blocks['kiwi_math_lerp'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_MATH_LERP_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_NUMBER  );
+    this.setColour( Blockly.Variables.COLOUR.SENSING  );
     this.appendValueInput("VALUE_A")
         .setCheck("Number")
         .appendField( Blockly.Msg.KF_MATH_LERP_MESSAGE_ONE );

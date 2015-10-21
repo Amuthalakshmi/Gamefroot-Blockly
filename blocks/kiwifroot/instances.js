@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_instance_self'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SELF_HELPURL);
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendDummyInput()
         .appendField(Blockly.Msg.KF_INSTANCE_SELF_MESSAGE);
     this.setInputsInline(true);
@@ -44,7 +44,7 @@ Blockly.Blocks['kiwi_instance_self'] = {
 Blockly.Blocks['kiwi_instance_set'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SET_HELPURL);
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
     this.appendDummyInput()
     	.appendField("set")
         .appendField(new Blockly.FieldDropdown([
@@ -76,7 +76,7 @@ Blockly.Blocks['kiwi_instance_set'] = {
 Blockly.Blocks['kiwi_instance_get'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
-    this.setColour( Blockly.Variables.COLOUR_NUMBER );
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
             ["x position","x"]
@@ -102,7 +102,7 @@ Blockly.Blocks['kiwi_instance_get'] = {
 Blockly.Blocks['kiwi_instance_get_visible'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE );;
@@ -115,7 +115,7 @@ Blockly.Blocks['kiwi_instance_get_visible'] = {
 Blockly.Blocks['kiwi_instance_set_visible'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_SET_VISIBLE_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_BEFORE );
@@ -132,7 +132,7 @@ Blockly.Blocks['kiwi_instance_set_visible'] = {
 Blockly.Blocks['kiwi_instance_death'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_DEATH_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_INSTANCE_DEATH_MESSAGE );
@@ -146,7 +146,7 @@ Blockly.Blocks['kiwi_instance_death'] = {
 Blockly.Blocks['kiwi_instance_tag_management'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_ADD_TAG_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("TAG")
         .setCheck("String")
         .appendField( new Blockly.FieldDropdown([ 
@@ -167,7 +167,7 @@ Blockly.Blocks['kiwi_instance_tag_management'] = {
 Blockly.Blocks['kiwi_instance_has_tags'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_HAS_TAG_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_BOOLEAN );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("INSTANCE")
         .setCheck("Instance");
     this.appendValueInput("TAG")
@@ -182,7 +182,7 @@ Blockly.Blocks['kiwi_instance_has_tags'] = {
 Blockly.Blocks['kiwi_instance_get_by_tag'] = {
     init: function() {
         this.setHelpUrl( Blockly.Msg.KF_INSTANCE_GET_BY_TAG_HELPURL );
-        this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+        this.setColour( Blockly.Variables.COLOUR.SENSING );
         this.appendValueInput("TAG")
             .setCheck("String")
             .appendField(new Blockly.FieldDropdown( [
@@ -199,7 +199,7 @@ Blockly.Blocks['kiwi_instance_get_by_tag'] = {
 Blockly.Blocks['kiwi_instance_get_all_by_tag'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_ARRAY );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("TAG")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_MESSAGE );
@@ -212,7 +212,7 @@ Blockly.Blocks['kiwi_instance_get_all_by_tag'] = {
 Blockly.Blocks['kiwi_instance_move'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_MOVE_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("INST_ONE")
         .setCheck("Instance");
     this.appendValueInput("INST_TWO")
@@ -234,7 +234,7 @@ Blockly.Blocks['kiwi_instance_move'] = {
 Blockly.Blocks['kiwi_instance_execute'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_INSTANCE_EXECUTE_HELPURL);
-    this.setColour(Blockly.Blocks.STATEMENT_COLOUR);
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendValueInput("TEXT")
         .appendField( Blockly.Msg.KF_INSTANCE_EXECUTE_MESSAGE );
     this.setPreviousStatement(true);
@@ -249,7 +249,7 @@ Blockly.Blocks['kiwi_instance_properties_set'] = {
   init: function() {
 
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_HELPURL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.VARIABLES );
 
     this.appendValueInput("PROP_NAME")
         .setCheck("String")
@@ -270,6 +270,7 @@ Blockly.Blocks['kiwi_instance_properties_get'] = {
   init: function() {
 
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.VARIABLES );
 
     this.appendValueInput("PROP_NAME")
         .setCheck("String")

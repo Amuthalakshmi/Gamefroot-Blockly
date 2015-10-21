@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_classes_instance_type'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_INSTANCE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_CLASS );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_CLASSES_INSTANCE_MESSAGE );
@@ -45,7 +45,7 @@ Blockly.Blocks['kiwi_classes_instance_type'] = {
 Blockly.Blocks['kiwi_classes_get_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_GET_INSTANCE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("CLASS")
         .setCheck("Class")
         .appendField(new Blockly.FieldDropdown( [ 
@@ -63,7 +63,7 @@ Blockly.Blocks['kiwi_classes_get_instance'] = {
 Blockly.Blocks['kiwi_classes_get_all_instances'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_GET_ALL_INSTANCES_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_ARRAY );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("CLASS")
         .setCheck("Class")
         .appendField( Blockly.Msg.KF_CLASSES_GET_ALL_INSTANCES_MESSAGE );
@@ -77,7 +77,7 @@ Blockly.Blocks['kiwi_classes_get_all_instances'] = {
 Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_INSTANCE );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_BEFORE )
         .appendField(new Blockly.FieldVariable('instance'), 'VAR');
@@ -139,7 +139,7 @@ Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
 Blockly.Blocks['kiwi_classes_get_by_text'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR_CLASS );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
     this.appendValueInput("TEXT")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_MESSAGE );

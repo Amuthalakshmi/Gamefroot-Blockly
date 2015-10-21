@@ -143,6 +143,25 @@ Blockly.Variables.COLOUR_POINTER = '#ea8847';
 */
 Blockly.Variables.COLOUR_COORDINATE = '#388e3c';
 
+/*
+ * New Colour Blocks....
+ * Based on the category a block is in now.
+ */
+Blockly.Variables.COLOUR = {
+  'EVENT': "#edae00",
+  'CONTROL': "#ff8601",
+  'MOTION': "#e54e43",
+  'ANIMATION': "#df358e",
+  'LOOKS': "#b443c9",
+  'SENSING': "#8121e7",
+  'SOUND': "#0f6bf0",
+  'OPERATORS': "#21aefe",
+  'PHYSICS': "#e66b2f",
+  'DRAW': "#38ce9e",
+  'VARIABLES': "#348f32",
+  'FUNCTIONS': "#6bd101"
+};
+
 /**
  * Category to separate variable names from procedures and generated functions.
  */

@@ -37,7 +37,7 @@ Blockly.Blocks['procedures_defnoreturn'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.PROCEDURES_DEFNORETURN_HELPURL);
-    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
+    this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     var nameField = new Blockly.FieldTextInput(
         Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE,
         Blockly.Procedures.rename);
@@ -362,7 +362,7 @@ Blockly.Blocks['procedures_defreturn'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.PROCEDURES_DEFRETURN_HELPURL);
-    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
+    this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     var nameField = new Blockly.FieldTextInput(
         Blockly.Msg.PROCEDURES_DEFRETURN_PROCEDURE,
         Blockly.Procedures.rename);
@@ -413,7 +413,7 @@ Blockly.Blocks['procedures_mutatorcontainer'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
+    this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     this.appendDummyInput()
         .appendField(Blockly.Msg.PROCEDURES_MUTATORCONTAINER_TITLE);
     this.appendStatementInput('STACK');
@@ -462,7 +462,7 @@ Blockly.Blocks['procedures_callnoreturn'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLNORETURN_HELPURL);
-    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
+    this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     this.appendDummyInput('TOPROW')
         .appendField(Blockly.Msg.PROCEDURES_CALLNORETURN_CALL)
         .appendField('', 'NAME');
@@ -724,7 +724,7 @@ Blockly.Blocks['procedures_callreturn'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLRETURN_HELPURL);
-    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
+    this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     this.appendDummyInput('TOPROW')
         .appendField(Blockly.Msg.PROCEDURES_CALLRETURN_CALL)
         .appendField('', 'NAME');
@@ -754,7 +754,7 @@ Blockly.Blocks['procedures_ifreturn'] = {
    */
   init: function() {
     this.setHelpUrl('http://c2.com/cgi/wiki?GuardClause');
-    this.setColour(Blockly.Blocks.CALLABLE_COLOUR);
+    this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     this.appendValueInput('CONDITION')
         .setCheck('Boolean')
         .appendField(Blockly.Msg.CONTROLS_IF_MSG_IF);

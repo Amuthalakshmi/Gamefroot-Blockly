@@ -34,7 +34,7 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks['kiwi_log'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_LOG_URL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendValueInput("LOG")
         .appendField(Blockly.Msg.KF_LOG_MSG);
 
@@ -49,7 +49,7 @@ Blockly.Blocks['kiwi_log'] = {
 Blockly.Blocks['kiwi_set_debug_mode'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_SET_DEBUG_MODE_URL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendValueInput("SET_DEBUG")
         .setCheck('Boolean')
         .appendField( Blockly.Msg.KF_SET_DEBUG_MODE_MESSAGE );
@@ -64,7 +64,7 @@ Blockly.Blocks['kiwi_set_debug_mode'] = {
 Blockly.Blocks['kiwi_get_debug_mode'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_GET_DEBUG_MODE_URL );
-    this.setColour( Blockly.Blocks.STATEMENT_COLOUR );
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_GET_DEBUG_MODE_MESSAGE );
 
