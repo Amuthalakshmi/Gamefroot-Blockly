@@ -308,8 +308,8 @@ Blockly.Css.CONTENT = [
   '}',
 
   '.blocklyFlyoutBackground {',
-    'fill: transparent;',
-    'fill-opacity: 0;',
+    'fill: #f0f0f0;',
+    'fill-opacity: 1;',
   '}',
 
   '.blocklyScrollbarBackground {',
@@ -395,11 +395,11 @@ Blockly.Css.CONTENT = [
     'overflow-x: visible;',
     'overflow-y: auto;',
     'position: absolute;',
-    'width: 360px',
+    'width: 190px',
   '}',
 
   '.blocklyTreeRoot {',
-    'padding: 4px 0;',
+    'padding: 10px;',
   '}',
 
   '.blocklyTreeRoot:focus {',
@@ -714,39 +714,25 @@ Blockly.Css.CONTENT = [
    * Custom CSS for gamefroot editor
    * 
    */
-  '.blocklyTreeRoot > div > div {',
-    'width: 30%;',
-    'display: inline-block;',
-    'margin-left: 2.5%;',
-    'position: relative;',
-  '}',
 
   //Sexy buttons
 
-  '.blocklyTreeRoot > div > div > .blocklyTreeRow {',
-    'width: 100%;',
+  '.blocklyHidden, .blocklyTreeRow.blocklyHidden {',
+    'display: none;',
+  '}', 
+
+  '.blocklyTreeRow {',
     'display: block;',
     'text-overflow: ellipsis;',
     'overflow: hidden;',
     'position: relative;',
     'height: 33px;',
     'line-height: 33px;',
-    'text-indent: 18px;',
+    'text-indent: 10px;',
     'background-color: #fff;',
     'border-radius: 3px;',
     'box-shadow: 0 2px 5px rgba(0,0,0,0.2);',
     'margin-bottom: 5px;',
-  '}',
-
-  '.blocklyTreeRoot > div > div > .blocklyTreeRow:before {',
-    'content: " ";',
-    'display: inline-block;',
-    'position: absolute;',
-    'top: 0;',
-    'left: 0;',
-    'width: 10px;',
-    'height: 100%;',
-    'float: left;',
   '}',
 
   //blocklyTreeSelected
@@ -790,39 +776,16 @@ Blockly.Css.CONTENT = [
 
   //Dropdown Button
 
-  '.blocklyTreeRoot div[role="treeitem"] div[role="group"] {',
-    'position: absolute;',
-    'top: 100%;',
-    'left: 0;',
-    'z-index: 100;',
-    'width: 100%;',
-    'margin-top: -5px;',
-    'background-color: white;',
-  '}',
-
-  '.blocklyTreeRoot div[role="treeitem"] div[role="group"] .blocklyTreeRow {',
-    'padding: 5px !important',
-  '}',
-
   '.blocklyTreeRow {',
-    'border-left-color: white !important;',
-    'border-left-width: 0px !important;',
+    'padding-left: 0 !important;',
   '}', 
+
+  'div[role="treeitem"] > div[role="group"] {',
+    'margin-left: 10px;',
+  '}',
 
   '.blocklyFlyout {',
     'max-width: 360px;',
     'width: 100%;',
   '}',
-
-  '.blocklyToolboxFlyout {',
-    'outline: none;',
-    'width: 100%;',
-    'height: 80%;',
-  '}',
-
-  '.blocklyDragSvg {',
-    'position: absolute;',
-    'z-index: -1;',
-  '}',
-
 ];

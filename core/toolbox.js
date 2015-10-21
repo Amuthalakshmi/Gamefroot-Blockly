@@ -79,15 +79,15 @@ Blockly.Toolbox.prototype.lastCategory_ = null;
  * @private
  */
 Blockly.Toolbox.prototype.CONFIG_ = {
-  indentWidth: 19,
+  indentWidth: 0,
   cssRoot: 'blocklyTreeRoot',
   cssHideRoot: 'blocklyHidden',
   cssItem: '',
   cssTreeRow: 'blocklyTreeRow',
   cssItemLabel: 'blocklyTreeLabel',
   cssTreeIcon: 'blocklyTreeIcon',
-  cssExpandedFolderIcon: 'blocklyTreeIconOpen',
-  cssFileIcon: 'blocklyTreeIconNone',
+  cssExpandedFolderIcon: '',
+  cssFileIcon: '',
   cssSelectedRow: 'blocklyTreeSelected'
 };
 
@@ -102,27 +102,6 @@ Blockly.Toolbox.prototype.init = function() {
   this.HtmlDiv.setAttribute('dir', workspace.RTL ? 'RTL' : 'LTR');
   document.body.appendChild(this.HtmlDiv);
 
-  // CUSTOM HACK: Create SVG 'flyout' 
-  this.Svg = Blockly.createDom_();
-
-  //CUSTOM HACK: Create 'drag' HUD
-  this.DragSvg = Blockly.createDom_();
-  this.DragSvg.setAttribute('class', 'blocklyDragSvg');
-  document.body.appendChild( this.DragSvg );
-  this.DragSvg.style.position = 'absolute';
-
-  //Create a new workspace for the drag workspace
-
-  this.DragSvgWorkspace = new Blockly.WorkspaceSvg( {
-    getMetrics: Blockly.getMainWorkspaceMetrics_.bind( Blockly.mainWorkspace ), 
-    setMetrics: function() {
-      return null;
-    },
-    svg: this.DragSvg
-  } );
-  this.DragSvg.appendChild( this.DragSvgWorkspace.createDom() );
-
-
   // Clicking on toolbar closes popups.
   Blockly.bindEvent_(this.HtmlDiv, 'mousedown', this,
       function(e) {
@@ -134,43 +113,33 @@ Blockly.Toolbox.prototype.init = function() {
           Blockly.hideChaff(true);
         }
       });
-
-
   var workspaceOptions = {
-    parentWorkspace: this.DragSvgWorkspace || workspace,
+    parentWorkspace: workspace,
     RTL: workspace.RTL,
-    svg: this.Svg
+    svg: workspace.options.svg
   };
-
   /**
    * @type {!Blockly.Flyout}
    * @private
    */
-  this.flyout_ = new Blockly.Flyout( workspaceOptions, this );
-  //goog.dom.insertSiblingAfter( this.flyout_.createDom(), this.Svg );
-  
-  // CUSTOM HACK: 
-  this.Svg.appendChild( this.flyout_.createDom() );
-
-  this.flyout_.init( this.DragSvgWorkspace, workspace );
+  this.flyout_ = new Blockly.Flyout(workspaceOptions);
+  goog.dom.insertSiblingAfter(this.flyout_.createDom(), workspace.svgGroup_);
+  this.flyout_.init(workspace);
 
   this.CONFIG_['cleardotPath'] = workspace.options.pathToMedia + '1x1.gif';
   this.CONFIG_['cssCollapsedFolderIcon'] =
       'blocklyTreeIconClosed' + (workspace.RTL ? 'Rtl' : 'Ltr');
   var tree = new Blockly.Toolbox.TreeControl(this, this.CONFIG_);
+
   this.tree_ = tree;
   tree.setShowRootNode(false);
   tree.setShowLines(false);
   tree.setShowExpandIcons(false);
   tree.setSelectedItem(null);
-  this.hasColours_ = false;
   this.populate_(workspace.options.languageTree);
   tree.render(this.HtmlDiv);
 
-  //CUSTOM HACK: Create custom svg
-  this.HtmlDiv.appendChild( this.Svg );
-  this.Svg.setAttribute('class', 'blocklyToolboxFlyout');
-
+  this.hasColours_ = true;
   if (this.hasColours_) {
     this.addColour_(tree);
   }
@@ -214,13 +183,6 @@ Blockly.Toolbox.prototype.position = function() {
     // For some reason the LTR toolbox now reports as 1px too wide.
     this.width -= 1;
   }
-
-
-  this.DragSvg.setAttribute('width', svg.getAttribute("width") );
-  this.DragSvg.setAttribute('height', svg.getAttribute("height") );
-  this.DragSvg.style.top = treeDiv.style.left;
-  this.DragSvg.style.left = treeDiv.style.top;
-
   this.flyout_.position();
 };
 
@@ -233,16 +195,13 @@ Blockly.Toolbox.prototype.populate_ = function(newTree) {
   var rootOut = this.tree_;
   rootOut.removeChildren();  // Delete any existing content.
   rootOut.blocks = [];
-
   var hasColours = false;
-
   function syncTrees(treeIn, treeOut) {
     for (var i = 0, childIn; childIn = treeIn.childNodes[i]; i++) {
       if (!childIn.tagName) {
         // Skip over text.
         continue;
       }
-      
       switch (childIn.tagName.toUpperCase()) {
         case 'CATEGORY':
           var childOut = rootOut.createNode(childIn.getAttribute('name'));
@@ -257,6 +216,7 @@ Blockly.Toolbox.prototype.populate_ = function(newTree) {
           }
           var hue = childIn.getAttribute('colour');
           if (goog.isString(hue)) {
+            //HACK
             childOut.hexColour = Blockly.makeColour(hue);
             hasColours = true;
           } else {
@@ -299,7 +259,7 @@ Blockly.Toolbox.prototype.addColour_ = function(tree) {
   for (var i = 0, child; child = children[i]; i++) {
     var element = child.getRowElement();
     if (element) {
-      var border = '8px solid ' + (child.hexColour || '#ddd');
+      var border = '8px solid ' + (child.hexColour || '#57e');
       if (this.workspace_.RTL) {
         element.style.borderRight = border;
       } else {
