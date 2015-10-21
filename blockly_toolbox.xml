@@ -1,7 +1,7 @@
-<xml id="toolbox" style="display: none">
-
-    <category name="Game Mechanics">
+<xml id="toolbox">
+    <category name="Game Mechanics" colour="#edae00" >
       <category name="Levels">
+        <block type="kiwi_block_category" message="Levels"></block>
         <block type="kiwi_event_level_start"></block>
         <block type="kiwi_game_level_special"></block>
         <block type="kiwi_game_goto_level_num">
@@ -360,7 +360,7 @@
           <value name="INST_TWO">
             <block type="variables_get">
               <field name="TYPE">Instance</field>
-              <field name="VAR">Other</field>
+              <field name="VAR">Toucher</field>
             </block>
           </value>
         </block>
@@ -438,7 +438,7 @@
     </category>
 
     <!-- ******************************************* -->
-    <category name="Core">
+    <category name="Core" colour="#ff8601">
       <category name="Logic">
         <block type="controls_if"></block>
         <block type="logic_compare"></block>
@@ -751,6 +751,7 @@
             </block>
           </value>
         </block>
+
       </category>
     </category>
 
@@ -972,7 +973,6 @@
     </category>
 
     <!-- ******************************************* -->
-    <!--<sep></sep>-->
     <category name="Variables" custom="VARIABLE"></category>
     <category name="Functions" custom="PROCEDURE"></category>
-</xml>
+  </xml>
