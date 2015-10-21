@@ -131,6 +131,22 @@ Blockly.Trashcan.prototype.left_ = 0;
  */
 Blockly.Trashcan.prototype.top_ = 0;
 
+
+/**
+ * The colour of the background cirlce when not highlighted
+ * @type {string}
+ * @private
+ */
+Blockly.Trashcan.prototype.CIRCLE_COLOUR_ = '#333';
+
+/**
+ * The colour of the background cirlce when highlighted
+ * @type {string}
+ * @private
+ */
+Blockly.Trashcan.prototype.CIRCLE_HIGHLIGHT_ = '#1294f6';
+
+
 /**
  * Create the trash can elements.
  * @return {!Element} The trash can's SVG group.
@@ -151,11 +167,17 @@ Blockly.Trashcan.prototype.createDom = function() {
   </g>
   */
   this.svgGroup_ = Blockly.createSvgElement('g',
-      {'class': 'blocklyTrash'}, null);
+      {'class': 'blocklyTrash','filter': 'url(#blocklyTrashcanShadowFilter)' }, null);
+
+  this.svgBackground_ = Blockly.createSvgElement('circle',
+      {'cx':23, 'cy':32, 'r':40 },
+      this.svgGroup_);
+
   var rnd = String(Math.random()).substring(2);
   var clip = Blockly.createSvgElement('clipPath',
       {'id': 'blocklyTrashBodyClipPath' + rnd},
       this.svgGroup_);
+
   Blockly.createSvgElement('rect',
       {'width': this.WIDTH_, 'height': this.BODY_HEIGHT_,
        'y': this.LID_HEIGHT_},
@@ -270,6 +292,9 @@ Blockly.Trashcan.prototype.animateLid_ = function() {
       (this.LID_HEIGHT_ - 2) + ')');
   var opacity = goog.math.lerp(0.4, 0.8, this.lidOpen_);
   this.svgGroup_.style.opacity = opacity;
+
+  this.svgBackground_.style.fill = this.CIRCLE_HIGHLIGHT_;
+
   if (this.lidOpen_ > 0 && this.lidOpen_ < 1) {
     this.lidTask_ = goog.Timer.callOnce(this.animateLid_, 20, this);
   }
