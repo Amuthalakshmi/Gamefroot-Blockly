@@ -217,7 +217,7 @@ Blockly.Toolbox.prototype.populate_ = function(newTree) {
           var hue = childIn.getAttribute('colour');
           if (goog.isString(hue)) {
             //HACK
-            childOut.hexColour = hue;//Blockly.makeColour(hue);
+            childOut.hexColour = Blockly.makeColour(hue);
             hasColours = true;
           } else {
             childOut.hexColour = '';
