@@ -130,17 +130,20 @@ Blockly.Toolbox.prototype.init = function() {
   this.CONFIG_['cssCollapsedFolderIcon'] =
       'blocklyTreeIconClosed' + (workspace.RTL ? 'Rtl' : 'Ltr');
   var tree = new Blockly.Toolbox.TreeControl(this, this.CONFIG_);
+
   this.tree_ = tree;
   tree.setShowRootNode(false);
   tree.setShowLines(false);
   tree.setShowExpandIcons(false);
   tree.setSelectedItem(null);
-  this.hasColours_ = false;
   this.populate_(workspace.options.languageTree);
   tree.render(this.HtmlDiv);
+
+  this.hasColours_ = true;
   if (this.hasColours_) {
     this.addColour_(tree);
   }
+
   this.position();
 };
 
@@ -213,7 +216,8 @@ Blockly.Toolbox.prototype.populate_ = function(newTree) {
           }
           var hue = childIn.getAttribute('colour');
           if (goog.isString(hue)) {
-            childOut.hexColour = Blockly.makeColour(hue);
+            //HACK
+            childOut.hexColour = hue;//Blockly.makeColour(hue);
             hasColours = true;
           } else {
             childOut.hexColour = '';
@@ -255,7 +259,7 @@ Blockly.Toolbox.prototype.addColour_ = function(tree) {
   for (var i = 0, child; child = children[i]; i++) {
     var element = child.getRowElement();
     if (element) {
-      var border = '8px solid ' + (child.hexColour || '#ddd');
+      var border = '8px solid ' + (child.hexColour || '#57e');
       if (this.workspace_.RTL) {
         element.style.borderRight = border;
       } else {

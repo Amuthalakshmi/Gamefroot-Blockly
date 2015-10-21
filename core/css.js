@@ -728,22 +728,11 @@ Blockly.Css.CONTENT = [
     'position: relative;',
     'height: 33px;',
     'line-height: 33px;',
-    'text-indent: 18px;',
+    'text-indent: 10px;',
     'background-color: #fff;',
     'border-radius: 3px;',
     'box-shadow: 0 2px 5px rgba(0,0,0,0.2);',
     'margin-bottom: 5px;',
-  '}',
-
-  '.blocklyTreeRow:before {',
-    'content: " ";',
-    'display: inline-block;',
-    'position: absolute;',
-    'top: 0;',
-    'left: 0;',
-    'width: 10px;',
-    'height: 100%;',
-    'float: left;',
   '}',
 
   //blocklyTreeSelected
@@ -788,8 +777,6 @@ Blockly.Css.CONTENT = [
   //Dropdown Button
 
   '.blocklyTreeRow {',
-    'border-left-color: white !important;',
-    'border-left-width: 0px !important;',
     'padding-left: 0 !important;',
   '}', 
 
