@@ -60,16 +60,16 @@ Blockly.Block = function() {
  *     type-specific functions for this block.
  * @return {!Blockly.Block} The created block
  */
-Blockly.Block.obtain = function(workspace, prototypeName) {
+Blockly.Block.obtain = function(workspace, prototypeName, xmlBlock) {
   if (Blockly.Realtime.isEnabled()) {
-    return Blockly.Realtime.obtainBlock(workspace, prototypeName);
+    return Blockly.Realtime.obtainBlock(workspace, prototypeName, xmlBlock);
   } else {
     if (workspace.rendered) {
       var newBlock = new Blockly.BlockSvg();
     } else {
       var newBlock = new Blockly.Block();
     }
-    newBlock.initialize(workspace, prototypeName);
+    newBlock.initialize(workspace, prototypeName, xmlBlock);
     return newBlock;
   }
 };
@@ -80,11 +80,11 @@ Blockly.Block.obtain = function(workspace, prototypeName) {
  * @param {?string} prototypeName Name of the language object containing
  *     type-specific functions for this block.
  */
-Blockly.Block.prototype.initialize = function(workspace, prototypeName) {
+Blockly.Block.prototype.initialize = function(workspace, prototypeName, xmlBlock) {
   /** @type {string} */
   this.id = Blockly.Blocks.genUid();
   workspace.addTopBlock(this);
-  this.fill(workspace, prototypeName);
+  this.fill(workspace, prototypeName, xmlBlock);
 };
 
 /**
@@ -92,7 +92,7 @@ Blockly.Block.prototype.initialize = function(workspace, prototypeName) {
  * @param {!Blockly.Workspace} workspace The workspace to use.
  * @param {string} prototypeName The typename of the block.
  */
-Blockly.Block.prototype.fill = function(workspace, prototypeName) {
+Blockly.Block.prototype.fill = function(workspace, prototypeName, xmlBlock) {
   /** @type {Blockly.Connection} */
   this.outputConnection = null;
   /** @type {Blockly.Connection} */
@@ -151,7 +151,7 @@ Blockly.Block.prototype.fill = function(workspace, prototypeName) {
   }
   // Call an initialization function, if it exists.
   if (goog.isFunction(this.init)) {
-    this.init();
+    this.init(xmlBlock);
   }
   // Record initial inline state.
   /** @type {boolean|undefined} */

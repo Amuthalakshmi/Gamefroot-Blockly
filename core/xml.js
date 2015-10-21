@@ -364,7 +364,7 @@ Blockly.Xml.domToBlockHeadless_ =
     block.fill(workspace, prototypeName);
     block.parent_ = parentBlock;
   } else {
-    block = Blockly.Block.obtain(workspace, prototypeName);
+    block = Blockly.Block.obtain(workspace, prototypeName, xmlBlock);
   }
 
   var blockChild = null;

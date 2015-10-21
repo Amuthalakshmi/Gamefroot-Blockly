@@ -216,9 +216,11 @@ Blockly.Css.CONTENT = [
   '.blocklyText {',
     'cursor: default;',
     'fill: #fff;',
-    'font-family: sans-serif;',
+    'font-family: Roboto, sans-serif;',
     'font-size: 11pt;',
   '}',
+
+
 
   '.blocklyNonEditableText>text {',
     'pointer-events: none;',
@@ -788,4 +790,20 @@ Blockly.Css.CONTENT = [
     'max-width: 360px;',
     'width: 100%;',
   '}',
+
+  '.blocklyBlocksCategory .blocklyText {',
+    'fill: #8c8c8c;',
+  '}',
+
+  '.blocklyBlocksCategory.blocklySelected>.blocklyPath {',
+    'stroke: transparent;',
+    'stroke-width: 0;',
+  '}',
+
+  '.blocklyBlocksCategory .blocklyPathDark {',
+    'fill: none;',
+  '}',
+  '.blocklyBlocksCategory .blocklyPathLight {',
+    'stroke-width: 0;',
+  '}'
 ];

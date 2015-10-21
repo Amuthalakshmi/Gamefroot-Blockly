@@ -21,6 +21,7 @@
 /**
  * @fileoverview Log blocks for Gamefroot
  * @author ryanc1256@gmail.com (Ryan Clough)
+ * @author benjamin.p.harding@gmail.com (Ben Harding)
  */
 'use strict';
 
@@ -70,5 +71,26 @@ Blockly.Blocks['kiwi_get_debug_mode'] = {
     this.setInputsInline(true);
     this.setOutput(true, "Boolean");
     this.setTooltip( Blockly.Msg.KF_GET_DEBUG_MODE_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_block_category'] = {
+  init: function( xmlBlock ) {
+
+    Blockly.addClass_( ( this.svgGroup_ ), 'blocklyBlocksCategory' );
+
+    this.setColour( "#f0f0f0" );
+    this.setEditable( false );
+    this.setMovable( false );
+
+    var category = xmlBlock.getAttribute('message') || 'Category';  
+
+    this.appendDummyInput()
+        .appendField( category );
+
+    this.setInputsInline(true);
+
+    this.setDisabled( true );
   }
 };

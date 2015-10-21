@@ -365,6 +365,7 @@ Blockly.Flyout.prototype.show = function(xmlList) {
       block.dispose(false, false);
     }
   }
+
   // Delete any background buttons from a previous showing.
   for (var x = 0, rect; rect = this.buttons_[x]; x++) {
     goog.dom.removeNode(rect);
@@ -679,8 +680,11 @@ Blockly.Flyout.prototype.filterForCapacity_ = function() {
   var blocks = this.workspace_.getTopBlocks(false);
   for (var i = 0, block; block = blocks[i]; i++) {
     var allBlocks = block.getDescendants();
-    var disabled = allBlocks.length > remainingCapacity;
-    block.setDisabled(disabled);
+    //CUSTOM HACK: Only disable the block if it isn't already 
+    if( !block.disabled ) {
+      var disabled = allBlocks.length > remainingCapacity;
+      block.setDisabled( disabled );
+    }
   }
 };
 

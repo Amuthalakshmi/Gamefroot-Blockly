@@ -65,3 +65,9 @@ Blockly.Kiwifroot['kiwi_get_debug_mode'] = function(block) {
   var code = 'this.game.debugMode';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
+
+Blockly.Kiwifroot['kiwi_block_category'] = function(block) {
+  //This block should never be generateable
+  return '';
+};
