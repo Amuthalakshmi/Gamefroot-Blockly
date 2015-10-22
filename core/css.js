@@ -271,7 +271,7 @@ Blockly.Css.CONTENT = [
 
   '.blocklyIconGroup:not(:hover),',
   '.blocklyIconGroupReadonly {',
-    'opacity: .6;',
+    'opacity: 1;',
   '}',
 
   '.blocklyMinimalBody {',
