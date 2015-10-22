@@ -518,10 +518,16 @@ Blockly.Xml.domToBlockHeadless_ =
   if (xmlBlock.nodeName.toLowerCase() == 'shadow') {
     block.setShadow(true);
   }
+
   // Give the block a chance to clean up any initial inputs.
   if (block.validate) {
     block.validate();
   }
+
+  // Once the block is all set up, call post init
+  var func = block.postInit;
+  if (func) func.call(block);
+  
   return block;
 };
 
