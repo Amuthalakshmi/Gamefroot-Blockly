@@ -170,14 +170,14 @@ Blockly.Toolbox.prototype.position = function() {
   var svg = this.workspace_.options.svg;
   var svgPosition = goog.style.getPageOffset(svg);
   var svgSize = Blockly.svgSize(svg);
+  treeDiv.style.left = '0px';
   if (this.workspace_.RTL) {
-    treeDiv.style.left =
-        (svgPosition.x + svgSize.width - treeDiv.offsetWidth) + 'px';
+    //treeDiv.style.left = (svgPosition.x + svgSize.width - treeDiv.offsetWidth) + 'px';
   } else {
-    treeDiv.style.left = svgPosition.x + 'px';
+    //treeDiv.style.left = svgPosition.x + 'px';
   }
   treeDiv.style.height = svgSize.height + 'px';
-  treeDiv.style.top = svgPosition.y + 'px';
+  treeDiv.style.top = '0px';
   this.width = treeDiv.offsetWidth;
   if (!this.workspace_.RTL) {
     // For some reason the LTR toolbox now reports as 1px too wide.
