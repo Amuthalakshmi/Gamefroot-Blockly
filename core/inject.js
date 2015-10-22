@@ -317,7 +317,7 @@ Blockly.createDom_ = function(container, options) {
   Blockly.createSvgElement('feGaussianBlur',
       {'in': 'SourceAlpha', 'stdDeviation': 1, 'result': 'blur'}, embossFilter);
   var feSpecularLighting = Blockly.createSvgElement('feSpecularLighting',
-      {'in': 'blur', 'surfaceScale': 1, 'specularConstant': 0.5,
+      {'in': 'blur', 'surfaceScale': 0.5, 'specularConstant': 0.1,
        'specularExponent': 10, 'lighting-color': 'white', 'result': 'specOut'},
       embossFilter);
   Blockly.createSvgElement('fePointLight',

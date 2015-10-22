@@ -285,6 +285,7 @@ Blockly.Css.CONTENT = [
     'margin: 0;',
     'padding: 2px;',
     'resize: none;',
+    'font-family: Roboto, sans-serif;',
   '}',
 
   '.blocklyHtmlInput {',
