@@ -221,7 +221,7 @@ Blockly.Blocks['kiwi_camera_set_offset'] = {
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown( [ 
             ["x", "offset.x"], 
-            ["y", "offset.y"], 
+            ["y", "offset.y"]
         ] ), "METHOD")
         .appendField( 'offset ' + Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER );
     this.appendValueInput("VALUE")
@@ -241,7 +241,7 @@ Blockly.Blocks['kiwi_camera_set_min'] = {
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown( [ 
             ["x", "minX"], 
-            ["y", "minY"],
+            ["y", "minY"]
         ] ), "METHOD")
         .appendField( 'minimum ' + Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER );
     this.appendValueInput("VALUE")
