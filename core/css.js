@@ -277,15 +277,17 @@ Blockly.Css.CONTENT = [
   '.blocklyMinimalBody {',
     'margin: 0;',
     'padding: 0;',
+    'position: fixed;',
   '}',
 
   '.blocklyCommentTextarea {',
-    'background-color: #ffc;',
+    'background-color: #fff;',
     'border: 0;',
     'margin: 0;',
     'padding: 2px;',
     'resize: none;',
     'font-family: Roboto, sans-serif;',
+    'margin-top: 7px;',
   '}',
 
   '.blocklyHtmlInput {',
