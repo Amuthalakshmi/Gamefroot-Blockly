@@ -154,3 +154,96 @@ Blockly.Kiwifroot['kiwi_instance_properties_get'] = function(block) {
   var code = value_inst + '.properties.get(' + value_prop_name + ')';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
+
+// 22/10/2015
+
+Blockly.Kiwifroot['kiwi_instance_set_position'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var prop = block.getFieldValue('PROP');
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+  var code = inst + '.' + prop + ' = ' + val;
+  code += ';\n';
+  return code;
+};
+Blockly.Kiwifroot['kiwi_instance_set_dimensions'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var prop = block.getFieldValue('PROP');
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+  var code = inst + '.' + prop + ' = ' + val;
+  code += ';\n';
+  return code;
+};
+Blockly.Kiwifroot['kiwi_instance_set_rotation'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+  var code = inst + '.rotation = (' + val + ') * Kiwi.Utils.GameMath.DEG_TO_RAD';
+  code += ';\n';
+  return code;
+};
+Blockly.Kiwifroot['kiwi_instance_set_scale'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var prop = block.getFieldValue('PROP');
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+  var code = inst + '.' + prop + ' = ' + val;
+  code += ';\n';
+  return code;
+};
+Blockly.Kiwifroot['kiwi_instance_set_alpha'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+  var code = inst + '.alpha = ' + val;
+  code += ';\n';
+  return code;
+};
+Blockly.Kiwifroot['kiwi_instance_set_anchor_point'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var prop = block.getFieldValue('PROP');
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+  var code = inst + '.' + prop + ' = ' + val;
+  code += ';\n';
+  return code;
+};
+
+
+
+
+Blockly.Kiwifroot['kiwi_instance_get_position'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var prop = block.getFieldValue('PROP');
+  var code = inst + '.' + prop;
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+Blockly.Kiwifroot['kiwi_instance_get_dimensions'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var prop = block.getFieldValue('PROP');
+  var code = inst + '.' + prop;
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+Blockly.Kiwifroot['kiwi_instance_get_rotation'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var code = '(' + inst + '.rotation * Kiwi.Utils.GameMath.RAD_TO_DEG)';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+Blockly.Kiwifroot['kiwi_instance_get_scale'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var prop = block.getFieldValue('PROP');
+  var code = inst + '.' + prop;
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+Blockly.Kiwifroot['kiwi_instance_get_alpha'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var code = inst + '.alpha';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+Blockly.Kiwifroot['kiwi_instance_get_anchor_point'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var prop = block.getFieldValue('PROP');
+  var code = inst + '.' + prop;
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};

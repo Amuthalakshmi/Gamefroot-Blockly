@@ -3,7 +3,8 @@
   </category>
 
   <category name="Events" colour="#edae00" >
-    <block type="kiwi_block_category" message="Level"></block>
+
+    <block type="kiwi_block_category" message="Events"></block>
       <block type="kiwi_event_level_start"></block>
       <block type="kiwi_event_time">
         <value name="MILLISECOND">
@@ -12,12 +13,8 @@
           </block>
         </value>
       </block>
-
-    <block type="kiwi_block_category" message="Instances"></block>
       <block type="kiwi_event_create"></block>
       <block type="kiwi_event_remove"></block>
-
-    <block type="kiwi_block_category" message="Every Frame"></block>
       <block type="kiwi_event_pre_constantly"></block>
       <block type="kiwi_event_constantly"></block>
       <block type="kiwi_event_post_constantly"></block>
@@ -101,12 +98,16 @@
 
   <category name="Control" colour="#ff8601" >
 
-    <block type="kiwi_block_category" message="Game"></block>
-      <block type="kiwi_game_goto_level_num">
-        <value name="LEVEL">
-          <block type="kiwi_game_level_special"></block>
-        </value>
-      </block>
+    <block type="kiwi_game_goto_level_num">
+      <value name="LEVEL">
+        <block type="kiwi_game_level_special"></block>
+      </value>
+    </block>
+    <block type="kiwi_instance_death">
+      <value name="INST">
+        <block type="kiwi_instance_self"></block>
+      </value>
+    </block>
 
     <block type="kiwi_block_category" message="Conditionals"></block>
       <block type="controls_if"></block>
@@ -149,13 +150,6 @@
         </value>
       </block>
 
-    <block type="kiwi_block_category" message="Instance"></block>
-      <block type="kiwi_instance_death">
-        <value name="INST">
-          <block type="kiwi_instance_self"></block>
-        </value>
-      </block>
-
     <block type="kiwi_block_category" message="Debug"></block>
       <block type="kiwi_set_debug_mode">
         <value name="SET_DEBUG">
@@ -180,7 +174,7 @@
     </block>
     <block type="kiwi_event_touch_return_instance"></block>
 
-    <block type="kiwi_block_category" message="Global"></block>
+    <block type="kiwi_block_category" message="Gravity"></block>
       <block type="kiwi_arcadephysics_set_gravity">
         <value name="VALUE">
           <block type="math_number"></block>
@@ -188,34 +182,49 @@
       </block>
       <block type="kiwi_arcadephysics_get_gravity"></block>
 
-    <block type="kiwi_block_category" message="Get"></block>
-      <block type="kiwi_arcadephysics_get_enabled"></block>
-      <block type="kiwi_arcadephysics_get_collisions"></block>
-      <block type="kiwi_arcadephysics_get_numeric"></block>
-      <block type="kiwi_arcadephysics_get_boolean"></block>
-      <block type="kiwi_arcadephysics_get_rotation_from"></block>
+    <block type="kiwi_block_category" message="Motion"></block>
+      <block type="kiwi_arcadephysics_set_numeric_velocity">
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_set_numeric_acceleration">
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_set_numeric_max_velo">
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_set_numeric_drag">
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_get_numeric_velocity"></block>
+      <block type="kiwi_arcadephysics_get_numeric_acceleration"></block>
+      <block type="kiwi_arcadephysics_get_numeric_max_velo"></block>
+      <block type="kiwi_arcadephysics_get_numeric_drag"></block>
 
-    <block type="kiwi_block_category" message="Set"></block>
-      <block type="kiwi_arcadephysics_set_numeric">
-        <value name="VALUE">
-          <block type="math_number"></block>
-        </value>
-      </block>
-      <block type="kiwi_arcadephysics_set_boolean">
-        <value name="VALUE">
-          <block type="logic_boolean"></block>
-        </value>
-      </block>
+    <block type="kiwi_block_category" message="Collisions"></block>
       <block type="kiwi_arcadephysics_set_collisions">
         <value name="VALUE">
           <block type="logic_boolean"></block>
         </value>
       </block>
-      <block type="kiwi_arcadephysics_set_enabled">
-        <value name="VALUE">
-          <block type="logic_boolean"></block>
-        </value>
-      </block>
+      <block type="kiwi_arcadephysics_get_collisions_touching"></block>
+      <block type="kiwi_arcadephysics_get_collisions_was_touching"></block>
+      <block type="kiwi_arcadephysics_get_collisions_can_collide"></block>
 
     <block type="kiwi_block_category" message="Probes"></block>
       <block type="kiwi_arcadephysics_probe">
@@ -238,11 +247,46 @@
         </value>
       </block>
 
+    <block type="kiwi_block_category" message="Misc"></block>
+      <block type="kiwi_arcadephysics_set_boolean_enabled">
+        <value name="VALUE">
+          <block type="logic_boolean"></block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_set_boolean_moves">
+        <value name="VALUE">
+          <block type="logic_boolean"></block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_set_boolean_immovable">
+        <value name="VALUE">
+          <block type="logic_boolean"></block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_set_boolean_gravity">
+        <value name="VALUE">
+          <block type="logic_boolean"></block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_set_numeric_misc">
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_arcadephysics_get_boolean_enabled"></block>
+      <block type="kiwi_arcadephysics_get_boolean_moves"></block>
+      <block type="kiwi_arcadephysics_get_boolean_immovable"></block>
+      <block type="kiwi_arcadephysics_get_boolean_gravity"></block>
+      <block type="kiwi_arcadephysics_get_numeric_misc"></block>
+      <block type="kiwi_arcadephysics_get_rotation_from"></block>
+
   </category>
 
   <category name="Motion" colour="#e54e43" >
-    <block type="kiwi_block_category" message="Instance"></block>
-      <block type="kiwi_instance_set">
+    <block type="kiwi_block_category" message="Transform"></block>
+      <block type="kiwi_instance_set_position">
         <value name="INST">
           <block type="kiwi_instance_self"></block>
         </value>
@@ -252,7 +296,57 @@
           </block>
         </value>
       </block>
-      <block type="kiwi_instance_get">
+      <block type="kiwi_instance_set_rotation">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_instance_set_scale">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_instance_set_anchor_point">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_instance_get_position">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+      <block type="kiwi_instance_get_rotation">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+      <block type="kiwi_instance_get_scale">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+      <block type="kiwi_instance_get_anchor_point">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+      <block type="kiwi_instance_get_dimensions">
         <value name="INST">
           <block type="kiwi_instance_self"></block>
         </value>
@@ -309,18 +403,32 @@
 
   <category name="Looks" colour="#b443c9" >
 
-    <block type="kiwi_block_category" message="Instance"></block>
-      <block type="kiwi_instance_get_visible">
-        <value name="INST">
-          <block type="kiwi_instance_self"></block>
-        </value>
-      </block>
       <block type="kiwi_instance_set_visible">
         <value name="INST">
           <block type="kiwi_instance_self"></block>
         </value>
         <value name="VISIBLE">
           <block type="logic_boolean"></block>
+        </value>
+      </block>
+      <block type="kiwi_instance_set_alpha">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_instance_get_visible">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+      <block type="kiwi_instance_get_alpha">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
         </value>
       </block>
 
@@ -333,7 +441,6 @@
       <block type="kiwi_game_stage_get_colour"></block>
 
     <block type="kiwi_block_category" message="Camera"></block>
-      <block type="kiwi_camera_get_read_only"></block>
       <block type="kiwi_camera_go_to">
         <value name="X_POS">
           <block type="math_number"></block>
@@ -342,14 +449,6 @@
           <block type="math_number"></block>
         </value>
       </block>
-      <block type="kiwi_camera_set">
-        <value name="VALUE">
-          <block type="math_number">
-            <field name="NUM">100</field>
-          </block>
-        </value>
-      </block>
-      <block type="kiwi_camera_get"></block>
       <block type="kiwi_camera_set_speed">
         <value name="VALUE">
           <block type="math_number">
@@ -357,13 +456,13 @@
           </block>
         </value>
       </block>
-      <block type="kiwi_camera_get_speed"></block>
-      <block type="kiwi_camera_center_on_instance">
-        <value name="INSTANCE">
-          <block type="kiwi_instance_self"></block>
+      <block type="kiwi_camera_set_offset">
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
         </value>
       </block>
-      <block type="kiwi_camera_state"></block>
       <block type="kiwi_camera_scale">
         <value name="VALUE">
           <block type="math_number">
@@ -371,7 +470,38 @@
           </block>
         </value>
       </block>
+      <block type="kiwi_camera_get_read_only_position"></block>
+      <block type="kiwi_camera_get_speed"></block>
+      <block type="kiwi_camera_get_offset"></block>
       <block type="kiwi_camera_scale_get"></block>
+      <block type="kiwi_camera_get_read_only_dimensions"></block>
+
+    <block type="kiwi_block_category" message="Camera Lock"></block>
+      <block type="kiwi_camera_center_on_instance">
+        <value name="INSTANCE">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+      <block type="kiwi_camera_state"></block>
+
+    <block type="kiwi_block_category" message="Camera Boundaries"></block>
+      <block type="kiwi_camera_set_min">
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_camera_set_max">
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_camera_get_min"></block>
+      <block type="kiwi_camera_get_max"></block>
+
   
   </category>
 

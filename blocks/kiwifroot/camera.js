@@ -81,71 +81,6 @@ Blockly.Blocks['kiwi_camera_get_speed'] = {
   }
 };
 
-Blockly.Blocks['kiwi_camera_set'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_CAMERA_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.LOOKS );
-    this.appendDummyInput()
-        .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE );
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown( [ 
-            ["x offset", "offset.x"], 
-            ["y offset", "offset.y"], 
-            ["x minimum", "minX"], 
-            ["y minimum", "minY"],
-            ["x maximum", "maxX"], 
-            ["y maximum", "maxY"]
-        ] ), "METHOD")
-        .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER );
-    this.appendValueInput("VALUE")
-        .setCheck("Number");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setTooltip( Blockly.Msg.KF_CAMERA_SET_TOOLTIP );
-  }
-};
-
-Blockly.Blocks['kiwi_camera_get'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.LOOKS );
-    this.appendDummyInput()
-        .appendField( Blockly.Msg.KF_CAMERA_GET_MESSAGE );
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown( [
-            ["x offset", "offset.x"], 
-            ["y offset", "offset.y"], 
-            ["x minimum", "minX"], 
-            ["y minimum", "minY"],
-            ["x maximum", "maxX"], 
-            ["y maximum", "maxY"]
-        ] ), "METHOD");
-    this.setInputsInline(true);
-    this.setOutput(true, "Number");
-    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_TOOLTIP );
-  }
-};
-
-
-Blockly.Blocks['kiwi_camera_get_read_only'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.LOOKS );
-    this.appendDummyInput()
-        .appendField( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_MESSAGE );
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown( [
-            ["x", "x"],
-            ["y", "y"],
-            ["width", "camera.width"],
-            ["height", "camera.height"]
-        ] ), "METHOD");
-    this.setInputsInline(true);
-    this.setOutput(true, "Number");
-    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_TOOLTIP );
-  }
-};
 
 Blockly.Blocks['kiwi_camera_lock_on'] = {
   init: function() {
@@ -237,5 +172,152 @@ Blockly.Blocks['kiwi_camera_center_on_instance'] = {
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip( Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_TOOLTIP );
+  }
+};
+
+// 22/10/2015
+
+
+Blockly.Blocks['kiwi_camera_get_read_only_position'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_MESSAGE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [
+            ["x", "x"],
+            ["y", "y"]
+        ] ), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_TOOLTIP );
+  }
+};
+Blockly.Blocks['kiwi_camera_get_read_only_dimensions'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_MESSAGE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [
+            ["width", "camera.width"],
+            ["height", "camera.height"]
+        ] ), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_camera_set_offset'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_SET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [ 
+            ["x", "offset.x"], 
+            ["y", "offset.y"], 
+        ] ), "METHOD")
+        .appendField( 'offset ' + Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER );
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_CAMERA_SET_TOOLTIP );
+  }
+};
+Blockly.Blocks['kiwi_camera_set_min'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_SET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [ 
+            ["x", "minX"], 
+            ["y", "minY"],
+        ] ), "METHOD")
+        .appendField( 'minimum ' + Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER );
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_CAMERA_SET_TOOLTIP );
+  }
+};
+Blockly.Blocks['kiwi_camera_set_max'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_SET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [ 
+            ["x", "maxX"], 
+            ["y", "maxY"]
+        ] ), "METHOD")
+        .appendField( 'maximum ' + Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER );
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_CAMERA_SET_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_camera_get_offset'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_GET_MESSAGE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [
+            ["x offset", "offset.x"], 
+            ["y offset", "offset.y"]
+        ] ), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_TOOLTIP );
+  }
+};
+Blockly.Blocks['kiwi_camera_get_min'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_GET_MESSAGE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [
+            ["x minimum", "minX"], 
+            ["y minimum", "minY"]
+        ] ), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_TOOLTIP );
+  }
+};
+Blockly.Blocks['kiwi_camera_get_max'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_GET_MESSAGE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [
+            ["x maximum", "maxX"], 
+            ["y maximum", "maxY"]
+        ] ), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_TOOLTIP );
   }
 };

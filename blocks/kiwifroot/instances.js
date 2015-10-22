@@ -99,6 +99,7 @@ Blockly.Blocks['kiwi_instance_get'] = {
   }
 };
 
+
 Blockly.Blocks['kiwi_instance_get_visible'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL );
@@ -281,5 +282,245 @@ Blockly.Blocks['kiwi_instance_properties_get'] = {
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setTooltip( Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_TOOLTIP );
+  }
+};
+
+
+// 22/10/2015
+
+Blockly.Blocks['kiwi_instance_set_position'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField("set")
+        .appendField(new Blockly.FieldDropdown([
+            ["x","x"]
+            ,["y","y"]
+        ]), "PROP")
+        .appendField("position of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.appendDummyInput()
+        .appendField("to");
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SET_TOOLTIP);
+  }
+};
+
+
+Blockly.Blocks['kiwi_instance_set_dimensions'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField("set")
+        .appendField(new Blockly.FieldDropdown([
+            ,["width", "width"]
+            ,["height", "height"]
+        ]), "PROP")
+        .appendField("of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.appendDummyInput()
+        .appendField("to");
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SET_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_set_rotation'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField("set rotation of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.appendDummyInput()
+        .appendField("to");
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SET_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_set_scale'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField("set scale")
+        .appendField(new Blockly.FieldDropdown([
+            ["x", "scaleX"]
+            ,["y", "scaleY"]
+        ]), "PROP")
+        .appendField("of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.appendDummyInput()
+        .appendField("to");
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SET_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_set_alpha'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField("set alpha of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.appendDummyInput()
+        .appendField("to");
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SET_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_set_anchor_point'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_SET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField("set anchor point")
+        .appendField(new Blockly.FieldDropdown([
+            ["x", "anchorPointX"]
+            ,["y", "anchorPointY"]
+        ]), "PROP")
+        .appendField("of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.appendDummyInput()
+        .appendField("to");
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_SET_TOOLTIP);
+  }
+};
+
+
+Blockly.Blocks['kiwi_instance_get_position'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([
+            ["x","x"]
+            ,["y","y"]
+        ]), "PROP")
+        .appendField("position of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_get_dimensions'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([
+            ["width", "width"]
+            ,["height", "height"]
+        ]), "PROP")
+        .appendField("of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_get_rotation'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField("rotation of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
+  }
+};
+Blockly.Blocks['kiwi_instance_get_scale'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField("scale")
+        .appendField(new Blockly.FieldDropdown([
+            ["x", "scaleX"]
+            ,["y", "scaleY"]
+        ]), "PROP")
+        .appendField("of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_get_alpha'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField("get alpha of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
+  }
+};
+
+Blockly.Blocks['kiwi_instance_get_anchor_point'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField('anchor point')
+        .appendField(new Blockly.FieldDropdown([
+            ["x", "anchorPointX"]
+            ,["y", "anchorPointY"]
+        ]), "PROP")
+        .appendField("of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
   }
 };

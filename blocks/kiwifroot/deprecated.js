@@ -178,6 +178,7 @@ Blockly.Blocks['kiwi_event_key_release'] = {
 
 Blockly.Blocks['kiwi_camera_lock_on'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_LOCK_ON_HELPURL );
     this.setColour( Blockly.Blocks.STATEMENT_HUE );
     this.appendDummyInput()
@@ -195,6 +196,7 @@ Blockly.Blocks['kiwi_camera_lock_on'] = {
 
 Blockly.Blocks['kiwi_camera_unlock'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_CAMERA_UNLOCK_HELPURL );
     this.setColour( Blockly.Blocks.STATEMENT_HUE );
     this.appendDummyInput()
@@ -212,6 +214,7 @@ Blockly.Blocks['kiwi_camera_unlock'] = {
 
 Blockly.Blocks['kiwi_classes_create_instance'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_HELPURL );
     this.setColour( Blockly.Variables.COLOUR_INSTANCE );
     this.appendValueInput("CLASS")
@@ -225,5 +228,198 @@ Blockly.Blocks['kiwi_classes_create_instance'] = {
     this.setInputsInline(true);
     this.setOutput(true, "Instance");
     this.setTooltip( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP );
+  }
+};
+
+
+// 22/10/2015
+
+Blockly.Blocks['kiwi_arcadephysics_get_numeric'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [
+          ["velocity x", "velocity.x"], 
+          ["velocity y", "velocity.y"], 
+          ["acceleration x", "acceleration.x"], 
+          ["acceleration y", "acceleration.y"], 
+          ["max velocity x", "maxVelocity.x"], 
+          ["max velocity y", "maxVelocity.y"], 
+          ["drag x", "drag.x"], 
+          ["drag y", "drag.y"], 
+          ["mass", "mass"], 
+          ["elasticity", "elasticity"], 
+          ["layer", "layer"]
+        ]), "PROP");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_GET_NUMERIC_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_arcadephysics_set_numeric'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
+    this.appendValueInput("VALUE")
+        .setCheck("Number")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_MESSAGE )
+        .appendField(new Blockly.FieldDropdown([
+          ["velocity x", "velocity.x"], 
+          ["velocity y", "velocity.y"], 
+          ["acceleration x", "acceleration.x"], 
+          ["acceleration y", "acceleration.y"], 
+          ["max velocity x", "maxVelocity.x"], 
+          ["max velocity y", "maxVelocity.y"], 
+          ["drag x", "drag.x"], 
+          ["drag y", "drag.y"], 
+          ["mass", "mass"], 
+          ["elasticity", "elasticity"], 
+          ["layer", "layer"]
+        ]), "PROP");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_SET_NUMERIC_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_arcadephysics_set_boolean'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
+    this.appendValueInput("VALUE")
+        .setCheck("Boolean")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_MESSAGE )
+        .appendField(new Blockly.FieldDropdown([
+          ["reacts to gravity", "gravity"], 
+          ["immovable", "immovable"], 
+          ["moves", "moves"],
+            ["enabled", "enabled"]
+        ]), "PROP");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_arcadephysics_get_boolean'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([
+          ["reacts to gravity", "gravity"], 
+          ["immovable", "immovable"], 
+          ["moves", "moves"],
+            ["enabled", "enabled"]
+        ]), "PROP");
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_arcadephysics_get_collisions'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([
+          ["touching", "touching"], 
+          ["was touching", "wasTouching"], 
+          ["can collide", "allowCollisions"]
+        ]), "TYPE")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_MESSAGE_BEFORE )
+        .appendField(new Blockly.FieldDropdown([
+          ["any", "Kiwi.Components.ArcadePhysics.ANY"],
+          ["left", "Kiwi.Components.ArcadePhysics.LEFT"], 
+          ["right", "Kiwi.Components.ArcadePhysics.RIGHT"], 
+          ["top", "Kiwi.Components.ArcadePhysics.UP"], 
+          ["bottom", "Kiwi.Components.ArcadePhysics.DOWN"]
+        ]), "PROP")
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_MESSAGE_AFTER );
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_GET_COLLISIONS_TOOLTIP );
+  }
+};
+
+
+Blockly.Blocks['kiwi_camera_get_read_only'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_MESSAGE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [
+            ["x", "x"],
+            ["y", "y"],
+            ["width", "camera.width"],
+            ["height", "camera.height"]
+        ] ), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_READ_ONLY_TOOLTIP );
+  }
+};
+
+
+
+Blockly.Blocks['kiwi_camera_set'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_SET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [ 
+            ["x offset", "offset.x"], 
+            ["y offset", "offset.y"], 
+            ["x minimum", "minX"], 
+            ["y minimum", "minY"],
+            ["x maximum", "maxX"], 
+            ["y maximum", "maxY"]
+        ] ), "METHOD")
+        .appendField( Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER );
+    this.appendValueInput("VALUE")
+        .setCheck("Number");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_CAMERA_SET_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_camera_get'] = {
+  init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
+    this.setHelpUrl( Blockly.Msg.KF_CAMERA_GET_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CAMERA_GET_MESSAGE );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown( [
+            ["x offset", "offset.x"], 
+            ["y offset", "offset.y"], 
+            ["x minimum", "minX"], 
+            ["y minimum", "minY"],
+            ["x maximum", "maxX"], 
+            ["y maximum", "maxY"]
+        ] ), "METHOD");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setTooltip( Blockly.Msg.KF_CAMERA_GET_TOOLTIP );
   }
 };
