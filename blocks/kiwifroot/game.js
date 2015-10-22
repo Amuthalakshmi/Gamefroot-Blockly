@@ -129,7 +129,7 @@ Blockly.Blocks['kiwi_game_time_method'] = {
   init: function() {
 
     this.setHelpUrl( Blockly.Msg.KF_GAME_TIME_METHOD_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.SENSING );
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown( [["pause", "clock.pause"], ["resume", "clock.resume"]] ), "METHOD")
         .appendField( Blockly.Msg.KF_GAME_TIME_METHOD_MESSAGE );

@@ -669,7 +669,7 @@ Blockly.Blocks['text_print'] = {
       ],
       "previousStatement": null,
       "nextStatement": null,
-      "colour": Blockly.Variables.COLOUR.OPERATORS,
+      "colour": Blockly.Variables.COLOUR.CONTROL,
       "tooltip": Blockly.Msg.TEXT_PRINT_TOOLTIP,
       "helpUrl": Blockly.Msg.TEXT_PRINT_HELPURL
     });

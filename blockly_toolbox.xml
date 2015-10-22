@@ -19,6 +19,24 @@
       <block type="kiwi_event_constantly"></block>
       <block type="kiwi_event_post_constantly"></block>
 
+    <block type="kiwi_block_category" message="Mouse"></block>
+      <block type="kiwi_event_stage_input"></block>
+      <block type="kiwi_event_inst_input">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+
+    <block type="kiwi_block_category" message="Keyboard"></block>
+      <block type="kiwi_event_key_input">
+        <value name="KEY">
+          <block type="kiwi_key_special"></block>
+        </value>
+      </block>
+
+    <block type="kiwi_block_category" message="Touch"></block>
+      <block type="kiwi_event_stage_touched"></block>
+
     <block type="kiwi_block_category" message="Message Sensing"></block>
       <block type="kiwi_event_message">
         <value name="MESSAGE">
@@ -149,6 +167,7 @@
           </block>
         </value>
       </block>
+      <block type="kiwi_game_time_method"></block>
 
     <block type="kiwi_block_category" message="Debug"></block>
       <block type="kiwi_set_debug_mode">
@@ -159,6 +178,7 @@
       <block type="kiwi_get_debug_mode">
       </block>
       <block type="kiwi_log"></block>
+      <block type="text_print"></block>
   </category>
 
 
@@ -285,7 +305,6 @@
   </category>
 
   <category name="Motion" colour="#e54e43" >
-    <block type="kiwi_block_category" message="Transform"></block>
       <block type="kiwi_instance_set_position">
         <value name="INST">
           <block type="kiwi_instance_self"></block>
@@ -387,7 +406,6 @@
         </block>
       </value>
     </block>
-    <block type="kiwi_animation_current"></block>
     <block type="kiwi_animation_play">
       <value name="TEXT">
         <block type="text">
@@ -395,8 +413,9 @@
         </block>
       </value>
     </block>
-    <block type="kiwi_animation_state"></block>
     <block type="kiwi_animation_frame"></block>
+    <block type="kiwi_animation_state"></block>
+    <block type="kiwi_animation_current"></block>
     <block type="kiwi_animation_numbers"></block>
     <block type="kiwi_animation_booleans"></block>
   </category>
@@ -502,6 +521,18 @@
       <block type="kiwi_camera_get_min"></block>
       <block type="kiwi_camera_get_max"></block>
 
+    <block type="kiwi_block_category" message="Depth"></block>
+      <block type="kiwi_instance_move">
+        <value name="INST_ONE">
+          <block type="kiwi_instance_self"></block>
+        </value>
+        <value name="INST_TWO">
+          <block type="variables_get">
+            <field name="TYPE">Instance</field>
+            <field name="VAR">Other</field>
+          </block>
+        </value>
+      </block>
   
   </category>
 
@@ -510,12 +541,6 @@
     <block type="kiwi_instance_self"></block>
 
     <block type="kiwi_block_category" message="Mouse"></block>
-      <block type="kiwi_event_stage_input"></block>
-      <block type="kiwi_event_inst_input">
-        <value name="INST">
-          <block type="kiwi_instance_self"></block>
-        </value>
-      </block>
       <block type="kiwi_input_mouse"></block>
       <block type="math_arithmetic">
         <value name="A">
@@ -526,16 +551,7 @@
         </value>
       </block>
 
-    <block type="kiwi_block_category" message="Keyboard"></block>
-      <block type="kiwi_event_key_input">
-        <value name="KEY">
-          <block type="kiwi_key_special"></block>
-        </value>
-      </block>
-      <block type="kiwi_key_special"></block>
-
     <block type="kiwi_block_category" message="Touch"></block>
-      <block type="kiwi_event_stage_touched"></block>
       <block type="kiwi_input_fingers"></block>
       <block type="kiwi_input_finger_select"></block>
       <block type="kiwi_input_finger_latest"></block>
@@ -593,21 +609,7 @@
 
     <block type="kiwi_block_category" message="Game"></block>
       <block type="kiwi_game_get_time"></block>
-      <block type="kiwi_game_time_method"></block>
       <block type="kiwi_game_stage_get_size"></block>
-
-    <block type="kiwi_block_category" message="Depth"></block>
-      <block type="kiwi_instance_move">
-        <value name="INST_ONE">
-          <block type="kiwi_instance_self"></block>
-        </value>
-        <value name="INST_TWO">
-          <block type="variables_get">
-            <field name="TYPE">Instance</field>
-            <field name="VAR">Other</field>
-          </block>
-        </value>
-      </block>
 
     <block type="kiwi_block_category" message="Class"></block>
       <block type="kiwi_classes_instance_type">
@@ -717,8 +719,6 @@
         </block>
       </value>
     </block>
-    <block type="kiwi_sound_background_state"></block>
-    <block type="kiwi_sound_stop_background"></block>
     <block type="kiwi_sound_play_effect">
       <value name="SOUND">
         <block type="variables_get">
@@ -727,13 +727,7 @@
         </block>
       </value>
     </block>
-    <block type="kiwi_sound_set_mute">
-      <value name="STATE">
-        <block type="logic_boolean"></block>
-      </value>
-    </block>
-    <block type="kiwi_sound_get_mute"></block>
-    <block type="kiwi_sound_get_volume"></block>
+    <block type="kiwi_sound_background_state"></block>
     <block type="kiwi_sound_set_volume">
       <value name="VOLUME">
         <block type="math_number">
@@ -741,6 +735,13 @@
         </block>
       </value>
     </block>
+    <block type="kiwi_sound_set_mute">
+      <value name="STATE">
+        <block type="logic_boolean"></block>
+      </value>
+    </block>
+    <block type="kiwi_sound_get_volume"></block>
+    <block type="kiwi_sound_get_mute"></block>
 
   </category>
 
@@ -839,7 +840,6 @@
       </block>
       <block type="text_changeCase"></block>
       <block type="text_trim"></block>
-      <block type="text_print"></block>
       <block type="text_prompt_ext">
         <value name="TEXT">
           <block type="text"></block>
@@ -1119,8 +1119,6 @@
             <field name="VAR">textfield</field>
           </block>
         </value>
-      </block>
-      <block type="kiwi_text_font_presets">
       </block>
       <block type="kiwi_text_family_set">
         <value name="INST">

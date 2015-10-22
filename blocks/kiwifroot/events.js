@@ -175,7 +175,7 @@ Blockly.Blocks['kiwi_event_message'] = {
 Blockly.Blocks['kiwi_event_animation'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_ANIMATION_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.EVENT );
+    this.setColour( Blockly.Variables.COLOUR.ANIMATION );
     this.appendValueInput("ANIM")
         .setCheck("String")
         .appendField( Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE );
@@ -386,7 +386,7 @@ Blockly.Blocks['kiwi_event_instance_properties_set'] = {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_HELPURL );
     this.setTooltip(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_TOOLTIP );
     this.setInputsInline(true);
-    this.setColour( Blockly.Variables.COLOUR.EVENT );
+    this.setColour( Blockly.Variables.COLOUR.VARIABLES );
     this.appendValueInput('PROP_NAME')
         .setCheck("String")
         .appendField(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_ONE );

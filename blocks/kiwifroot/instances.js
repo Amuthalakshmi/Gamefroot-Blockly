@@ -213,7 +213,7 @@ Blockly.Blocks['kiwi_instance_get_all_by_tag'] = {
 Blockly.Blocks['kiwi_instance_move'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_MOVE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.SENSING );
+    this.setColour( Blockly.Variables.COLOUR.LOOKS );
     this.appendValueInput("INST_ONE")
         .setCheck("Instance");
     this.appendValueInput("INST_TWO")
