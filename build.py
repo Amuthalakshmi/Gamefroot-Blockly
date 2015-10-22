@@ -203,6 +203,7 @@ class Gen_compressed(threading.Thread):
     params.append(('js_code', 'goog.provide(\'Blockly.Blocks\');'))
     filenames = glob.glob(os.path.join('blocks', '*.js'))
     filenames.extend(glob.glob(os.path.join('blocks/kiwifroot', '*.js')))
+
     for filename in filenames:
       f = open(filename)
       params.append(('js_code', ''.join(f.readlines())))
@@ -281,7 +282,7 @@ class Gen_compressed(threading.Thread):
               file_lookup(error['file']), error['lineno']))
           print(error['line'])
           print((' ' * error['charno']) + '^')
-        sys.exit(1)
+        # sys.exit(1)
     else:
       if json_data.has_key('warnings'):
         warnings = json_data['warnings']
@@ -297,7 +298,7 @@ class Gen_compressed(threading.Thread):
 
       if not json_data.has_key('compiledCode'):
         print('FATAL ERROR: Compiler did not return compiledCode.')
-        sys.exit(1)
+        # sys.exit(1)
 
       code = HEADER + '\n' + json_data['compiledCode']
       code = code.replace(remove, '')
@@ -362,7 +363,7 @@ class Gen_langfiles(threading.Thread):
         # If it was a source file, we can't proceed.
         if e.filename in srcs:
           print('Source file missing: ' + e.filename)
-          sys.exit(1)
+          # sys.exit(1)
         else:
           # If a destination file was missing, rebuild.
           return True
@@ -385,7 +386,7 @@ class Gen_langfiles(threading.Thread):
         # Documentation for subprocess.check_call says that CalledProcessError
         # will be raised on failure, but I found that OSError is also possible.
         print('Error running i18n/js_to_json.py: ', e)
-        sys.exit(1)
+        # sys.exit(1)
 
     # Checking whether it is necessary to rebuild the js files would be a lot of
     # work since we would have to compare each <lang>.json file with each
@@ -407,7 +408,7 @@ class Gen_langfiles(threading.Thread):
       subprocess.check_call(cmd)
     except (subprocess.CalledProcessError, OSError) as e:
       print('Error running i18n/create_messages.py: ', e)
-      sys.exit(1)
+      # sys.exit(1)
 
     # Output list of .js files created.
     for f in json_files:
@@ -432,7 +433,7 @@ if __name__ == '__main__':
     else:
       print("""Error: Closure not found.  Read this:
 https://developers.google.com/blockly/hacking/closure""")
-    sys.exit(1)
+    # sys.exit(1)
   search_paths = calcdeps.ExpandDirectories(
       ['core', os.path.join(os.path.pardir, 'closure-library')])
 
