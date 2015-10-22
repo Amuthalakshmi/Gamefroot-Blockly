@@ -197,7 +197,7 @@ Blockly.Blocks['kiwi_event_animation'] = {
 Blockly.Blocks['kiwi_event_touch_on'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_ON_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.EVENT );
+    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
     this.appendValueInput("INST")
         .setCheck("Instance")
         .appendField( Blockly.Msg.KF_EVENT_TOUCH_ON_MESSAGE );
@@ -229,7 +229,7 @@ Blockly.Blocks['kiwi_event_level_start'] = {
 Blockly.Blocks['kiwi_event_touch_return_instance'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.EVENT );
+    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_EVENT_TOUCH_RETURN_MESSAGE )
         .appendField(new Blockly.FieldVariable('instance'), 'VAR');
