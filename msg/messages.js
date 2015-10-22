@@ -54,9 +54,9 @@ goog.require('Blockly.Msg');
 Blockly.Msg.VARIABLES_DEFAULT_NAME = 'item';
 /// button text - Botton that sets a calendar to today's date.\n{{Identical|Today}}
 Blockly.Msg.TODAY = 'Today';
-
+/// message -
 Blockly.Msg.VARIABLES_SET_MESSAGE_ONE = 'set';
-
+/// ,essage -
 Blockly.Msg.VARIABLES_SET_MESSAGE_TWO = 'to';
 
 // Context menus.
@@ -1997,7 +1997,7 @@ Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_MESSAGE = 'get colour of shape';
 /// tooltip -
 Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_TOOLTIP = 'Returns the colour of a shape passed.';
 
-// helpurl - 
+/// helpurl - 
 Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_HELPURL = '';
 /// message - 
 Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_ONE = 'create new';
@@ -2133,23 +2133,23 @@ Blockly.Msg.KF_COORDINATE_CREATE_MESSAGE = 'create new coordinate at';
 /// tooltip - 
 Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP = 'Creates a new coordinate';
 
-// helpurl - 
+/// helpurl - 
 Blockly.Msg.KF_SET_DEBUG_MODE_URL = '';
-// message - 
+/// message - 
 Blockly.Msg.KF_SET_DEBUG_MODE_MESSAGE = 'set debug mode';
-// tooltip - 
+/// tooltip - 
 Blockly.Msg.KF_SET_DEBUG_MODE_TOOLTIP = 'Sets the debug mode of the game';
 
-// helpurl - 
+/// helpurl - 
 Blockly.Msg.KF_GET_DEBUG_MODE_URL = '';
-// message - 
+/// message - 
 Blockly.Msg.KF_GET_DEBUG_MODE_MESSAGE = 'get debug mode';
-// tooltip - 
+/// tooltip - 
 Blockly.Msg.KF_GET_DEBUG_MODE_TOOLTIP = 'Returns the boolean indiciating if debug mode is currently on or off';
 
-// helpurl - 
+/// helpurl - 
 Blockly.Msg.KF_CLASSES_GET_BY_TEXT_HELPURL = '';
-// message -
+/// message -
 Blockly.Msg.KF_CLASSES_GET_BY_TEXT_MESSAGE = 'get class of';
-// tooltip -
+/// tooltip -
 Blockly.Msg.KF_CLASSES_GET_BY_TEXT_TOOLTIP = 'Returns a class of the text passed.';
