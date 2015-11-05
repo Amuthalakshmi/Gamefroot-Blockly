@@ -83,6 +83,7 @@ Blockly.Blocks['kiwi_block_category'] = {
     this.setColour( "#f0f0f0" );
     this.setEditable( false );
     this.setMovable( false );
+    this.moveBy( -10, 0 );
 
     var category = xmlBlock.getAttribute('message') || 'Category';  
 

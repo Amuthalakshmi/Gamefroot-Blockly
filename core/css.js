@@ -454,7 +454,7 @@ Blockly.Css.CONTENT = [
   '.blocklyTreeLabel {',
     'cursor: default;',
     'font-family: Roboto, sans-serif;',
-    'font-size: 14px;',
+    'font-size: 15px;',
     'vertical-align: middle;',
   '}',
 
@@ -758,6 +758,8 @@ Blockly.Css.CONTENT = [
 
   '.blocklyBlocksCategory .blocklyText {',
     'fill: #8c8c8c;',
+    'font-size: 16px;',
+    'font-weight: 300;',
   '}',
 
   '.blocklyBlocksCategory.blocklySelected>.blocklyPath {',
