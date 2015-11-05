@@ -88,7 +88,7 @@ Blockly.Flyout.prototype.GAP = 10;
  * Does the flyout automatically close when a block is created?
  * @type {boolean}
  */
-Blockly.Flyout.prototype.autoClose = false;
+Blockly.Flyout.prototype.autoClose = true;
 
 /**
  * Corner radius of the flyout background.

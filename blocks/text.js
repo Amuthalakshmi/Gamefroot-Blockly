@@ -56,7 +56,8 @@ Blockly.Blocks['text'] = {
     } else {
       var file = 'quote0.png';
     }
-    return new Blockly.FieldImage(Blockly.mainWorkspace.options.pathToMedia + file, 12, 12, '"');
+    var workspace = Blockly.mainWorkspace || this.workspace;
+    return new Blockly.FieldImage(workspace.options.pathToMedia + file, 12, 12, '"');
   }
 };
 
