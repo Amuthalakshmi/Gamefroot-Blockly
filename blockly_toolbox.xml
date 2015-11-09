@@ -13,9 +13,7 @@
       </block>
       <block type="kiwi_event_create"></block>
       <block type="kiwi_event_remove"></block>
-      <block type="kiwi_event_pre_constantly"></block>
-      <block type="kiwi_event_constantly"></block>
-      <block type="kiwi_event_post_constantly"></block>
+      <block type="kiwi_event_constantly_dropdown"></block>
 
     <block type="kiwi_block_category" message="Mouse"></block>
       <block type="kiwi_event_stage_input"></block>

@@ -418,3 +418,22 @@ Blockly.Blocks['kiwi_event_post_constantly'] = {
     this.appendStatementInput('STACK');
   }
 };
+
+
+Blockly.Blocks['kiwi_event_constantly_dropdown'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
+
+    this.appendDummyInput()
+      .appendField(new Blockly.FieldDropdown( [ 
+        ["Constantly", "onUpdate"], 
+        ["Pre constantly", "onPreUpdate"], 
+        ["Post constantly", "onPostUpdate"]
+      ]), "TYPE")
+      .appendField(Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_MESSAGE);
+
+    this.setTooltip(Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_TOOLTIP);
+    this.appendStatementInput('STACK');
+  }
+};

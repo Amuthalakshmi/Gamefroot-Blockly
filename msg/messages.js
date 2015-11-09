@@ -2165,3 +2165,10 @@ Blockly.Msg.KF_CLASSES_GET_BY_TEXT_HELPURL = '';
 Blockly.Msg.KF_CLASSES_GET_BY_TEXT_MESSAGE = 'get class of';
 /// tooltip -
 Blockly.Msg.KF_CLASSES_GET_BY_TEXT_TOOLTIP = 'Returns a class of the text passed.';
+
+/// helpurl - 
+Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_MESSAGE = '';
+/// tooltip - 
+Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_TOOLTIP = 'Executes every frame. The order of execution depends on the choosen dropdown item.';

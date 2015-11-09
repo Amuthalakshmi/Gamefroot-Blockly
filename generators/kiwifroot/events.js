@@ -420,11 +420,35 @@ Blockly.Kiwifroot['kiwi_event_pre_constantly'] = function(block){
 	return null;
 };
 
-
 Blockly.Kiwifroot['kiwi_event_post_constantly'] = function(block){
 	var funcName = defineFunctionFromBranch('onPostUpdate', block, 'Executed every frame after the regular update method.');
 	var constructorCode = 'this.state.robots.onPostUpdate.add(this.'+funcName + ', this);';
 	var destructorCode = 'this.state.robots.onPostUpdate.remove(this.'+funcName+ ', this);';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+	return null;
+};
+
+
+
+Blockly.Kiwifroot['kiwi_event_pre_constantly'] = function(block){
+	var funcName = defineFunctionFromBranch('onPreUpdate', block, 'Executed every frame before the regular update method.');
+	var constructorCode = 'this.state.robots.onPreUpdate.add(this.'+funcName + ', this);';
+	var destructorCode = 'this.state.robots.onPreUpdate.remove(this.'+funcName+ ', this);';
+
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+	return null;
+};
+
+Blockly.Kiwifroot['kiwi_event_constantly_dropdown'] = function(block){
+
+  	var dropdown_type = block.getFieldValue( 'TYPE' );
+	var funcName = defineFunctionFromBranch(dropdown_type, block, 'Executed every frame.');
+
+	var constructorCode = 'this.state.robots.' + dropdown_type + '.add(this.' + funcName + ', this);';
+	var destructorCode = 'this.state.robots.' + dropdown_type + '.remove(this.' + funcName + ', this);';
 
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
 	Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
