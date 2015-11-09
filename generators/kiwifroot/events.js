@@ -121,15 +121,17 @@ Blockly.Kiwifroot['kiwi_event_inst_input'] = function(block) {
   Blockly.Kiwifroot.provideAdditionOnce('EventInstanceInput' + dropdown_namespace , Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
 
   // Add the code into the onPressed function
-  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
 
   var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
-    var code = 'if ('+inst+'.box.worldHitbox.containsPoint( point )) {\n' + branch + '}';  
+  	
+  	var code = errorCheck( ('!' + inst), "Missing instance value for the pressed/released event block." );
+    code += 'if ('+inst+'.box.worldHitbox.containsPoint( point )) {\n' + branch + '}';  
     code = Blockly.Kiwifroot.prefixLines(code, Blockly.Kiwifroot.INDENT);
 
-  Blockly.Kiwifroot.provideAddition( SECTION_EVENT, code );
+	Blockly.Kiwifroot.provideAddition( SECTION_EVENT, code );
 
-  return null;
+	return null;
 };
 
 
@@ -157,9 +159,10 @@ Blockly.Kiwifroot['kiwi_event_key_input'] = function(block) {
 	Blockly.Kiwifroot.provideAdditionOnce('EventKeyInput' + dropdown_namespace, Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
 
 	// Generate the new function
-	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+	var keyCode = Blockly.Kiwifroot.valueToCode(block, 'KEY', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '32';
 	var funcName = defineFunctionFromBranch('onKeyInput', block);
-	var code = 'case '+keyCode+': this.'+funcName+'(); break;';
+
+	var code = 'case ' + keyCode + ': this.'+funcName+'(); break;';
 
 	Blockly.Kiwifroot.provideAddition( SECTION_EVENT, code);
 	return null;
@@ -170,9 +173,11 @@ Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
 
 	var funcName = defineFunctionFromBranch('onTick', block, 'Executed after time period of time.');
 
-	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 16;
 
-	var constructorCode = 'this.' + funcName + '_ = this.game.time.clock.setInterval( function() { \n' +
+
+	var constructorCode = errorCheck( ('!' + tick), 'Missing numeric value for Time event.' ) +  
+		'this.' + funcName + '_ = this.game.time.clock.setInterval( function() { \n' +
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'if( this.owner && this.owner.exists ) {\n' +
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + funcName + '();\n' + 
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + '}\n' + 
@@ -192,9 +197,10 @@ Blockly.Kiwifroot['kiwi_event_time_single'] = function(block) {
 	var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onSingleTick', Blockly.Procedures.NAME_TYPE);
 	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
 
-	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 16; 
 
-	var code = 'this.' + funcName + '_ = this.game.time.clock.setTimeout( function() { \n' + 
+	var code = errorCheck( ('!' + tick), 'Missing numeric value for Time event.' ) + 
+		'this.' + funcName + '_ = this.game.time.clock.setTimeout( function() { \n' + 
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'if( this.owner && this.owner.exists ) {\n' +
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + branch +  
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + '}\n' +
@@ -211,12 +217,12 @@ Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
 
 	addMessageRecievedBlock();
 
-	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 'message';
 	var funcName = defineFunctionFromBranch('executeMessage' + message.slice(1, message.length - 1), block, "Executed when the " + message + " is received.");
 
 	// Generate the code for the switch
 	var code = 'case ' + message + ':\n';
-	code += '\t\t\tthis.'+funcName+'();\n';
+	code += '\t\t\tthis.' + funcName + '();\n';
 	code += '\t\t\tbreak;';
 
 	Blockly.Kiwifroot.provideAddition('EVENT_MESSAGE_RELEASED', code);
@@ -229,13 +235,13 @@ Blockly.Kiwifroot['kiwi_event_animation'] = function(block) {
 
   	Blockly.Kiwifroot.addAnimationToConstructor_();
 
-  	var value_anim = Blockly.Kiwifroot.valueToCode( block, 'ANIM', Blockly.Kiwifroot.ORDER_ATOMIC );
+  	var value_anim = Blockly.Kiwifroot.valueToCode( block, 'ANIM', Blockly.Kiwifroot.ORDER_ATOMIC ) || '""';
   	var dropdown_type = block.getFieldValue( 'TYPE' );
-  
 
 	var funcName = defineFunctionFromBranch( 'onAnimation', block );
 
-	var bootCode  = 'var anim = ' + Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.getAnimation(' + value_anim + ');\n';
+	var bootCode  = errorCheck( ('!' + value_anim), 'Missing the animation name for Animation event.' );
+		bootCode += 'var anim = ' + Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.getAnimation(' + value_anim + ');\n';
 		bootCode += '\tif( anim ) {\n';
 		bootCode += '\t\tanim.' + dropdown_type + '.add(this.' + funcName + ', this);\n';
 		bootCode += '\t}\n';
@@ -249,7 +255,7 @@ Blockly.Kiwifroot['kiwi_event_touch_on'] = function(block) {
 
 	Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
 
-  	var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  	var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
 	var funcName = Blockly.Kiwifroot.provideFunction_(
 		'onTouch',
@@ -264,10 +270,11 @@ Blockly.Kiwifroot['kiwi_event_touch_on'] = function(block) {
 	Blockly.Kiwifroot.provideAddition( Blockly.Kiwifroot.DESTRUCTOR, code );
 
 	var funcName = defineFunctionFromBranch( 'touchedByInstance', block );
-	var code = 'if( instanceA === this.owner && instanceB === ' + value_inst + ' || \n\tinstanceA === ' + value_inst + ' && instanceB === this.owner) {\n\t\t this.' + funcName + '(); \n\t\t }\n';
+
+	var code = errorCheck( ('!' + value_inst), 'Missing instance for on touch event.' );
+	
+	code += 'if( instanceA === this.owner && instanceB === ' + value_inst + ' || \n\tinstanceA === ' + value_inst + ' && instanceB === this.owner) {\n\t\t this.' + funcName + '(); \n\t\t }\n';
 	Blockly.Kiwifroot.provideAddition('EVENT_TOUCH_ON', code);
-
-
 
   	return null;
 };
@@ -344,7 +351,7 @@ Blockly.Kiwifroot['kiwi_event_message_value'] = function(block) {
 
 	var variable0 = Blockly.Kiwifroot.variableDB_.getName(
 		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
+	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '""';
 
 	var funcName = defineFunctionFromBranch('executeMessage'+ message.slice(1, message.length - 1), block, "Executed when the " + message + " is received.");
 
@@ -390,7 +397,7 @@ Blockly.Kiwifroot['kiwi_event_level_start'] = function(block){
 
 Blockly.Kiwifroot['kiwi_event_instance_properties_set'] = function(block){
 	
-	var value_name = Blockly.Kiwifroot.valueToCode(block, 'PROP_NAME', Blockly.Kiwifroot.ORDER_ATOMIC);
+	var value_name = Blockly.Kiwifroot.valueToCode(block, 'PROP_NAME', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 	var funcName = defineFunctionFromBranch('onPropertySet', block, "When the property " + value_name + " updates.");
 
 

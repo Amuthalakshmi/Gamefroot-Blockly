@@ -432,3 +432,19 @@ Blockly.Kiwifroot.generateSection_ = function(section,prefix,suffix){
 var regexpQuote = function(str) {
   return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
 };
+
+var errorCheck = function( condition, errorMessage ) {
+
+  var code = '';
+
+  //If debugging
+  if( true ) {
+    code += 'if( ' + condition + ' ) {\n';
+    code += '\tthis.game.reportError("' + errorMessage + '", "' + errorMessage + '");\n';
+    code += '\treturn;\n';
+    code += '}\n';
+  }
+
+  return code;
+
+};

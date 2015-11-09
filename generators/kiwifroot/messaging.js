@@ -29,17 +29,18 @@ goog.provide('Blockly.Kiwifroot.messaging');
 goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_messaging_instance'] = function(block) {
-  var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC) || "''";
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
-  var code = value_inst + '.properties.set("_messaging_", ' + value_message + ');\n';
+  var code = errorCheck( ('!' + value_inst ), 'Instance could not be found for a Message sending block.' );
+  code += value_inst + '.properties.set("_messaging_", ' + value_message + ');\n';
 
   return code;
 };
 
 Blockly.Kiwifroot['kiwi_messaging_list'] = function(block) {
-  var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_list = Blockly.Kiwifroot.valueToCode(block, 'LIST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC)|| "''";
+  var value_list = Blockly.Kiwifroot.valueToCode(block, 'LIST', Blockly.Kiwifroot.ORDER_ATOMIC) || "[]";
 
   var code = 'var list = ' + value_list +';\n' +
           'for( var i = 0; i < list.length; i++) {\n' +
@@ -53,7 +54,7 @@ Blockly.Kiwifroot['kiwi_messaging_list'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_messaging_everyone'] = function(block) {
-  var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC) || "''";
 
   var functionName = Blockly.Kiwifroot.provideFunction_(
       'messageEachGameObject',
@@ -77,8 +78,8 @@ Blockly.Kiwifroot['kiwi_messaging_everyone'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_messaging_everyone_value'] = function(block) {
-  var value_message = Blockly.JavaScript.valueToCode(block, 'MESSAGE', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_message = Blockly.JavaScript.valueToCode(block, 'MESSAGE', Blockly.JavaScript.ORDER_ATOMIC) || "''";
+  var value_value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC) || null;
 
   var functionName = Blockly.Kiwifroot.provideFunction_(
       'messageEachGameObjectWithValue',
@@ -102,12 +103,14 @@ Blockly.Kiwifroot['kiwi_messaging_everyone_value'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_messaging_instance_value'] = function(block) {
-  var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC) || "''";
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
+  var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
-  var code = value_inst + '.properties.set("_messaging-value_", ' + value_value + ');\n';
-  code    += value_inst + '.properties.set("_messaging_", ' + value_message + ');\n';
+
+  var code = errorCheck( ('!' + value_inst ), 'Instance token not passed to message with value block.' );
+  code += value_inst + '.properties.set("_messaging-value_", ' + value_value + ');\n';
+  code += value_inst + '.properties.set("_messaging_", ' + value_message + ');\n';
 
   return code;
 };

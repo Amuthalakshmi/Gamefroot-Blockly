@@ -31,8 +31,8 @@ goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_coordinate_create'] = function(block) {
 
-	var value_x = Blockly.Kiwifroot.valueToCode( block, 'X', Blockly.Kiwifroot.ORDER_ATOMIC );
-	var value_y = Blockly.Kiwifroot.valueToCode( block, 'Y', Blockly.Kiwifroot.ORDER_ATOMIC );
+	var value_x = Blockly.Kiwifroot.valueToCode( block, 'X', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+	var value_y = Blockly.Kiwifroot.valueToCode( block, 'Y', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
 
 	var code  = '{ x: ' + value_x + ', y: ' + value_y + ' }';
   	
@@ -43,9 +43,12 @@ Blockly.Kiwifroot['kiwi_coordinate_create'] = function(block) {
 Blockly.Kiwifroot['kiwi_coordinate_get'] = function(block) {
 
 	var value_prop = block.getFieldValue('PROP');
-	var value_loc = Blockly.Kiwifroot.valueToCode( block, 'COORDINATE', Blockly.Kiwifroot.ORDER_ATOMIC );
+	var value_loc = Blockly.Kiwifroot.valueToCode( block, 'COORDINATE', Blockly.Kiwifroot.ORDER_ATOMIC ) || '{x:0,y:0}';
 
-	var code  = value_loc + '.' + value_prop + '';
+	//wrap in a function
+	//MISSING ERROR CHECK: errorCheck( ('!' + value_class)
+
+	var code = value_loc + '.' + value_prop + '';
   	
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
@@ -55,9 +58,11 @@ Blockly.Kiwifroot['kiwi_coordinate_set'] = function(block) {
 
 	var value_prop = block.getFieldValue('PROP');
 	var value_loc = Blockly.Kiwifroot.valueToCode( block, 'COORDINATE', Blockly.Kiwifroot.ORDER_ATOMIC );
-	var value_value = Blockly.Kiwifroot.valueToCode( block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC );
+	var value_value = Blockly.Kiwifroot.valueToCode( block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
 
-	var code  = value_loc + '.' + value_prop + ' = ' + value_value + ';\n';
+
+	var code = errorCheck( ('!' + value_loc), "Could not set " + value_prop + " location due to missing value.");
+	code = value_loc + '.' + value_prop + ' = ' + value_value + ';\n';
   	
 	return code;
 };

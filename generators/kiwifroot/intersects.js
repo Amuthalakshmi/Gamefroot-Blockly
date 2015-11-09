@@ -30,8 +30,8 @@ goog.require('Blockly.Kiwifroot');
 
 
 Blockly.Kiwifroot['kiwi_intersects_instance_to_instance'] = function(block) {
-  var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_inst_two = Blockly.Kiwifroot.valueToCode(block, 'INST_TWO', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
+  var value_inst_two = Blockly.Kiwifroot.valueToCode(block, 'INST_TWO', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
 
   var t = Blockly.Kiwifroot.INDENT;
 
@@ -55,9 +55,9 @@ Blockly.Kiwifroot['kiwi_intersects_instance_to_instance'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_intersects_instance_to_xy'] = function(block) {
-  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_x_loc = Blockly.Kiwifroot.valueToCode(block, 'X_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_y_loc = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
+  var value_x_loc = Blockly.Kiwifroot.valueToCode(block, 'X_LOC', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
+  var value_y_loc = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
 
   var t = Blockly.Kiwifroot.INDENT;
 

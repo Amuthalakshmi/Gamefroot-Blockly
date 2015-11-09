@@ -51,7 +51,7 @@ Blockly.Kiwifroot['kiwi_game_level_special'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_game_goto_level_num'] = function(block) {
-	var levelNum = Blockly.Kiwifroot.valueToCode(block, 'LEVEL', Blockly.Kiwifroot.ORDER_ATOMIC);
+	var levelNum = Blockly.Kiwifroot.valueToCode(block, 'LEVEL', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
 	return 'this.game.info.switchLevelByNumber('+levelNum+');\n';
 };
 
@@ -62,8 +62,11 @@ Blockly.Kiwifroot['kiwi_game_stage_get_size'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_game_stage_set_colour'] = function(block) {
-	var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-	return 'this.game.stage.color = ('+val+').slice(1);\n';
+	var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '#000000';
+  var code = errorCheck( ('typeof ' + val + ' == "string"' ), 'Stage colour needs to be a string to set it.' );
+	code += 'this.game.stage.color = ('+val+').slice(1);\n';
+
+  return code;
 };
 
 Blockly.Kiwifroot['kiwi_game_stage_get_colour'] = function(block) {
@@ -78,8 +81,8 @@ Blockly.Kiwifroot['kiwi_game_get_time'] = function(block) {
   	if( dropdown_method === 'elapsed') {
   		var code = '(this.game.time.clock.elapsed() * this.game.time.clock.units)';
   	} else {
-		var code = 'this.game.time.' + dropdown_method;
-	}
+  		var code = 'this.game.time.' + dropdown_method;
+  	}
 
   	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

@@ -37,13 +37,14 @@ Blockly.Kiwifroot['kiwi_log'] = function(block) {
 
 //Hack
 Blockly.Kiwifroot['lists_add'] = function(block) {
-  var value_list = Blockly.Kiwifroot.valueToCode(block, 'LIST', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_input = Blockly.Kiwifroot.valueToCode(block, 'INPUT', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_list = Blockly.Kiwifroot.valueToCode(block, 'LIST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
+  var value_input = Blockly.Kiwifroot.valueToCode(block, 'INPUT', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
   var dropdown_position = block.getFieldValue('POSITION');
 
   // TODO: Assemble JavaScript into code variable.
-  var code = value_list;
+  var code = errorCheck( ('!' + value_list ), 'Missing an List token a list action block.' );
+  code += value_list;
 
   if( dropdown_position === "front" ) {
   	code += '.unshift( ' + value_input + ' );\n'; 
@@ -56,7 +57,7 @@ Blockly.Kiwifroot['lists_add'] = function(block) {
 
 //SET_DEBUG
 Blockly.Kiwifroot['kiwi_set_debug_mode'] = function(block) {
-    var val = Blockly.Kiwifroot.valueToCode(block, 'SET_DEBUG', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
+    var val = Blockly.Kiwifroot.valueToCode(block, 'SET_DEBUG', Blockly.Kiwifroot.ORDER_ATOMIC) || false;
     return 'this.game.debugMode = ' + val + ';\n';
 };
 

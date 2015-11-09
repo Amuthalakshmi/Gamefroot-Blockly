@@ -43,7 +43,7 @@ Blockly.Kiwifroot.addAnimationToConstructor_ = function() {
 
 Blockly.Kiwifroot['kiwi_animation_play'] = function(block) {
 	Blockly.Kiwifroot.addAnimationToConstructor_();
-  var val = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
+  var val = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC) || "''";
   return Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.play( ' + val + ' );\n';
 };
 

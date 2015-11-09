@@ -415,27 +415,29 @@ Blockly.Kiwifroot['math_random_float'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_math_instance'] = function(block) {
-  var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_inst_two = Blockly.Kiwifroot.valueToCode(block, 'INST_TWO', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
+  var value_inst_two = Blockly.Kiwifroot.valueToCode(block, 'INST_TWO', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
   var dropdown_method = block.getFieldValue('METHOD');
 
-  var code = value_inst_one + '.transform.getPositionPoint().' + dropdown_method + '( '+ value_inst_two + '.transform.getPositionPoint() )';
+  var codeA = value_inst_one + '.transform.getPositionPoint().' + dropdown_method + '( '+ value_inst_two + '.transform.getPositionPoint() )';
 
   if( dropdown_method == 'angleTo' ) {
-    code = '(' + code + ' * Kiwi.Utils.GameMath.RAD_TO_DEG )';
+    codeA = '(' + codeA + ' * Kiwi.Utils.GameMath.RAD_TO_DEG )';
   }
+
+  var code = errorCheck( ('!' + value_inst_one + ' || !' + value_inst_two ), 'Missing an instance token.' );
+  code += codeA;
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
 
 Blockly.Kiwifroot['kiwi_math_xy_to_xy'] = function(block) {
-  var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  
-  var value_x_loc_one = Blockly.Kiwifroot.valueToCode(block, 'X_LOC_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_y_loc_one = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_x_loc_two = Blockly.Kiwifroot.valueToCode(block, 'X_LOC_TWO', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_y_loc_two = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC_TWO', Blockly.Kiwifroot.ORDER_ATOMIC);
+ 
+  var value_x_loc_one = Blockly.Kiwifroot.valueToCode(block, 'X_LOC_ONE', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
+  var value_y_loc_one = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC_ONE', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
+  var value_x_loc_two = Blockly.Kiwifroot.valueToCode(block, 'X_LOC_TWO', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
+  var value_y_loc_two = Blockly.Kiwifroot.valueToCode(block, 'Y_LOC_TWO', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
 
   var dropdown_method = block.getFieldValue('METHOD');
 
@@ -449,7 +451,7 @@ Blockly.Kiwifroot['kiwi_math_xy_to_xy'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_math_utils'] = function(block) {
-  var value_input = Blockly.Kiwifroot.valueToCode(block, 'INPUT', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_input = Blockly.Kiwifroot.valueToCode(block, 'INPUT', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
   var dropdown_method = block.getFieldValue('METHOD');
 
   var code = 'Kiwi.Utils.GameMath.' + dropdown_method + '( ' + value_input;
@@ -464,9 +466,9 @@ Blockly.Kiwifroot['kiwi_math_utils'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_math_lerp'] = function(block) {
-  var value_value_a = Blockly.Kiwifroot.valueToCode(block, 'VALUE_A', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_value_b = Blockly.Kiwifroot.valueToCode(block, 'VALUE_B', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_time = Blockly.Kiwifroot.valueToCode(block, 'TIME', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_value_a = Blockly.Kiwifroot.valueToCode(block, 'VALUE_A', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
+  var value_value_b = Blockly.Kiwifroot.valueToCode(block, 'VALUE_B', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
+  var value_time = Blockly.Kiwifroot.valueToCode(block, 'TIME', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
 
   var functionName = Blockly.Kiwifroot.provideFunction_(
       'math_lerp',

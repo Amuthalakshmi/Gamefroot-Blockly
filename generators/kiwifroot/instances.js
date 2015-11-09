@@ -21,6 +21,7 @@
 /**
  * @fileoverview Generating Kiwifroot Javascript that resolves instance tokens
  * @author rani_sputnik@hotmail.com
+ * @author benjamin.p.harding@gmail.com
  */
 'use strict';
 
@@ -46,10 +47,12 @@ Blockly.Kiwifroot['kiwi_instance_set'] = function(block) {
 	var prop = block.getFieldValue('PROP');
 	var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 
-  var code = inst + '.' + prop + ' = ' + val;
+  var code = errorCheck( ('!' + inst ), 'Missing Instance token on Instance transform setter.' );
+
+  code += inst + '.' + prop + ' = (' + val + ')';
 
   if( prop === 'rotation' ) {
-    code = inst + '.' + prop + ' = (' + val + ') * Kiwi.Utils.GameMath.DEG_TO_RAD';
+    code += ' * Kiwi.Utils.GameMath.DEG_TO_RAD';
   }
 
   code += ';\n';
@@ -58,9 +61,11 @@ Blockly.Kiwifroot['kiwi_instance_set'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_instance_get'] = function(block) {
-	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
 	var prop = block.getFieldValue('PROP');
 	var code = inst + '.' + prop;
+  
+  //Add error check here...
 
   if( prop === 'rotation' ) {
     code = '(' + inst + '.' + prop + ' * Kiwi.Utils.GameMath.RAD_TO_DEG)';
@@ -70,7 +75,7 @@ Blockly.Kiwifroot['kiwi_instance_get'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_instance_get_visible'] = function(block) {
-  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var code = inst + '.visible';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
@@ -78,34 +83,38 @@ Blockly.Kiwifroot['kiwi_instance_get_visible'] = function(block) {
 Blockly.Kiwifroot['kiwi_instance_set_visible'] = function(block) {
   var value_vis = Blockly.Kiwifroot.valueToCode(block, 'VISIBLE', Blockly.Kiwifroot.ORDER_ATOMIC);
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
-  return inst + '.visible = ' + value_vis + ';\n';
+  var code = errorCheck( ('!' + inst ), 'Missing Instance token on visible setter.' );
+  code += inst + '.visible = ' + value_vis + ';\n';
+  return code;
 };
 
 Blockly.Kiwifroot['kiwi_instance_death'] = function(block) {
-  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var code = value_inst + '.exists = false;\n';
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var code = errorCheck( ('!' + value_inst ), 'Missing Instance token on destroy block.' );
+  code += value_inst + '.exists = false;\n';
   return code;
 };
 
 Blockly.Kiwifroot['kiwi_instance_tag_management'] = function(block) {
-  var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
+  var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var dropdown_type = block.getFieldValue('TYPE');
 
-  var code = value_instance + '.' + dropdown_type + '(' + value_tag + ');\n';
+  var code = errorCheck( ('!' + value_instance ), 'Instance token require to add/remove a tag.' );
+  code += value_instance + '.' + dropdown_type + '(' + value_tag + ');\n';
   return code;
 };
 
 Blockly.Kiwifroot['kiwi_instance_has_tags'] = function(block) {
-  var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
+  var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
   var code = value_instance + '.hasTag(' + value_tag + ')';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
 Blockly.Kiwifroot['kiwi_instance_get_by_tag'] = function(block) {
-  var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
   var dropdown_type = block.getFieldValue('TYPE');
 
   var code  = 'this.state.' + dropdown_type + '(' + value_tag + ')';
@@ -113,18 +122,19 @@ Blockly.Kiwifroot['kiwi_instance_get_by_tag'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_instance_get_all_by_tag'] = function(block) {
-  var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
   var code = 'this.state.getChildrenByTag(' + value_tag + ')';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
 Blockly.Kiwifroot['kiwi_instance_move'] = function(block) {
-  var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_inst_two = Blockly.Kiwifroot.valueToCode(block, 'INST_TWO', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_inst_one = Blockly.Kiwifroot.valueToCode(block, 'INST_ONE', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
+  var value_inst_two = Blockly.Kiwifroot.valueToCode(block, 'INST_TWO', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
   var dropdown_method = block.getFieldValue('METHOD');
 
-  var code = 'this.state.' + dropdown_method + '(' + value_inst_one + ', ' + value_inst_two + ');\n';
+  var code = errorCheck( ('!' + value_inst_one + '|| !' + value_inst_two ), 'A Instance passed to the Depth block could not be found.' );
+  code += 'this.state.' + dropdown_method + '(' + value_inst_one + ', ' + value_inst_two + ');\n';
   return code;
 };
 
@@ -139,17 +149,19 @@ Blockly.Kiwifroot['kiwi_instance_execute'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_instance_properties_set'] = function(block) {
-  var value_prop_name = Blockly.Kiwifroot.valueToCode(block, 'PROP_NAME', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_prop_name = Blockly.Kiwifroot.valueToCode(block, 'PROP_NAME', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || "''";
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
 
-  var code = value_inst + '.properties.set(' + value_prop_name + ',' + value_value + ');\n';
+  var code = errorCheck( ('!' + value_inst ), 'Missing Instance token in property setter.' );
+  code += value_inst + '.properties.set(' + value_prop_name + ',' + value_value + ');\n';
+  
   return code;
 };
 
 Blockly.Kiwifroot['kiwi_instance_properties_get'] = function(block) {
-  var value_prop_name = Blockly.Kiwifroot.valueToCode(block, 'PROP_NAME', Blockly.Kiwifroot.ORDER_ATOMIC);
-  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_prop_name = Blockly.Kiwifroot.valueToCode(block, 'PROP_NAME', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
 
   var code = value_inst + '.properties.get(' + value_prop_name + ')';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
@@ -161,87 +173,98 @@ Blockly.Kiwifroot['kiwi_instance_properties_get'] = function(block) {
 Blockly.Kiwifroot['kiwi_instance_set_position'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var prop = block.getFieldValue('PROP');
-  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-  var code = inst + '.' + prop + ' = ' + val;
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
+
+  var code = errorCheck( ('!' + inst ), 'Missing Instance token in position setter.' );
+  code += inst + '.' + prop + ' = ' + val;
   code += ';\n';
   return code;
 };
 Blockly.Kiwifroot['kiwi_instance_set_dimensions'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var prop = block.getFieldValue('PROP');
-  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-  var code = inst + '.' + prop + ' = ' + val;
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
+
+  var code = errorCheck( ('!' + inst ), 'Missing Instance token in dimension setter.' );
+  code += inst + '.' + prop + ' = ' + val;
   code += ';\n';
   return code;
 };
 Blockly.Kiwifroot['kiwi_instance_set_rotation'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
-  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-  var code = inst + '.rotation = (' + val + ') * Kiwi.Utils.GameMath.DEG_TO_RAD';
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
+
+  var code = errorCheck( ('!' + inst ), 'Missing Instance token in rotation setter.' );
+  code += inst + '.rotation = (' + val + ') * Kiwi.Utils.GameMath.DEG_TO_RAD';
   code += ';\n';
   return code;
 };
 Blockly.Kiwifroot['kiwi_instance_set_scale'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var prop = block.getFieldValue('PROP');
-  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-  var code = inst + '.' + prop + ' = ' + val;
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
+
+  var code = errorCheck( ('!' + inst ), 'Missing Instance token in scale setter.' );
+  code += inst + '.' + prop + ' = ' + val;
   code += ';\n';
   return code;
 };
 Blockly.Kiwifroot['kiwi_instance_set_alpha'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
-  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-  var code = inst + '.alpha = ' + val;
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
+
+  var code = errorCheck( ('!' + inst ), 'Missing Instance token in opacity setter.' );
+  code += inst + '.alpha = ' + val;
   code += ';\n';
   return code;
 };
 Blockly.Kiwifroot['kiwi_instance_set_anchor_point'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var prop = block.getFieldValue('PROP');
-  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
-  var code = inst + '.' + prop + ' = ' + val;
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
+
+  var code = errorCheck( ('!' + inst ), 'Missing Instance token in anchor point setter.' );
+  code += inst + '.' + prop + ' = ' + val;
   code += ';\n';
   return code;
 };
 
 
 
-
 Blockly.Kiwifroot['kiwi_instance_get_position'] = function(block) {
-  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
   var code = inst + '.' + prop;
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_dimensions'] = function(block) {
-  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
   var code = inst + '.' + prop;
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_rotation'] = function(block) {
-  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var code = '(' + inst + '.rotation * Kiwi.Utils.GameMath.RAD_TO_DEG)';
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_scale'] = function(block) {
-  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
   var code = inst + '.' + prop;
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_alpha'] = function(block) {
-  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var code = inst + '.alpha';
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_anchor_point'] = function(block) {
-  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
   var code = inst + '.' + prop;
 

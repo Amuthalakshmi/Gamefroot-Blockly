@@ -29,14 +29,14 @@ goog.provide('Blockly.Kiwifroot.classes');
 goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_classes_instance_type'] = function(block) {
-  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.myself';
   var code = value_inst + '.name';
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
 Blockly.Kiwifroot['kiwi_classes_get_instance'] = function(block) {
-  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
   var dropdown_method = block.getFieldValue('METHOD');
 
   var code = 'this.state.' + dropdown_method + '(' + value_class + ')';
@@ -44,14 +44,14 @@ Blockly.Kiwifroot['kiwi_classes_get_instance'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_classes_get_all_instances'] = function(block) {
-  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
   var code = 'this.state.getAllChildrenByName(' + value_class +')';
-  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
 Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
 
-  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
   var variable0 = Blockly.Kiwifroot.variableDB_.getName(
     block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 
@@ -68,14 +68,14 @@ Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
 
   //value_class
 
-  var code = 'this.' + variable0 + ' = this.' + createInstanceFuncName + '(' + value_class + ');\n';
+  code = 'this.' + variable0 + ' = this.' + createInstanceFuncName + '(' + value_class + ');\n';
 
   return code;
 };
 
 
 Blockly.Kiwifroot['kiwi_classes_get_by_text'] = function(block) {
-  var value_text = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC);
+  var value_text = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC) || '""';
 
   var getClassFuncName = Blockly.Kiwifroot.provideFunction_(
     'getClass',

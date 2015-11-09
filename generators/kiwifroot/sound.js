@@ -58,7 +58,7 @@ Blockly.Kiwifroot['kiwi_sound_background_state'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_sound_set_mute'] = function(block) {
-		var value_state = Blockly.Kiwifroot.valueToCode(block, 'STATE', Blockly.Kiwifroot.ORDER_ATOMIC);
+		var value_state = Blockly.Kiwifroot.valueToCode(block, 'STATE', Blockly.Kiwifroot.ORDER_ATOMIC) || false;
 		var dropdown_prop = block.getFieldValue('PROP');
 
 		var code = Blockly.Kiwifroot.sound.COMPONENT_PREFIX + '.' + dropdown_prop + ' = ' + value_state + ';\n';
@@ -80,7 +80,7 @@ Blockly.Kiwifroot['kiwi_sound_get_volume'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_sound_set_volume'] = function(block) {
-		var value_volume = Blockly.Kiwifroot.valueToCode(block, 'VOLUME', Blockly.Kiwifroot.ORDER_ATOMIC);
+		var value_volume = Blockly.Kiwifroot.valueToCode(block, 'VOLUME', Blockly.Kiwifroot.ORDER_ATOMIC) || 100;
 
 		var code = 'this.game.audio.volume = (' + value_volume + '/ 100 )\n';
 	 	return code;
