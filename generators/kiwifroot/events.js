@@ -125,7 +125,7 @@ Blockly.Kiwifroot['kiwi_event_inst_input'] = function(block) {
 
   var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
   	
-  	var code = errorCheck( ('!' + inst), "Missing instance value for the pressed/released event block." );
+  	var code = errorCheck( ('!' + inst), "`Instance Pressed/Released Event` block is missing a Instance value." );
     code += 'if ('+inst+'.box.worldHitbox.containsPoint( point )) {\n' + branch + '}';  
     code = Blockly.Kiwifroot.prefixLines(code, Blockly.Kiwifroot.INDENT);
 
@@ -176,7 +176,7 @@ Blockly.Kiwifroot['kiwi_event_time'] = function(block) {
 	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 16;
 
 
-	var constructorCode = errorCheck( ('!' + tick), 'Missing numeric value for Time event.' ) +  
+	var constructorCode = errorCheck( ('!' + tick), '`Interval Time Event` block is missing a numeric value.' ) +  
 		'this.' + funcName + '_ = this.game.time.clock.setInterval( function() { \n' +
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'if( this.owner && this.owner.exists ) {\n' +
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + funcName + '();\n' + 
@@ -199,7 +199,7 @@ Blockly.Kiwifroot['kiwi_event_time_single'] = function(block) {
 
 	var tick = Blockly.Kiwifroot.valueToCode(block, 'MILLISECOND', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 16; 
 
-	var code = errorCheck( ('!' + tick), 'Missing numeric value for Time event.' ) + 
+	var code = errorCheck( ('!' + tick), '`Single Time Control` block is missing a numeric value.' ) + 
 		'this.' + funcName + '_ = this.game.time.clock.setTimeout( function() { \n' + 
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'if( this.owner && this.owner.exists ) {\n' +
 		Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + branch +  
@@ -240,7 +240,7 @@ Blockly.Kiwifroot['kiwi_event_animation'] = function(block) {
 
 	var funcName = defineFunctionFromBranch( 'onAnimation', block );
 
-	var bootCode  = errorCheck( ('!' + value_anim), 'Missing the animation name for Animation event.' );
+	var bootCode  = errorCheck( ('!' + value_anim), '`Animation Event` block is missing a Text operator.' );
 		bootCode += 'var anim = ' + Blockly.Kiwifroot.animation.COMPONENT_PREFIX + '.getAnimation(' + value_anim + ');\n';
 		bootCode += '\tif( anim ) {\n';
 		bootCode += '\t\tanim.' + dropdown_type + '.add(this.' + funcName + ', this);\n';
@@ -271,7 +271,7 @@ Blockly.Kiwifroot['kiwi_event_touch_on'] = function(block) {
 
 	var funcName = defineFunctionFromBranch( 'touchedByInstance', block );
 
-	var code = errorCheck( ('!' + value_inst), 'Missing instance for on touch event.' );
+	var code = errorCheck( ('!' + value_inst), '`On Touch Event` block is missing an Instance.' );
 	
 	code += 'if( instanceA === this.owner && instanceB === ' + value_inst + ' || \n\tinstanceA === ' + value_inst + ' && instanceB === this.owner) {\n\t\t this.' + funcName + '(); \n\t\t }\n';
 	Blockly.Kiwifroot.provideAddition('EVENT_TOUCH_ON', code);

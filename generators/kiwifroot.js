@@ -440,7 +440,7 @@ var errorCheck = function( condition, errorMessage ) {
   //If debugging
   if( true ) {
     code += 'if( ' + condition + ' ) {\n';
-    code += '\tthis.game.reportError("' + errorMessage + '", "' + errorMessage + '");\n';
+    code += '\tthis.game.reportError("' + errorMessage + '", "' + errorMessage + '", "SCRIPT ERROR");\n';
     code += '\treturn;\n';
     code += '}\n';
   }

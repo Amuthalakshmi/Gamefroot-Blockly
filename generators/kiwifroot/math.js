@@ -425,7 +425,7 @@ Blockly.Kiwifroot['kiwi_math_instance'] = function(block) {
     codeA = '(' + codeA + ' * Kiwi.Utils.GameMath.RAD_TO_DEG )';
   }
 
-  var code = errorCheck( ('!' + value_inst_one + ' || !' + value_inst_two ), 'Missing an instance token.' );
+  var code = errorCheck( ('!' + value_inst_one + ' || !' + value_inst_two ), '`Instance to Instance Math` block could not find a Instance.' );
   code += codeA;
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];

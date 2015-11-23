@@ -50,7 +50,7 @@ Blockly.Kiwifroot['kiwi_text_numeric_set'] = function(block) {
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC ) || null;
 	var value_numeric = Blockly.Kiwifroot.valueToCode( block, 'NUMBER', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0; 
 
-	var code = errorCheck( ('!' + value_inst ), 'Missing Instance token in Text block.' );
+	var code = errorCheck( ('!' + value_inst ), '`Set Text Numeric` block could not find a Instance.' );
 	code += value_inst + '.' + value_prop + ' = ' + value_numeric + ';\n';
   	
   	return code;
@@ -61,7 +61,7 @@ Blockly.Kiwifroot['kiwi_text_colour_set'] = function(block) {
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC ) || null;
 	var value_colour = Blockly.Kiwifroot.valueToCode( block, 'COLOUR', Blockly.Kiwifroot.ORDER_ATOMIC ) || '#ffffff'; 
 
-	var code = errorCheck( ('!' + value_inst ), 'Missing Instance token in Text colour block.' );
+	var code = errorCheck( ('!' + value_inst ), '`Set Text Colour` block could not find a Instance.' );
 	code += value_inst + '.color = ' + value_colour + ';\n';
   	
   	return code;
@@ -72,7 +72,7 @@ Blockly.Kiwifroot['kiwi_text_text_set'] = function(block) {
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC ) || null;
 	var value_text = Blockly.Kiwifroot.valueToCode( block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC ) || "''";  
 
-	var code = errorCheck( ('!' + value_inst ), 'Missing Instance token in Text block.' );
+	var code = errorCheck( ('!' + value_inst ), '`Set Text on Text` block could not find a Instance.' );
 	code += value_inst + '.text = ' + value_text.replace(/\\\\n/g, "\\n") + ';\n';
   	
   	return code;
@@ -83,7 +83,7 @@ Blockly.Kiwifroot['kiwi_text_alignment_set'] = function(block) {
 	var value_value = block.getFieldValue('VALUE');
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC ) || null;
 
-	var code = errorCheck( ('!' + value_inst ), 'Missing Instance token for Text alignment block.' );
+	var code = errorCheck( ('!' + value_inst ), '`Set Text Alignment` block could not find a Instance.' );
 	code += value_inst + '.alignment = "' + value_value + '";\n';
   	
   	return code;
@@ -94,7 +94,7 @@ Blockly.Kiwifroot['kiwi_text_weight_set'] = function(block) {
 	var value_value = block.getFieldValue('VALUE');
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC ) || null;
 
-	var code = errorCheck( ('!' + value_inst ), 'Missing Instance token for text weight block.' );
+	var code = errorCheck( ('!' + value_inst ), '`Set Text Weight` block could not find a Instance.' );
 	code += value_inst + '.fontWeight = "' + value_value + '";\n';
   	
   	return code;
@@ -106,7 +106,7 @@ Blockly.Kiwifroot['kiwi_text_family_set'] = function(block) {
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC ) || null;
 	var value_font = Blockly.Kiwifroot.valueToCode( block, 'FAMILY', Blockly.Kiwifroot.ORDER_ATOMIC ) || 'sans-serif'; 
 
-	var code = errorCheck( ('!' + value_inst ), 'Missing Instance token in font family block.' );
+	var code = errorCheck( ('!' + value_inst ), '`Set Text Family` block could not find a Instance.' );
 	code += value_inst + '.fontFamily = ' + value_font + ';\n';
   	
   	return code;

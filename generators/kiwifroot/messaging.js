@@ -32,7 +32,7 @@ Blockly.Kiwifroot['kiwi_messaging_instance'] = function(block) {
   var value_message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ATOMIC) || "''";
   var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
-  var code = errorCheck( ('!' + value_inst ), 'Instance could not be found for a Message sending block.' );
+  var code = errorCheck( ('!' + value_inst ), '`Message Instance` block could not find a Instance.' );
   code += value_inst + '.properties.set("_messaging_", ' + value_message + ');\n';
 
   return code;
@@ -108,7 +108,7 @@ Blockly.Kiwifroot['kiwi_messaging_instance_value'] = function(block) {
   var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
 
-  var code = errorCheck( ('!' + value_inst ), 'Instance token not passed to message with value block.' );
+  var code = errorCheck( ('!' + value_inst ), '`Message Instance with Value` could not find a Instance.' );
   code += value_inst + '.properties.set("_messaging-value_", ' + value_value + ');\n';
   code += value_inst + '.properties.set("_messaging_", ' + value_message + ');\n';
 

@@ -108,7 +108,7 @@ Blockly.Kiwifroot['kiwi_primitives_change_colour'] = function(block) {
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC ) || null;
 	var value_colour = Blockly.Kiwifroot.valueToCode( block, 'COLOUR', Blockly.Kiwifroot.ORDER_ATOMIC ) || "#000000";
 
-  	var code = errorCheck( ('!' + value_inst ), 'Missing Instance token for the primitive colour setter.' );
+  	var code = errorCheck( ('!' + value_inst ), '`Primitive set colour` block could not find a Instance.' );
 		code += 'var inst = ' + value_inst + ';\n';
 		code += 'if( inst._color && inst._strokeColor ) {\n';
 		code += '\tvar color = ' + value_colour + ';\n';
@@ -126,7 +126,7 @@ Blockly.Kiwifroot['kiwi_primitives_get_colour'] = function(block) {
 	var funcName = Blockly.Kiwifroot.provideFunction_(
     'getColorOfPrimitive',
     [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( instance ) {',
-  		Blockly.Kiwifroot.INDENT + errorCheck( ('!instance' ), 'Missing Instance token in primitive colour get block.' ),
+  		Blockly.Kiwifroot.INDENT + errorCheck( ('!instance' ), '`Primitive get colour` block could not find a Instance.' ),
 		Blockly.Kiwifroot.INDENT + '//Returns the colour of a primitive passed.',
 		Blockly.Kiwifroot.INDENT + "//If the primitive doesn't have a colour, then #ffffff will be returned.",
 		Blockly.Kiwifroot.INDENT + 'if( instance._color ) {',
