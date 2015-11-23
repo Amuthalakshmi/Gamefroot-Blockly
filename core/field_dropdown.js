@@ -211,7 +211,7 @@ Blockly.FieldDropdown.prototype.trimOptions_ = function() {
   if (!goog.isArray(options) || options.length < 2) {
     return;
   }
-  var strings = options.map(function(t) {return t[0];});
+  var strings = options.map(function(t) {return String( t[0] ); });
   var shortest = Blockly.shortestStringLength(strings);
   var prefixLength = Blockly.commonWordPrefix(strings, shortest);
   var suffixLength = Blockly.commonWordSuffix(strings, shortest);

@@ -429,8 +429,8 @@ Blockly.Blocks['logic_boolean'] = {
    */
   init: function() {
     var BOOLEANS =
-        [[Blockly.Msg.LOGIC_BOOLEAN_TRUE, 'TRUE'],
-         [Blockly.Msg.LOGIC_BOOLEAN_FALSE, 'FALSE']];
+        [[Blockly.Msg.LOGIC_BOOLEAN_TRUE || "", 'TRUE'],
+         [Blockly.Msg.LOGIC_BOOLEAN_FALSE || "", 'FALSE']];
     this.setHelpUrl(Blockly.Msg.LOGIC_BOOLEAN_HELPURL);
     this.setColour(Blockly.Variables.COLOUR.OPERATORS);
     this.setOutput(true, 'Boolean');

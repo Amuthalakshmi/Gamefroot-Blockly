@@ -628,9 +628,15 @@ Blockly.Blocks['procedures_callnoreturn'] = {
   objectToMutation: function(obj) {
     var name = obj.name;
     this.setFieldValue(name, 'NAME');
-    this.setTooltip(
-        (this.outputConnection ? Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP :
-         Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP).replace('%1', name));
+
+    if( this.outputConnection ) {
+      var tooltip = Blockly.Msg.PROCEDURES_CALLRETURN_TOOLTIP || "";
+    } else {
+      var tooltip = Blockly.Msg.PROCEDURES_CALLNORETURN_TOOLTIP || "";
+    }
+
+    this.setTooltip( tooltip.replace('%1', name) );
+
     var def = Blockly.Procedures.getDefinition(name, this.workspace);
     if (def && def.mutator && def.mutator.isVisible()) {
       // Initialize caller with the mutator's IDs.
