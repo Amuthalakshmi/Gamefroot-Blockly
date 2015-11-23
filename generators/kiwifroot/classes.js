@@ -68,7 +68,7 @@ Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
 
   //value_class
 
-  code = 'this.' + variable0 + ' = this.' + createInstanceFuncName + '(' + value_class + ');\n';
+  var code = 'this.' + variable0 + ' = this.' + createInstanceFuncName + '(' + value_class + ');\n';
 
   return code;
 };

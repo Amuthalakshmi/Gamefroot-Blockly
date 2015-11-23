@@ -773,6 +773,24 @@ Blockly.Blocks['lists_split'] = {
     }
   },
   /**
+   * Create an object to represent mutation
+   * @return {object} mutation data.
+   * @this Blockly.Block
+   */
+  mutationToObject: function(){
+    return {
+      'mode': this.getFieldValue('MODE')
+    };
+  },
+  /**
+   * Parse mutation data to restore mutation.
+   * @param {object} obj Mutation data object.
+   * @this Blockly.Block
+   */
+  objectToMutation: function(obj){
+    this.updateType_( obj.mode );
+  },
+  /**
    * Create XML to represent the input and output types.
    * @return {!Element} XML storage element.
    * @this Blockly.Block

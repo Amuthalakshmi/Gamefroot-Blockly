@@ -72,6 +72,7 @@ Blockly.Names.prototype.reset = function() {
  * @return {string} An entity name legal for the exported language.
  */
 Blockly.Names.prototype.getName = function(name, type) {
+  name = String( name );
   var normalized = name.toLowerCase() + '_' + type;
   var prefix = (type == Blockly.Variables.NAME_TYPE) ?
       this.variablePrefix_ : '';
@@ -139,5 +140,5 @@ Blockly.Names.prototype.safeName_ = function(name) {
  * @return {boolean} True if names are the same.
  */
 Blockly.Names.equals = function(name1, name2) {
-  return name1.toLowerCase() == name2.toLowerCase();
+  return String( name1 ).toLowerCase() == String( name2 ).toLowerCase();
 };
