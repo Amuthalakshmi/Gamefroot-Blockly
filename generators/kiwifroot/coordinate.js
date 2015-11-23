@@ -46,7 +46,7 @@ Blockly.Kiwifroot['kiwi_coordinate_get'] = function(block) {
 	var value_loc = Blockly.Kiwifroot.valueToCode( block, 'COORDINATE', Blockly.Kiwifroot.ORDER_ATOMIC ) || '{x:0,y:0}';
 
 	//wrap in a function
-	//MISSING ERROR CHECK: errorCheck( ('!' + value_class)
+	//MISSING ERROR CHECK: errorCheck( this.workspace, ('!' + value_class)
 
 	var code = value_loc + '.' + value_prop + '';
   	
@@ -61,7 +61,7 @@ Blockly.Kiwifroot['kiwi_coordinate_set'] = function(block) {
 	var value_value = Blockly.Kiwifroot.valueToCode( block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
 
 
-	var code = errorCheck( ('!' + value_loc), "`Set Coordinate` block failed due to a missing value." );
+	var code = errorCheck( this.workspace, ('!' + value_loc), "`Set Coordinate` block failed due to a missing value." );
 	code = value_loc + '.' + value_prop + ' = ' + value_value + ';\n';
   	
 	return code;

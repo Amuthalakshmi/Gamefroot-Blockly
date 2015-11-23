@@ -47,7 +47,7 @@ Blockly.Kiwifroot['kiwi_instance_set'] = function(block) {
 	var prop = block.getFieldValue('PROP');
 	var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT);
 
-  var code = errorCheck( ('!' + inst ), '`Set Instance` block could not find a Instance.' );
+  var code = errorCheck( this.workspace, ('!' + inst ), '`Set Instance` block could not find a Instance.' );
 
   code += inst + '.' + prop + ' = (' + val + ')';
 
@@ -83,14 +83,14 @@ Blockly.Kiwifroot['kiwi_instance_get_visible'] = function(block) {
 Blockly.Kiwifroot['kiwi_instance_set_visible'] = function(block) {
   var value_vis = Blockly.Kiwifroot.valueToCode(block, 'VISIBLE', Blockly.Kiwifroot.ORDER_ATOMIC);
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
-  var code = errorCheck( ('!' + inst ), '`Set Instance Visibility` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + inst ), '`Set Instance Visibility` block could not find an Instance.' );
   code += inst + '.visible = ' + value_vis + ';\n';
   return code;
 };
 
 Blockly.Kiwifroot['kiwi_instance_death'] = function(block) {
   var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
-  var code = errorCheck( ('!' + value_inst ), '`Destroy Instance` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + value_inst ), '`Destroy Instance` block could not find an Instance.' );
   code += value_inst + '.exists = false;\n';
   return code;
 };
@@ -100,7 +100,7 @@ Blockly.Kiwifroot['kiwi_instance_tag_management'] = function(block) {
   var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var dropdown_type = block.getFieldValue('TYPE');
 
-  var code = errorCheck( ('!' + value_instance ), '`Add/Remove Tag from Instance` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + value_instance ), '`Add/Remove Tag from Instance` block could not find an Instance.' );
   code += value_instance + '.' + dropdown_type + '(' + value_tag + ');\n';
   return code;
 };
@@ -133,7 +133,7 @@ Blockly.Kiwifroot['kiwi_instance_move'] = function(block) {
   var value_inst_two = Blockly.Kiwifroot.valueToCode(block, 'INST_TWO', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
   var dropdown_method = block.getFieldValue('METHOD');
 
-  var code = errorCheck( ('!' + value_inst_one + '|| !' + value_inst_two ), '`Depth` block could not find a Instance.' );
+  var code = errorCheck( this.workspace, ('!' + value_inst_one + '|| !' + value_inst_two ), '`Depth` block could not find a Instance.' );
   code += 'this.state.' + dropdown_method + '(' + value_inst_one + ', ' + value_inst_two + ');\n';
   return code;
 };
@@ -153,7 +153,7 @@ Blockly.Kiwifroot['kiwi_instance_properties_set'] = function(block) {
   var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || "''";
   var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
 
-  var code = errorCheck( ('!' + value_inst ), '`Set Key` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + value_inst ), '`Set Key` block could not find an Instance.' );
   code += value_inst + '.properties.set(' + value_prop_name + ',' + value_value + ');\n';
   
   return code;
@@ -175,7 +175,7 @@ Blockly.Kiwifroot['kiwi_instance_set_position'] = function(block) {
   var prop = block.getFieldValue('PROP');
   var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
 
-  var code = errorCheck( ('!' + inst ), '`Set Instance Position` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + inst ), '`Set Instance Position` block could not find an Instance.' );
   code += inst + '.' + prop + ' = ' + val;
   code += ';\n';
   return code;
@@ -185,7 +185,7 @@ Blockly.Kiwifroot['kiwi_instance_set_dimensions'] = function(block) {
   var prop = block.getFieldValue('PROP');
   var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
 
-  var code = errorCheck( ('!' + inst ), '`Set Instance Dimensions` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + inst ), '`Set Instance Dimensions` block could not find an Instance.' );
   code += inst + '.' + prop + ' = ' + val;
   code += ';\n';
   return code;
@@ -194,7 +194,7 @@ Blockly.Kiwifroot['kiwi_instance_set_rotation'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
 
-  var code = errorCheck( ('!' + inst ), '`Set Instance Rotation` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + inst ), '`Set Instance Rotation` block could not find an Instance.' );
   code += inst + '.rotation = (' + val + ') * Kiwi.Utils.GameMath.DEG_TO_RAD';
   code += ';\n';
   return code;
@@ -204,7 +204,7 @@ Blockly.Kiwifroot['kiwi_instance_set_scale'] = function(block) {
   var prop = block.getFieldValue('PROP');
   var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
 
-  var code = errorCheck( ('!' + inst ), 'Missing Instance token in scale setter.' );
+  var code = errorCheck( this.workspace, ('!' + inst ), 'Missing Instance token in scale setter.' );
   code += inst + '.' + prop + ' = ' + val;
   code += ';\n';
   return code;
@@ -213,7 +213,7 @@ Blockly.Kiwifroot['kiwi_instance_set_alpha'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
 
-  var code = errorCheck( ('!' + inst ), '`Set Instance Alpha` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + inst ), '`Set Instance Alpha` block could not find an Instance.' );
   code += inst + '.alpha = ' + val;
   code += ';\n';
   return code;
@@ -223,7 +223,7 @@ Blockly.Kiwifroot['kiwi_instance_set_anchor_point'] = function(block) {
   var prop = block.getFieldValue('PROP');
   var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
 
-  var code = errorCheck( ('!' + inst ), '`Set Instance Anchor` block could not find an Instance.' );
+  var code = errorCheck( this.workspace, ('!' + inst ), '`Set Instance Anchor` block could not find an Instance.' );
   code += inst + '.' + prop + ' = ' + val;
   code += ';\n';
   return code;

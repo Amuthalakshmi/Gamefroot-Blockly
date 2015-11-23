@@ -433,12 +433,13 @@ var regexpQuote = function(str) {
   return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
 };
 
-var errorCheck = function( condition, errorMessage ) {
+var errorCheck = function( workspace, condition, errorMessage ) {
 
   var code = '';
+  var errorCheck = ( !workspace.options || typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck );
 
   //If debugging
-  if( true ) {
+  if( errorCheck ) {
     code += 'if( ' + condition + ' ) {\n';
     code += '\tthis.game.reportError("' + errorMessage + '", "' + errorMessage + '", "SCRIPT ERROR");\n';
     code += '\treturn;\n';

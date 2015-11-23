@@ -43,7 +43,7 @@ Blockly.Kiwifroot['lists_add'] = function(block) {
   var dropdown_position = block.getFieldValue('POSITION');
 
   // TODO: Assemble JavaScript into code variable.
-  var code = errorCheck( ('!' + value_list ), '`Add to List` block could not find the List.' );
+  var code = errorCheck( this.workspace, ('!' + value_list ), '`Add to List` block could not find the List.' );
   code += value_list;
 
   if( dropdown_position === "front" ) {

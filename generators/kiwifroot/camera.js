@@ -109,7 +109,7 @@ Blockly.Kiwifroot['kiwi_camera_center_on_instance'] = function(block) {
 	var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
 
 	//Check to see if there is a instance?
-	var code = errorCheck( ('!' + value_instance), 'An Instance could not be located when executing the `Center Camera on Instance` block.' );
+	var code = errorCheck( this.workspace, ('!' + value_instance), 'An Instance could not be located when executing the `Center Camera on Instance` block.' );
 
 	code += 'var x = ' + value_instance + '.transform.x + (' + value_instance + '.anchorPointX);\n' + 
 				'x -= ' + Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.camera.width / 2;\n' +
