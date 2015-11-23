@@ -271,7 +271,7 @@ Blockly.Kiwifroot['kiwi_event_touch_on'] = function(block) {
 
 	var funcName = defineFunctionFromBranch( 'touchedByInstance', block );
 
-	var code = errorCheck( this.workspace, ('!' + value_inst), '`On Touch Event` block is missing an Instance.' );
+	var code = errorCheck( this.workspace, ('!' + value_inst), '`On Touch Event` block could not find a Instance.' );
 	
 	code += 'if( instanceA === this.owner && instanceB === ' + value_inst + ' || \n\tinstanceA === ' + value_inst + ' && instanceB === this.owner) {\n\t\t this.' + funcName + '(); \n\t\t }\n';
 	Blockly.Kiwifroot.provideAddition('EVENT_TOUCH_ON', code);
