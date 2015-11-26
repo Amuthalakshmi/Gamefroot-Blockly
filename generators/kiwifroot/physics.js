@@ -241,25 +241,25 @@ Blockly.Kiwifroot['kiwi_arcadephysics_set_numeric_misc'] = function(block) {
 Blockly.Kiwifroot['kiwi_arcadephysics_set_boolean_gravity'] = function(block) {
   Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
     var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || false;
-    var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.gravity;\n'; 
+    var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.gravity = ' + value_value + ';\n'; 
     return code;
 }; 
 Blockly.Kiwifroot['kiwi_arcadephysics_set_boolean_immovable'] = function(block) {
   Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
     var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || false;
-    var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.immovable;\n'; 
+    var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.immovable = ' + value_value + ';\n'; 
     return code;
 }; 
 Blockly.Kiwifroot['kiwi_arcadephysics_set_boolean_moves'] = function(block) {
   Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
     var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || false;
-    var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.moves;\n'; 
+    var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.moves = ' + value_value + ';\n'; 
     return code;
 }; 
 Blockly.Kiwifroot['kiwi_arcadephysics_set_boolean_enabled'] = function(block) {
   Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
     var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || false;
-    var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.enabled;\n'; 
+    var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.enabled = ' + value_value + ';\n'; 
     return code;
 }; 
 
