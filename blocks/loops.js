@@ -71,6 +71,8 @@ Blockly.Blocks['controls_repeat_ext'] = {
       "tooltip": Blockly.Msg.CONTROLS_REPEAT_TOOLTIP,
       "helpUrl": Blockly.Msg.CONTROLS_REPEAT_HELPURL
     });
+    this.appendStatementInput('DO')
+        .appendField(Blockly.Msg.CONTROLS_WHILEUNTIL_INPUT_DO);
   }
 };
 
@@ -111,6 +113,8 @@ Blockly.Blocks['controls_for'] = {
    * @this Blockly.Block
    */
   init: function() {
+
+    //Statement input
     this.jsonInit({
       "message0": Blockly.Msg.CONTROLS_FOR_TITLE,
       "args0": [
@@ -144,6 +148,8 @@ Blockly.Blocks['controls_for'] = {
       "colour": Blockly.Variables.COLOUR.CONTROL,
       "helpUrl": Blockly.Msg.CONTROLS_FOR_HELPURL
     });
+    this.appendStatementInput('DO')
+        .appendField(Blockly.Msg.CONTROLS_WHILEUNTIL_INPUT_DO);
   },
   /**
    * Return all variables referenced by this block.
