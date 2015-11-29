@@ -104,8 +104,11 @@ Blockly.Blocks['variables_get'] = {
     if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
     }
-    this.setFieldValue(type, 'TYPE');
-    this.setOutput(true, type);
+    //Only change the type if they differ
+    if( this.getFieldValue('TYPE') !== type ) {
+      this.setFieldValue(type, 'TYPE');
+      this.setOutput(true, type);
+    }
     //this.setColour(Blockly.Variables.COLOUR_FOR_TYPE[type]);
   },
   /**
