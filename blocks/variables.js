@@ -61,6 +61,7 @@ Blockly.Blocks['variables_get'] = {
     var type = Blockly.Variables.typeOf(name, workspace) 
       || this.getFieldValue('TYPE');
     if (type) this.setType(type);
+    this.postInitExecuted_ = true;
   },
   /**
    * Return all variables referenced by this block.
@@ -77,7 +78,7 @@ Blockly.Blocks['variables_get'] = {
    * (or undefined if this block isn't for that variable)
    */
   typeOf: function(name){
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+    if (this.postInitExecuted_ && Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
       return this.getFieldValue('TYPE');
     }
     else return undefined;
@@ -186,13 +187,14 @@ Blockly.Blocks['variables_set'] = {
    * Notification that all the properties have been applied
    * and we're ready to go!
    */
-  postInit: function(){ 
+  postInit: function() { 
     // Try to use the main workspace (blocks in the flyout)
     var workspace = Blockly.mainWorkspace || this.workspace;
     var name = this.getFieldValue('VAR');
     var type = Blockly.Variables.typeOf(name,workspace) 
       || this.getFieldValue('TYPE');
     if (type) this.setType(type);
+    this.postInitExecuted_ = true;
   },
   /**
    * Return all variables referenced by this block.
