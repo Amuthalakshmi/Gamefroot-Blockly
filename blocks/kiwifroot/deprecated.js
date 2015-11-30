@@ -375,7 +375,6 @@ Blockly.Blocks['kiwi_camera_get_read_only'] = {
 };
 
 
-
 Blockly.Blocks['kiwi_camera_set'] = {
   init: function() {
     this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
@@ -423,3 +422,69 @@ Blockly.Blocks['kiwi_camera_get'] = {
     this.setTooltip( Blockly.Msg.KF_CAMERA_GET_TOOLTIP );
   }
 };
+
+
+// 1/12/2015
+
+Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.DRAW );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_BEFORE )
+        .appendField(new Blockly.FieldVariable('instance'), 'VAR');
+    this.appendValueInput("CLASS")
+        .setCheck("Class")
+        .appendField( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_AFTER );
+    this.setInputsInline(true);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setTooltip( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_TOOLTIP );
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  getVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Iterator is always a number type, return this.
+   * @return {string}
+   * @this Blockly.Block
+   */
+  typeOf: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return Blockly.Variables.TYPE_INSTANCE;
+    }
+    else return undefined;
+  },
+  /**
+   * Notfication that the workspace wants to change this variables type.
+   * We can not change type! This is immutable.
+   * @this Blockly.Block
+   */
+  changeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      setTimeout(function(){
+        // This type is immutable, change it back!
+        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+          Blockly.mainWorkspace);
+      },1);
+    }
+  },
+  /**
+   * Notification that a variable is renaming.
+   * If the name matches one of this block's variables, rename it.
+   * @param {string} oldName Previous name of variable.
+   * @param {string} newName Renamed variable.
+   * @this Blockly.Block
+   */
+  renameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+

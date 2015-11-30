@@ -945,7 +945,7 @@
   <category name="Draw" colour="#38ce9e" >
 
     <block type="kiwi_block_category" message="Class"></block>
-      <block type="kiwi_classes_create_instance_with_var">
+      <block type="kiwi_classes_create_instance_with_var_local">
         <value name="CLASS">
           <block type="variables_get">
             <field name="TYPE">Class</field>
