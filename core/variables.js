@@ -229,87 +229,98 @@ Blockly.Variables.allTypes = function(){
  * @param {!Blockly.Workspace} workspace The flyout's workspace.
  */
 Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
-  var variableList = Blockly.Variables.allVariables(workspace.targetWorkspace);
-  variableList.sort(goog.string.caseInsensitiveCompare);
 
-  // In addition to the user's variables, we also want to display the default
-  // variable name at the top.  We also don't want this duplicated if the
-  // user has created a variable of the same name.
-  variableList.unshift(null);
-  var defaultVariable = undefined;
-  for (var i = 0; i < variableList.length; i++) {
-    if (variableList[i] === defaultVariable) {
-      continue;
-    }
-    var getBlock = Blockly.Blocks['variables_get'] ?
-        Blockly.Block.obtain(workspace, 'variables_get') : null;
-    var setBlock = Blockly.Blocks['variables_set'] ?
-        Blockly.Block.obtain(workspace, 'variables_set') : null;
-    if (variableList[i] === null) {
-      defaultVariable = (getBlock || setBlock).getVars()[0];
-    }
-    else {
-      getBlock && getBlock.setFieldValue(variableList[i], 'VAR');
-      setBlock && setBlock.setFieldValue(variableList[i], 'VAR');
-    }    
-    setBlock && blocks.push(setBlock);
-    getBlock && blocks.push(getBlock);
-    if (getBlock && setBlock) {
-      gaps.push(margin, margin * 3);
-    } else {
-      gaps.push(margin * 2);
-    }
-    getBlock && typeof getBlock.postInit === 'function' 
-      && getBlock.postInit.call(getBlock);
-    setBlock && typeof setBlock.postInit === 'function' 
-      && setBlock.postInit.call(setBlock);
+  function generateBlocks( variableList, getBlockName, setBlockName, getVarsMethodName ) {
 
-    getBlock && getBlock.initSvg();
-    setBlock && setBlock.initSvg();
+    if(!variableList) {
+      return;
+    }
+
+    variableList.sort(goog.string.caseInsensitiveCompare);
+
+    // In addition to the user's variables, we also want to display the default
+    // variable name at the top.  We also don't want this duplicated if the
+    // user has created a variable of the same name.
+    variableList.unshift(null);
+    
+    var defaultVariable = undefined;
+
+    for (var i = 0; i < variableList.length; i++) {
+      if (variableList[i] === defaultVariable) {
+        continue;
+      }
+      var getBlock = Blockly.Blocks[ getBlockName ] ?
+          Blockly.Block.obtain(workspace, getBlockName ) : null;
+      var setBlock = Blockly.Blocks[ setBlockName ] ?
+          Blockly.Block.obtain(workspace, setBlockName) : null;
+
+      if (variableList[i] === null) {
+        defaultVariable = (getBlock || setBlock)[ getVarsMethodName ]()[0];
+      }
+      else {
+        getBlock && getBlock.setFieldValue(variableList[i], 'VAR');
+        setBlock && setBlock.setFieldValue(variableList[i], 'VAR');
+      }    
+
+      setBlock && blocks.push(setBlock);
+      getBlock && blocks.push(getBlock);
+
+      if (getBlock && setBlock) {
+        gaps.push(margin, margin * 3);
+      } else {
+        gaps.push(margin * 2);
+      }
+
+      getBlock && typeof getBlock.postInit === 'function' 
+        && getBlock.postInit.call(getBlock);
+      setBlock && typeof setBlock.postInit === 'function' 
+        && setBlock.postInit.call(setBlock);
+
+      getBlock && getBlock.initSvg();
+      setBlock && setBlock.initSvg();
+    }
+
   }
 
-  //Local Vars
+  function generateCategory( title ) { 
 
-  var variableList = Blockly.Variables.Local.allVariables(workspace.targetWorkspace);
-  variableList.sort(goog.string.caseInsensitiveCompare);
-  
-  // In addition to the user's variables, we also want to display the default
-  // variable name at the top.  We also don't want this duplicated if the
-  // user has created a variable of the same name.
-  variableList.unshift(null);
-  var defaultVariable = undefined;
-
-  for (var i = 0; i < variableList.length; i++) {
-    if (variableList[i] === defaultVariable) {
-      continue;
+    if( !Blockly.Blocks["kiwi_block_category"] ) {
+      return;
     }
-    var getBlock = Blockly.Blocks['variables_local_get'] ?
-        Blockly.Block.obtain(workspace, 'variables_local_get') : null;
-    var setBlock = Blockly.Blocks['variables_local_set'] ?
-        Blockly.Block.obtain(workspace, 'variables_local_set') : null;
 
-    if (variableList[i] === null) {
-      defaultVariable = (getBlock || setBlock).localGetVars()[0];
-    }
-    else {
-      getBlock && getBlock.setFieldValue(variableList[i], 'VAR');
-      setBlock && setBlock.setFieldValue(variableList[i], 'VAR');
-    }    
-    setBlock && blocks.push(setBlock);
-    getBlock && blocks.push(getBlock);
-    if (getBlock && setBlock) {
-      gaps.push(margin, margin * 3);
-    } else {
-      gaps.push(margin * 2);
-    }
-    getBlock && typeof getBlock.postInit === 'function' 
-      && getBlock.postInit.call(getBlock);
-    setBlock && typeof setBlock.postInit === 'function' 
-      && setBlock.postInit.call(setBlock);
+    var catBlock = document.createElement('block');
+    catBlock.setAttribute('message', title);
+    catBlock.setAttribute('type', 'kiwi_block_category');
+    catBlock = Blockly.Block.obtain( workspace, "kiwi_block_category", catBlock );
 
-    getBlock && getBlock.initSvg();
-    setBlock && setBlock.initSvg();
+    if( catBlock ) {
+      gaps.push( margin * 2 );
+      blocks.push( catBlock );
+      catBlock.initSvg();
+    }
+
   }
+
+  generateCategory( 'Properties' );
+
+  //Generate Regular Variables
+  generateBlocks( 
+    Blockly.Variables.allVariables(workspace.targetWorkspace),
+    'variables_get',
+    'variables_set',
+    'getVars'
+     );
+
+  generateCategory( 'Local Variables' );
+
+  //Generate Local Variables 
+  generateBlocks( 
+    Blockly.Variables.Local.allVariables(workspace.targetWorkspace),
+    'variables_local_get',
+    'variables_local_set',
+    'localGetVars'
+     );
+
 };
 
 /**

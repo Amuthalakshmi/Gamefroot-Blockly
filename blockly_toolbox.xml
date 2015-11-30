@@ -1161,8 +1161,6 @@
         </value>
       </block>
 
-    <block type="kiwi_block_category" message="Variables"></block>
-
   </category>
 
   <category name="Functions" colour="#6bd101" custom="PROCEDURE">

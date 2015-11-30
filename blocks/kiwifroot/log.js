@@ -85,7 +85,11 @@ Blockly.Blocks['kiwi_block_category'] = {
     this.setMovable( false );
     this.moveBy( -10, 0 );
 
-    var category = xmlBlock.getAttribute('message') || 'Category';  
+    if( xmlBlock ) {
+        var category = xmlBlock.getAttribute('message') || 'Category';  
+    } else {
+        var category = 'Category';  
+    }
 
     this.appendDummyInput()
         .appendField( category );

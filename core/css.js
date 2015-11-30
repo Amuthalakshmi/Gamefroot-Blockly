@@ -767,7 +767,7 @@ Blockly.Css.CONTENT = [
     'stroke-width: 0;',
   '}',
 
-  '.blocklyBlocksCategory .blocklyPathDark {',
+  '.blocklyBlocksCategory .blocklyPathDark, .blocklyBlocksCategory .blocklyPath {',
     'fill: none;',
   '}',
   '.blocklyBlocksCategory .blocklyPathLight {',
