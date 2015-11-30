@@ -107,166 +107,7 @@ Blockly.Blocks['controls_whileUntil'] = {
   }
 };
 
-Blockly.Blocks['controls_for'] = {
-  /**
-   * Block for 'for' loop.
-   * @this Blockly.Block
-   */
-  init: function() {
 
-    //Statement input
-    this.jsonInit({
-      "message0": Blockly.Msg.CONTROLS_FOR_TITLE,
-      "args0": [
-        {
-          "type": "field_variable",
-          "name": "VAR",
-          "variable": null
-        },
-        {
-          "type": "input_value",
-          "name": "FROM",
-          "check": "Number",
-          "align": "RIGHT"
-        },
-        {
-          "type": "input_value",
-          "name": "TO",
-          "check": "Number",
-          "align": "RIGHT"
-        },
-        {
-          "type": "input_value",
-          "name": "BY",
-          "check": "Number",
-          "align": "RIGHT"
-        }
-      ],
-      "inputsInline": true,
-      "previousStatement": null,
-      "nextStatement": null,
-      "colour": Blockly.Variables.COLOUR.CONTROL,
-      "helpUrl": Blockly.Msg.CONTROLS_FOR_HELPURL
-    });
-    this.appendStatementInput('DO')
-        .appendField(Blockly.Msg.CONTROLS_WHILEUNTIL_INPUT_DO);
-  },
-  /**
-   * Return all variables referenced by this block.
-   * @return {!Array.<string>} List of variable names.
-   * @this Blockly.Block
-   */
-  getVars: function() {
-    return [this.getFieldValue('VAR')];
-  },
-  /**
-   * Iterator is always a number type, return this.
-   * @return {string}
-   * @this Blockly.Block
-   */
-  typeOf: function(name) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      return Blockly.Variables.TYPE_NUMBER;
-    }
-    else return undefined;
-  },
-  /**
-   * Notfication that the workspace wants to change this variables type.
-   * We can not change type! This is immutable.
-   * @this Blockly.Block
-   */
-  changeType: function(name, type) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_NUMBER, 
-          Blockly.mainWorkspace);
-      },1);
-    }
-  },
-  /**
-   * Notification that a variable is renaming.
-   * If the name matches one of this block's variables, rename it.
-   * @param {string} oldName Previous name of variable.
-   * @param {string} newName Renamed variable.
-   * @this Blockly.Block
-   */
-  renameVar: function(oldName, newName) {
-    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-      this.setFieldValue(newName, 'VAR');
-    }
-  },
-  /**
-   * Add menu option to create getter block for loop variable.
-   * @param {!Array} options List of menu options to add to.
-   * @this Blockly.Block
-   */
-  customContextMenu: function(options) {
-    if (!this.isCollapsed()) {
-      var option = {enabled: true};
-      var name = this.getFieldValue('VAR');
-      option.text = Blockly.Msg.VARIABLES_SET_CREATE_GET.replace('%1', name);
-      var xmlField = goog.dom.createDom('field', null, name);
-      xmlField.setAttribute('name', 'VAR');
-      var xmlBlock = goog.dom.createDom('block', null, xmlField);
-      xmlBlock.setAttribute('type', 'variables_get');
-      option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
-      options.push(option);
-    }
-  }
-};
-
-Blockly.Blocks['controls_forEach'] = {
-  /**
-   * Block for 'for each' loop.
-   * @this Blockly.Block
-   */
-  init: function() {
-    this.setHelpUrl(Blockly.Msg.CONTROLS_FOREACH_HELPURL);
-    this.setColour(Blockly.Variables.COLOUR.CONTROL);
-    this.appendValueInput('LIST')
-        .setCheck('Array')
-        .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_ITEM)
-        .appendField(new Blockly.FieldVariable(null), 'VAR')
-        .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_INLIST);
-    if (Blockly.Msg.CONTROLS_FOREACH_INPUT_INLIST_TAIL) {
-      this.appendDummyInput()
-          .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_INLIST_TAIL);
-      this.setInputsInline(true);
-    }
-    this.appendStatementInput('DO')
-        .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_DO);
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    // Assign 'this' to a variable for use in the tooltip closure below.
-    var thisBlock = this;
-    this.setTooltip(function() {
-      return Blockly.Msg.CONTROLS_FOREACH_TOOLTIP.replace('%1',
-          thisBlock.getFieldValue('VAR'));
-    });
-  },
-  /**
-   * Return all variables referenced by this block.
-   * @return {!Array.<string>} List of variable names.
-   * @this Blockly.Block
-   */
-  getVars: function() {
-    return [this.getFieldValue('VAR')];
-  },
-  /**
-   * Notification that a variable is renaming.
-   * If the name matches one of this block's variables, rename it.
-   * @param {string} oldName Previous name of variable.
-   * @param {string} newName Renamed variable.
-   * @this Blockly.Block
-   */
-  renameVar: function(oldName, newName) {
-    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-      this.setFieldValue(newName, 'VAR');
-    }
-  },
-  customContextMenu: Blockly.Blocks['controls_for'].customContextMenu
-};
 
 Blockly.Blocks['controls_flow_statements'] = {
   /**
@@ -323,4 +164,166 @@ Blockly.Blocks['controls_flow_statements'] = {
       this.setWarningText(Blockly.Msg.CONTROLS_FLOW_STATEMENTS_WARNING);
     }
   }
+};
+
+
+Blockly.Blocks['controls_for_local'] = {
+  /**
+   * Block for 'for' loop.
+   * @this Blockly.Block
+   */
+  init: function() {
+
+    //Statement input
+    this.jsonInit({
+      "message0": Blockly.Msg.CONTROLS_FOR_TITLE,
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "VAR",
+          "variable": null,
+          "scope": Blockly.FieldVariable.SCOPE.LOCAL
+        },
+        {
+          "type": "input_value",
+          "name": "FROM",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "TO",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "BY",
+          "check": "Number",
+          "align": "RIGHT"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": Blockly.Variables.COLOUR.CONTROL,
+      "helpUrl": Blockly.Msg.CONTROLS_FOR_HELPURL
+    });
+    this.appendStatementInput('DO')
+        .appendField(Blockly.Msg.CONTROLS_WHILEUNTIL_INPUT_DO);
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  localGetVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Iterator is always a number type, return this.
+   * @return {string}
+   * @this Blockly.Block
+   */
+  localTypeOf: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return Blockly.Variables.TYPE_NUMBER;
+    }
+    else return undefined;
+  },
+  /**
+   * Notfication that the workspace wants to change this variables type.
+   * We can not change type! This is immutable.
+   * @this Blockly.Block
+   */
+  localChangeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      setTimeout(function(){
+        // This type is immutable, change it back!
+        Blockly.Variables.Local.changeType(name, Blockly.Variables.TYPE_NUMBER, 
+          Blockly.mainWorkspace);
+      },1);
+    }
+  },
+  /**
+   * Notification that a variable is renaming.
+   * If the name matches one of this block's variables, rename it.
+   * @param {string} oldName Previous name of variable.
+   * @param {string} newName Renamed variable.
+   * @this Blockly.Block
+   */
+  localRenameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  },
+  /**
+   * Add menu option to create getter block for loop variable.
+   * @param {!Array} options List of menu options to add to.
+   * @this Blockly.Block
+   */
+  customContextMenu: function(options) {
+    if (!this.isCollapsed()) {
+      var option = {enabled: true};
+      var name = this.getFieldValue('VAR');
+      option.text = Blockly.Msg.VARIABLES_SET_CREATE_GET.replace('%1', name);
+      var xmlField = goog.dom.createDom('field', null, name);
+      xmlField.setAttribute('name', 'VAR');
+      var xmlBlock = goog.dom.createDom('block', null, xmlField);
+      xmlBlock.setAttribute('type', 'variables_local_get');
+      option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+      options.push(option);
+    }
+  }
+};
+Blockly.Blocks['controls_forEach_local'] = {
+  /**
+   * Block for 'for each' loop.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.CONTROLS_FOREACH_HELPURL);
+    this.setColour(Blockly.Variables.COLOUR.CONTROL);
+    this.appendValueInput('LIST')
+        .setCheck('Array')
+        .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_ITEM)
+        .appendField(new Blockly.FieldVariable(null, null, Blockly.FieldVariable.SCOPE.LOCAL), 'VAR')
+        .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_INLIST);
+    if (Blockly.Msg.CONTROLS_FOREACH_INPUT_INLIST_TAIL) {
+      this.appendDummyInput()
+          .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_INLIST_TAIL);
+      this.setInputsInline(true);
+    }
+    this.appendStatementInput('DO')
+        .appendField(Blockly.Msg.CONTROLS_FOREACH_INPUT_DO);
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+    this.setTooltip(function() {
+      return Blockly.Msg.CONTROLS_FOREACH_TOOLTIP.replace('%1',
+          thisBlock.getFieldValue('VAR'));
+    });
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  localGetVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Notification that a variable is renaming.
+   * If the name matches one of this block's variables, rename it.
+   * @param {string} oldName Previous name of variable.
+   * @param {string} newName Renamed variable.
+   * @this Blockly.Block
+   */
+  localRenameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  },
+  customContextMenu: Blockly.Blocks['controls_for_local'].customContextMenu
 };
