@@ -1312,7 +1312,7 @@ Blockly.Msg.KF_EVENT_MESSAGE_VALUE_HELPURL = '';
 /// message one -
 Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_ONE = 'When a message of';
 /// message two -
-Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO = 'is retreived';
+Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO = 'is retrieved';
 /// tooltip - 
 Blockly.Msg.KF_EVENT_MESSAGE_VALUE_TOOLTIP = 'Executed when a message is retrieved. You can use this block to get a value send from the message with value blocks.';
 

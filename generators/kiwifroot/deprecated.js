@@ -337,3 +337,91 @@ Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
 
   return code;
 };
+
+
+
+Blockly.Kiwifroot['kiwi_event_touch_return_instance'] = function(block) {
+
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+
+    var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
+  var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onTouchInstance', Blockly.Procedures.NAME_TYPE);
+
+  funcName = Blockly.Kiwifroot.provideFunction_(
+    funcName,
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( instanceA, instanceB ) {',
+    Blockly.Kiwifroot.INDENT + 'var instanceSet = false;',
+        Blockly.Kiwifroot.INDENT + 'if( instanceA === this.owner ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + variable0 + ' = instanceB;',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'instanceSet = true;',
+        Blockly.Kiwifroot.INDENT + '} else if( instanceB === this.owner) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + variable0 + ' = instanceA;',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'instanceSet = true;',
+        Blockly.Kiwifroot.INDENT + '}',
+        Blockly.Kiwifroot.INDENT + 'if( !instanceSet ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return;',
+        Blockly.Kiwifroot.INDENT + '}',
+        branch,
+        '};']);
+
+
+    var code = Blockly.Kiwifroot.arcadephysics.SYSTEM_PREFIX + '.onCollision.add( this.' + funcName + ', this );';
+  Blockly.Kiwifroot.provideAddition( Blockly.Kiwifroot.BOOT, code );
+
+  var code = Blockly.Kiwifroot.arcadephysics.SYSTEM_PREFIX +'.onCollision.remove( this.' + funcName + ', this );';
+  Blockly.Kiwifroot.provideAddition( Blockly.Kiwifroot.DESTRUCTOR, code );
+
+  return null;
+};
+
+
+Blockly.Kiwifroot['kiwi_event_stage_touched'] = function(block) {
+
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+
+    var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
+  var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onStageTouch', Blockly.Procedures.NAME_TYPE);
+
+  funcName = Blockly.Kiwifroot.provideFunction_(
+    funcName,
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( x, y, td, tu, dur, pointer ) {',
+    Blockly.Kiwifroot.INDENT + 'this.' + variable0 + ' = pointer;',
+        branch,
+        '};']);
+
+
+  var dropdown_type = block.getFieldValue( 'TYPE' );
+    var constructorCode = 'this.game.input.' + dropdown_type + '.add(this.' + funcName + ', this, 25);';
+    var destructorCode = 'this.game.input.' + dropdown_type + '.remove(this.' + funcName + ', this);';
+
+    Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+    Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
+  return null;
+};
+
+
+Blockly.Kiwifroot['kiwi_event_message_value'] = function(block) {
+
+  addMessageRecievedBlock();
+
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '""';
+
+  var funcName = defineFunctionFromBranch('executeMessage'+ message.slice(1, message.length - 1), block, "Executed when the " + message + " is received.");
+
+  // Generate the code for the switch
+  var code  = 'case ' + message + ':\n';
+    code += '\t\t\t' + 'this.' + variable0 + ' = this.owner.properties.get("_messaging-value_");\n';
+    code += '\t\t\t' + 'this.' + funcName + '();\n';
+    code += '\t\t\tbreak;';
+
+  Blockly.Kiwifroot.provideAddition('EVENT_MESSAGE_RELEASED', code);
+
+  return null;
+};

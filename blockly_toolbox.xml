@@ -31,7 +31,7 @@
       </block>
 
     <block type="kiwi_block_category" message="Touch"></block>
-      <block type="kiwi_event_stage_touched"></block>
+      <block type="kiwi_event_stage_touched_local"></block>
 
     <block type="kiwi_block_category" message="Message Sensing"></block>
       <block type="kiwi_event_message">
@@ -41,7 +41,7 @@
           </block>
         </value>
       </block>
-      <block type="kiwi_event_message_value">
+      <block type="kiwi_event_message_value_local">
         <value name="MESSAGE">
           <block type="text">
             <field name="TEXT">message</field>
@@ -188,7 +188,7 @@
           </block>
       </value>
     </block>
-    <block type="kiwi_event_touch_return_instance"></block>
+    <block type="kiwi_event_touch_return_instance_local"></block>
 
     <block type="kiwi_block_category" message="Gravity"></block>
       <block type="kiwi_arcadephysics_set_gravity">

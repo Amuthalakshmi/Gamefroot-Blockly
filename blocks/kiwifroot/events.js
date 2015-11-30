@@ -225,162 +225,6 @@ Blockly.Blocks['kiwi_event_level_start'] = {
 };
 
 
-
-Blockly.Blocks['kiwi_event_touch_return_instance'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
-    this.appendDummyInput()
-        .appendField( Blockly.Msg.KF_EVENT_TOUCH_RETURN_MESSAGE )
-        .appendField(new Blockly.FieldVariable('toucher'), 'VAR');
-    this.appendStatementInput("STACK");
-    this.setTooltip( Blockly.Msg.KF_EVENT_TOUCH_RETURN_TOOLTIP );
-  },
-  /**
-   * Return all variables referenced by this block.
-   * @return {!Array.<string>} List of variable names.
-   * @this Blockly.Block
-   */
-  getVars: function() {
-    return [this.getFieldValue('VAR')];
-  },
-  /**
-   * Iterator is always a number type, return this.
-   * @return {string}
-   * @this Blockly.Block
-   */
-  typeOf: function(name) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      return Blockly.Variables.TYPE_INSTANCE;
-    }
-    else return undefined;
-  },
-  /**
-   * Notfication that the workspace wants to change this variables type.
-   * We can not change type! This is immutable.
-   * @this Blockly.Block
-   */
-  changeType: function(name, type) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
-    }
-  },
-  /**
-   * Notification that a variable is renaming.
-   * If the name matches one of this block's variables, rename it.
-   * @param {string} oldName Previous name of variable.
-   * @param {string} newName Renamed variable.
-   * @this Blockly.Block
-   */
-  renameVar: function(oldName, newName) {
-    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-      this.setFieldValue(newName, 'VAR');
-    }
-  }
-};
-
-Blockly.Blocks['kiwi_event_stage_touched'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.EVENT );
-    this.appendDummyInput()
-        .appendField( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_MESSAGE )
-        .appendField(new Blockly.FieldDropdown( [ 
-          ["pressed", "onDown"], 
-          ["released", "onUp"]
-        ]), "TYPE")
-        .appendField(new Blockly.FieldVariable('pointer'), 'VAR');
-    this.appendStatementInput("STACK");
-    this.setTooltip( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_TOOLTIP );
-  },
-  /**
-   * Return all variables referenced by this block.
-   * @return {!Array.<string>} List of variable names.
-   * @this Blockly.Block
-   */
-  getVars: function() {
-    return [this.getFieldValue('VAR')];
-  },
-  /**
-   * Iterator is always a number type, return this.
-   * @return {string}
-   * @this Blockly.Block
-   */
-  typeOf: function(name) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      return Blockly.Variables.TYPE_POINTER;
-    }
-    else return undefined;
-  },
-  /**
-   * Notfication that the workspace wants to change this variables type.
-   * We can not change type! This is immutable.
-   * @this Blockly.Block
-   */
-  changeType: function(name, type) {
-    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_POINTER, 
-          Blockly.mainWorkspace);
-      },1);
-    }
-  },
-  /**
-   * Notification that a variable is renaming.
-   * If the name matches one of this block's variables, rename it.
-   * @param {string} oldName Previous name of variable.
-   * @param {string} newName Renamed variable.
-   * @this Blockly.Block
-   */
-  renameVar: function(oldName, newName) {
-    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-      this.setFieldValue(newName, 'VAR');
-    }
-  }
-};
-
-Blockly.Blocks['kiwi_event_message_value'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.EVENT );
-    this.appendValueInput("MESSAGE")
-        .setCheck("String")
-        .appendField( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_ONE );
-    this.appendDummyInput()
-        .appendField( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO )
-        .appendField(new Blockly.FieldVariable('value'), 'VAR');
-    this.appendStatementInput("STACK");
-    this.setInputsInline(true);
-    this.setTooltip( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_TOOLTIP );
-  },
-  /**
-   * Return all variables referenced by this block.
-   * @return {!Array.<string>} List of variable names.
-   * @this Blockly.Block
-   */
-  getVars: function() {
-    return [this.getFieldValue('VAR')];
-  },
-  /**
-   * Notification that a variable is renaming.
-   * If the name matches one of this block's variables, rename it.
-   * @param {string} oldName Previous name of variable.
-   * @param {string} newName Renamed variable.
-   * @this Blockly.Block
-   */
-  renameVar: function(oldName, newName) {
-    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
-      this.setFieldValue(newName, 'VAR');
-    }
-  }
-};
-
-
 Blockly.Blocks['kiwi_event_instance_properties_set'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_HELPURL );
@@ -435,5 +279,162 @@ Blockly.Blocks['kiwi_event_constantly_dropdown'] = {
 
     this.setTooltip(Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_TOOLTIP);
     this.appendStatementInput('STACK');
+  }
+};
+
+
+
+
+Blockly.Blocks['kiwi_event_touch_return_instance_local'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.PHYSICS );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_EVENT_TOUCH_RETURN_MESSAGE )
+        .appendField(new Blockly.FieldVariable('toucher', null, Blockly.FieldVariable.SCOPE.LOCAL ), 'VAR');
+    this.appendStatementInput("STACK");
+    this.setTooltip( Blockly.Msg.KF_EVENT_TOUCH_RETURN_TOOLTIP );
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  localGetVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Iterator is always a number type, return this.
+   * @return {string}
+   * @this Blockly.Block
+   */
+  localTypeOf: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return Blockly.Variables.TYPE_INSTANCE;
+    }
+    else return undefined;
+  },
+  /**
+   * Notfication that the workspace wants to change this variables type.
+   * We can not change type! This is immutable.
+   * @this Blockly.Block
+   */
+  localChangeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      setTimeout(function(){
+        // This type is immutable, change it back!
+        Blockly.Variables.Local.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+          Blockly.mainWorkspace);
+      },1);
+    }
+  },
+  /**
+   * Notification that a variable is renaming.
+   * If the name matches one of this block's variables, rename it.
+   * @param {string} oldName Previous name of variable.
+   * @param {string} newName Renamed variable.
+   * @this Blockly.Block
+   */
+  localRenameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['kiwi_event_stage_touched_local'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_MESSAGE )
+        .appendField(new Blockly.FieldDropdown( [ 
+          ["pressed", "onDown"], 
+          ["released", "onUp"]
+        ]), "TYPE")
+        .appendField(new Blockly.FieldVariable('pointer', null, Blockly.FieldVariable.SCOPE.LOCAL ), 'VAR');
+    this.appendStatementInput("STACK");
+    this.setTooltip( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_TOOLTIP );
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  localGetVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Iterator is always a number type, return this.
+   * @return {string}
+   * @this Blockly.Block
+   */
+  localTypeOf: function(name) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      return Blockly.Variables.TYPE_POINTER;
+    }
+    else return undefined;
+  },
+  /**
+   * Notfication that the workspace wants to change this variables type.
+   * We can not change type! This is immutable.
+   * @this Blockly.Block
+   */
+  localChangeType: function(name, type) {
+    if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
+      setTimeout(function(){
+        // This type is immutable, change it back!
+        Blockly.Variables.Local.changeType(name, Blockly.Variables.TYPE_POINTER, 
+          Blockly.mainWorkspace);
+      },1);
+    }
+  },
+  /**
+   * Notification that a variable is renaming.
+   * If the name matches one of this block's variables, rename it.
+   * @param {string} oldName Previous name of variable.
+   * @param {string} newName Renamed variable.
+   * @this Blockly.Block
+   */
+  localRenameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
+  }
+};
+
+Blockly.Blocks['kiwi_event_message_value_local'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
+    this.appendValueInput("MESSAGE")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_ONE );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO )
+        .appendField(new Blockly.FieldVariable('value', null, Blockly.FieldVariable.SCOPE.LOCAL ), 'VAR');
+    this.appendStatementInput("STACK");
+    this.setInputsInline(true);
+    this.setTooltip( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_TOOLTIP );
+  },
+  /**
+   * Return all variables referenced by this block.
+   * @return {!Array.<string>} List of variable names.
+   * @this Blockly.Block
+   */
+  localGetVars: function() {
+    return [this.getFieldValue('VAR')];
+  },
+  /**
+   * Notification that a variable is renaming.
+   * If the name matches one of this block's variables, rename it.
+   * @param {string} oldName Previous name of variable.
+   * @param {string} newName Renamed variable.
+   * @this Blockly.Block
+   */
+  localRenameVar: function(oldName, newName) {
+    if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
+      this.setFieldValue(newName, 'VAR');
+    }
   }
 };
