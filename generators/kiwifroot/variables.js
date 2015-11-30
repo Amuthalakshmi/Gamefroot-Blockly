@@ -47,6 +47,7 @@ Blockly.Kiwifroot['variables_set'] = function(block) {
   return 'this.' + varName + ' = ' + argument0 + ';\n';
 };
 
+// LOCAL
 
 Blockly.Kiwifroot['variables_local_get'] = function(block) {
   // Variable getter.
@@ -62,4 +63,22 @@ Blockly.Kiwifroot['variables_local_set'] = function(block) {
   var varName = Blockly.Kiwifroot.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   return 'var ' + varName + ' = ' + argument0 + ';\n';
+};
+
+// GLOBAL
+
+Blockly.Kiwifroot['variables_global_get'] = function(block) {
+  // Variable getter.
+  var code = 'this.game.GLOBAL_VARIABLES.' + Blockly.Kiwifroot.variableDB_.getName(block.getFieldValue('VAR'),
+      Blockly.Variables.NAME_TYPE);
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['variables_global_set'] = function(block) {
+  // Variable setter.
+  var argument0 = Blockly.Kiwifroot.valueToCode(block, 'VALUE',
+      Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '0';
+  var varName = Blockly.Kiwifroot.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  return 'this.game.GLOBAL_VARIABLES.' + varName + ' = ' + argument0 + ';\n';
 };
