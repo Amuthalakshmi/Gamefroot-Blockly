@@ -397,7 +397,7 @@ Blockly.Blocks['kiwi_arcadephysics_set_boolean_enabled'] = {
     this.setColour( Blockly.Variables.COLOUR.PHYSICS );
     this.appendValueInput("VALUE")
         .setCheck("Boolean")
-        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_MESSAGE + " enabled" );
+        .appendField( Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_MESSAGE + " physics enabled" );
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -447,7 +447,7 @@ Blockly.Blocks['kiwi_arcadephysics_get_boolean_enabled'] = {
     this.setHelpUrl( Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.PHYSICS );
     this.appendDummyInput()
-        .appendField( "enabled" );
+        .appendField( "physics enabled" );
     this.setInputsInline(true);
     this.setOutput(true, "Boolean");
     this.setTooltip( Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_TOOLTIP );
