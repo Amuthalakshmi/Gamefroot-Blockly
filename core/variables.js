@@ -270,7 +270,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
 
   //Local Vars
 
-  var variableList = Blockly.Variables.allLocalVariables(workspace.targetWorkspace);
+  var variableList = Blockly.Variables.Local.allVariables(workspace.targetWorkspace);
   variableList.sort(goog.string.caseInsensitiveCompare);
   
   // In addition to the user's variables, we also want to display the default
@@ -289,7 +289,7 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
         Blockly.Block.obtain(workspace, 'variables_local_set') : null;
 
     if (variableList[i] === null) {
-      defaultVariable = (getBlock || setBlock).getLocalVars()[0];
+      defaultVariable = (getBlock || setBlock).localGetVars()[0];
     }
     else {
       getBlock && getBlock.setFieldValue(variableList[i], 'VAR');
@@ -501,13 +501,14 @@ Blockly.Variables.renameVariable = function(oldName, newName, workspace) {
 
 //LOCAL
 
+Blockly.Variables.Local = {};
 
 /**
  * Find all user-created variables.
  * @param {!Blockly.Block|!Blockly.Workspace} root Root block or workspace.
  * @return {!Array.<string>} Array of variable names.
  */
-Blockly.Variables.allLocalVariables = function(root) {
+Blockly.Variables.Local.allVariables = function(root) {
   var blocks;
   if (root.getDescendants) {
     // Root is Block.
@@ -521,8 +522,8 @@ Blockly.Variables.allLocalVariables = function(root) {
   var variableHash = Object.create(null);
   // Iterate through every block and add each variable to the hash.
   for (var x = 0; x < blocks.length; x++) {
-    if (blocks[x].getLocalVars) {
-      var blockVariables = blocks[x].getLocalVars();
+    if (blocks[x].localGetVars) {
+      var blockVariables = blocks[x].localGetVars();
       for (var y = 0; y < blockVariables.length; y++) {
         var varName = blockVariables[y];
         // Variable name may be null if the block is only half-built.
@@ -545,7 +546,7 @@ Blockly.Variables.allLocalVariables = function(root) {
  * @param {!Blockly.Block|!Blockly.Workspace} root Root block or workspace.
  * @return {!Array<!Array<string>>}
  */
-Blockly.Variables.allLocalVariablesAndTypes = function(root){
+Blockly.Variables.Local.allVariablesAndTypes = function(root){
   var blocks, workspace;
   if (root.getDescendants) {
     // Root is Block.
@@ -561,7 +562,7 @@ Blockly.Variables.allLocalVariablesAndTypes = function(root){
   var variableHash = Object.create(null);
   // Iterate through every block and add each variable to the hash.
   for (var x = 0; x < blocks.length; x++) {
-    var func = blocks[x].getLocalVars;
+    var func = blocks[x].localGetVars;
     if (func) {
       var blockVariables = func.call(blocks[x]);
       for (var y = 0; y < blockVariables.length; y++) {
@@ -576,7 +577,7 @@ Blockly.Variables.allLocalVariablesAndTypes = function(root){
   // Flatten the hash into a list.
   var variableList = [];
   for (var name in variableHash) {
-    var type = Blockly.Variables.typeOfLocal(name,workspace)
+    var type = Blockly.Variables.Local.typeOf(name,workspace)
       || Blockly.Variables.TYPE_ANY;
     variableList.push([variableHash[name], type]);
   }
@@ -589,11 +590,11 @@ Blockly.Variables.allLocalVariablesAndTypes = function(root){
  * @param {string} type The type to change to
  * @param {!Blockly.Workspace} workspace Workspace edit variables in.
  */
-Blockly.Variables.changeTypeLocal = function(name, type, workspace){
+Blockly.Variables.Local.changeType = function(name, type, workspace){
   var blocks = workspace.getAllBlocks();
   // Iterate through every block.
   for (var x = 0; x < blocks.length; x++) {
-    var func = blocks[x].changeTypeLocal;
+    var func = blocks[x].localChangeType;
     if (func) {
       func.call(blocks[x], name, type);
     }
@@ -605,11 +606,11 @@ Blockly.Variables.changeTypeLocal = function(name, type, workspace){
  * @param {string} name The name of the variable to test
  * @param {!Blockly.Workspace} workspace Workspace query variables in.
  */
-Blockly.Variables.typeOfLocal = function(name, workspace){
+Blockly.Variables.Local.typeOf = function(name, workspace){
   var blocks = workspace.getAllBlocks();
   // Iterate through every block.
   for (var x = 0; x < blocks.length; x++) {
-    var func = blocks[x].typeOfLocal;
+    var func = blocks[x].localTypeOf;
     if (func) {
       var type =  func.call(blocks[x], name);
       if (type) return type;
@@ -623,12 +624,12 @@ Blockly.Variables.typeOfLocal = function(name, workspace){
  * @param {string} newName New variable name.
  * @param {!Blockly.Workspace} workspace Workspace rename variables in.
  */
-Blockly.Variables.renameLocalVariable = function(oldName, newName, workspace) {
+Blockly.Variables.Local.renameVariable = function(oldName, newName, workspace) {
   var blocks = workspace.getAllBlocks();
   // Iterate through every block.
   for (var i = 0; i < blocks.length; i++) {
-    if (blocks[i].renameLocalVar) {
-      blocks[i].renameLocalVar(oldName, newName);
+    if (blocks[i].localRenameVar) {
+      blocks[i].localRenameVar(oldName, newName);
     }
   }
 };

@@ -107,7 +107,7 @@ Blockly.FieldVariable.prototype.allVariablesFromScope_ = function() {
   var variableFunc = Blockly.Variables.allVariables;
 
   if( this.scope_ === Blockly.FieldVariable.SCOPE.LOCAL ) {
-    variableFunc = Blockly.Variables.allLocalVariables;
+    variableFunc = Blockly.Variables.Local.allVariables;
   } else if( this.scope_ === Blockly.FieldVariable.SCOPE.GLOBAL ) {
     //To Do
   } 
@@ -118,7 +118,7 @@ Blockly.FieldVariable.prototype.renameVariablesFromScope_ = function() {
   var variableFunc = Blockly.Variables.renameVariable;
 
   if( this.scope_ === Blockly.FieldVariable.SCOPE.LOCAL ) {
-    variableFunc = Blockly.Variables.renameLocalVariable;
+    variableFunc = Blockly.Variables.Local.renameVariable;
   } else if( this.scope_ === Blockly.FieldVariable.SCOPE.GLOBAL ) {
     //To Do
   } 

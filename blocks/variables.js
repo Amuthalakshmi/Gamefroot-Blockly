@@ -58,9 +58,8 @@ Blockly.Blocks['variables_get'] = {
     // Try to use the main workspace (blocks in the flyout)
     var workspace = Blockly.mainWorkspace || this.workspace;
     var name = this.getFieldValue('VAR');
-    var type = Blockly.Variables.typeOf(name, workspace) 
-      || this.getFieldValue('TYPE');
-    if (type) this.setType(type);
+    var type = Blockly.Variables.typeOf(name, workspace) || this.getFieldValue('TYPE');
+    if (type) this.setType(type, true);
     this.postInitExecuted_ = true;
   },
   /**
@@ -99,13 +98,13 @@ Blockly.Blocks['variables_get'] = {
    * Changes the type of this block
    * @param {string} type The new type for the block
    */
-  setType: function(type) {
+  setType: function(type, force) {
     var targetConnection = this.outputConnection.targetConnection;
     if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
     }
     //Only change the type if they differ
-    if( this.getFieldValue('TYPE') !== type ) {
+    if( force || this.getFieldValue('TYPE') !== type ) {
       this.setFieldValue(type, 'TYPE');
       this.setOutput(true, type);
     }
@@ -234,9 +233,9 @@ Blockly.Blocks['variables_local_get'] = {
     // Try to use the main workspace (blocks in the flyout)
     var workspace = Blockly.mainWorkspace || this.workspace;
     var name = this.getFieldValue('VAR');
-    var type = Blockly.Variables.typeOfLocal(name, workspace) 
+    var type = Blockly.Variables.Local.typeOf(name, workspace) 
       || this.getFieldValue('TYPE');
-    if (type) this.setTypeLocal(type);
+    if (type) this.localSetType(type, true);
     this.postInitExecuted_ = true;
   },
   /**
@@ -244,7 +243,7 @@ Blockly.Blocks['variables_local_get'] = {
    * @return {!Array.<string>} List of variable names.
    * @this Blockly.Block
    */
-  getLocalVars: function() {
+  localGetVars: function() {
     return [this.getFieldValue('VAR')];
   },
   /**
@@ -253,7 +252,7 @@ Blockly.Blocks['variables_local_get'] = {
    * @return {string} The type of the variable with the given name
    * (or undefined if this block isn't for that variable)
    */
-  typeOfLocal: function(name){
+  localTypeOf: function(name){
     if (this.postInitExecuted_ && Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
       return this.getFieldValue('TYPE');
     }
@@ -266,16 +265,16 @@ Blockly.Blocks['variables_local_get'] = {
    * @param {string} type The new type of the variable
    * @this Blockly.Block
    */
-  changeTypeLocal: function(name, type) {
+  localChangeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      this.setTypeLocal(type);
+      this.localSetType(type);
     }
   },
   /**
    * Changes the type of this block
    * @param {string} type The new type for the block
    */
-  setTypeLocal: function(type) {
+  localSetType: function(type) {
     var targetConnection = this.outputConnection.targetConnection;
     if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
@@ -294,7 +293,7 @@ Blockly.Blocks['variables_local_get'] = {
    * @param {string} newName Renamed variable.
    * @this Blockly.Block
    */
-  renameLocalVar: function(oldName, newName) {
+  localRenameVar: function(oldName, newName) {
     if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
       this.setFieldValue(newName, 'VAR');
     }
@@ -322,7 +321,7 @@ Blockly.Blocks['variables_local_get'] = {
   typeChangedHandler: function(type){
     var self = this.sourceBlock_;
     var name = self.getFieldValue('VAR');
-    Blockly.Variables.changeTypeLocal(name, type, Blockly.mainWorkspace);
+    Blockly.Variables.Local.changeType(name, type, Blockly.mainWorkspace);
   },
   /**
    * The function called when the name dropdown is changed
@@ -330,8 +329,8 @@ Blockly.Blocks['variables_local_get'] = {
    */
   nameChangedHandler: function(newName){
     var self = this.sourceBlock_;
-    var type = Blockly.Variables.typeOfLocal(newName, Blockly.mainWorkspace);
-    if (type) self.setTypeLocal(type);
+    var type = Blockly.Variables.Local.typeOf(newName, Blockly.mainWorkspace);
+    if (type) self.localSetType(type);
   }
 };
 
@@ -365,15 +364,15 @@ Blockly.Blocks['variables_local_set'] = {
    * Changes the type of this block
    * @param {string} type The new type for the block
    */
-  setTypeLocal: function(type) {
+  localSetType: function(type) {
     this.setFieldValue(type, 'TYPE');
     this.getInput('VALUE').setCheck(type);
   },
-  renameLocalVar: Blockly.Blocks['variables_local_get'].renameLocalVar,
-  getLocalVars: Blockly.Blocks['variables_local_get'].getLocalVars,
+  localRenameVar: Blockly.Blocks['variables_local_get'].localRenameVar,
+  localGetVars: Blockly.Blocks['variables_local_get'].localGetVars,
   postInit: Blockly.Blocks['variables_local_get'].postInit,
-  typeOfLocal: Blockly.Blocks['variables_local_get'].typeOfLocal,
-  changeTypeLocal: Blockly.Blocks['variables_local_get'].changeTypeLocal,
+  localTypeOf: Blockly.Blocks['variables_local_get'].localTypeOf,
+  localChangeType: Blockly.Blocks['variables_local_get'].localChangeType,
   customContextMenu: Blockly.Blocks['variables_local_get'].customContextMenu,
   typeChangedHandler: Blockly.Blocks['variables_local_get'].typeChangedHandler,
   nameChangedHandler: Blockly.Blocks['variables_local_get'].nameChangedHandler

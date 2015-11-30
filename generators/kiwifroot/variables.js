@@ -61,5 +61,5 @@ Blockly.Kiwifroot['variables_local_set'] = function(block) {
       Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '0';
   var varName = Blockly.Kiwifroot.variableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-  return varName + ' = ' + argument0 + ';\n';
+  return 'var ' + varName + ' = ' + argument0 + ';\n';
 };
