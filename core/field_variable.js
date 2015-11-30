@@ -39,10 +39,11 @@ goog.require('goog.string');
  * @param {Function} opt_changeHandler A function that is executed when a new
  *     option is selected.  Its sole argument is the new option value.  Its
  *     return value is ignored.
+ * @param {Number} scope The scope level that the variable will have. 
  * @extends {Blockly.FieldDropdown}
  * @constructor
  */
-Blockly.FieldVariable = function(varname, opt_changeHandler) {
+Blockly.FieldVariable = function(varname, opt_changeHandler, scope) {
   var changeHandler;
   if (opt_changeHandler) {
     // Wrap the user's change handler together with the variable rename handler.
@@ -67,9 +68,17 @@ Blockly.FieldVariable = function(varname, opt_changeHandler) {
   Blockly.FieldVariable.superClass_.constructor.call(this,
       Blockly.FieldVariable.dropdownCreate, changeHandler);
 
+  this.scope_ = scope || Blockly.FieldVariable.SCOPE.PROPERTY;
+
   this.setValue(varname || '');
 };
 goog.inherits(Blockly.FieldVariable, Blockly.FieldDropdown);
+
+Blockly.FieldVariable.SCOPE = {
+  "PROPERTY": 0,
+  "LOCAL": 1,
+  "GLOBAL": 2
+};
 
 /**
  * Install this dropdown on a block.
@@ -88,9 +97,32 @@ Blockly.FieldVariable.prototype.init = function(block) {
     } else {
       var workspace = block.workspace;
     }
-    this.setValue(Blockly.Variables.generateUniqueName(workspace));
+
+    this.setValue( Blockly.Variables.generateUniqueName(workspace, this.allVariablesFromScope_() ) );
   }
   Blockly.FieldVariable.superClass_.init.call(this, block);
+};
+
+Blockly.FieldVariable.prototype.allVariablesFromScope_ = function() {
+  var variableFunc = Blockly.Variables.allVariables;
+
+  if( this.scope_ === Blockly.FieldVariable.SCOPE.LOCAL ) {
+    variableFunc = Blockly.Variables.allLocalVariables;
+  } else if( this.scope_ === Blockly.FieldVariable.SCOPE.GLOBAL ) {
+    //To Do
+  } 
+  return variableFunc;
+};
+
+Blockly.FieldVariable.prototype.renameVariablesFromScope_ = function() {
+  var variableFunc = Blockly.Variables.renameVariable;
+
+  if( this.scope_ === Blockly.FieldVariable.SCOPE.LOCAL ) {
+    variableFunc = Blockly.Variables.renameLocalVariable;
+  } else if( this.scope_ === Blockly.FieldVariable.SCOPE.GLOBAL ) {
+    //To Do
+  } 
+  return variableFunc;
 };
 
 /**
@@ -99,7 +131,7 @@ Blockly.FieldVariable.prototype.init = function(block) {
  *   with the current values of the arguments used during construction.
  */
 Blockly.FieldVariable.prototype.clone = function() {
-  return new Blockly.FieldVariable(this.getValue(), this.changeHandler_);
+  return new Blockly.FieldVariable(this.getValue(), this.changeHandler_, this.scope_ );
 };
 
 /**
@@ -128,8 +160,9 @@ Blockly.FieldVariable.prototype.setValue = function(text) {
  */
 Blockly.FieldVariable.dropdownCreate = function() {
   if (this.sourceBlock_ && this.sourceBlock_.workspace) {
-    var variableList =
-        Blockly.Variables.allVariables(this.sourceBlock_.workspace);
+
+    var variableList = this.allVariablesFromScope_(this.sourceBlock_.workspace) ;
+
   } else {
     var variableList = [];
   }
@@ -182,7 +215,7 @@ Blockly.FieldVariable.dropdownChange = function(text) {
     text = promptName(Blockly.Msg.RENAME_VARIABLE_TITLE.replace('%1', oldVar),
                       oldVar);
     if (text) {
-      Blockly.Variables.renameVariable(oldVar, text, workspace);
+      this.renameVariablesFromScope_(oldVar, text, workspace);
     }
     return null;
   } else if (text == Blockly.Msg.NEW_VARIABLE) {
@@ -190,7 +223,7 @@ Blockly.FieldVariable.dropdownChange = function(text) {
     // Since variables are case-insensitive, ensure that if the new variable
     // matches with an existing variable, the new case prevails throughout.
     if (text) {
-      Blockly.Variables.renameVariable(text, text, workspace);
+      this.renameVariablesFromScope_(text, text, workspace);
       return text;
     }
     return null;
