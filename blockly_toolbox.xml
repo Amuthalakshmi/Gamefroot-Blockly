@@ -1036,7 +1036,7 @@
       </block>
 
     <block type="kiwi_block_category" message="Text"></block>
-      <block type="kiwi_text_create">
+      <block type="kiwi_text_create_local">
         <value name="TEXT">
           <block type="text"></block>
         </value>
