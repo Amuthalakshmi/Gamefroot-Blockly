@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-12-01 15:08:04.211320",
+		"lastupdated": "2015-12-01 16:03:00.647087",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -346,11 +346,15 @@
 	"VARIABLES_TYPE_POINTER": "finger/pointer",
 	"VARIABLES_TYPE_COORDINATE": "coordinate",
 	"VARIABLES_GET_HELPURL": "https://github.com/google/blockly/wiki/Variables#get",
-	"VARIABLES_GET_TOOLTIP": "Returns the value of this variable.",
+	"VARIABLES_GET_TOOLTIP": "Returns the value of this property. Properties persist for the duration of a gameobjects life.",
+	"VARIABLES_GET_TOOLTIP_LOCAL": "Returns the value of this local variable. Local variables persist for the duration of a function or event.",
+	"VARIABLES_GET_TOOLTIP_GLOBAL": "Returns the value of this global variable. Global variables persist for the duration of the game.",
 	"VARIABLES_GET_CREATE_SET": "Create 'set %1'",
 	"VARIABLES_SET_HELPURL": "https://github.com/google/blockly/wiki/Variables#set",
 	"VARIABLES_SET": "set %1 to %2",
-	"VARIABLES_SET_TOOLTIP": "Sets this variable to be equal to the input.",
+	"VARIABLES_SET_TOOLTIP": "Sets this variable to be equal to the input which will persist for the duration of the gameobjects life.",
+	"VARIABLES_SET_TOOLTIP_LOCAL": "Sets this variable to be equal to the input which will persist for the duration of the function or event.",
+	"VARIABLES_SET_TOOLTIP_GLOBAL": "Sets this variable to be equal to the input which will persist for the duration of the game.",
 	"VARIABLES_SET_CREATE_GET": "Create 'get %1'",
 	"PROCEDURES_DEFNORETURN_HELPURL": "https://en.wikipedia.org/wiki/Procedure_%28computer_science%29",
 	"PROCEDURES_DEFNORETURN_TITLE": "to",
