@@ -35,7 +35,7 @@ Blockly.Blocks['variables_get'] = {
    * @this Blockly.Block
    */
   init: function() {
-    this.setHelpUrl(Blockly.Msg.VARIABLES_GET_HELPURL);
+    this.setHelpUrl( Blockly.Msg.VARIABLES_GET_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.VARIABLES );
     this.appendDummyInput()
         .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
@@ -221,7 +221,7 @@ Blockly.Blocks['variables_local_get'] = {
           this.nameChangedHandler, Blockly.FieldVariable.SCOPE.LOCAL), 'VAR')
         .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
     this.setOutput(true);
-    this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
+    this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP_LOCAL);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
     this.contextMenuType_ = 'variables_local_set';
   },
@@ -355,7 +355,7 @@ Blockly.Blocks['variables_local_set'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
+    this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP_LOCAL);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
     this.contextMenuType_ = 'variables_local_get';
 
@@ -397,7 +397,7 @@ Blockly.Blocks['variables_global_get'] = {
           this.nameChangedHandler, Blockly.FieldVariable.SCOPE.GLOBAL), 'VAR')
         .appendField(Blockly.Msg.VARIABLES_GET_TAIL);
     this.setOutput(true);
-    this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP);
+    this.setTooltip(Blockly.Msg.VARIABLES_GET_TOOLTIP_GLOBAL);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_GET_CREATE_SET;
     this.contextMenuType_ = 'variables_global_set';
   },
@@ -531,7 +531,7 @@ Blockly.Blocks['variables_global_set'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP);
+    this.setTooltip(Blockly.Msg.VARIABLES_SET_TOOLTIP_GLOBAL);
     this.contextMenuMsg_ = Blockly.Msg.VARIABLES_SET_CREATE_GET;
     this.contextMenuType_ = 'variables_global_get';
 

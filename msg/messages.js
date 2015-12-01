@@ -1041,7 +1041,11 @@ Blockly.Msg.VARIABLES_TYPE_COORDINATE = 'coordinate';
 /// url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.
 Blockly.Msg.VARIABLES_GET_HELPURL = 'https://github.com/google/blockly/wiki/Variables#get';
 /// tooltip - This gets the value of the named variable without modifying it.
-Blockly.Msg.VARIABLES_GET_TOOLTIP = 'Returns the value of this variable.';
+Blockly.Msg.VARIABLES_GET_TOOLTIP = 'Returns the value of this property. Properties persist for the duration of a gameobjects life.';
+/// tooltip - This gets the value of the named local scope variable without modifying it.
+Blockly.Msg.VARIABLES_GET_TOOLTIP_LOCAL = 'Returns the value of this local variable. Local variables persist for the duration of a function or event.';
+/// tooltip - This gets the value of the named global scope variable without modifying it.
+Blockly.Msg.VARIABLES_GET_TOOLTIP_GLOBAL = 'Returns the value of this global variable. Global variables persist for the duration of the game.';
 /// context menu - Selecting this creates a block to set (change) the value of this variable.
 /// \n\nParameters:\n* %1 - the name of the variable.
 Blockly.Msg.VARIABLES_GET_CREATE_SET = 'Create "set %1"';
@@ -1051,7 +1055,11 @@ Blockly.Msg.VARIABLES_SET_HELPURL = 'https://github.com/google/blockly/wiki/Vari
 /// block text - Change the value of a mathematical variable: '''set [the value of] x to 7'''.\n\nParameters:\n* %1 - the name of the variable.\n* %2 - the value to be assigned.
 Blockly.Msg.VARIABLES_SET = 'set %1 to %2';
 /// tooltip - This initializes or changes the value of the named variable.
-Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input.';
+Blockly.Msg.VARIABLES_SET_TOOLTIP = 'Sets this variable to be equal to the input which will persist for the duration of the gameobjects life.';
+/// tooltip - This initializes or changes the value of the named variable.
+Blockly.Msg.VARIABLES_SET_TOOLTIP_LOCAL = 'Sets this variable to be equal to the input which will persist for the duration of the function or event.';
+/// tooltip - This initializes or changes the value of the named variable.
+Blockly.Msg.VARIABLES_SET_TOOLTIP_GLOBAL = 'Sets this variable to be equal to the input which will persist for the duration of the game.';
 /// context menu - Selecting this creates a block to get (change) the value of
 /// this variable.\n\nParameters:\n* %1 - the name of the variable.
 Blockly.Msg.VARIABLES_SET_CREATE_GET = 'Create "get %1"';
