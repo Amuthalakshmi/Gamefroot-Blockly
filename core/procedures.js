@@ -158,15 +158,15 @@ Blockly.Procedures.rename = function(text) {
  * @param {!Blockly.Workspace} workspace The flyout's workspace.
  */
 Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
-  if (Blockly.Blocks['procedures_defnoreturn']) {
-    var block = Blockly.Block.obtain(workspace, 'procedures_defnoreturn');
+  if (Blockly.Blocks['procedures_defnoreturn_local']) {
+    var block = Blockly.Block.obtain(workspace, 'procedures_defnoreturn_local');
     typeof block.postInit === 'function' && block.postInit.call(block);
     block.initSvg();
     blocks.push(block);
     gaps.push(margin * 2);
   }
-  if (Blockly.Blocks['procedures_defreturn']) {
-    var block = Blockly.Block.obtain(workspace, 'procedures_defreturn');
+  if (Blockly.Blocks['procedures_defreturn_local']) {
+    var block = Blockly.Block.obtain(workspace, 'procedures_defreturn_local');
     typeof block.postInit === 'function' && block.postInit.call(block);
     block.initSvg();
     blocks.push(block);
@@ -201,8 +201,9 @@ Blockly.Procedures.flyoutCategory = function(blocks, gaps, margin, workspace) {
   }
 
   var tuple = Blockly.Procedures.allProcedures(workspace.targetWorkspace);
-  populateProcedures(tuple[0], 'procedures_callnoreturn');
-  populateProcedures(tuple[1], 'procedures_callreturn');
+
+  populateProcedures(tuple[0], 'procedures_callnoreturn_local');
+  populateProcedures(tuple[1], 'procedures_callreturn_local');
 };
 
 /**

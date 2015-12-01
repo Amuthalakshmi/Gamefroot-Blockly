@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-11-24 09:37:11.748675",
+		"lastupdated": "2015-12-01 15:08:04.211320",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -448,7 +448,7 @@
 	"KF_EVENT_MESSAGE_TOOLTIP": "Send events when the player",
 	"KF_EVENT_MESSAGE_VALUE_HELPURL": "",
 	"KF_EVENT_MESSAGE_VALUE_MESSAGE_ONE": "When a message of",
-	"KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO": "is retreived",
+	"KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO": "is retrieved",
 	"KF_EVENT_MESSAGE_VALUE_TOOLTIP": "Executed when a message is retrieved. You can use this block to get a value send from the message with value blocks.",
 	"KF_EVENT_LEVEL_START_HELPURL": "",
 	"KF_EVENT_LEVEL_START_MESSAGE": "When the level",

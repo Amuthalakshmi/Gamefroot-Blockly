@@ -31,7 +31,36 @@
       </block>
 
     <block type="kiwi_block_category" message="Touch"></block>
-      <block type="kiwi_event_stage_touched"></block>
+      <block type="kiwi_event_stage_touched_local"></block>
+
+    <block type="kiwi_block_category" message="Keys"></block>
+      <block type="kiwi_event_instance_properties_set">
+        <value name="PROP_NAME">
+          <block type="text">
+            <field name="TEXT">name</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_instance_properties_set">
+        <value name="PROP_NAME">
+          <block type="text">
+            <field name="TEXT">name</field>
+          </block>
+        </value>
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+      <block type="kiwi_instance_properties_get">
+        <value name="PROP_NAME">
+          <block type="text">
+            <field name="TEXT">name</field>
+          </block>
+        </value>
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
 
     <block type="kiwi_block_category" message="Message Sensing"></block>
       <block type="kiwi_event_message">
@@ -41,7 +70,7 @@
           </block>
         </value>
       </block>
-      <block type="kiwi_event_message_value">
+      <block type="kiwi_event_message_value_local">
         <value name="MESSAGE">
           <block type="text">
             <field name="TEXT">message</field>
@@ -135,7 +164,7 @@
         </value>
       </block>
       <block type="controls_whileUntil"></block>
-      <block type="controls_for">
+      <block type="controls_for_local">
         <value name="FROM">
           <block type="math_number">
             <field name="NUM">1</field>
@@ -152,7 +181,7 @@
           </block>
         </value>
       </block>
-      <block type="controls_forEach"></block>
+      <block type="controls_forEach_local"></block>
       <block type="controls_flow_statements"></block>
 
     <block type="kiwi_block_category" message="Time"></block>
@@ -188,7 +217,7 @@
           </block>
       </value>
     </block>
-    <block type="kiwi_event_touch_return_instance"></block>
+    <block type="kiwi_event_touch_return_instance_local"></block>
 
     <block type="kiwi_block_category" message="Gravity"></block>
       <block type="kiwi_arcadephysics_set_gravity">
@@ -945,7 +974,7 @@
   <category name="Draw" colour="#38ce9e" >
 
     <block type="kiwi_block_category" message="Class"></block>
-      <block type="kiwi_classes_create_instance_with_var">
+      <block type="kiwi_classes_create_instance_with_var_local">
         <value name="CLASS">
           <block type="variables_get">
             <field name="TYPE">Class</field>
@@ -955,7 +984,7 @@
       </block>    
 
     <block type="kiwi_block_category" message="Shapes"></block>
-      <block type="kiwi_primitives_create_rectangle">
+      <block type="kiwi_primitives_create_rectangle_local">
           <value name="WIDTH">
             <block type="math_number">
                 <field name="NUM">100</field>
@@ -967,14 +996,14 @@
             </block>
           </value>
       </block>
-      <block type="kiwi_primitives_create_circle">
+      <block type="kiwi_primitives_create_circle_local">
           <value name="RADIUS">
             <block type="math_number">
                 <field name="NUM">100</field>
             </block>
           </value>
       </block>
-      <block type="kiwi_primitives_create_line">
+      <block type="kiwi_primitives_create_line_local">
           <value name="X">
             <block type="math_number">
                 <field name="NUM">50</field>
@@ -991,7 +1020,7 @@
             </block>
           </value>
       </block>
-      <block type="kiwi_primitives_create_star">
+      <block type="kiwi_primitives_create_star_local">
           <value name="RADIUS">
             <block type="math_number">
                 <field name="NUM">50</field>
@@ -1003,7 +1032,7 @@
             </block>
           </value>
       </block>
-      <block type="kiwi_primitives_create_polygon">
+      <block type="kiwi_primitives_create_polygon_local">
         <value name="RADIUS">
           <block type="math_number">
               <field name="NUM">100</field>
@@ -1036,7 +1065,7 @@
       </block>
 
     <block type="kiwi_block_category" message="Text"></block>
-      <block type="kiwi_text_create">
+      <block type="kiwi_text_create_local">
         <value name="TEXT">
           <block type="text"></block>
         </value>
@@ -1131,37 +1160,6 @@
   </category>
 
   <category name="Variables" colour="#348f32" custom="VARIABLE">
-
-    <block type="kiwi_block_category" message="Properties"></block>
-      <block type="kiwi_event_instance_properties_set">
-        <value name="PROP_NAME">
-          <block type="text">
-            <field name="TEXT">name</field>
-          </block>
-        </value>
-      </block>
-      <block type="kiwi_instance_properties_set">
-        <value name="PROP_NAME">
-          <block type="text">
-            <field name="TEXT">name</field>
-          </block>
-        </value>
-        <value name="INST">
-          <block type="kiwi_instance_self"></block>
-        </value>
-      </block>
-      <block type="kiwi_instance_properties_get">
-        <value name="PROP_NAME">
-          <block type="text">
-            <field name="TEXT">name</field>
-          </block>
-        </value>
-        <value name="INST">
-          <block type="kiwi_instance_self"></block>
-        </value>
-      </block>
-
-    <block type="kiwi_block_category" message="Variables"></block>
 
   </category>
 

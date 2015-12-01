@@ -310,3 +310,390 @@ Blockly.Kiwifroot['kiwi_camera_get'] = function(block) {
   
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
+// 1/12/2015
+
+
+Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
+
+  var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+
+  var createInstanceFuncName = Blockly.Kiwifroot.provideFunction_(
+    'createInstance',
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( className ) {',
+        Blockly.Kiwifroot.INDENT + '//Get the object configuration, modify it, and then create an object.',
+        Blockly.Kiwifroot.INDENT + 'var obj = this.state.objects.get( className );',
+        Blockly.Kiwifroot.INDENT +'if( obj ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return this.state.objects.create( obj, this.owner.parent );',
+        Blockly.Kiwifroot.INDENT + '}',
+        Blockly.Kiwifroot.INDENT + 'return null;',
+        '};']);
+
+  //value_class
+
+  var code = 'this.' + variable0 + ' = this.' + createInstanceFuncName + '(' + value_class + ');\n';
+
+  return code;
+};
+
+
+
+Blockly.Kiwifroot['kiwi_event_touch_return_instance'] = function(block) {
+
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+
+    var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
+  var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onTouchInstance', Blockly.Procedures.NAME_TYPE);
+
+  funcName = Blockly.Kiwifroot.provideFunction_(
+    funcName,
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( instanceA, instanceB ) {',
+    Blockly.Kiwifroot.INDENT + 'var instanceSet = false;',
+        Blockly.Kiwifroot.INDENT + 'if( instanceA === this.owner ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + variable0 + ' = instanceB;',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'instanceSet = true;',
+        Blockly.Kiwifroot.INDENT + '} else if( instanceB === this.owner) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'this.' + variable0 + ' = instanceA;',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'instanceSet = true;',
+        Blockly.Kiwifroot.INDENT + '}',
+        Blockly.Kiwifroot.INDENT + 'if( !instanceSet ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return;',
+        Blockly.Kiwifroot.INDENT + '}',
+        branch,
+        '};']);
+
+
+    var code = Blockly.Kiwifroot.arcadephysics.SYSTEM_PREFIX + '.onCollision.add( this.' + funcName + ', this );';
+  Blockly.Kiwifroot.provideAddition( Blockly.Kiwifroot.BOOT, code );
+
+  var code = Blockly.Kiwifroot.arcadephysics.SYSTEM_PREFIX +'.onCollision.remove( this.' + funcName + ', this );';
+  Blockly.Kiwifroot.provideAddition( Blockly.Kiwifroot.DESTRUCTOR, code );
+
+  return null;
+};
+
+
+Blockly.Kiwifroot['kiwi_event_stage_touched'] = function(block) {
+
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+
+    var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
+  var funcName = Blockly.Kiwifroot.variableDB_.getDistinctName('onStageTouch', Blockly.Procedures.NAME_TYPE);
+
+  funcName = Blockly.Kiwifroot.provideFunction_(
+    funcName,
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( x, y, td, tu, dur, pointer ) {',
+    Blockly.Kiwifroot.INDENT + 'this.' + variable0 + ' = pointer;',
+        branch,
+        '};']);
+
+
+  var dropdown_type = block.getFieldValue( 'TYPE' );
+    var constructorCode = 'this.game.input.' + dropdown_type + '.add(this.' + funcName + ', this, 25);';
+    var destructorCode = 'this.game.input.' + dropdown_type + '.remove(this.' + funcName + ', this);';
+
+    Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.CONSTRUCTOR, constructorCode);
+    Blockly.Kiwifroot.provideAddition(Blockly.Kiwifroot.DESTRUCTOR, destructorCode);
+
+  return null;
+};
+
+
+Blockly.Kiwifroot['kiwi_event_message_value'] = function(block) {
+
+  addMessageRecievedBlock();
+
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '""';
+
+  var funcName = defineFunctionFromBranch('executeMessage'+ message.slice(1, message.length - 1), block, "Executed when the " + message + " is received.");
+
+  // Generate the code for the switch
+  var code  = 'case ' + message + ':\n';
+    code += '\t\t\t' + 'this.' + variable0 + ' = this.owner.properties.get("_messaging-value_");\n';
+    code += '\t\t\t' + 'this.' + funcName + '();\n';
+    code += '\t\t\tbreak;';
+
+  Blockly.Kiwifroot.provideAddition('EVENT_MESSAGE_RELEASED', code);
+
+  return null;
+};
+
+
+
+Blockly.Kiwifroot['kiwi_primitives_create_rectangle'] = function(block) {
+
+  var value_width = Blockly.Kiwifroot.valueToCode( block, 'WIDTH', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+  var value_height = Blockly.Kiwifroot.valueToCode( block, 'HEIGHT', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+
+  var code  = 'this.' + variable0 + ' = this.state.objects.create( {\n';
+    code += '\t"type": "rectangle",\n';
+    code += '\t"x": 0,\n';
+    code += '\t"y": 0,\n';
+    code += '\t"width": ' + value_width + ',\n';
+    code += '\t"height": ' + value_height + '\n';
+    code += '}, this.owner.parent, true);\n';
+    
+    return code;
+};
+
+Blockly.Kiwifroot['kiwi_primitives_create_circle'] = function(block) {
+
+  var value_radius = Blockly.Kiwifroot.valueToCode( block, 'RADIUS', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+
+  var code  = 'this.' + variable0 + ' = this.state.objects.create( {\n';
+    code += '\t"type": "ellipse",\n';
+    code += '\t"x": 0,\n';
+    code += '\t"y": 0,\n';
+    code += '\t"radius": ' + value_radius + '\n';
+    code += '}, this.owner.parent, true);\n';
+    
+    return code;
+};
+
+Blockly.Kiwifroot['kiwi_primitives_create_line'] = function(block) {
+
+  var value_x = Blockly.Kiwifroot.valueToCode( block, 'X', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+  var value_y = Blockly.Kiwifroot.valueToCode( block, 'Y', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+
+  var value_width = Blockly.Kiwifroot.valueToCode( block, 'WIDTH', Blockly.Kiwifroot.ORDER_ATOMIC );
+
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+
+  var code  = 'this.' + variable0 + ' = this.state.objects.create( {\n';
+    code += '\t"type": "line",\n';
+    code += '\t"x": 0,\n';
+    code += '\t"y": 0,\n';
+    code += '\t"strokeWidth": ' + value_width + ',\n';
+    code += '\t"points": [\n';
+    code += '\t\t[0, 0],\n';
+    code += '\t\t[' + value_x + ', ' + value_y + ']\n';
+    code += '\t]\n';
+    code += '}, this.owner.parent, true);\n';
+    
+    return code;
+};
+
+Blockly.Kiwifroot['kiwi_primitives_create_star'] = function(block) {
+
+  var value_radius = Blockly.Kiwifroot.valueToCode( block, 'RADIUS', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+  var value_points = Blockly.Kiwifroot.valueToCode( block, 'POINTS', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+
+  var code  = 'this.' + variable0 + ' = this.state.objects.create( {\n';
+    code += '\t"type": "star",\n';
+    code += '\t"x": 0,\n';
+    code += '\t"y": 0,\n';
+    code += '\t"radius": ' + value_radius + ',\n';
+    code += '\t"segments": '+ value_points +',\n'
+    code += '\t"spikeRandom": 0,\n';
+    code += '\t"spikeLength": 1,\n';
+    code += '}, this.owner.parent, true);\n';
+    
+    return code;
+};
+
+Blockly.Kiwifroot['kiwi_primitives_create_polygon'] = function(block) {
+
+  var value_radius = Blockly.Kiwifroot.valueToCode( block, 'RADIUS', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+  var value_edges = Blockly.Kiwifroot.valueToCode( block, 'NUM_EDGES', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+
+  var code  = 'this.' + variable0 + ' = this.state.objects.create( {\n';
+    code += '\t"type": "ellipse",\n';
+    code += '\t"x": 0,\n';
+    code += '\t"y": 0,\n';
+    code += '\t"segments": ' + value_edges + ',\n';
+    code += '\t"radius": ' + value_radius + '\n';
+    code += '}, this.owner.parent, true);\n';
+    
+    return code;
+};
+
+
+Blockly.Kiwifroot['kiwi_text_create'] = function(block) {
+
+  var value_text = Blockly.Kiwifroot.valueToCode( block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC ) || "''";
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+
+  var code  = 'this.' + variable0 + ' = this.state.objects.create( {\n';
+    code += '\t"type": "multiline-text",\n';
+    code += '\t"x": 0,\n';
+    code += '\t"y": 0,\n';
+    code += '\t"maxWidth": Infinity,\n';
+    code += '\t"text": ' + value_text.replace(/\\\\n/g, "\\n") + '\n';
+    code += '}, this.owner.parent, true);\n';
+    
+    return code;
+};
+
+
+
+
+Blockly.Kiwifroot['controls_for'] = function(block) {
+  // For loop.
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.Kiwifroot.valueToCode(block, 'FROM',
+      Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '0';
+  var argument1 = Blockly.Kiwifroot.valueToCode(block, 'TO',
+      Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '0';
+  var increment = Blockly.Kiwifroot.valueToCode(block, 'BY',
+      Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '1';
+  var branch = Blockly.Kiwifroot.statementToCode(block, 'DO');
+  branch = Blockly.Kiwifroot.addLoopTrap(branch, block.id);
+  var code;
+  if (Blockly.isNumber(argument0) && Blockly.isNumber(argument1) &&
+      Blockly.isNumber(increment)) {
+    // All arguments are simple numbers.
+    var up = parseFloat(argument0) <= parseFloat(argument1);
+    code = 'for ( this.' + variable0 + ' = ' + argument0 + '; ' +
+        'this.' + variable0 + (up ? ' <= ' : ' >= ') + argument1 + '; ' +
+        'this.' + variable0;
+    var step = Math.abs(parseFloat(increment));
+    if (step == 1) {
+      code += up ? '++' : '--';
+    } else {
+      code += (up ? ' += ' : ' -= ') + step;
+    }
+    code += ') {\n' + branch + '}\n';
+  } else {
+    code = '';
+    // Cache non-trivial values to variables to prevent repeated look-ups.
+    var startVar = argument0;
+    if (!argument0.match(/^\w+$/) && !Blockly.isNumber(argument0)) {
+      var startVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+          variable0 + '_start', Blockly.Variables.NAME_TYPE);
+      code += 'var ' + startVar + ' = ' + argument0 + ';\n';
+    }
+    var endVar = argument1;
+    if (!argument1.match(/^\w+$/) && !Blockly.isNumber(argument1)) {
+      var endVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+          variable0 + '_end', Blockly.Variables.NAME_TYPE);
+      code += 'var ' + endVar + ' = ' + argument1 + ';\n';
+    }
+    // Determine loop direction at start, in case one of the bounds
+    // changes during loop execution.
+    var incVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+        variable0 + '_inc', Blockly.Variables.NAME_TYPE);
+    code += 'var ' + incVar + ' = ';
+    if (Blockly.isNumber(increment)) {
+      code += Math.abs(increment) + ';\n';
+    } else {
+      code += 'Math.abs(' + increment + ');\n';
+    }
+    code += 'if (' + startVar + ' > ' + endVar + ') {\n';
+    code += Blockly.Kiwifroot.INDENT + incVar + ' = -' + incVar + ';\n';
+    code += '}\n';
+    code += 'for (this.' + variable0 + ' = ' + startVar + ';\n' +
+        '     ' + incVar + ' >= 0 ? ' +
+        'this.' + variable0 + ' <= ' + endVar + ' : ' +
+        'this.' + variable0 + ' >= ' + endVar + ';\n' +
+        '     ' + 'this.' + variable0 + ' += ' + incVar + ') {\n' +
+        branch + '}\n';
+  }
+  return code;
+};
+
+Blockly.Kiwifroot['controls_forEach'] = function(block) {
+  // For each loop.
+  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+      block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var argument0 = Blockly.Kiwifroot.valueToCode(block, 'LIST',
+      Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '[]';
+  var branch = Blockly.Kiwifroot.statementToCode(block, 'DO');
+  branch = Blockly.Kiwifroot.addLoopTrap(branch, block.id);
+  var indexVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+      variable0 + '_index', Blockly.Variables.NAME_TYPE);
+  branch = Blockly.Kiwifroot.INDENT + 'this.' + variable0 + ' = ' +
+      argument0 + '[' + indexVar + '];\n' + branch;
+  var code = 'for (var ' + indexVar + ' in ' + argument0 + ') {\n' +
+      branch + '}\n';
+  return code;
+};
+
+
+Blockly.Kiwifroot['procedures_defreturn'] = function(block) {
+  // Define a procedure with a return value.
+  var funcName = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+
+  var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
+
+  if (Blockly.Kiwifroot.STATEMENT_PREFIX) {
+  branch = Blockly.Kiwifroot.prefixLines(
+    Blockly.Kiwifroot.STATEMENT_PREFIX.replace(/%1/g,
+    '\'' + block.id + '\''), Blockly.Kiwifroot.INDENT) + branch;
+  }
+
+  if (Blockly.Kiwifroot.INFINITE_LOOP_TRAP) {
+  branch = Blockly.Kiwifroot.INFINITE_LOOP_TRAP.replace(/%1/g,
+    '\'' + block.id + '\'') + branch;
+  }
+
+  var returnValue = Blockly.Kiwifroot.valueToCode(block, 'RETURN',
+    Blockly.Kiwifroot.ORDER_NONE) || '';
+
+  if (returnValue) {
+  returnValue = '  return ' + returnValue + ';\n';
+  }
+
+  var args = [];
+  for (var x = 0; x < block.arguments_.length; x++) {
+  args[x] = Blockly.Kiwifroot.variableDB_.getName(block.arguments_[x],
+    Blockly.Variables.NAME_TYPE);
+  }
+
+    var code  = funcName + ' = function(' + args.join(', ') + ') {\n';
+      
+      for( var i = 0; i < args.length; i++ ){
+        code += '\tthis.' + args[ i ] + ' = ' + args[ i ] + ';\n';
+      }
+    
+    code += branch + returnValue + '}';
+
+    code = Blockly.Kiwifroot.scrub_(block, code);
+    Blockly.Kiwifroot.definitions_[funcName] = code;
+    return null;
+};
+
+// Defining a procedure without a return value uses the same generator as
+// a procedure with a return value.
+Blockly.Kiwifroot['procedures_defnoreturn'] =
+  Blockly.Kiwifroot['procedures_defreturn'];
+
+Blockly.Kiwifroot['procedures_callreturn'] = function(block) {
+  // Call a procedure with a return value.
+  var funcName = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+  var args = [];
+  for (var x = 0; x < block.arguments_.length; x++) {
+  args[x] = Blockly.Kiwifroot.valueToCode(block, 'ARG' + x,
+    Blockly.Kiwifroot.ORDER_COMMA) || 'null';
+  }
+  var code = 'this.' + funcName + '(' + args.join(', ') + ')';
+  return [code, Blockly.Kiwifroot.ORDER_FUNCTION_CALL];
+};
+
+Blockly.Kiwifroot['procedures_callnoreturn'] = function(block) {
+  // Call a procedure with no return value.
+  var funcName = Blockly.Kiwifroot.variableDB_.getName(
+    block.getFieldValue('NAME'), Blockly.Procedures.NAME_TYPE);
+  var args = [];
+  for (var x = 0; x < block.arguments_.length; x++) {
+  args[x] = Blockly.Kiwifroot.valueToCode(block, 'ARG' + x,
+    Blockly.Kiwifroot.ORDER_COMMA) || 'null';
+  }
+  var code = 'this.' + funcName + '(' + args.join(', ') + ');\n';
+  return code;
+};

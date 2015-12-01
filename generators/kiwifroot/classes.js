@@ -49,7 +49,28 @@ Blockly.Kiwifroot['kiwi_classes_get_all_instances'] = function(block) {
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
-Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
+
+Blockly.Kiwifroot['kiwi_classes_get_by_text'] = function(block) {
+  var value_text = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC) || '""';
+
+  var getClassFuncName = Blockly.Kiwifroot.provideFunction_(
+    'getClass',
+    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( className ) {',
+        Blockly.Kiwifroot.INDENT + '//Check to see if the class exists, if not return null.',
+        Blockly.Kiwifroot.INDENT + 'if( this.state.objects.exists( className ) ) {',
+        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return className;',
+        Blockly.Kiwifroot.INDENT + '}',
+        Blockly.Kiwifroot.INDENT + 'return null;',
+        '};']);
+
+  var code = 'this.' + getClassFuncName + '(' + value_text + ')';
+
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+
+
+Blockly.Kiwifroot['kiwi_classes_create_instance_with_var_local'] = function(block) {
 
   var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
   var variable0 = Blockly.Kiwifroot.variableDB_.getName(
@@ -68,26 +89,7 @@ Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
 
   //value_class
 
-  var code = 'this.' + variable0 + ' = this.' + createInstanceFuncName + '(' + value_class + ');\n';
+  var code = 'var ' + variable0 + ' = this.' + createInstanceFuncName + '(' + value_class + ');\n';
 
   return code;
-};
-
-
-Blockly.Kiwifroot['kiwi_classes_get_by_text'] = function(block) {
-  var value_text = Blockly.Kiwifroot.valueToCode(block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC) || '""';
-
-  var getClassFuncName = Blockly.Kiwifroot.provideFunction_(
-    'getClass',
-    [ Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( className ) {',
-        Blockly.Kiwifroot.INDENT + '//Check to see if the class exists, if not return null.',
-        Blockly.Kiwifroot.INDENT + 'if( this.state.objects.exists( className ) ) {',
-        Blockly.Kiwifroot.INDENT + Blockly.Kiwifroot.INDENT + 'return className;',
-        Blockly.Kiwifroot.INDENT + '}',
-        Blockly.Kiwifroot.INDENT + 'return null;',
-        '};']);
-
-  var code = 'this.' + getClassFuncName + '(' + value_text + ')';
-
-  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

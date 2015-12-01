@@ -74,13 +74,29 @@ Blockly.Blocks['kiwi_classes_get_all_instances'] = {
 };
 
 
-Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
+Blockly.Blocks['kiwi_classes_get_by_text'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.SENSING );
+    this.appendValueInput("TEXT")
+        .setCheck("String")
+        .appendField( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_MESSAGE );
+    this.setInputsInline(true);
+    this.setOutput(true, "Class");
+    this.setTooltip( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_TOOLTIP );
+  }
+};
+
+
+// 
+
+Blockly.Blocks['kiwi_classes_create_instance_with_var_local'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
         .appendField( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_BEFORE )
-        .appendField(new Blockly.FieldVariable('instance'), 'VAR');
+        .appendField(new Blockly.FieldVariable('instance', null, Blockly.FieldVariable.SCOPE.LOCAL), 'VAR' );
     this.appendValueInput("CLASS")
         .setCheck("Class")
         .appendField( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_AFTER );
@@ -94,7 +110,7 @@ Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
    * @return {!Array.<string>} List of variable names.
    * @this Blockly.Block
    */
-  getVars: function() {
+  localGetVars: function() {
     return [this.getFieldValue('VAR')];
   },
   /**
@@ -102,7 +118,7 @@ Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
    * @return {string}
    * @this Blockly.Block
    */
-  typeOf: function(name) {
+  localTypeOf: function(name) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
       return Blockly.Variables.TYPE_INSTANCE;
     }
@@ -113,11 +129,11 @@ Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
    * We can not change type! This is immutable.
    * @this Blockly.Block
    */
-  changeType: function(name, type) {
+  localChangeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
       setTimeout(function(){
         // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+        Blockly.Variables.Local.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
           Blockly.mainWorkspace);
       },1);
     }
@@ -129,22 +145,27 @@ Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
    * @param {string} newName Renamed variable.
    * @this Blockly.Block
    */
-  renameVar: function(oldName, newName) {
+  localRenameVar: function(oldName, newName) {
     if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
       this.setFieldValue(newName, 'VAR');
     }
-  }
-};
-
-Blockly.Blocks['kiwi_classes_get_by_text'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.SENSING );
-    this.appendValueInput("TEXT")
-        .setCheck("String")
-        .appendField( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_MESSAGE );
-    this.setInputsInline(true);
-    this.setOutput(true, "Class");
-    this.setTooltip( Blockly.Msg.KF_CLASSES_GET_BY_TEXT_TOOLTIP );
+  },
+  /**
+   * Add menu option to create getter block for loop variable.
+   * @param {!Array} options List of menu options to add to.
+   * @this Blockly.Block
+   */
+  customContextMenu: function(options) {
+    if (!this.isCollapsed()) {
+      var option = {enabled: true};
+      var name = this.getFieldValue('VAR');
+      option.text = Blockly.Msg.VARIABLES_SET_CREATE_GET.replace('%1', name);
+      var xmlField = goog.dom.createDom('field', null, name);
+      xmlField.setAttribute('name', 'VAR');
+      var xmlBlock = goog.dom.createDom('block', null, xmlField);
+      xmlBlock.setAttribute('type', 'variables_local_get');
+      option.callback = Blockly.ContextMenu.callbackFactory(this, xmlBlock);
+      options.push(option);
+    }
   }
 };
