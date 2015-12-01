@@ -1295,6 +1295,7 @@ Blockly.Blocks['procedures_defnoreturn'] = {
       paramString = Blockly.Msg.PROCEDURES_BEFORE_PARAMS +
           ' ' + this.arguments_.join(', ');
     }
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setFieldValue(paramString, 'PARAMS');
   },
   /**
