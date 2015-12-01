@@ -230,7 +230,7 @@ Blockly.Blocks['kiwi_event_instance_properties_set'] = {
     this.setHelpUrl(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_HELPURL );
     this.setTooltip(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_TOOLTIP );
     this.setInputsInline(true);
-    this.setColour( Blockly.Variables.COLOUR.VARIABLES );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput('PROP_NAME')
         .setCheck("String")
         .appendField(Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_ONE );

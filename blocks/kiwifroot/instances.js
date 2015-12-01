@@ -250,7 +250,7 @@ Blockly.Blocks['kiwi_instance_properties_set'] = {
   init: function() {
 
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_PROPERTIES_SET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.VARIABLES );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
 
     this.appendValueInput("PROP_NAME")
         .setCheck("String")
@@ -271,7 +271,7 @@ Blockly.Blocks['kiwi_instance_properties_get'] = {
   init: function() {
 
     this.setHelpUrl( Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.VARIABLES );
+    this.setColour( Blockly.Variables.COLOUR.EVENT );
 
     this.appendValueInput("PROP_NAME")
         .setCheck("String")
