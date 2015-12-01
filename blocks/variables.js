@@ -391,7 +391,7 @@ Blockly.Blocks['variables_global_get'] = {
     this.appendDummyInput()
         .appendField(Blockly.Msg.VARIABLES_GET_TITLE)
         .appendField(new Blockly.FieldDropdown(
-          Blockly.Variables.allTypes(), 
+          Blockly.Variables.Global.allTypes(), 
           this.typeChangedHandler), 'TYPE')
         .appendField(new Blockly.FieldVariable(Blockly.Msg.VARIABLES_GET_ITEM,
           this.nameChangedHandler, Blockly.FieldVariable.SCOPE.GLOBAL), 'VAR')
@@ -522,7 +522,7 @@ Blockly.Blocks['variables_global_set'] = {
     this.appendValueInput('VALUE')
       .appendField(Blockly.Msg.VARIABLES_SET_MESSAGE_ONE)
       .appendField( new Blockly.FieldDropdown(
-          Blockly.Variables.allTypes(),
+          Blockly.Variables.Global.allTypes(),
           this.typeChangedHandler), 'TYPE')
       .appendField( new Blockly.FieldVariable(Blockly.Msg.VARIABLES_SET_ITEM,
           this.nameChangedHandler, Blockly.FieldVariable.SCOPE.GLOBAL), 'VAR')
