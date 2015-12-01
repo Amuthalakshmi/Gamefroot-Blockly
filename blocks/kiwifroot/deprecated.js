@@ -428,6 +428,7 @@ Blockly.Blocks['kiwi_camera_get'] = {
 
 Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
@@ -493,6 +494,7 @@ Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
 
 Blockly.Blocks['kiwi_event_touch_return_instance'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.PHYSICS );
     this.appendDummyInput()
@@ -550,6 +552,7 @@ Blockly.Blocks['kiwi_event_touch_return_instance'] = {
 
 Blockly.Blocks['kiwi_event_stage_touched'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_EVENT_STAGE_TOUCHED_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendDummyInput()
@@ -611,6 +614,7 @@ Blockly.Blocks['kiwi_event_stage_touched'] = {
 
 Blockly.Blocks['kiwi_event_message_value'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_EVENT_MESSAGE_VALUE_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.EVENT );
     this.appendValueInput("MESSAGE")
@@ -650,6 +654,7 @@ Blockly.Blocks['kiwi_event_message_value'] = {
 
 Blockly.Blocks['kiwi_primitives_create_rectangle'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
@@ -714,6 +719,7 @@ Blockly.Blocks['kiwi_primitives_create_rectangle'] = {
 
 Blockly.Blocks['kiwi_primitives_create_circle'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
@@ -776,6 +782,7 @@ Blockly.Blocks['kiwi_primitives_create_circle'] = {
 
 Blockly.Blocks['kiwi_primitives_create_line'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
@@ -843,6 +850,7 @@ Blockly.Blocks['kiwi_primitives_create_line'] = {
 
 Blockly.Blocks['kiwi_primitives_create_star'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
@@ -910,6 +918,7 @@ Blockly.Blocks['kiwi_primitives_create_star'] = {
 
 Blockly.Blocks['kiwi_primitives_create_polygon'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
@@ -978,6 +987,7 @@ Blockly.Blocks['kiwi_primitives_create_polygon'] = {
 
 Blockly.Blocks['kiwi_text_create'] = {
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl( Blockly.Msg.KF_TEXT_CREATE_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.DRAW );
     this.appendDummyInput()
@@ -1045,6 +1055,7 @@ Blockly.Blocks['controls_for'] = {
    */
   init: function() {
 
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     //Statement input
     this.jsonInit({
       "message0": Blockly.Msg.CONTROLS_FOR_TITLE,
@@ -1153,6 +1164,7 @@ Blockly.Blocks['controls_forEach'] = {
    * @this Blockly.Block
    */
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.CONTROLS_FOREACH_HELPURL);
     this.setColour(Blockly.Variables.COLOUR.CONTROL);
     this.appendValueInput('LIST')
@@ -1208,6 +1220,7 @@ Blockly.Blocks['procedures_defnoreturn'] = {
    * @this Blockly.Block
    */
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.PROCEDURES_DEFNORETURN_HELPURL);
     this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     var nameField = new Blockly.FieldTextInput(
@@ -1533,6 +1546,7 @@ Blockly.Blocks['procedures_defreturn'] = {
    * @this Blockly.Block
    */
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.PROCEDURES_DEFRETURN_HELPURL);
     this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     var nameField = new Blockly.FieldTextInput(
@@ -1585,6 +1599,7 @@ Blockly.Blocks['procedures_callnoreturn'] = {
    * @this Blockly.Block
    */
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLNORETURN_HELPURL);
     this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     this.appendDummyInput('TOPROW')
@@ -1853,6 +1868,7 @@ Blockly.Blocks['procedures_callreturn'] = {
    * @this Blockly.Block
    */
   init: function() {
+    this.setWarningText(Blockly.Msg.KF_BLOCK_DEPRECATED);
     this.setHelpUrl(Blockly.Msg.PROCEDURES_CALLRETURN_HELPURL);
     this.setColour( Blockly.Variables.COLOUR.FUNCTIONS );
     this.appendDummyInput('TOPROW')

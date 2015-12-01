@@ -274,13 +274,13 @@ Blockly.Blocks['variables_local_get'] = {
    * Changes the type of this block
    * @param {string} type The new type for the block
    */
-  localSetType: function(type) {
+  localSetType: function(type, force) {
     var targetConnection = this.outputConnection.targetConnection;
     if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
     }
     //Only change the type if they differ
-    if( this.getFieldValue('TYPE') !== type ) {
+    if( force || this.getFieldValue('TYPE') !== type ) {
       this.setFieldValue(type, 'TYPE');
       this.setOutput(true, type);
     }
@@ -450,13 +450,13 @@ Blockly.Blocks['variables_global_get'] = {
    * Changes the type of this block
    * @param {string} type The new type for the block
    */
-  globalSetType: function(type) {
+  globalSetType: function(type, force) {
     var targetConnection = this.outputConnection.targetConnection;
     if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
     }
     //Only change the type if they differ
-    if( this.getFieldValue('TYPE') !== type ) {
+    if( force || this.getFieldValue('TYPE') !== type ) {
       this.setFieldValue(type, 'TYPE');
       this.setOutput(true, type);
     }
