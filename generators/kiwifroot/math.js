@@ -426,7 +426,7 @@ Blockly.Kiwifroot['kiwi_math_instance'] = function(block) {
   }
 
   //var code = errorCheck( this.workspace, ('!' + value_inst_one + ' || !' + value_inst_two ), '`Instance to Instance Math` block could not find a Instance.' );
-  code += codeA;
+  var code = codeA;
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
