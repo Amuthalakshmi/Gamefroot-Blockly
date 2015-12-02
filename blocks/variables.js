@@ -409,9 +409,13 @@ Blockly.Blocks['variables_global_get'] = {
     // Try to use the main workspace (blocks in the flyout)
     var workspace = Blockly.mainWorkspace || this.workspace;
     var name = this.getFieldValue('VAR');
-    var type = Blockly.Variables.Global.typeOf(name, workspace) 
-      || this.getFieldValue('TYPE');
+    var type = Blockly.Variables.Global.typeOf(name, workspace) || this.getFieldValue('TYPE');
     if (type) this.globalSetType(type, true);
+    
+    if( !Blockly.Variables.Global.exists( name ) ) {
+      Blockly.Variables.Global.add( name, type );
+    }
+
     this.postInitExecuted_ = true;
   },
   /**
@@ -473,6 +477,10 @@ Blockly.Blocks['variables_global_get'] = {
     if (Blockly.Names.equals(oldName, this.getFieldValue('VAR'))) {
       this.setFieldValue(newName, 'VAR');
     }
+  },
+
+  globalNameCheck: function(name) {
+    return ( Blockly.Names.equals( name, this.getFieldValue('VAR') ) );
   },
   /**
    * Add menu option to create getter/setter block for this setter/getter.
@@ -544,6 +552,7 @@ Blockly.Blocks['variables_global_set'] = {
     this.setFieldValue(type, 'TYPE');
     this.getInput('VALUE').setCheck(type);
   },
+  globalNameCheck: Blockly.Blocks['variables_global_get'].globalNameCheck,
   globalRenameVar: Blockly.Blocks['variables_global_get'].globalRenameVar,
   globalGetVars: Blockly.Blocks['variables_global_get'].globalGetVars,
   postInit: Blockly.Blocks['variables_global_get'].postInit,
