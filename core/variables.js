@@ -301,14 +301,14 @@ Blockly.Variables.flyoutCategory = function(blocks, gaps, margin, workspace) {
 
   }
 
-  generateCategory( 'Global' );
-  //Global Scope
-  generateBlocks( 
-    Blockly.Variables.Global.allVariables(workspace.targetWorkspace),
-    'variables_global_get',
-    'variables_global_set',
-    'globalGetVars'
-     );
+  // generateCategory( 'Global' );
+  // //Global Scope
+  // generateBlocks( 
+  //   Blockly.Variables.Global.allVariables(workspace.targetWorkspace),
+  //   'variables_global_get',
+  //   'variables_global_set',
+  //   'globalGetVars'
+  //    );
 
   generateCategory( 'Properties' );
 
