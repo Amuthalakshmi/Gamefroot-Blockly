@@ -411,11 +411,6 @@ Blockly.Blocks['variables_global_get'] = {
     var name = this.getFieldValue('VAR');
     var type = Blockly.Variables.Global.typeOf(name, workspace) || this.getFieldValue('TYPE');
     if (type) this.globalSetType(type, true);
-    
-    if( !Blockly.Variables.Global.exists( name ) ) {
-      Blockly.Variables.Global.add( name, type );
-    }
-
     this.postInitExecuted_ = true;
   },
   /**
