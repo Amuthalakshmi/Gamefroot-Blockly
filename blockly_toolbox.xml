@@ -1046,7 +1046,7 @@
       </block>
       <block type="kiwi_primitives_change_colour">
           <value name="INST">
-            <block type="variables_get">
+            <block type="variables_local_get">
               <field name="TYPE">Instance</field>
               <field name="VAR">shape</field>
             </block>
@@ -1057,7 +1057,7 @@
       </block>
       <block type="kiwi_primitives_get_colour">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">shape</field>
           </block>
@@ -1072,7 +1072,7 @@
       </block>
       <block type="kiwi_text_numeric_set">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">textfield</field>
           </block>
@@ -1083,17 +1083,9 @@
             </block>
         </value>
       </block>
-      <block type="kiwi_text_numeric_get">
-        <value name="INST">
-          <block type="variables_get">
-            <field name="TYPE">Instance</field>
-            <field name="VAR">textfield</field>
-          </block>
-        </value>
-      </block>
       <block type="kiwi_text_colour_set">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">textfield</field>
           </block>
@@ -1102,17 +1094,9 @@
           <block type="colour_picker"></block>
         </value>
       </block>
-      <block type="kiwi_text_colour_get">
-        <value name="INST">
-          <block type="variables_get">
-            <field name="TYPE">Instance</field>
-            <field name="VAR">textfield</field>
-          </block>
-        </value>
-      </block>
       <block type="kiwi_text_text_set">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">textfield</field>
           </block>
@@ -1123,7 +1107,7 @@
       </block>
       <block type="kiwi_text_text_get">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">textfield</field>
           </block>
@@ -1131,7 +1115,7 @@
       </block>
       <block type="kiwi_text_alignment_set">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">textfield</field>
           </block>
@@ -1139,7 +1123,7 @@
       </block>
       <block type="kiwi_text_weight_set">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">textfield</field>
           </block>
@@ -1147,13 +1131,29 @@
       </block>
       <block type="kiwi_text_family_set">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">textfield</field>
           </block>
         </value>
         <value name="FAMILY">
           <block type="kiwi_text_font_presets"></block>
+        </value>
+      </block>
+      <block type="kiwi_text_numeric_get">
+        <value name="INST">
+          <block type="variables_local_get">
+            <field name="TYPE">Instance</field>
+            <field name="VAR">textfield</field>
+          </block>
+        </value>
+      </block>
+      <block type="kiwi_text_colour_get">
+        <value name="INST">
+          <block type="variables_get">
+            <field name="TYPE">Instance</field>
+            <field name="VAR">textfield</field>
+          </block>
         </value>
       </block>
 
