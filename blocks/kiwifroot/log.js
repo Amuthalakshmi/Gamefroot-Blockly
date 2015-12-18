@@ -99,3 +99,16 @@ Blockly.Blocks['kiwi_block_category'] = {
     this.setDisabled( true );
   }
 };
+
+Blockly.Blocks['kiwi_device_cocoon'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_DEVICE_COCOON_URL );
+    this.setColour( Blockly.Variables.COLOUR.CONTROL );
+    this.appendDummyInput()
+        .appendField( Blockly.Msg.KF_DEVICE_COCOON_MESSAGE );
+
+    this.setInputsInline(true);
+    this.setOutput(true, "Boolean");
+    this.setTooltip( Blockly.Msg.KF_DEVICE_COCOON_TOOLTIP );
+  }
+};

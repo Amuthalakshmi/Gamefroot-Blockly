@@ -194,6 +194,9 @@
       </block>
       <block type="kiwi_game_time_method"></block>
 
+    <block type="kiwi_block_category" message="Device"></block>
+      <block type="kiwi_device_cocoon"></block>
+
     <block type="kiwi_block_category" message="Debug"></block>
       <block type="kiwi_set_debug_mode">
         <value name="SET_DEBUG">

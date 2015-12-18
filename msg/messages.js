@@ -2180,3 +2180,10 @@ Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_HELPURL = '';
 Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_MESSAGE = '';
 /// tooltip - 
 Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_TOOLTIP = 'Executes every frame. The order of execution depends on the choosen dropdown item.';
+
+/// helpurl - 
+Blockly.Msg.KF_DEVICE_COCOON_URL = '';
+/// message -
+Blockly.Msg.KF_DEVICE_COCOON_MESSAGE = 'targeting cocoon';
+/// tooltip - 
+Blockly.Msg.KF_DEVICE_COCOON_TOOLTIP = 'Returns a boolean indicating if the game is currently targeting cocoon.';

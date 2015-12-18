@@ -72,3 +72,8 @@ Blockly.Kiwifroot['kiwi_block_category'] = function(block) {
   //This block should never be generateable
   return '';
 };
+
+Blockly.Kiwifroot['kiwi_device_cocoon'] = function(block) {
+  var code = '(this.game.deviceTargetOption === Kiwi.TARGET_COCOON)';
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
