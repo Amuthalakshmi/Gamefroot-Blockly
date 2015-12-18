@@ -1073,6 +1073,17 @@
           <block type="text"></block>
         </value>
       </block>
+      <block type="kiwi_text_text_set">
+        <value name="INST">
+          <block type="variables_local_get">
+            <field name="TYPE">Instance</field>
+            <field name="VAR">textfield</field>
+          </block>
+        </value>
+        <value name="TEXT">
+          <block type="text"></block>
+        </value>
+      </block>
       <block type="kiwi_text_numeric_set">
         <value name="INST">
           <block type="variables_local_get">
@@ -1095,25 +1106,6 @@
         </value>
         <value name="COLOUR">
           <block type="colour_picker"></block>
-        </value>
-      </block>
-      <block type="kiwi_text_text_set">
-        <value name="INST">
-          <block type="variables_local_get">
-            <field name="TYPE">Instance</field>
-            <field name="VAR">textfield</field>
-          </block>
-        </value>
-        <value name="TEXT">
-          <block type="text"></block>
-        </value>
-      </block>
-      <block type="kiwi_text_text_get">
-        <value name="INST">
-          <block type="variables_local_get">
-            <field name="TYPE">Instance</field>
-            <field name="VAR">textfield</field>
-          </block>
         </value>
       </block>
       <block type="kiwi_text_alignment_set">
@@ -1141,6 +1133,14 @@
         </value>
         <value name="FAMILY">
           <block type="kiwi_text_font_presets"></block>
+        </value>
+      </block>
+      <block type="kiwi_text_text_get">
+        <value name="INST">
+          <block type="variables_local_get">
+            <field name="TYPE">Instance</field>
+            <field name="VAR">textfield</field>
+          </block>
         </value>
       </block>
       <block type="kiwi_text_numeric_get">
