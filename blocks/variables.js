@@ -99,15 +99,34 @@ Blockly.Blocks['variables_get'] = {
    * @param {string} type The new type for the block
    */
   setType: function(type, force) {
-    var targetConnection = this.outputConnection.targetConnection;
+
+    //Get the target connection
+    var targetConnection = this.outputConnection.targetConnection, 
+      unplugged = (!targetConnection);
+
     if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
+      unplugged = true;
     }
+
     //Only change the type if they differ
     if( force || this.getFieldValue('TYPE') !== type ) {
+
+      //If we have not unpluged the block, then make sure we do.
+      //Connections need to be removed before adding them again
+      if( !unplugged && targetConnection) {
+        this.unplug();
+      }
+
       this.setFieldValue(type, 'TYPE');
       this.setOutput(true, type);
+
+      //Reset the connection if it was unplugged before hand
+      if( !unplugged && targetConnection ) {
+        this.outputConnection.connect( targetConnection );
+      }
     }
+
     //this.setColour(Blockly.Variables.COLOUR_FOR_TYPE[type]);
   },
   /**
@@ -275,14 +294,31 @@ Blockly.Blocks['variables_local_get'] = {
    * @param {string} type The new type for the block
    */
   localSetType: function(type, force) {
-    var targetConnection = this.outputConnection.targetConnection;
+    //Get the target connection
+    var targetConnection = this.outputConnection.targetConnection, 
+      unplugged = (!targetConnection);
+
     if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
+      unplugged = true;
     }
+
     //Only change the type if they differ
     if( force || this.getFieldValue('TYPE') !== type ) {
+
+      //If we have not unpluged the block, then make sure we do.
+      //Connections need to be removed before adding them again
+      if( !unplugged && targetConnection) {
+        this.unplug();
+      }
+
       this.setFieldValue(type, 'TYPE');
       this.setOutput(true, type);
+
+      //Reset the connection if it was unplugged before hand
+      if( !unplugged && targetConnection ) {
+        this.outputConnection.connect( targetConnection );
+      }
     }
     //this.setColour(Blockly.Variables.COLOUR_FOR_TYPE[type]);
   },
@@ -450,14 +486,31 @@ Blockly.Blocks['variables_global_get'] = {
    * @param {string} type The new type for the block
    */
   globalSetType: function(type, force) {
-    var targetConnection = this.outputConnection.targetConnection;
+    //Get the target connection
+    var targetConnection = this.outputConnection.targetConnection, 
+      unplugged = (!targetConnection);
+
     if (targetConnection && !targetConnection.acceptsType(type)) {
       this.unplug();
+      unplugged = true;
     }
+
     //Only change the type if they differ
     if( force || this.getFieldValue('TYPE') !== type ) {
+
+      //If we have not unpluged the block, then make sure we do.
+      //Connections need to be removed before adding them again
+      if( !unplugged && targetConnection) {
+        this.unplug();
+      }
+
       this.setFieldValue(type, 'TYPE');
       this.setOutput(true, type);
+
+      //Reset the connection if it was unplugged before hand
+      if( !unplugged && targetConnection ) {
+        this.outputConnection.connect( targetConnection );
+      }
     }
     //this.setColour(Blockly.Variables.COLOUR_FOR_TYPE[type]);
   },
