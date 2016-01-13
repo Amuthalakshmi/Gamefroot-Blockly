@@ -73,7 +73,7 @@ Blockly.Kiwifroot['kiwi_classes_get_by_text'] = function(block) {
 Blockly.Kiwifroot['kiwi_classes_create_instance_with_var_local'] = function(block) {
 
   var value_class = Blockly.Kiwifroot.valueToCode(block, 'CLASS', Blockly.Kiwifroot.ORDER_ATOMIC) || 'null';
-  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+  var variable0 = Blockly.Kiwifroot.localVariableDB_.getName(
     block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 
   var createInstanceFuncName = Blockly.Kiwifroot.provideFunction_(

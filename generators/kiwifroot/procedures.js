@@ -73,7 +73,7 @@ Blockly.Kiwifroot['procedures_defreturn_local'] = function(block) {
 
   var args = [];
   for (var x = 0; x < block.arguments_.length; x++) {
-  args[x] = Blockly.Kiwifroot.variableDB_.getName(block.arguments_[x],
+  args[x] = Blockly.Kiwifroot.localVariableDB_.getName(block.arguments_[x],
     Blockly.Variables.NAME_TYPE);
   }
 

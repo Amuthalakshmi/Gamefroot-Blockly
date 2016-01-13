@@ -70,7 +70,7 @@ Blockly.Kiwifroot['kiwi_primitives_create_rectangle_local'] = function(block) {
 
 	var value_width = Blockly.Kiwifroot.valueToCode( block, 'WIDTH', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
 	var value_height = Blockly.Kiwifroot.valueToCode( block, 'HEIGHT', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
 
 	var code  = 'var ' + variable0 + ' = this.state.objects.create( {\n';
 		code += '\t"type": "rectangle",\n';
@@ -86,7 +86,7 @@ Blockly.Kiwifroot['kiwi_primitives_create_rectangle_local'] = function(block) {
 Blockly.Kiwifroot['kiwi_primitives_create_circle_local'] = function(block) {
 
 	var value_radius = Blockly.Kiwifroot.valueToCode( block, 'RADIUS', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
 
 	var code  = 'var ' + variable0 + ' = this.state.objects.create( {\n';
 		code += '\t"type": "ellipse",\n';
@@ -105,7 +105,7 @@ Blockly.Kiwifroot['kiwi_primitives_create_line_local'] = function(block) {
 
 	var value_width = Blockly.Kiwifroot.valueToCode( block, 'WIDTH', Blockly.Kiwifroot.ORDER_ATOMIC );
 
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
 
 	var code  = 'var ' + variable0 + ' = this.state.objects.create( {\n';
 		code += '\t"type": "line",\n';
@@ -126,7 +126,7 @@ Blockly.Kiwifroot['kiwi_primitives_create_star_local'] = function(block) {
 	var value_radius = Blockly.Kiwifroot.valueToCode( block, 'RADIUS', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
 	var value_points = Blockly.Kiwifroot.valueToCode( block, 'POINTS', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
 
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
 
 	var code  = 'var ' + variable0 + ' = this.state.objects.create( {\n';
 		code += '\t"type": "star",\n';
@@ -145,7 +145,7 @@ Blockly.Kiwifroot['kiwi_primitives_create_polygon_local'] = function(block) {
 
 	var value_radius = Blockly.Kiwifroot.valueToCode( block, 'RADIUS', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
 	var value_edges = Blockly.Kiwifroot.valueToCode( block, 'NUM_EDGES', Blockly.Kiwifroot.ORDER_ATOMIC ) || 0;
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
 
 	var code  = 'var ' + variable0 + ' = this.state.objects.create( {\n';
 		code += '\t"type": "ellipse",\n';

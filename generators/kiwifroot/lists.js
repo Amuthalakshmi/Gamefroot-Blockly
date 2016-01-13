@@ -194,7 +194,7 @@ Blockly.Kiwifroot['lists_setIndex'] = function(block) {
     if (list.match(/^\w+$/)) {
       return '';
     }
-    var listVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+    var listVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
         'tmp_list', Blockly.Variables.NAME_TYPE);
     var code = 'var ' + listVar + ' = ' + list + ';\n';
     list = listVar;
@@ -240,7 +240,7 @@ Blockly.Kiwifroot['lists_setIndex'] = function(block) {
     }
   } else if (where == 'RANDOM') {
     var code = cacheList();
-    var xVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+    var xVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
         'tmp_x', Blockly.Variables.NAME_TYPE);
     code += 'var ' + xVar + ' = Math.floor(Math.random() * ' + list +
         '.length);\n';

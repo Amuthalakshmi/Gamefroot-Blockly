@@ -277,12 +277,20 @@ Blockly.Kiwifroot.init = function(workspace) {
   if (!Blockly.Kiwifroot.variableDB_) {
     Blockly.Kiwifroot.variableDB_ =
         new Blockly.Names(Blockly.Kiwifroot.RESERVED_WORDS_);
+    Blockly.Kiwifroot.localVariableDB_ = 
+        new Blockly.Names(Blockly.Kiwifroot.RESERVED_WORDS_);
+    Blockly.Kiwifroot.globalVariableDB_ =
+        new Blockly.Names(Blockly.Kiwifroot.RESERVED_WORDS_);
+
   } else {
     Blockly.Kiwifroot.variableDB_.reset();
+    Blockly.Kiwifroot.localVariableDB_.reset();
+    Blockly.Kiwifroot.globalVariableDB_.reset();
   }
 
   // Provide all the custom variables
   var variables = Blockly.Variables.allVariablesAndTypes(workspace);
+
   for (var x = 0; x < variables.length; x++) {
     var variableName = variables[x][0];
     var variableType = variables[x][1];

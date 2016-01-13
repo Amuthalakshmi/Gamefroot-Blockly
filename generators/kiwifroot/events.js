@@ -411,7 +411,7 @@ Blockly.Kiwifroot['kiwi_event_touch_return_instance_local'] = function(block) {
 
 	Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
 
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName(
 		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 
   	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
@@ -447,7 +447,7 @@ Blockly.Kiwifroot['kiwi_event_touch_return_instance_local'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_event_stage_touched_local'] = function(block) {
 
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName(
 		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 
   	var branch = Blockly.Kiwifroot.statementToCode(block, 'STACK');
@@ -476,7 +476,7 @@ Blockly.Kiwifroot['kiwi_event_message_value_local'] = function(block) {
 
 	addMessageRecievedBlock();
 
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName(
 		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
 	var message = Blockly.Kiwifroot.valueToCode(block, 'MESSAGE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '""';
 

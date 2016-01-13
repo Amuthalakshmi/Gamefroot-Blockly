@@ -40,7 +40,7 @@ Blockly.Kiwifroot['controls_repeat'] = function(block) {
   var repeats = Number(block.getFieldValue('TIMES'));
   var branch = Blockly.Kiwifroot.statementToCode(block, 'DO');
   branch = Blockly.Kiwifroot.addLoopTrap(branch, block.id);
-  var loopVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+  var loopVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
   var code = 'for (var ' + loopVar + ' = 0; ' +
       loopVar + ' < ' + repeats + '; ' +
@@ -56,11 +56,11 @@ Blockly.Kiwifroot['controls_repeat_ext'] = function(block) {
   var branch = Blockly.Kiwifroot.statementToCode(block, 'DO');
   branch = Blockly.Kiwifroot.addLoopTrap(branch, block.id);
   var code = '';
-  var loopVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+  var loopVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
       'count', Blockly.Variables.NAME_TYPE);
   var endVar = repeats;
   if (!repeats.match(/^\w+$/) && !Blockly.isNumber(repeats)) {
-    var endVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+    var endVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
         'repeat_end', Blockly.Variables.NAME_TYPE);
     code += 'var ' + endVar + ' = ' + repeats + ';\n';
   }
@@ -100,7 +100,7 @@ Blockly.Kiwifroot['controls_flow_statements'] = function(block) {
 
 Blockly.Kiwifroot['controls_for_local'] = function(block) {
   // For loop.
-  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+  var variable0 = Blockly.Kiwifroot.localVariableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Kiwifroot.valueToCode(block, 'FROM',
       Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '0';
@@ -130,19 +130,19 @@ Blockly.Kiwifroot['controls_for_local'] = function(block) {
     // Cache non-trivial values to variables to prevent repeated look-ups.
     var startVar = argument0;
     if (!argument0.match(/^\w+$/) && !Blockly.isNumber(argument0)) {
-      var startVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+      var startVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
           variable0 + '_start', Blockly.Variables.NAME_TYPE);
       code += 'var ' + startVar + ' = ' + argument0 + ';\n';
     }
     var endVar = argument1;
     if (!argument1.match(/^\w+$/) && !Blockly.isNumber(argument1)) {
-      var endVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+      var endVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
           variable0 + '_end', Blockly.Variables.NAME_TYPE);
       code += 'var ' + endVar + ' = ' + argument1 + ';\n';
     }
     // Determine loop direction at start, in case one of the bounds
     // changes during loop execution.
-    var incVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+    var incVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
         variable0 + '_inc', Blockly.Variables.NAME_TYPE);
     code += 'var ' + incVar + ' = ';
     if (Blockly.isNumber(increment)) {
@@ -165,13 +165,13 @@ Blockly.Kiwifroot['controls_for_local'] = function(block) {
 
 Blockly.Kiwifroot['controls_forEach_local'] = function(block) {
   // For each loop.
-  var variable0 = Blockly.Kiwifroot.variableDB_.getName(
+  var variable0 = Blockly.Kiwifroot.localVariableDB_.getName(
       block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
   var argument0 = Blockly.Kiwifroot.valueToCode(block, 'LIST',
       Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '[]';
   var branch = Blockly.Kiwifroot.statementToCode(block, 'DO');
   branch = Blockly.Kiwifroot.addLoopTrap(branch, block.id);
-  var indexVar = Blockly.Kiwifroot.variableDB_.getDistinctName(
+  var indexVar = Blockly.Kiwifroot.localVariableDB_.getDistinctName(
       variable0 + '_index', Blockly.Variables.NAME_TYPE);
   branch = Blockly.Kiwifroot.INDENT + 'var ' + variable0 + ' = ' +
       argument0 + '[' + indexVar + '];\n' + branch;

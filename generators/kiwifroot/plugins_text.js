@@ -141,7 +141,7 @@ Blockly.Kiwifroot['kiwi_text_text_get'] = function(block) {
 Blockly.Kiwifroot['kiwi_text_create_local'] = function(block) {
 
 	var value_text = Blockly.Kiwifroot.valueToCode( block, 'TEXT', Blockly.Kiwifroot.ORDER_ATOMIC ) || "''";
-	var variable0 = Blockly.Kiwifroot.variableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
+	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName( block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE );
 
 	var code  = 'var ' + variable0 + ' = this.state.objects.create( {\n';
 		code += '\t"type": "multiline-text",\n';
