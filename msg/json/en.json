@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2015-12-09 13:11:01.096054",
+		"lastupdated": "2016-01-14 13:23:44.333539",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -830,5 +830,8 @@
 	"KF_CLASSES_GET_BY_TEXT_TOOLTIP": "Returns a class of the text passed.",
 	"KF_EVENT_CONSTANTLY_DROPDOWN_HELPURL": "",
 	"KF_EVENT_CONSTANTLY_DROPDOWN_MESSAGE": "",
-	"KF_EVENT_CONSTANTLY_DROPDOWN_TOOLTIP": "Executes every frame. The order of execution depends on the choosen dropdown item."
+	"KF_EVENT_CONSTANTLY_DROPDOWN_TOOLTIP": "Executes every frame. The order of execution depends on the choosen dropdown item.",
+	"KF_DEVICE_COCOON_URL": "",
+	"KF_DEVICE_COCOON_MESSAGE": "targeting cocoon",
+	"KF_DEVICE_COCOON_TOOLTIP": "Returns a boolean indicating if the game is currently targeting cocoon."
 }
