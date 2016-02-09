@@ -97,6 +97,15 @@ Blockly.Blocks['kiwi_block_category'] = {
     this.setInputsInline(true);
 
     this.setDisabled( true );
+
+    //Colour the block
+    //By default blockly won't colour disabled blocks
+
+    //Override the update disabled function. Doesn't suit our needs.
+    this.updateDisabled = function() {
+      this.svgPath_.setAttribute('fill','#f0f0f0');
+    };
+
   }
 };
 
