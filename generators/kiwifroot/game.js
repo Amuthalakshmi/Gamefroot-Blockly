@@ -63,8 +63,9 @@ Blockly.Kiwifroot['kiwi_game_stage_get_size'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_game_stage_set_colour'] = function(block) {
 	var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || '#000000';
-  var code = errorCheck( this.workspace, ('typeof ' + val + ' == "string"' ), '`Stage Set Colour` block requires colours passed as Text.' );
-	code += 'this.game.stage.color = ('+val+').slice(1);\n';
+  //var code = errorCheck( this.workspace, ('typeof ' + val + ' !== "string"' ), '`Stage Set Colour` block requires colours passed as Text.' );
+	//code += 'this.game.stage.color = ('+val+').slice(1);\n';
+  var code = 'this.game.stage.color = ('+val+').slice(1);\n';
 
   return code;
 };
