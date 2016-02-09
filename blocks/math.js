@@ -321,11 +321,14 @@ Blockly.Blocks['math_change'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_NUMBER, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_NUMBER, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**

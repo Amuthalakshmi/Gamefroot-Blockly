@@ -468,11 +468,14 @@ Blockly.Blocks['kiwi_classes_create_instance_with_var'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -529,11 +532,14 @@ Blockly.Blocks['kiwi_event_touch_return_instance'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -591,11 +597,14 @@ Blockly.Blocks['kiwi_event_stage_touched'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_POINTER, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_POINTER, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -696,11 +705,14 @@ Blockly.Blocks['kiwi_primitives_create_rectangle'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -759,11 +771,14 @@ Blockly.Blocks['kiwi_primitives_create_circle'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -827,11 +842,14 @@ Blockly.Blocks['kiwi_primitives_create_line'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -895,11 +913,14 @@ Blockly.Blocks['kiwi_primitives_create_star'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -963,11 +984,14 @@ Blockly.Blocks['kiwi_primitives_create_polygon'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -1027,11 +1051,14 @@ Blockly.Blocks['kiwi_text_create'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_INSTANCE, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
@@ -1119,11 +1146,14 @@ Blockly.Blocks['controls_for'] = {
    */
   changeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.changeType(name, Blockly.Variables.TYPE_NUMBER, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.typeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_NUMBER, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**

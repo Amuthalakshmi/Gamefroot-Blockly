@@ -238,11 +238,14 @@ Blockly.Blocks['controls_for_local'] = {
    */
   localChangeType: function(name, type) {
     if (Blockly.Names.equals(name, this.getFieldValue('VAR'))) {
-      setTimeout(function(){
-        // This type is immutable, change it back!
-        Blockly.Variables.Local.changeType(name, Blockly.Variables.TYPE_NUMBER, 
-          Blockly.mainWorkspace);
-      },1);
+      //Is the type different?
+      if( type !== this.localTypeOf(name) ) {
+        setTimeout(function(){
+          // This type is immutable, change it back!
+          Blockly.Variables.Local.changeType(name, Blockly.Variables.TYPE_NUMBER, 
+            Blockly.mainWorkspace);
+        },1);
+      }
     }
   },
   /**
