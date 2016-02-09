@@ -639,6 +639,31 @@ Blockly.Variables.Local.typeOf = function(name, workspace){
 };
 
 /**
+ * Returns a boolean indicating if the current block is immutable or not to prevent type clashes
+ * @param name {string}
+ * @param {!Blockly.Workspace}
+ */
+Blockly.Variables.Local.isImmutable = function(name, workspace){
+  var blocks = workspace.getAllBlocks(),
+    block;
+
+  // Iterate through every block.
+  for (var x = 0; x < blocks.length; x++) {
+    var block = blocks[x],
+      func = block.localIsImmutable;
+
+    if( !func ) continue;
+
+    if( Blockly.Names.equals(name, block.getFieldValue('VAR') ) ) {
+      var immutable = func.call(block);
+      if (immutable) return immutable;
+    }
+
+  }
+  return false;
+};
+
+/**
  * Find all instances of the specified variable and rename them.
  * @param {string} oldName Variable to rename.
  * @param {string} newName New variable name.

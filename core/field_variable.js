@@ -194,6 +194,7 @@ Blockly.FieldVariable.dropdownCreate = function() {
  * @this {!Blockly.FieldVariable}
  */
 Blockly.FieldVariable.dropdownChange = function(text) {
+
   function promptName(promptText, defaultText) {
     Blockly.hideChaff();
     var newVar = window.prompt(promptText, defaultText);
@@ -210,6 +211,7 @@ Blockly.FieldVariable.dropdownChange = function(text) {
     return newVar;
   }
   var workspace = this.sourceBlock_.workspace;
+
   if (text == Blockly.Msg.RENAME_VARIABLE) {
     var oldVar = this.getText();
     text = promptName(Blockly.Msg.RENAME_VARIABLE_TITLE.replace('%1', oldVar),
@@ -228,5 +230,36 @@ Blockly.FieldVariable.dropdownChange = function(text) {
     }
     return null;
   }
+
+  if( this.scope_ === Blockly.FieldVariable.SCOPE.LOCAL ) {
+
+    //Is our block immutable?
+    if( this.sourceBlock_.localIsImmutable && this.sourceBlock_.localIsImmutable() ) {
+
+      //Check to see if the new value is already immutable
+      if( Blockly.Variables.Local.isImmutable( text, workspace ) ) {
+
+          var oldValue = this.getValue();
+          setTimeout(function() {
+            //If it is then switch back to the old value
+            this.setValue( oldValue );
+            //Message the user about the change
+            alert("Variable '" + text + "' cannot be used because its type is immutable. Reverting back to '" + oldValue + "'." );
+          }.bind(this), 1);
+        
+        return null;
+      } else {
+
+        //Otherwise change the type of all variables to the new one!
+        var type = this.sourceBlock_.localTypeOf( this.sourceBlock_.getFieldValue('VAR') );
+        if( type ) Blockly.Variables.Local.changeType(text, type, workspace );
+
+      }
+
+    }
+
+  }
+
+
   return undefined;
 };

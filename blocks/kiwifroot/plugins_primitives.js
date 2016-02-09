@@ -98,6 +98,13 @@ Blockly.Blocks['kiwi_primitives_create_rectangle_local'] = {
     else return undefined;
   },
   /**
+   * Indicates whether the variable used is immutable or not. 
+   * @return {boolean}
+   */
+  localIsImmutable: function() {
+    return true;
+  },
+  /**
    * Notfication that the workspace wants to change this variables type.
    * We can not change type! This is immutable.
    * @this Blockly.Block
@@ -179,6 +186,13 @@ Blockly.Blocks['kiwi_primitives_create_circle_local'] = {
       return Blockly.Variables.TYPE_INSTANCE;
     }
     else return undefined;
+  },
+  /**
+   * Indicates whether the variable used is immutable or not. 
+   * @return {boolean}
+   */
+  localIsImmutable: function() {
+    return true;
   },
   /**
    * Notfication that the workspace wants to change this variables type.
@@ -269,6 +283,13 @@ Blockly.Blocks['kiwi_primitives_create_line_local'] = {
     else return undefined;
   },
   /**
+   * Indicates whether the variable used is immutable or not. 
+   * @return {boolean}
+   */
+  localIsImmutable: function() {
+    return true;
+  },
+  /**
    * Notfication that the workspace wants to change this variables type.
    * We can not change type! This is immutable.
    * @this Blockly.Block
@@ -357,6 +378,13 @@ Blockly.Blocks['kiwi_primitives_create_star_local'] = {
     else return undefined;
   },
   /**
+   * Indicates whether the variable used is immutable or not. 
+   * @return {boolean}
+   */
+  localIsImmutable: function() {
+    return true;
+  },
+  /**
    * Notfication that the workspace wants to change this variables type.
    * We can not change type! This is immutable.
    * @this Blockly.Block
@@ -443,6 +471,13 @@ Blockly.Blocks['kiwi_primitives_create_polygon_local'] = {
       return Blockly.Variables.TYPE_INSTANCE;
     }
     else return undefined;
+  },
+  /**
+   * Indicates whether the variable used is immutable or not. 
+   * @return {boolean}
+   */
+  localIsImmutable: function() {
+    return true;
   },
   /**
    * Notfication that the workspace wants to change this variables type.

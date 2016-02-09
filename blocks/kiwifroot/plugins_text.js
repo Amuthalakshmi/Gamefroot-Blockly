@@ -257,6 +257,13 @@ Blockly.Blocks['kiwi_text_create_local'] = {
     else return undefined;
   },
   /**
+   * Indicates whether the variable used is immutable or not. 
+   * @return {boolean}
+   */
+  localIsImmutable: function() {
+    return true;
+  },
+  /**
    * Notfication that the workspace wants to change this variables type.
    * We can not change type! This is immutable.
    * @this Blockly.Block
