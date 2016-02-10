@@ -112,7 +112,7 @@ Blockly.Kiwifroot['kiwi_text_numeric_get'] = function(block) {
 
 	//Property error checker!
 
-	var code = value_inst + '.' + value_prop;
+	var code = errorCheckConditional( this.workspace, 'NotNull', value_inst, '!%1', 'this.owner', "No Instance could be found for a `get font size/max width/line height of text` block.") + '.' + value_prop;
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
@@ -122,7 +122,7 @@ Blockly.Kiwifroot['kiwi_text_colour_get'] = function(block) {
 
 	//Property error checker!
 
-	var code = value_inst + '.color';
+	var code = errorCheckConditional( this.workspace, 'NotNull', value_inst, '!%1', 'this.owner', "No Instance could be found for a `get colour of text` block.") + '.color';
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
@@ -131,9 +131,7 @@ Blockly.Kiwifroot['kiwi_text_text_get'] = function(block) {
 
 	var value_inst = Blockly.Kiwifroot.valueToCode( block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC ) || 'null';
 
-	//Property error checker!
-
-	var code = value_inst + '.text';
+	var code = errorCheckConditional( this.workspace, 'NotNull', value_inst, '!%1', 'this.owner', "No Instance could be found for a `get text of text` block.") + '.text';
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 

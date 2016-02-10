@@ -31,7 +31,7 @@ goog.require('Blockly.Kiwifroot');
 
 
 Blockly.Kiwifroot['kiwi_instance_self'] = function(block) {
-	var code = 'this.owner'; // TODO we may want to change this to self if there are any async functions
+	var code = 'this.owner'; 
   	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
@@ -63,6 +63,8 @@ Blockly.Kiwifroot['kiwi_instance_set'] = function(block) {
 Blockly.Kiwifroot['kiwi_instance_get'] = function(block) {
 	var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
 	var prop = block.getFieldValue('PROP');
+
+  inst = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get transform of instance` block.");
 	var code = inst + '.' + prop;
   
   //Add error check here...
@@ -76,7 +78,7 @@ Blockly.Kiwifroot['kiwi_instance_get'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_instance_get_visible'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
-  var code = inst + '.visible';
+  var code = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get visibility of instance` block.") + '.visible';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
@@ -109,7 +111,7 @@ Blockly.Kiwifroot['kiwi_instance_has_tags'] = function(block) {
   var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var value_tag = Blockly.Kiwifroot.valueToCode(block, 'TAG', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
-  var code = value_instance + '.hasTag(' + value_tag + ')';
+  var code = errorCheckConditional( this.workspace, 'NotNull', value_instance, '!%1', 'this.owner', "No Instance could be found for a `instance has tag` block.") + '.hasTag(' + value_tag + ')';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
@@ -142,7 +144,7 @@ Blockly.Kiwifroot['kiwi_instance_execute'] = function(block) {
   // Print statement.
   var argument0 = Blockly.Kiwifroot.valueToCode(block, 'TEXT',
       Blockly.Kiwifroot.ORDER_NONE) || '\'\'';
-  
+  //AHHH AHHH RUN AWAY
   var code  = 'eval('+argument0+');\n';
 
   return code;
@@ -163,7 +165,7 @@ Blockly.Kiwifroot['kiwi_instance_properties_get'] = function(block) {
   var value_prop_name = Blockly.Kiwifroot.valueToCode(block, 'PROP_NAME', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
 
-  var code = value_inst + '.properties.get(' + value_prop_name + ')';
+  var code = errorCheckConditional( this.workspace, 'NotNull', value_inst, '!%1', 'this.owner', "No Instance could be found for a `get key on instance` block.") + '.properties.get(' + value_prop_name + ')';
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 
@@ -234,39 +236,39 @@ Blockly.Kiwifroot['kiwi_instance_set_anchor_point'] = function(block) {
 Blockly.Kiwifroot['kiwi_instance_get_position'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
-  var code = inst + '.' + prop;
+  var code = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get position of instance` block.") + '.' + prop;
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_dimensions'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
-  var code = inst + '.' + prop;
+  var code = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get width/height of instance` block.") + '.' + prop;
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_rotation'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
-  var code = '(' + inst + '.rotation * Kiwi.Utils.GameMath.RAD_TO_DEG)';
+  var code = '(' + errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get rotation of instance` block.") + '.rotation * Kiwi.Utils.GameMath.RAD_TO_DEG)';
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_scale'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
-  var code = inst + '.' + prop;
+  var code = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get scale of instance` block.") + '.' + prop;
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_alpha'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
-  var code = inst + '.alpha';
+  var code = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get alpha of instance` block.") + '.alpha';
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_instance_get_anchor_point'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
-  var code = inst + '.' + prop;
+  var code = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get anchor point of instance` block.") + '.' + prop;
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

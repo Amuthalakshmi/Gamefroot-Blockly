@@ -1153,7 +1153,7 @@
       </block>
       <block type="kiwi_text_colour_get">
         <value name="INST">
-          <block type="variables_get">
+          <block type="variables_local_get">
             <field name="TYPE">Instance</field>
             <field name="VAR">textfield</field>
           </block>

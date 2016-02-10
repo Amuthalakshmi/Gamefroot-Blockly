@@ -48,7 +48,7 @@ Blockly.Kiwifroot['kiwi_coordinate_get'] = function(block) {
 	//wrap in a function
 	//MISSING ERROR CHECK: errorCheck( this.workspace, ('!' + value_class)
 
-	var code = value_loc + '.' + value_prop + '';
+	var code = errorCheckConditional( this.workspace, 'NotNull', value_loc, '!%1', '{x:0,y:0}', "No coordinate was found for a `get x/y of coordinate` block.") + '.' + value_prop;
   	
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

@@ -29,8 +29,8 @@ goog.provide('Blockly.Kiwifroot.classes');
 goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_classes_instance_type'] = function(block) {
-  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.myself';
-  var code = value_inst + '.name';
+  var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
+  var code = errorCheckConditional( this.workspace, 'NotNull', value_inst, '!%1', 'this.owner', "No Instance could be found for a `get class of instance` block.") + '.name';
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };

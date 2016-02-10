@@ -34,16 +34,14 @@ Blockly.Kiwifroot.camera.COMPONENT_PREFIX  = 'this.camera';
 Blockly.Kiwifroot.camera.addCameraToConstructor_ = function() {
 
 	var constructorCode = 'this.camera = this.state.components.getComponent( "Camera" );\n\n';
-	constructorCode    += '\tif( !this.camera ) {\n';
-	constructorCode    += '\t\tKiwi.Log.error("Camera component not found on the state. Camera blocks will not work.", "#camera");\n'
-	constructorCode    += '\t}\n';
-
+	constructorCode += errorCheck( this.workspace, ('!this.camera'), 'Camera component not found on the state. Camera blocks will not work.' );
+	
 	Blockly.Kiwifroot.provideAdditionOnce('cameraConstructor', Blockly.Kiwifroot.BOOT, constructorCode);
 
 };
 
 Blockly.Kiwifroot['kiwi_camera_go_to'] = function(block) {
-	Blockly.Kiwifroot.camera.addCameraToConstructor_();
+	Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var dropdown_method = block.getFieldValue('METHOD');
 	var value_x_pos = Blockly.Kiwifroot.valueToCode(block, 'X_POS', Blockly.Kiwifroot.ORDER_ATOMIC) || 0;
@@ -55,7 +53,7 @@ Blockly.Kiwifroot['kiwi_camera_go_to'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_camera_set_speed'] = function(block) {
-	Blockly.Kiwifroot.camera.addCameraToConstructor_();
+	Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || 100;
 
@@ -63,7 +61,7 @@ Blockly.Kiwifroot['kiwi_camera_set_speed'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_camera_get_speed'] = function(block) {
-	Blockly.Kiwifroot.camera.addCameraToConstructor_();
+	Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var dropdown_method = block.getFieldValue('METHOD');
 	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.panSpeed';
@@ -75,7 +73,7 @@ Blockly.Kiwifroot['kiwi_camera_get_speed'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_camera_state'] = function(block) {
 
-	Blockly.Kiwifroot.camera.addCameraToConstructor_();
+	Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var dropdown_type = block.getFieldValue('TYPE');
 	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_type;
@@ -84,7 +82,7 @@ Blockly.Kiwifroot['kiwi_camera_state'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_camera_scale'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
   var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || 1;
   var dropdown_name = block.getFieldValue('PROP');
@@ -95,7 +93,7 @@ Blockly.Kiwifroot['kiwi_camera_scale'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_camera_scale_get'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
   
   var dropdown_name = block.getFieldValue('PROP');
   var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_name;
@@ -104,7 +102,7 @@ Blockly.Kiwifroot['kiwi_camera_scale_get'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_camera_center_on_instance'] = function(block) {
-	Blockly.Kiwifroot.camera.addCameraToConstructor_();
+	Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
 
@@ -122,7 +120,7 @@ Blockly.Kiwifroot['kiwi_camera_center_on_instance'] = function(block) {
 
 // 22/10/2015
 Blockly.Kiwifroot['kiwi_camera_get_read_only_position'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var dropdown_method = block.getFieldValue('METHOD');
 	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method;
@@ -130,7 +128,7 @@ Blockly.Kiwifroot['kiwi_camera_get_read_only_position'] = function(block) {
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_camera_get_read_only_dimensions'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var dropdown_method = block.getFieldValue('METHOD');
 	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method;
@@ -140,21 +138,21 @@ Blockly.Kiwifroot['kiwi_camera_get_read_only_dimensions'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_camera_set_offset'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || '0';
 	var dropdown_method = block.getFieldValue('METHOD');
 	return Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method + ' = ' + value_value + ';\n';
 };
 Blockly.Kiwifroot['kiwi_camera_set_min'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || '-Infinity';
 	var dropdown_method = block.getFieldValue('METHOD');
 	return Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method + ' = ' + value_value + ';\n';
 };
 Blockly.Kiwifroot['kiwi_camera_set_max'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC) || 'Infinity';
 	var dropdown_method = block.getFieldValue('METHOD');
@@ -164,7 +162,7 @@ Blockly.Kiwifroot['kiwi_camera_set_max'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_camera_get_offset'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var dropdown_method = block.getFieldValue('METHOD');
 	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method;
@@ -172,7 +170,7 @@ Blockly.Kiwifroot['kiwi_camera_get_offset'] = function(block) {
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_camera_get_min'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var dropdown_method = block.getFieldValue('METHOD');
 	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method;
@@ -180,7 +178,7 @@ Blockly.Kiwifroot['kiwi_camera_get_min'] = function(block) {
 	return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
 Blockly.Kiwifroot['kiwi_camera_get_max'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
 	var dropdown_method = block.getFieldValue('METHOD');
 	var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method;

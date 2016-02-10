@@ -443,8 +443,8 @@ var regexpQuote = function(str) {
 
 var errorCheck = function( workspace, condition, errorMessage ) {
 
-  var code = '';
   var errorCheck = ( !workspace.options || typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck );
+  var code = '';
 
   //If debugging
   if( errorCheck ) {
@@ -452,6 +452,37 @@ var errorCheck = function( workspace, condition, errorMessage ) {
     code += '\tthis.game.reportError("' + errorMessage + '", "' + errorMessage + '", "SCRIPT ERROR");\n';
     code += '\treturn;\n';
     code += '}\n';
+  }
+
+  return code;
+
+};
+
+var errorCheckConditional = function( workspace, funcName, input, condition, backupValue, errorMessage ) {
+
+  var errorCheck = ( !workspace.options || typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck );
+
+  var code = '';
+
+  //If debugging
+  if( errorCheck ) {
+    
+    var func = Blockly.Kiwifroot.provideFunction_('errorCheck' + funcName, [
+      Blockly.Kiwifroot.FUNCTION_NAME_PLACEHOLDER_ + ' = function( input, backup, message ) {',
+      '\tif( ' + condition.replace('%1', 'input') + ' ) {',
+      '\t\tthis.game.reportError(message, message, "SCRIPT ERROR");',
+      '\t\treturn backup;',
+      '\t}',
+      '\treturn input;', 
+      '}'
+      ]);
+
+    code += '(this.' + func + '( ' + input + ', ' + backupValue + ', "' + errorMessage + '"))';
+  
+  } else {
+
+    code += input; 
+
   }
 
   return code;

@@ -53,7 +53,7 @@ Blockly.Kiwifroot['kiwi_input_finger_select'] = function(block) {
 Blockly.Kiwifroot['kiwi_input_finger_get_coords'] = function(block) {
   var dropdown_prop = block.getFieldValue('PROP');
   var value_name = Blockly.Kiwifroot.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC) || 'this.game.input.touch.latestFinger';
-  var code = value_name + '.' + dropdown_prop;
+  var code = errorCheckConditional( this.workspace, 'NotNull', value_name, '!%1', 'this.game.input.touch.latestFinger', "No Pointer could be found for a `get x/y of pointer` block.") + '.' + dropdown_prop;
   
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -62,7 +62,7 @@ Blockly.Kiwifroot['kiwi_input_finger_get_bool'] = function(block) {
   var value_name = Blockly.Kiwifroot.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC) || 'this.game.input.touch.latestFinger';
   var dropdown_prop = block.getFieldValue('PROP');
 
-  var code = value_name + '.' + dropdown_prop;
+  var code = errorCheckConditional( this.workspace, 'NotNull', value_name, '!%1', 'this.game.input.touch.latestFinger', "No Pointer could be found for a `get active/down/up of pointer` block.") + '.' + dropdown_prop;
 
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
@@ -71,7 +71,7 @@ Blockly.Kiwifroot['kiwi_input_finger_get_times'] = function(block) {
   var value_pointer = Blockly.Kiwifroot.valueToCode(block, 'POINTER', Blockly.JavaScript.ORDER_ATOMIC) || 'this.game.input.touch.latestFinger';
   var dropdown_prop = block.getFieldValue('PROP');
 
-  var code = value_pointer + '.' + dropdown_prop;
+  var code = errorCheckConditional( this.workspace, 'NotNull', value_pointer, '!%1', 'this.game.input.touch.latestFinger', "No Pointer could be found for a `get duration/timedown/timeup/id of pointer` block.") + '.' + dropdown_prop;
 
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
