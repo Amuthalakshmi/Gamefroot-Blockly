@@ -445,7 +445,7 @@ var errorCheck = function( workspace, condition, errorMessage ) {
 
   workspace = workspace || Blockly.getMainWorkspace();
 
-  var errorCheck = ( !workspace.options || ( workspace.options && ( typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck ) );
+  var errorCheck = ( !workspace.options || ( workspace.options && ( typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck ) ) );
   var code = '';
 
   //If debugging
@@ -464,7 +464,7 @@ var errorCheckConditional = function( workspace, funcName, input, condition, bac
 
   workspace = workspace || Blockly.getMainWorkspace();
 
-  var errorCheck = ( !workspace.options || ( workspace.options && ( typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck ) );
+  var errorCheck = ( !workspace.options || ( workspace.options && ( typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck ) ) );
 
   var code = '';
 
