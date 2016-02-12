@@ -233,7 +233,7 @@ Blockly.Kiwifroot['kiwi_event_message'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_event_animation'] = function(block) {
 
-  	Blockly.Kiwifroot.addAnimationToConstructor_();
+  	Blockly.Kiwifroot.addAnimationToConstructor_.call( this );
 
   	var value_anim = Blockly.Kiwifroot.valueToCode( block, 'ANIM', Blockly.Kiwifroot.ORDER_ATOMIC ) || '""';
   	var dropdown_type = block.getFieldValue( 'TYPE' );

@@ -443,7 +443,9 @@ var regexpQuote = function(str) {
 
 var errorCheck = function( workspace, condition, errorMessage ) {
 
-  var errorCheck = ( !workspace.options || typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck );
+  workspace = workspace || Blockly.getMainWorkspace();
+
+  var errorCheck = ( !workspace.options || ( workspace.options && ( typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck ) );
   var code = '';
 
   //If debugging
@@ -460,7 +462,9 @@ var errorCheck = function( workspace, condition, errorMessage ) {
 
 var errorCheckConditional = function( workspace, funcName, input, condition, backupValue, errorMessage ) {
 
-  var errorCheck = ( !workspace.options || typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck );
+  workspace = workspace || Blockly.getMainWorkspace();
+
+  var errorCheck = ( !workspace.options || ( workspace.options && ( typeof workspace.options.errorCheck === "undefined" || workspace.options.errorCheck ) );
 
   var code = '';
 
