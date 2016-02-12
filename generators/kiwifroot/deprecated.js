@@ -181,7 +181,7 @@ Blockly.Kiwifroot['kiwi_event_key_release'] = function(block) {
 // 17 - 02 - 2015
 
 Blockly.Kiwifroot['kiwi_camera_lock_on'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
     var value_instance = Blockly.Kiwifroot.valueToCode(block, 'INSTANCE', Blockly.Kiwifroot.ORDER_ATOMIC);
     var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.lock(' + value_instance + '.transform, ' + value_instance + '.width * 0.5, ' + value_instance + '.height * 0.5);\n';
@@ -191,7 +191,7 @@ Blockly.Kiwifroot['kiwi_camera_lock_on'] = function(block) {
 // 17 - 02 - 2015
 
 Blockly.Kiwifroot['kiwi_camera_unlock'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
     var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.unlock();\n';
     return code;
@@ -232,7 +232,7 @@ Blockly.Kiwifroot['kiwi_classes_create_instance'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_arcadephysics_get_numeric'] = function(block) {
-    Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+    Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_.call( this );
 
     var dropdown_prop = block.getFieldValue('PROP');
     var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.' + dropdown_prop;
@@ -242,7 +242,7 @@ Blockly.Kiwifroot['kiwi_arcadephysics_get_numeric'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_arcadephysics_set_numeric'] = function(block) {
-  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_.call( this );
 
     var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC);
     var dropdown_prop = block.getFieldValue('PROP');
@@ -253,7 +253,7 @@ Blockly.Kiwifroot['kiwi_arcadephysics_set_numeric'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_arcadephysics_set_boolean'] = function(block) {
-  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_.call( this );
 
     var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC);
     var dropdown_prop = block.getFieldValue('PROP');
@@ -264,7 +264,7 @@ Blockly.Kiwifroot['kiwi_arcadephysics_set_boolean'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_arcadephysics_get_boolean'] = function(block) {
-  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_.call( this );
 
     var dropdown_prop = block.getFieldValue('PROP');
     var code = Blockly.Kiwifroot.arcadephysics.COMPONENT_PREFIX + '.' + dropdown_prop;
@@ -273,7 +273,7 @@ Blockly.Kiwifroot['kiwi_arcadephysics_get_boolean'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_arcadephysics_get_collisions'] = function(block) {
-  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_.call( this );
 
     var dropdown_type = block.getFieldValue('TYPE');
     var dropdown_prop = block.getFieldValue('PROP');
@@ -285,7 +285,7 @@ Blockly.Kiwifroot['kiwi_arcadephysics_get_collisions'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_camera_get_read_only'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
   var dropdown_method = block.getFieldValue('METHOD');
   var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method;
@@ -295,7 +295,7 @@ Blockly.Kiwifroot['kiwi_camera_get_read_only'] = function(block) {
 
 
 Blockly.Kiwifroot['kiwi_camera_set'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
   var value_value = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ATOMIC);
   var dropdown_method = block.getFieldValue('METHOD');
@@ -303,7 +303,7 @@ Blockly.Kiwifroot['kiwi_camera_set'] = function(block) {
 };
 
 Blockly.Kiwifroot['kiwi_camera_get'] = function(block) {
-  Blockly.Kiwifroot.camera.addCameraToConstructor_();
+  Blockly.Kiwifroot.camera.addCameraToConstructor_.call( this );
 
   var dropdown_method = block.getFieldValue('METHOD');
   var code = Blockly.Kiwifroot.camera.COMPONENT_PREFIX + '.' + dropdown_method;
@@ -342,7 +342,7 @@ Blockly.Kiwifroot['kiwi_classes_create_instance_with_var'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_event_touch_return_instance'] = function(block) {
 
-  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+  Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_.call( this );
 
   var variable0 = Blockly.Kiwifroot.variableDB_.getName(
     block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
