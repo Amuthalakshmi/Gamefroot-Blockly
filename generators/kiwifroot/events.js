@@ -253,7 +253,7 @@ Blockly.Kiwifroot['kiwi_event_animation'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_event_touch_on'] = function(block) {
 
-	Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+	Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_.call( this);
 
   	var value_inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || null;
 
@@ -409,7 +409,7 @@ function defineFunctionFromBranch(desiredName, block, codeComment){
 
 Blockly.Kiwifroot['kiwi_event_touch_return_instance_local'] = function(block) {
 
-	Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_();
+	Blockly.Kiwifroot.arcadephysics.addArcadePhysicsToConstructor_.call( this );
 
 	var variable0 = Blockly.Kiwifroot.localVariableDB_.getName(
 		block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
