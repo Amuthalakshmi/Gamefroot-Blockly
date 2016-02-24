@@ -212,15 +212,21 @@
 
   <category name="Physics" colour="#e66b2f" >
 
-    <block type="kiwi_event_touch_on">
-      <value name="INST">
-          <block type="variables_get">
-            <field name="TYPE">Instance</field>
-            <field name="VAR">Other</field>
-          </block>
-      </value>
-    </block>
-    <block type="kiwi_event_touch_return_instance_local"></block>
+    <block type="kiwi_block_category" message="Hitbox"></block>
+      <block type="kiwi_hitbox_position_get"></block>
+      <block type="kiwi_hitbox_dimensions_get"></block>
+      <block type="kiwi_hitbox_offset_get"></block>
+
+    <block type="kiwi_block_category" message="Events"></block>
+      <block type="kiwi_event_touch_on">
+        <value name="INST">
+            <block type="variables_get">
+              <field name="TYPE">Instance</field>
+              <field name="VAR">Other</field>
+            </block>
+        </value>
+      </block>
+      <block type="kiwi_event_touch_return_instance_local"></block>
 
     <block type="kiwi_block_category" message="Gravity"></block>
       <block type="kiwi_arcadephysics_set_gravity">

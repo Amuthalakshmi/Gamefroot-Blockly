@@ -2187,3 +2187,24 @@ Blockly.Msg.KF_DEVICE_COCOON_URL = '';
 Blockly.Msg.KF_DEVICE_COCOON_MESSAGE = 'targeting cocoon';
 /// tooltip - 
 Blockly.Msg.KF_DEVICE_COCOON_TOOLTIP = 'Returns a boolean indicating if the game is currently targeting cocoon.';
+
+/// helpurl - 
+Blockly.Msg.KF_HITBOX_POSITION_GET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_HITBOX_POSITION_GET_MESSAGE = 'get hitbox';
+/// tooltip - 
+Blockly.Msg.KF_HITBOX_POSITION_GET_TOOLTIP = 'Returns the selected position of the hitbox in world coordinates.';
+
+/// helpurl - 
+Blockly.Msg.KF_HITBOX_DIMENSIONS_GET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_HITBOX_DIMENSIONS_GET_MESSAGE = 'get hitbox';
+/// tooltip - 
+Blockly.Msg.KF_HITBOX_DIMENSIONS_GET_TOOLTIP = 'Returns the selected dimensions of the hitbox in world coordinates.';
+
+/// helpurl -
+Blockly.Msg.KF_HITBOX_OFFSET_GET_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_HITBOX_OFFSET_GET_MESSAGE = 'get hitbox offset';
+/// tooltip - 
+Blockly.Msg.KF_HITBOX_OFFSET_GET_TOOLTIP = 'Returns the difference between the hitbox position and the instances position.';
