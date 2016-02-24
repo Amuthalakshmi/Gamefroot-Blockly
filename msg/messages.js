@@ -1035,7 +1035,7 @@ Blockly.Msg.VARIABLES_TYPE_SOUND = 'sound';
 /// The display name of the pointer variable type
 Blockly.Msg.VARIABLES_TYPE_POINTER = 'finger/pointer';
 /// The display name of the location variable type
-Blockly.Msg.VARIABLES_TYPE_COORDINATE = 'coordinate';
+Blockly.Msg.VARIABLES_TYPE_COORDINATE = 'location';
 
 
 /// url - Information about ''variables'' in computer programming.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Variable_(computer_science) https://en.wikipedia.org/wiki/Variable_(computer_science)], if it exists.
@@ -1752,7 +1752,7 @@ Blockly.Msg.KF_MATH_XY_TO_XY_MESSAGE_BEFORE = Blockly.Msg.KF_MATH_INSTANCE_MESSA
 Blockly.Msg.KF_MATH_XY_TO_XY_MESSAGE_AFTER = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER;
 
 /// tooltip -
-Blockly.Msg.KF_MATH_XY_TO_XY_TOOLTIP = 'Returns the selected value between an instance and a set of coordinates passed.';
+Blockly.Msg.KF_MATH_XY_TO_XY_TOOLTIP = 'Returns the selected value between an instance and a location passed.';
 /// url - 
 Blockly.Msg.KF_MATH_UTILS_HELPURL = '';
 /// tooltip -
@@ -1936,7 +1936,7 @@ Blockly.Msg.KF_ARCADEPHYSICS_PROBE_MESSAGE = 'collidable object exists at';
 /// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_PROBE_TOOLTIP = 'Returns a boolean indiciating if a colliable object exists at the cooridnates passed. ';
 /// tooltip -
-Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_TOOLTIP = 'Returns a boolean indiciating if a colliable object (with the collision shape AND layer as passed) exists at the coordinates passed.';
+Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_TOOLTIP = 'Returns a boolean indiciating if a colliable object (with the collision shape AND layer as passed) exists at the location passed.';
 /// message -
 Blockly.Msg.KF_ARCADEPHYSICS_PROBE_LAYER_MESSAGE_ONE = 'collidable object of';
 /// message -
@@ -2133,7 +2133,7 @@ Blockly.Msg.KF_COORDINATE_GET_MESSAGE_ONE = 'get';
 /// message - 
 Blockly.Msg.KF_COORDINATE_GET_MESSAGE_TWO = 'of';
 /// tooltip - 
-Blockly.Msg.KF_COORDINATE_GET_TOOLTIP = 'Returns the numeric value for the passed coordinate';
+Blockly.Msg.KF_COORDINATE_GET_TOOLTIP = 'Returns the numeric value for the passed location';
 
 /// helpurl - 
 Blockly.Msg.KF_COORDINATE_SET_HELPURL = '';
@@ -2144,14 +2144,14 @@ Blockly.Msg.KF_COORDINATE_SET_MESSAGE_TWO = 'of';
 /// message - 
 Blockly.Msg.KF_COORDINATE_SET_MESSAGE_THREE = 'to';
 /// tooltip - 
-Blockly.Msg.KF_COORDINATE_SET_TOOLTIP = 'Sets the selected axis to a defined value for the passed coordinate';
+Blockly.Msg.KF_COORDINATE_SET_TOOLTIP = 'Sets the selected axis to a defined value for the passed location';
 
 /// helpurl - 
 Blockly.Msg.KF_COORDINATE_CREATE_HELPURL = '';
 /// message - 
-Blockly.Msg.KF_COORDINATE_CREATE_MESSAGE = 'create new coordinate at';
+Blockly.Msg.KF_COORDINATE_CREATE_MESSAGE = 'create new location at';
 /// tooltip - 
-Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP = 'Creates a new coordinate';
+Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP = 'Creates a new location';
 
 /// helpurl - 
 Blockly.Msg.KF_SET_DEBUG_MODE_URL = '';
