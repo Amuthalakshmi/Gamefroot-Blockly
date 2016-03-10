@@ -32,7 +32,7 @@ goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_log'] = function(block) {
     var val = Blockly.Kiwifroot.valueToCode(block, 'LOG', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
-    return 'console.log('+val+');\n';
+    return 'this.game.logReadout.record( ' + val + ', "#Script");\n';
 };
 
 //Hack

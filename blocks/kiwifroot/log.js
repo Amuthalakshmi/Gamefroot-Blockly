@@ -33,15 +33,15 @@ goog.require('Blockly.Blocks');
 
 Blockly.Blocks['kiwi_log'] = {
   init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_LOG_URL );
+    this.setHelpUrl( Blockly.Msg.KF_WRITE_URL );
     this.setColour( Blockly.Variables.COLOUR.CONTROL );
     this.appendValueInput("LOG")
-        .appendField(Blockly.Msg.KF_LOG_MSG);
+        .appendField(Blockly.Msg.KF_WRITE_MSG);
 
     //this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip( Blockly.Msg.KF_LOG_TOOLTIP );
+    this.setTooltip( Blockly.Msg.KF_WRITE_TOOLTIP );
   }
 };
 

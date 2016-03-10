@@ -1759,11 +1759,11 @@ Blockly.Msg.KF_MATH_UTILS_HELPURL = '';
 Blockly.Msg.KF_MATH_UTILS_TOOLTIP = '';
 
 /// message - 
-Blockly.Msg.KF_LOG_MSG = "log";
+Blockly.Msg.KF_WRITE_MSG = "write";
 /// url -
-Blockly.Msg.KF_LOG_URL = "";
+Blockly.Msg.KF_WRITE_URL = "";
 /// tooltip - 
-Blockly.Msg.KF_LOG_TOOLTIP = "Used to log a message in the console.";
+Blockly.Msg.KF_WRITE_TOOLTIP = "Used to log a message in the console and to display it on the debug screen.";
 
 /// Label - 
 Blockly.Msg.KF_CLASSES_INSTANCE_MESSAGE = 'class of';
