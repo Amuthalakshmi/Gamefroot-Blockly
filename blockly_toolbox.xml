@@ -581,7 +581,7 @@
           <block type="kiwi_input_mouse"></block>
         </value>
         <value name="B">
-          <block type="kiwi_camera_get_read_only"></block>
+          <block type="kiwi_camera_get_read_only_position"></block>
         </value>
       </block>
 
