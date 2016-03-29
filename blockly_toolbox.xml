@@ -420,15 +420,6 @@
         </value>
       </block>
 
-      <block type="kiwi_instance_get_location_from_position">
-        <value name="INST">
-          <block type="kiwi_instance_self"></block>
-        </value>
-      </block>
-
-      <block type="kiwi_coordinate_get">
-      </block>
-
       <block type="kiwi_instance_set_position_from_location">
         <value name="INST">
           <block type="kiwi_instance_self"></block>
@@ -441,6 +432,15 @@
             <field name="NUM">0</field>
           </block>
         </value>
+      </block>
+
+      <block type="kiwi_instance_get_location_from_position">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+
+      <block type="kiwi_coordinate_get">
       </block>
 
   </category>
