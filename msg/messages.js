@@ -1415,6 +1415,10 @@ Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE = 'get visibility of';
 /// tooltip - 
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_TOOLTIP = 'Returns visibility state of this gameobject. An alpha of zero is does not mean that the visiblity is false.';
 /// url -
+Blockly.Msg.KF_INSTANCE_SET_POSITION_FROM_LOCATION_HELPURL = '';
+/// tooltip -
+Blockly.Msg.KF_INSTANCE_SET_POSITION_FROM_LOCATION_TOOLTIP = 'Sets the object X and Y to a given location.';
+/// url -
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_HELPURL = '';
 /// Label - 
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_BEFORE = 'set visibility of';

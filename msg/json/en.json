@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2016-03-29 14:16:08.427257",
+		"lastupdated": "2016-03-29 15:53:16.610864",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -497,6 +497,8 @@
 	"KF_INSTANCE_GET_VISIBLE_HELPURL": "",
 	"KF_INSTANCE_GET_VISIBLE_MESSAGE": "get visibility of",
 	"KF_INSTANCE_GET_VISIBLE_TOOLTIP": "Returns visibility state of this gameobject. An alpha of zero is does not mean that the visiblity is false.",
+	"KF_INSTANCE_SET_POSITION_FROM_LOCATION_HELPURL": "",
+	"KF_INSTANCE_SET_POSITION_FROM_LOCATION_TOOLTIP": "Sets the object X and Y to a given location.",
 	"KF_INSTANCE_SET_VISIBLE_HELPURL": "",
 	"KF_INSTANCE_SET_VISIBLE_MESSAGE_BEFORE": "set visibility of",
 	"KF_INSTANCE_SET_VISIBLE_MESSAGE_AFTER": "to",

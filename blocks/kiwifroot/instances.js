@@ -312,6 +312,27 @@ Blockly.Blocks['kiwi_instance_set_position'] = {
   }
 };
 
+Blockly.Blocks[ "kiwi_instance_set_position_from_location" ] = {
+  init: function() {
+    this.setHelpUrl(
+        Blockly.Msg.KF_INSTANCE_SET_POSITION_FROM_LOCATION_HELPURL );
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField( "set position of" );
+    this.appendValueInput( "INST" )
+        .setCheck( "Instance" );
+    this.appendDummyInput()
+        .appendField( "to" );
+    this.appendValueInput( "VALUE" )
+        .setCheck( "Coordinate" );
+    this.setInputsInline( true );
+    this.setPreviousStatement( true );
+    this.setNextStatement( true );
+    this.setTooltip(
+        Blockly.Msg.KF_INSTANCE_SET_POSITION_FROM_LOCATION_TOOLTIP );
+  }
+};
+
 
 Blockly.Blocks['kiwi_instance_set_dimensions'] = {
   init: function() {

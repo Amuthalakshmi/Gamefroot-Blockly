@@ -182,6 +182,18 @@ Blockly.Kiwifroot['kiwi_instance_set_position'] = function(block) {
   code += ';\n';
   return code;
 };
+Blockly.Kiwifroot[ 'kiwi_instance_set_position_from_location' ] = function( block ) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
+  var val = Blockly.Kiwifroot.valueToCode(block, 'VALUE', Blockly.Kiwifroot.ORDER_ASSIGNMENT) || 0;
+
+  var code = errorCheck( this.workspace, ('!' + inst ), '`Set Instance Position` block could not find a Instance.' );
+  code += inst + '.x' + ' = ' + val + ".x";
+  code += ';\n';
+  code += inst + '.y' + ' = ' + val + ".y";
+  code += ';\n';
+
+  return code;
+};
 Blockly.Kiwifroot['kiwi_instance_set_dimensions'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || '(null)';
   var prop = block.getFieldValue('PROP');
