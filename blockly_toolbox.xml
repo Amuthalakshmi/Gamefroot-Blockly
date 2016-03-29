@@ -443,6 +443,9 @@
       <block type="kiwi_coordinate_get">
       </block>
 
+      <block type="kiwi_coordinate_get_angle">
+      </block>
+
   </category>
 
   <category name="Animation" colour="#df358e">

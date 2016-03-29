@@ -28,10 +28,10 @@ goog.provide('Blockly.Blocks.Kiwifroot.coordinate');
 
 goog.require('Blockly.Blocks');
 
-   
 Blockly.Blocks['kiwi_coordinate_create'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_COORDINATE_CREATE_HELPURL );
+    this.setTooltip( Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP );
     this.setColour( Blockly.Variables.COLOUR.MOTION );
 
     this.appendValueInput("X")
@@ -42,34 +42,13 @@ Blockly.Blocks['kiwi_coordinate_create'] = {
 
     this.setInputsInline(true);
     this.setOutput(true, "Coordinate");
-    this.setTooltip( Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP );
   }
 };
-
-Blockly.Blocks['kiwi_coordinate_get'] = {
-  init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_COORDINATE_GET_HELPURL );
-    this.setColour( Blockly.Variables.COLOUR.MOTION );
-
-    this.appendValueInput("COORDINATE")
-        .setCheck("Coordinate")
-        .appendField(Blockly.Msg.KF_COORDINATE_GET_MESSAGE_ONE )
-        .appendField( new Blockly.FieldDropdown( [
-          ['x', 'x'],
-          ['y', 'y']
-        ] ), "PROP")
-        .appendField(Blockly.Msg.KF_COORDINATE_GET_MESSAGE_TWO );
-
-    this.setInputsInline(true);
-    this.setOutput(true, "Number");
-    this.setTooltip( Blockly.Msg.KF_COORDINATE_GET_TOOLTIP );
-  }
-};
-
 
 Blockly.Blocks['kiwi_coordinate_set'] = {
   init: function() {
     this.setHelpUrl( Blockly.Msg.KF_COORDINATE_SET_HELPURL );
+    this.setTooltip( Blockly.Msg.KF_COORDINATE_SET_TOOLTIP );
     this.setColour( Blockly.Variables.COLOUR.MOTION );
 
     this.appendValueInput("COORDINATE")
@@ -87,6 +66,40 @@ Blockly.Blocks['kiwi_coordinate_set'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setTooltip( Blockly.Msg.KF_COORDINATE_SET_TOOLTIP );
+  }
+};
+
+Blockly.Blocks['kiwi_coordinate_get'] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_COORDINATE_GET_HELPURL );
+    this.setTooltip( Blockly.Msg.KF_COORDINATE_GET_TOOLTIP );
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+
+    this.appendValueInput("COORDINATE")
+        .setCheck("Coordinate")
+        .appendField(Blockly.Msg.KF_COORDINATE_GET_MESSAGE_ONE )
+        .appendField( new Blockly.FieldDropdown( [
+          ['x', 'x'],
+          ['y', 'y']
+        ] ), "PROP")
+        .appendField(Blockly.Msg.KF_COORDINATE_GET_MESSAGE_TWO );
+
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+  }
+};
+
+Blockly.Blocks[ "kiwi_coordinate_get_angle" ] = {
+  init: function() {
+    this.setHelpUrl( Blockly.Msg.KF_COORDINATE_GET_ANGLE_HELPURL );
+    this.setTooltip( Blockly.Msg.KF_COORDINATE_GET_ANGLE_TOOLTIP );
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+
+    this.appendValueInput( "COORDINATE" )
+      .setCheck( "Coordinate" )
+      .appendField( Blockly.Msg.KF_COORDINATE_GET_ANGLE_MESSAGE );
+
+    this.setInputsInline( true );
+    this.setOutput( true, "Number" );
   }
 };

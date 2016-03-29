@@ -2166,6 +2166,13 @@ Blockly.Msg.KF_COORDINATE_CREATE_MESSAGE = 'create new location at';
 Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP = 'Creates a new location';
 
 /// helpurl - 
+Blockly.Msg.KF_COORDINATE_GET_ANGLE_HELPURL = '';
+/// message - 
+Blockly.Msg.KF_COORDINATE_GET_ANGLE_MESSAGE = 'angle to location';
+/// tooltip - 
+Blockly.Msg.KF_COORDINATE_GET_ANGLE_TOOLTIP = 'Get angle from (0, 0) to this location';
+
+/// helpurl - 
 Blockly.Msg.KF_SET_DEBUG_MODE_URL = '';
 /// message - 
 Blockly.Msg.KF_SET_DEBUG_MODE_MESSAGE = 'set debug mode';

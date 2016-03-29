@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2016-03-30 08:53:45.896356",
+		"lastupdated": "2016-03-30 09:57:43.913455",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -825,6 +825,9 @@
 	"KF_COORDINATE_CREATE_HELPURL": "",
 	"KF_COORDINATE_CREATE_MESSAGE": "create new location at",
 	"KF_COORDINATE_CREATE_TOOLTIP": "Creates a new location",
+	"KF_COORDINATE_GET_ANGLE_HELPURL": "",
+	"KF_COORDINATE_GET_ANGLE_MESSAGE": "angle to location",
+	"KF_COORDINATE_GET_ANGLE_TOOLTIP": "Get angle from (0, 0) to this location",
 	"KF_SET_DEBUG_MODE_URL": "",
 	"KF_SET_DEBUG_MODE_MESSAGE": "set debug mode",
 	"KF_SET_DEBUG_MODE_TOOLTIP": "Sets the debug mode of the game",
