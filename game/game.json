@@ -1,5 +1,4 @@
 {
-	
 	"name": "GameName",
 
 	"width": 768,
@@ -11,7 +10,7 @@
 		{
 			"id": 1,
 			"name": "Level 1",
-			"data": 
+			"data":
 			{
 				"name": "Level Name",
 
@@ -23,7 +22,7 @@
 				},
 
 				"loader": {
-				
+
 				},
 
 				"systems": {
@@ -40,7 +39,7 @@
 				],
 
 				"gameObjects": [
-				
+
 					{
 						"id": "undercover-mushroom",
 						"type": "static-image",
@@ -53,7 +52,7 @@
 						"rotation": -1.57,
 
 						"components": {
-						
+
 							"arcadephysics": {
 								"immovable": true,
 								"gravity": false
@@ -79,7 +78,7 @@
 									"play": true,
 									"speed": 0.1
 								}
-						
+
 							}
 
 
@@ -99,7 +98,7 @@
 						"y": 170,
 
 						"components": {
-						
+
 							"arcadephysics": {
 								"immovable": true,
 								"gravity": false,
@@ -122,7 +121,7 @@
 						"y": 170,
 
 						"components": {
-						
+
 							"TextureAnimation": {
 
 								"flashing": {
@@ -143,7 +142,7 @@
 									"play": false,
 									"speed": 0.1
 								}
-						
+
 							},
 
 							"arcadephysics": {
@@ -151,7 +150,7 @@
 							},
 
 							"MyScript": {
-								
+
 							}
 
 						}
@@ -174,7 +173,7 @@
 						"url": "assets/mushroom.png",
 						"frameWidth": 144,
 						"frameHeight": 144
-					}, 
+					},
 
 					{
 						"id": 9,
@@ -209,49 +208,23 @@
 
 	],
 
-	"plugins": [ 
+	"plugins": [
 		"Primitives",
 		"GamefrootPrimitives",
-		"ParticlesGL", 
-		"GamefrootParticles", 
+		"ParticlesGL",
+		"GamefrootParticles",
 		"GamefrootText",
-		"MyScript" 
+		"MyScript"
 	],
 
 	"assets": [
-	
+
 		{
 			"type": "textureatlas",
 			"id": 1,
-			"imageUrl": "../../assets/kiwifrootAtlas.png",
+			"imageUrl": "assets/kiwifrootAtlas.png",
 			"jsonId": 2,
-			"jsonUrl": "../../assets/kiwifrootAtlas.json"
-		},
-
-		{
-			"type": "image",
-			"id": 3,
-			"url": "../../assets/imgs/misc/cursor.png"
-		},
-
-		{
-			"type": "spritesheet",
-			"id": 4,
-			"url": "../../assets/imgs/misc/number_sheet.png",
-			"frameWidth": 13,
-			"frameHeight": 17
-		},
-
-		{
-			"id": 5,
-			"type": "sound",
-			"url": "../../assets/sounds/ammo.mp3"
-		},
-
-		{
-			"id": 6,
-			"type": "json",
-			"url": "../../assets/dpad.json"
+			"jsonUrl": "assets/kiwifrootAtlas.json"
 		}
 
 	]

@@ -199,13 +199,20 @@ function airstrike(n) {
   }
 }
 
-function gotoGame(){
-  var code = toCode('Kiwifroot');
-  var baseURL = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
-  var popup = window.open(baseURL+'/blockly/game');
-  popup.addEventListener('load',function(){
-    popup.postMessage(code,"*");
-  }, true);
+function gotoGame() {
+  var code = toCode( "Kiwifroot" );
+  var baseURL =
+    location.protocol +
+    "//" +
+    location.hostname +
+    ( location.port ? ":" + location.port: "" );
+  var path = location.pathname.replace(
+    "tests/playground.html",
+    "game/index.html" );
+  var popup = window.open( baseURL + path );
+  popup.addEventListener( "load", function() {
+    popup.postMessage( code, "*" );
+  }, true );
 }
 
 function loadOutput(){

@@ -1,0 +1,19 @@
+{
+	"name": "KiwiFrootCommonImages",
+	"cells": [
+	    {
+	        "x": 0,
+	        "y": 0,
+	        "w": 578,
+	        "h": 46,
+	        "name": "gamefroot-logo"
+	    },
+	    {
+	        "x": 0,
+	        "y": 54,
+	        "w": 578,
+	        "h": 33,
+	        "name": "loading-bar"
+	    }
+    ]
+}
