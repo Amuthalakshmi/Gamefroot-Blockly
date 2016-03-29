@@ -139,7 +139,7 @@
 
   </category>
 
-  <category name="Flow" colour="#ff8601" >
+  <category name="Control Flow" colour="#ff8601" >
 
     <block type="kiwi_game_goto_level_num">
       <value name="LEVEL">
