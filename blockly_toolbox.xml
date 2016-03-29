@@ -349,11 +349,6 @@
           </block>
         </value>
       </block>
-      <block type="kiwi_instance_set_position_from_location">
-        <value name="INST">
-          <block type="kiwi_instance_self"></block>
-        </value>
-      </block>
       <block type="kiwi_instance_set_rotation">
         <value name="INST">
           <block type="kiwi_instance_self"></block>
@@ -411,6 +406,7 @@
       </block>
 
     <block type="kiwi_block_category" message="Location"></block>
+
       <block type="kiwi_coordinate_create">
         <value name="X">
           <block type="math_number">
@@ -425,6 +421,12 @@
       </block>
 
       <block type="kiwi_coordinate_get">
+      </block>
+
+      <block type="kiwi_instance_set_position_from_location">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
       </block>
 
       <block type="kiwi_coordinate_set">
