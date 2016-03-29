@@ -251,6 +251,16 @@ Blockly.Kiwifroot['kiwi_instance_get_position'] = function(block) {
   var code = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get position of instance` block.") + '.' + prop;
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
+
+Blockly.Kiwifroot['kiwi_instance_get_location_from_position'] = function(block) {
+  var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
+  var code =
+    "{ x: " +
+    errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get position of instance` block.") +
+    ".x, y: " + inst + ".y }";
+  return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
 Blockly.Kiwifroot['kiwi_instance_get_dimensions'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');

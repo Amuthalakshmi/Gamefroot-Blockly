@@ -420,6 +420,12 @@
         </value>
       </block>
 
+      <block type="kiwi_instance_get_location_from_position">
+        <value name="INST">
+          <block type="kiwi_instance_self"></block>
+        </value>
+      </block>
+
       <block type="kiwi_coordinate_get">
       </block>
 

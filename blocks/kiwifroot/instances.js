@@ -463,6 +463,21 @@ Blockly.Blocks['kiwi_instance_get_position'] = {
   }
 };
 
+
+Blockly.Blocks['kiwi_instance_get_location_from_position'] = {
+  init: function() {
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_LOCATION_FROM_POSITION_HELPURL);
+    this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField("get location of");
+    this.appendValueInput("INST")
+        .setCheck("Instance");
+    this.setInputsInline(true);
+    this.setOutput(true, "Coordinate");
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_LOCATION_FROM_POSITION_TOOLTIP);
+  }
+};
+
 Blockly.Blocks['kiwi_instance_get_dimensions'] = {
   init: function() {
     this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_HELPURL);

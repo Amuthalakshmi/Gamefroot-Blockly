@@ -1408,6 +1408,10 @@ Blockly.Msg.KF_INSTANCE_GET_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_HELPURL = '';
 /// tooltip - 
 Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_TOOLTIP = 'Width or height of this object. Actual height includes current scale. Raw height is simply image size.';
+/// tooltip -
+Blockly.Msg.KF_INSTANCE_GET_LOCATION_FROM_POSITION_TOOLTIP = 'Gets the location of the given instance.';
+/// url -
+Blockly.Msg.KF_INSTANCE_GET_LOCATION_FROM_POSITION_HELPURL = '';
 /// url - 
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL = '';
 /// Label - 
