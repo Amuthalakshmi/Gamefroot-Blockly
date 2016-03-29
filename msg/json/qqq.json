@@ -486,6 +486,8 @@
 	"KF_INSTANCE_SET_HELPURL": "url - Information on the self block",
 	"KF_INSTANCE_GET_TOOLTIP": "tooltip - This block returns the game object that the script is attached to",
 	"KF_INSTANCE_GET_HELPURL": "url - Information on the self block",
+	"KF_INSTANCE_GET_DIMENSIONS_HELPURL": "url -",
+	"KF_INSTANCE_GET_DIMENSIONS_TOOLTIP": "tooltip -",
 	"KF_INSTANCE_GET_VISIBLE_HELPURL": "url -",
 	"KF_INSTANCE_GET_VISIBLE_MESSAGE": "Label -",
 	"KF_INSTANCE_GET_VISIBLE_TOOLTIP": "tooltip -",

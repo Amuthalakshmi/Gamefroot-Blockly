@@ -1405,6 +1405,10 @@ Blockly.Msg.KF_INSTANCE_GET_TOOLTIP = 'Gets the value of a selected property of 
 /// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_GET_HELPURL = '';
 /// url - 
+Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_HELPURL = '';
+/// tooltip - 
+Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_TOOLTIP = 'Width or height of this object. Actual height includes current scale. Raw height is simply image size.';
+/// url - 
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL = '';
 /// Label - 
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE = 'get visibility of';

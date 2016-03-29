@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"author": "Ellen Spertus <ellen.spertus@gmail.com>",
-		"lastupdated": "2016-03-10 13:54:24.997291",
+		"lastupdated": "2016-03-29 14:16:08.427257",
 		"locale": "en",
 		"messagedocumentation" : "qqq"
 	},
@@ -492,6 +492,8 @@
 	"KF_INSTANCE_SET_HELPURL": "",
 	"KF_INSTANCE_GET_TOOLTIP": "Gets the value of a selected property of the given instance.",
 	"KF_INSTANCE_GET_HELPURL": "",
+	"KF_INSTANCE_GET_DIMENSIONS_HELPURL": "",
+	"KF_INSTANCE_GET_DIMENSIONS_TOOLTIP": "Width or height of this object. Actual height includes current scale. Raw height is simply image size.",
 	"KF_INSTANCE_GET_VISIBLE_HELPURL": "",
 	"KF_INSTANCE_GET_VISIBLE_MESSAGE": "get visibility of",
 	"KF_INSTANCE_GET_VISIBLE_TOOLTIP": "Returns visibility state of this gameobject. An alpha of zero is does not mean that the visiblity is false.",

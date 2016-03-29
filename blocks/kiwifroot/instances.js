@@ -444,8 +444,14 @@ Blockly.Blocks['kiwi_instance_get_position'] = {
 
 Blockly.Blocks['kiwi_instance_get_dimensions'] = {
   init: function() {
-    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_HELPURL);
+    this.setHelpUrl(Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_HELPURL);
     this.setColour( Blockly.Variables.COLOUR.MOTION );
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([
+            ["actual", "actual"]
+            ,["raw", "raw"]
+        ]), "MODE")
+        .appendField( " " );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
             ["width", "width"]
@@ -456,7 +462,7 @@ Blockly.Blocks['kiwi_instance_get_dimensions'] = {
         .setCheck("Instance");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
-    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_TOOLTIP);
+    this.setTooltip(Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_TOOLTIP);
   }
 };
 

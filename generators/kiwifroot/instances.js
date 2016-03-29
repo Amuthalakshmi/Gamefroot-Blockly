@@ -242,7 +242,11 @@ Blockly.Kiwifroot['kiwi_instance_get_position'] = function(block) {
 Blockly.Kiwifroot['kiwi_instance_get_dimensions'] = function(block) {
   var inst = Blockly.Kiwifroot.valueToCode(block, 'INST', Blockly.Kiwifroot.ORDER_ATOMIC) || 'this.owner';
   var prop = block.getFieldValue('PROP');
+  var mode = block.getFieldValue('MODE');
   var code = errorCheckConditional( this.workspace, 'NotNull', inst, '!%1', 'this.owner', "No Instance could be found for a `get width/height of instance` block.") + '.' + prop;
+  if ( mode === "actual" ) {
+    code += " * " + inst + "." + ( prop === "width" ? "scaleX" : "scaleY" );
+  }
 
   return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
 };
