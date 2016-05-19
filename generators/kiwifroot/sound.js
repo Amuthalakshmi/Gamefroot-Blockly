@@ -39,6 +39,7 @@ Blockly.Kiwifroot['kiwi_sound'] = function(block) {
 
 Blockly.Kiwifroot['kiwi_sound_play_background'] = function(block) {
     var val = Blockly.Kiwifroot.valueToCode(block, 'SOUND', Blockly.Kiwifroot.ORDER_ATOMIC) || "-1";
+    console.log(val);
     return Blockly.Kiwifroot.sound.COMPONENT_PREFIX + '.playBackgroundTrack('+val+');\n';
 };
 
@@ -70,6 +71,23 @@ Blockly.Kiwifroot['kiwi_sound_get_mute'] = function(block) {
 
 		var code = Blockly.Kiwifroot.sound.COMPONENT_PREFIX + '.' + dropdown_prop;
 		return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+};
+
+Blockly.Kiwifroot['kiwi_get_editor_sounds'] = function( block ){
+        var dropdownProp = block.getFieldValue("PROP");
+        console.log( dropdownProp );
+        var code = '{ id: 1, type: "sound", url: "http://google.com" }';
+        if ( typeof LevelEditor != "undefined" && dropdownProp != "none" ){
+            var script = LevelEditor.getGameSoundByID( dropdownProp );
+            code =  script.id;
+        }
+
+        if ( dropdownProp == "none" ){
+            code = null;
+        }
+
+        return [code, Blockly.Kiwifroot.ORDER_ATOMIC];
+
 };
 
 Blockly.Kiwifroot['kiwi_sound_get_volume'] = function(block) {
