@@ -61,9 +61,9 @@
 <script src="../blocks/kiwifroot/coordinate.js"></script>
 <script src="../blocks/kiwifroot/log.js"></script>
 <script src="../blocks/kiwifroot/plugins_primitives.js"></script>
-<script src="../blocks/kiwifroot/plugins_text.js"></script> 
-<script src="../blocks/kiwifroot/hitbox.js"></script> 
-<!-- 
+<script src="../blocks/kiwifroot/plugins_text.js"></script>
+<script src="../blocks/kiwifroot/hitbox.js"></script>
+<!--
 <script type="text/javascript" src="../blockly_compressed.js"></script>
 <script type="text/javascript" src="../blocks_compressed.js"></script>
 <script type="text/javascript" src="../kiwifroot_compressed.js"></script>
@@ -89,7 +89,7 @@ var toolbox;
 
 function start() {
 
-  //load the xml 
+  //load the xml
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -111,7 +111,7 @@ function startBlockly() {
              disable: true,
              collapse: true,
              trashcan: true,
-             errorCheck: false,
+             errorCheck: true,
              zoom: {
               controls: true,
               wheel: true,

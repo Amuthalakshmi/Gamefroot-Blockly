@@ -290,7 +290,7 @@ Blockly.Blocks['text_append'] = {
       if( type !== this.typeOf(name) ) {
         setTimeout(function(){
           // This type is immutable, change it back!
-          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_STRING, 
+          Blockly.Variables.changeType(name, Blockly.Variables.TYPE_STRING,
             Blockly.mainWorkspace);
         },1);
       }
@@ -695,10 +695,10 @@ Blockly.Blocks['text_prompt'] = {
     this.setColour( Blockly.Variables.COLOUR.OPERATORS );
     var dropdown = new Blockly.FieldDropdown(TYPES, function(newOp) {
       if (newOp == 'NUMBER') {
-        thisBlock.changeOutput('Number');
+        thisBlock.setOutput(true, 'Number');
         thisBlock.setColour(Blockly.Variables.COLOUR_NUMBER);
       } else {
-        thisBlock.changeOutput('String');
+        thisBlock.setOutput(true, 'String');
         thisBlock.setColour(Blockly.Variables.COLOUR_STRING);
       }
     });
@@ -734,11 +734,11 @@ Blockly.Blocks['text_prompt_ext'] = {
     this.setColour( Blockly.Variables.COLOUR.OPERATORS );
     var dropdown = new Blockly.FieldDropdown(TYPES, function( type ) {
         if (type == 'NUMBER') {
-          thisBlock.changeOutput('Number');
+          thisBlock.setOutput(true, 'Number');
           thisBlock.setColour(Blockly.Variables.COLOUR_NUMBER);
-          thisBlock.getInput('TEXT').setCheck('Number');
+          thisBlock.getInput('TEXT').setCheck('String');
         } else {
-          thisBlock.changeOutput('String');
+          thisBlock.setOutput(true, 'String');
           thisBlock.setColour(Blockly.Variables.COLOUR_STRING);
           thisBlock.getInput('TEXT').setCheck('String');
         }

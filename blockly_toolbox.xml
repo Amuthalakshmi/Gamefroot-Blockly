@@ -1,5 +1,5 @@
 <xml id="toolbox">
-  
+
   <category name="Events" colour="#edae00" >
 
     <block type="kiwi_block_category" message="Events"></block>
@@ -203,8 +203,8 @@
           <block type="logic_boolean"></block>
         </value>
       </block>
-      <block type="kiwi_get_debug_mode">
-      </block>
+
+      <block type="kiwi_get_debug_mode"></block>
       <block type="kiwi_log"></block>
       <block type="text_print"></block>
   </category>
@@ -583,11 +583,11 @@
           </block>
         </value>
       </block>
-  
+
   </category>
 
   <category name="Sensing" colour="#8121e7">
-    
+
     <block type="kiwi_instance_self"></block>
 
     <block type="kiwi_block_category" message="Mouse"></block>
@@ -785,6 +785,9 @@
         </block>
       </value>
     </block>
+
+
+
     <block type="kiwi_sound_set_mute">
       <value name="STATE">
         <block type="logic_boolean"></block>
@@ -792,6 +795,7 @@
     </block>
     <block type="kiwi_sound_get_volume"></block>
     <block type="kiwi_sound_get_mute"></block>
+    <block type="kiwi_get_editor_sounds"></block>
 
   </category>
 
@@ -993,7 +997,7 @@
           </block>
         </value>
       </block>
-  
+
   </category>
 
   <category name="Draw" colour="#38ce9e" >
@@ -1006,7 +1010,7 @@
             <field name="VAR">Class</field>
           </block>
         </value>
-      </block>    
+      </block>
 
     <block type="kiwi_block_category" message="Shapes"></block>
       <block type="kiwi_primitives_create_rectangle_local">
@@ -1189,7 +1193,7 @@
   </category>
 
   <category name="Functions" colour="#6bd101" custom="PROCEDURE">
-    
+
     <block type="kiwi_block_category" message="Functions"></block>
 
   </category>

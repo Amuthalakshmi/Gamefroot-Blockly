@@ -29,16 +29,16 @@ goog.provide('Blockly.Blocks.Kiwifroot.log');
 
 goog.require('Blockly.Blocks');
 
-   
+
 
 Blockly.Blocks['kiwi_log'] = {
   init: function() {
-    this.setHelpUrl( Blockly.Msg.KF_WRITE_URL );
+    this.setHelpUrl( Blockly.Msg.LOG_HELPURL );
     this.setColour( Blockly.Variables.COLOUR.CONTROL );
-    this.appendValueInput("LOG")
-        .appendField(Blockly.Msg.KF_WRITE_MSG);
+    this.appendValueInput()
+        .appendField(Blockly.Msg.LOG_MESSAGE );
 
-    //this.setInputsInline(true);
+    this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip( Blockly.Msg.KF_WRITE_TOOLTIP );
@@ -86,9 +86,9 @@ Blockly.Blocks['kiwi_block_category'] = {
     this.moveBy( -10, 0 );
 
     if( xmlBlock ) {
-        var category = xmlBlock.getAttribute('message') || 'Category';  
+        var category = xmlBlock.getAttribute('message') || 'Category';
     } else {
-        var category = 'Category';  
+        var category = 'Category';
     }
 
     this.appendDummyInput()

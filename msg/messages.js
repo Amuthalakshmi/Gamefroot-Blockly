@@ -181,7 +181,7 @@ Blockly.Msg.CONTROLS_FOR_TOOLTIP = 'Have the variable "%1" take on the values fr
 /// https://github.com/google/blockly/wiki/Loops#count-with].
 /// [[File:Blockly-count-with.png]]
 Blockly.Msg.CONTROLS_FOR_TITLE = 'count with %1 from %2 to %3 by %4';
-/// message - 
+/// message -
 Blockly.Msg.CONTROLS_FOR_INPUT_DO = Blockly.Msg.CONTROLS_REPEAT_INPUT_DO;
 
 /// url - Describes 'for-each loops' in computer programs.  Consider using your language's translation of [https://en.wikipedia.org/wiki/Foreach https://en.wikipedia.org/wiki/Foreach] if present.
@@ -232,7 +232,7 @@ Blockly.Msg.CONTROLS_IF_IF_TOOLTIP = 'Add, remove, or reorder sections to reconf
 Blockly.Msg.CONTROLS_IF_ELSEIF_TITLE_ELSEIF = Blockly.Msg.CONTROLS_IF_MSG_ELSEIF;
 /// tooltip - Describes the 'else if' subblock during [https://github.com/google/blockly/wiki/IfElse#block-modification if block modification].
 Blockly.Msg.CONTROLS_IF_ELSEIF_TOOLTIP = 'Add a condition to the if block.';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.CONTROLS_IF_ELSE_TITLE_ELSE = Blockly.Msg.CONTROLS_IF_MSG_ELSE;
 /// tooltip - Describes the 'else' subblock during [https://github.com/google/blockly/wiki/IfElse#block-modification if block modification].
 Blockly.Msg.CONTROLS_IF_ELSE_TOOLTIP = 'Add a final, catch-all condition to the if block.';
@@ -417,7 +417,7 @@ Blockly.Msg.MATH_CHANGE_HELPURL = 'https://en.wikipedia.org/wiki/Programming_idi
 /// %1 is a variable name.
 /// %2 is the amount of change.
 Blockly.Msg.MATH_CHANGE_TITLE = 'change %1 by %2';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.MATH_CHANGE_TITLE_ITEM = Blockly.Msg.VARIABLES_DEFAULT_NAME;
 /// tooltip - This updates the value of the variable by adding to it the following numeric input.\n\nParameters:\n* %1 - the name of the variable whose value should be increased.
 Blockly.Msg.MATH_CHANGE_TOOLTIP = 'Add a number to variable "%1".';
@@ -528,7 +528,7 @@ Blockly.Msg.TEXT_APPEND_TO = 'to';
 /// be appended, as shown below.
 /// [[File:blockly-append-text.png]]
 Blockly.Msg.TEXT_APPEND_APPENDTEXT = 'append text';
-/// default name - 
+/// default name -
 Blockly.Msg.TEXT_APPEND_VARIABLE = Blockly.Msg.VARIABLES_DEFAULT_NAME;
 /// tooltip - See [https://github.com/google/blockly/wiki/Text#text-modification https://github.com/google/blockly/wiki/Text#text-modification] for more information.\n\nParameters:\n* %1 - the name of the variable to which text should be appended
 Blockly.Msg.TEXT_APPEND_TOOLTIP = 'Append some text to variable "%1".';
@@ -757,11 +757,11 @@ Blockly.Msg.LISTS_CREATE_EMPTY_TITLE = 'create empty list';
 /// block text - See [https://github.com/google/blockly/wiki/Lists#create-empty-list https://github.com/google/blockly/wiki/Lists#create-empty-list].
 Blockly.Msg.LISTS_CREATE_EMPTY_TOOLTIP = 'Returns a list, of length 0, containing no data records';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.LISTS_ADD_HELPURL = '';
-/// message one - 
+/// message one -
 Blockly.Msg.LISTS_ADD_MESSAGE_ONE = 'in list';
-/// message two - 
+/// message two -
 Blockly.Msg.LISTS_ADD_MESSAGE_TWO = 'add';
 /// message three-
 Blockly.Msg.LISTS_ADD_MESSAGE_THREE = 'to the';
@@ -871,7 +871,7 @@ Blockly.Msg.LISTS_GET_INDEX_RANDOM = 'random';
 /// accessing an item from a list].  In most languages, this will be the empty string.
 /// [[File:Blockly-list-get-item.png]]
 Blockly.Msg.LISTS_GET_INDEX_TAIL = '';
-/// block text - 
+/// block text -
 Blockly.Msg.LISTS_GET_INDEX_INPUT_IN_LIST = Blockly.Msg.LISTS_INLIST;
 /// tooltip - See [https://github.com/google/blockly/wiki/Lists#getting-a-single-item
 /// https://github.com/google/blockly/wiki/Lists#getting-a-single-item] for more information.
@@ -947,7 +947,7 @@ Blockly.Msg.LISTS_SET_INDEX_TOOLTIP_INSERT_RANDOM = 'Inserts the item randomly i
 
 /// url - Information describing extracting a sublist from an existing list.
 Blockly.Msg.LISTS_GET_SUBLIST_HELPURL = 'https://github.com/google/blockly/wiki/Lists#getting-a-sublist';
-/// url - 
+/// url -
 Blockly.Msg.LISTS_GET_SUBLIST_INPUT_IN_LIST = Blockly.Msg.LISTS_INLIST;
 /// dropdown - Indicates that an index relative to the front of the list should be used
 /// to specify the beginning of the range from which to
@@ -1093,17 +1093,17 @@ Blockly.Msg.PROCEDURES_DEFNORETURN_DO = '';
 Blockly.Msg.PROCEDURES_DEFNORETURN_TOOLTIP = 'Creates a function with no output.';
 /// url - Information about defining [https://en.wikipedia.org/wiki/Procedure_(computer_science) functions] that have return values.
 Blockly.Msg.PROCEDURES_DEFRETURN_HELPURL = 'https://en.wikipedia.org/wiki/Procedure_%28computer_science%29';
-/// message - 
+/// message -
 Blockly.Msg.PROCEDURES_DEFRETURN_TITLE = Blockly.Msg.PROCEDURES_DEFNORETURN_TITLE;
-/// message - 
+/// message -
 Blockly.Msg.PROCEDURES_DEFRETURN_PROCEDURE = Blockly.Msg.PROCEDURES_DEFNORETURN_PROCEDURE;
-/// message - 
+/// message -
 Blockly.Msg.PROCEDURES_DEFRETURN_DO = Blockly.Msg.PROCEDURES_DEFNORETURN_DO;
 /// block text - This imperative or infinite verb precedes the value that is used as the return value
 /// (output) of this function.  See
 /// [https://blockly-demo.appspot.com/static/apps/code/index.html?lang=en#6ot5y5 this sample
 /// function that returns a value].
-/// 
+///
 Blockly.Msg.PROCEDURES_DEFRETURN_RETURN = 'return';
 /// tooltip
 Blockly.Msg.PROCEDURES_DEFRETURN_TOOLTIP = 'Creates a function with an output.';
@@ -1173,13 +1173,13 @@ Blockly.Msg.KF_TYPE_INSTANCE = 'Instance';
 Blockly.Msg.KF_EVENT_CREATE_MESSAGE = 'When created';
 /// tooltip - The event dispatched when the game object this script is attached to is created
 Blockly.Msg.KF_EVENT_CREATE_TOOLTIP = 'The event triggered when this game object is created';
-/// url - Information on the kiwifroot create event 
+/// url - Information on the kiwifroot create event
 Blockly.Msg.KF_EVENT_CREATE_HELPURL = '';
 /// Label text for the kiwifroot constantly event
 Blockly.Msg.KF_EVENT_CONSTANTLY_MESSAGE = 'Constantly';
 /// tooltip - The event triggered every frame
 Blockly.Msg.KF_EVENT_CONSTANTLY_TOOLTIP = 'The event triggered every frame';
-/// url - Information on the kiwifroot constantly event 
+/// url - Information on the kiwifroot constantly event
 Blockly.Msg.KF_EVENT_CONSTANTLY_HELPURL = '';
 /// Label text for the kiwifroot stage pressed event
 Blockly.Msg.KF_EVENT_STAGE_PRESS_MESSAGE = 'When stage is pressed';
@@ -1194,14 +1194,14 @@ Blockly.Msg.KF_EVENT_STAGE_RELEASE_TOOLTIP = 'The event triggered when the playe
 /// url - Information on the kiwifroot stage release event
 Blockly.Msg.KF_EVENT_STAGE_RELEASE_HELPURL = '';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_MESSAGE = 'Pre Constantly';
 /// tooltip -
-Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_TOOLTIP = 'Triggered every frame BEFORE the constantly event blocks.'; 
+Blockly.Msg.KF_EVENT_PRE_CONSTANTLY_TOOLTIP = 'Triggered every frame BEFORE the constantly event blocks.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_EVENT_POST_CONSTANTLY_HELPURL = '';
 /// message -
 Blockly.Msg.KF_EVENT_POST_CONSTANTLY_MESSAGE = 'Post Constantly';
@@ -1211,7 +1211,7 @@ Blockly.Msg.KF_EVENT_POST_CONSTANTLY_TOOLTIP = 'Triggered every frame AFTER the 
 
 /// url -
 Blockly.Msg.KF_EVENT_STAGE_INPUT_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_STAGE_INPUT_MESSAGE = 'When the stage is';
 /// tooltip -
 Blockly.Msg.KF_EVENT_STAGE_INPUT_TOOLTIP = 'The event is trggered when the player either pressed or releases anywhere in the game scene.';
@@ -1231,7 +1231,7 @@ Blockly.Msg.KF_EVENT_INST_RELEASE_HELPURL = '';
 
 /// url -
 Blockly.Msg.KF_EVENT_INST_INPUT_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_INST_INPUT_MESSAGE = 'When the player ';
 /// tooltip -
 Blockly.Msg.KF_EVENT_INST_INPUT_TOOLTIP = 'The event is triggered when the player releases/presses (click/touch) a given instance';
@@ -1249,9 +1249,9 @@ Blockly.Msg.KF_EVENT_KEY_RELEASE_TOOLTIP = 'The event triggered when the player 
 /// url - Information on the kiwifroot key release event
 Blockly.Msg.KF_EVENT_KEY_RELEASE_HELPURL = '';
 
-/// url - 
+/// url -
 Blockly.Msg.KF_EVENT_KEY_INPUT_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_KEY_INPUT_MESSAGE = 'When the player';
 /// tooltip -
 Blockly.Msg.KF_EVENT_KEY_INPUT_TOOLTIP = 'The event is triggered when the player presses/releases the given key on their keyboard.';
@@ -1259,31 +1259,31 @@ Blockly.Msg.KF_EVENT_KEY_INPUT_TOOLTIP = 'The event is triggered when the player
 /// url -
 Blockly.Msg.KF_EVENT_TIME_HELPURL = '';
 
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_TIME_MESSAGE_BEFORE = 'Every' ;
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_TIME_MESSAGE_AFTER = 'milliseconds';
 /// tooltip -
 Blockly.Msg.KF_EVENT_TIME_TOOLTIP = 'Triggers the event when the number of milliseconds set has passed. The number of milliseconds passed is not dynamic, meaning that it will not update once set.';
 /// url -
 Blockly.Msg.KF_EVENT_TIME_SINGLE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_BEFORE = 'After' ;
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_TIME_SINGLE_MESSAGE_AFTER = 'milliseconds have passed';
 /// tooltip -
 Blockly.Msg.KF_EVENT_TIME_SINGLE_TOOLTIP = 'Triggers the inner blocks after the set period of time has occured. Warning: Does not check to see if the object was destroyed before the event fires.';
 /// url -
 Blockly.Msg.KF_EVENT_ANIMATION_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_BEFORE = 'When the animation';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_ANIMATION_MESSAGE_AFTER = 'has';
 /// tooltip -
 Blockly.Msg.KF_EVENT_ANIMATION_TOOLTIP = 'Fires events when a selected event occurs on the animation passed.';
-/// url - 
+/// url -
 Blockly.Msg.KF_EVENT_TOUCH_ON_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_TOUCH_ON_MESSAGE = 'When I am touched by';
 /// tooltip -
 Blockly.Msg.KF_EVENT_TOUCH_ON_TOOLTIP = 'Triggers the inner blocks when this instance collides with the instance passed.';
@@ -1294,50 +1294,50 @@ Blockly.Msg.KF_EVENT_STAGE_TOUCHED_MESSAGE = 'When the stage is';
 /// tooltip -
 Blockly.Msg.KF_EVENT_STAGE_TOUCHED_TOOLTIP = 'Executes when the stage is touched.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_EVENT_TOUCH_RETURN_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_EVENT_TOUCH_RETURN_MESSAGE = 'When I am touched get';
 /// tooltip -
 Blockly.Msg.KF_EVENT_TOUCH_RETURN_TOOLTIP = 'Whenever this instance is touched by another instance (using arcadephysics) it will set a variable to that instance who touched it.';
 
-/// url - 
+/// url -
 Blockly.Msg.KF_EVENT_REMOVE_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_EVENT_REMOVE_TOOLTIP = 'The event is triggered when this gameobject is destroyed.';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_REMOVE_MESSAGE = 'When removed';
 /// url -
 Blockly.Msg.KF_EVENT_MESSAGE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_BEFORE = 'When a message of';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_EVENT_MESSAGE_MESSAGE_AFTER = 'is retrieved';
 /// tooltip -
 Blockly.Msg.KF_EVENT_MESSAGE_TOOLTIP = 'Send events when the player';
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_EVENT_MESSAGE_VALUE_HELPURL = '';
 /// message one -
 Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_ONE = 'When a message of';
 /// message two -
 Blockly.Msg.KF_EVENT_MESSAGE_VALUE_MESSAGE_TWO = 'is retrieved';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_EVENT_MESSAGE_VALUE_TOOLTIP = 'Executed when a message is retrieved. You can use this block to get a value send from the message with value blocks.';
 
 /// helpurl -
 Blockly.Msg.KF_EVENT_LEVEL_START_HELPURL = '';
 /// message -
 Blockly.Msg.KF_EVENT_LEVEL_START_MESSAGE = 'When the level';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_EVENT_LEVEL_START_TOOLTIP = 'Executes when the current level starts. Only executes when a level starts up.';
 
 /// url -
 Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_TOOLTIP = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_ONE = 'When key';
-/// message - 
+/// message -
 Blockly.Msg.KF_EVENT_INSTANCE_PROPERTIES_SET_MESSAGE_TWO = 'updates';
 
 
@@ -1371,15 +1371,15 @@ Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_MESSAGE = 'stage colour';
 Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_TOOLTIP = 'Gets the colour of the game background.';
 /// url - Information on the get stage colour block
 Blockly.Msg.KF_GAME_STAGE_GET_COLOUR_HELPURL = '';
-/// url - 
+/// url -
 Blockly.Msg.KF_GAME_GET_TIME_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_GAME_GET_TIME_MESSAGE = 'time';
 /// tooltip -
 Blockly.Msg.KF_GAME_GET_TIME_TOOLTIP = 'Returns the associate time method associated.';
 /// url -
 Blockly.Msg.KF_GAME_TIME_METHOD_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_GAME_TIME_METHOD_MESSAGE = 'time';
 /// tooltip -
 Blockly.Msg.KF_GAME_TIME_METHOD_TOOLTIP = 'Pauses or resumes the clock, thus pausing/resume gameplay.';
@@ -1390,9 +1390,9 @@ Blockly.Msg.KF_INSTANCE_SELF_MESSAGE = 'myself';
 Blockly.Msg.KF_INSTANCE_SELF_TOOLTIP = 'The game object that this script is attached to.';
 /// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_SELF_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_SELECT_MESSAGE = 'instance ';
-/// url - 
+/// url -
 Blockly.Msg.KF_INSTANCE_SELECT_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_SELECT_TOOLTIP = 'Selects a game object with the corresponding id.';
@@ -1404,19 +1404,19 @@ Blockly.Msg.KF_INSTANCE_SET_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_GET_TOOLTIP = 'Gets the value of a selected property of the given instance.';
 /// url - Information on the self block
 Blockly.Msg.KF_INSTANCE_GET_HELPURL = '';
-/// url - 
+/// url -
 Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_INSTANCE_GET_DIMENSIONS_TOOLTIP = 'Width or height of this object. Actual height includes current scale. Raw height is simply image size.';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_GET_LOCATION_FROM_POSITION_TOOLTIP = 'Gets the location of the given instance.';
 /// url -
 Blockly.Msg.KF_INSTANCE_GET_LOCATION_FROM_POSITION_HELPURL = '';
-/// url - 
+/// url -
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_MESSAGE = 'get visibility of';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_INSTANCE_GET_VISIBLE_TOOLTIP = 'Returns visibility state of this gameobject. An alpha of zero is does not mean that the visiblity is false.';
 /// url -
 Blockly.Msg.KF_INSTANCE_SET_POSITION_FROM_LOCATION_HELPURL = '';
@@ -1424,41 +1424,41 @@ Blockly.Msg.KF_INSTANCE_SET_POSITION_FROM_LOCATION_HELPURL = '';
 Blockly.Msg.KF_INSTANCE_SET_POSITION_FROM_LOCATION_TOOLTIP = 'Sets the object X and Y to a given location.';
 /// url -
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_BEFORE = 'set visibility of';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_MESSAGE_AFTER = 'to';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_SET_VISIBLE_TOOLTIP = 'Sets whether the gameobject should be renderer or not. An alpha of zero is does not mean that the visiblity is false.';
 /// url -
 Blockly.Msg.KF_INSTANCE_DEATH_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_DEATH_MESSAGE = 'destroy';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_DEATH_TOOLTIP = 'Destroys the selected instance. Destruction cannot be reverted!';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_BEFORE = 'tag';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_ADD_TAG_MESSAGE_AFTER = 'on';
-/// url - 
+/// url -
 Blockly.Msg.KF_INSTANCE_ADD_TAG_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_ADD_TAG_TOOLTIP = 'Adds a tag passed to the given gameobject.';
-/// url - 
+/// url -
 Blockly.Msg.KF_INSTANCE_HAS_TAG_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_HAS_TAG_MESSAGE = 'has tag';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_INSTANCE_HAS_TAG_TOOLTIP = 'Returns a boolean indicating if the gameobject has the tag or not.';
-/// url - 
+/// url -
 Blockly.Msg.KF_INSTANCE_GET_BY_TAG_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_GET_BY_TAG_MESSAGE = 'instance by tag';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_GET_BY_TAG_TOOLTIP = 'Returns a single instance by the tag passed.';
 /// url -
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_MESSAGE = 'get all children by tag';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_GET_ALL_BY_TAG_TOOLTIP = 'Returns a list of all the instances that have the tag passed.';
@@ -1489,15 +1489,15 @@ Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_ONE = 'get key';
 /// message -
 Blockly.Msg.KF_INSTANCE_PROPERTIES_GET_MESSAGE_TWO = 'on';
 
-/// url - 
+/// url -
 Blockly.Msg.KF_INTERSECTS_OVERLAPS_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INTERSECTS_OVERLAPS_MESSAGE = 'overlaps';
 /// tooltip -
 Blockly.Msg.KF_INTERSECTS_OVERLAPS_TOOLTIP = 'Checks to see if the two passed instances overlap.';
-/// url - 
+/// url -
 Blockly.Msg.KF_INTERSECTS_CONTAINS_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_INTERSECTS_CONTAINS_MESSAGE = 'contains';
 /// tooltip -
 Blockly.Msg.KF_INTERSECTS_CONTAINS_TOOLTIP = 'Checks to see if an x/y location is within an instance\'s hitbox.';
@@ -1514,9 +1514,9 @@ Blockly.Msg.KF_INPUT_MOUSE_MESSAGE = 'of mouse';
 Blockly.Msg.KF_INPUT_MOUSE_TOOLTIP = 'The position of the mouse in the current level';
 /// url - Information on the mouse position block
 Blockly.Msg.KF_INPUT_MOUSE_HELPURL = '';
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_INPUT_FINGERS_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_INPUT_FINGERS_MESSAGE = 'all fingers';
 /// tooltip -
 Blockly.Msg.KF_INPUT_FINGERS_TOOLTIP = 'Returns a list of all the finger objects.';
@@ -1524,17 +1524,17 @@ Blockly.Msg.KF_INPUT_FINGERS_TOOLTIP = 'Returns a list of all the finger objects
 Blockly.Msg.KF_INPUT_FINGER_SELECT_HELPURL = '';
 /// message -
 Blockly.Msg.KF_INPUT_FINGER_SELECT_MESSAGE = 'finger';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_INPUT_FINGER_SELECT_TOOLTIP = 'Returns the finger associated with the number passed.';
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_MESSAGE = 'of';
 /// tooltip
 Blockly.Msg.KF_INPUT_FINGER_GET_COORDS_TOOLTIP = '';
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_MESSAGE = 'is';
 /// tooltip -
 Blockly.Msg.KF_INPUT_FINGER_GET_BOOL_TOOLTIP = 'Returns a boolean associated with the selected statement.';
@@ -1546,9 +1546,9 @@ Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_MESSAGE = 'of';
 Blockly.Msg.KF_INPUT_FINGER_GET_TIMES_TOOLTIP = 'A number associated with the time selected.';
 /// helpurl -
 Blockly.Msg.KF_INPUT_FINGER_LATEST_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_INPUT_FINGER_LATEST_MESSAGE = 'latest finger';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_INPUT_FINGER_LATEST_TOOLTIP = 'The finger which was used in the last event.';
 
 /// tooltip - A list of all the sounds included in the game
@@ -1575,102 +1575,104 @@ Blockly.Msg.KF_SOUND_PLAY_EFFECT_TOOLTIP = 'Plays the given sound effect once.';
 Blockly.Msg.KF_SOUND_PLAY_EFFECT_HELPURL = '';
 /// url -
 Blockly.Msg.KF_SOUND_BACKGROUND_STATE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_SOUND_BACKGROUND_STATE_MESSAGE = 'music';
 /// tooltip -
 Blockly.Msg.KF_SOUND_BACKGROUND_STATE_TOOLTIP = 'Pauses or resumes the current background track.';
 /// url -
 Blockly.Msg.KF_SOUND_SET_MUTE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_SOUND_SET_MUTE_MESSAGE = 'mute';
 /// tooltip -
 Blockly.Msg.KF_SOUND_SET_MUTE_TOOLTIP = 'Sets the mute state of the selected piece of audio by a boolean passed.';
 /// url -
 Blockly.Msg.KF_SOUND_GET_MUTE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_SOUND_GET_MUTE_MESSAGE = 'mute';
 /// tooltip -
 Blockly.Msg.KF_SOUND_GET_MUTE_TOOLTIP = 'Sets the mute state of the selected piece of audio by a boolean passed.';
 /// url -
 Blockly.Msg.KF_SOUND_GET_VOLUME_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_SOUND_GET_VOLUME_MESSAGE = 'get volume';
 /// tooltip -
 Blockly.Msg.KF_SOUND_GET_VOLUME_TOOLTIP = 'Gets the volume of all sounds played. A number from 0 - 100.';
 /// url -
 Blockly.Msg.KF_SOUND_SET_VOLUME_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_SOUND_SET_VOLUME_MESSAGE = 'set volume';
 /// tooltip -
 Blockly.Msg.KF_SOUND_SET_VOLUME_TOOLTIP = 'Sets the volume of all sounds played. A number from 0 - 100.';
-
-
-/// message - 
+/// url -
+Blockly.Msg.KF_SOUND_GET_EDITOR_HELPURL = '';
+/// Label -
+Blockly.Msg.KF_SOUND_GET_EDITOR_MESSAGE = 'audio';
+/// tooltip -
+Blockly.Msg.KF_SOUND_GET_EDITOR_TOOLTIP = 'Gets audio from the Editor';
+/// message -
 Blockly.Msg.KF_ANIMATION_PLAY_MESSAGE = 'play animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_PLAY_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_ANIMATION_PLAY_TOOLTIP = 'Starts playing an animation on this gameobject.';
-
-/// message - 
+/// message -
 Blockly.Msg.KF_ANIMATION_STATE_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_STATE_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_ANIMATION_STATE_TOOLTIP = ' The state of the current animation.';
-
-/// message before - 
+/// message before -
 Blockly.Msg.KF_ANIMATION_FRAME_MESSAGE_BEFORE = 'goto';
-/// message after - 
+/// message after -
 Blockly.Msg.KF_ANIMATION_FRAME_MESSAGE_AFTER = 'animation frame';
 /// url -
 Blockly.Msg.KF_ANIMATION_FRAME_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_ANIMATION_FRAME_TOOLTIP = 'Goes to the selected frame in the current animation. If at the end of an animation it will go to the first frame, or the start if at the end.';
 
-/// message - 
+/// message -
 Blockly.Msg.KF_ANIMATION_CURRENT_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_CURRENT_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_ANIMATION_CURRENT_TOOLTIP = 'Returns the current animation that is playing on this game object.';
 
-/// message - 
+/// message -
 Blockly.Msg.KF_ANIMATION_NUMBERS_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_NUMBERS_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_ANIMATION_NUMBERS_TOOLTIP = 'Returns a number related to the selected field..';
 
-/// message - 
+/// message -
 Blockly.Msg.KF_ANIMATION_BOOLEAN_MESSAGE = 'current animation';
 /// url -
 Blockly.Msg.KF_ANIMATION_BOOLEAN_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_ANIMATION_BOOLEAN_TOOLTIP = 'Returns true if the statement is true. False if the statement isn\'t.';
 
 
-/// message - 
+/// message -
 Blockly.Msg.KF_CAMERA_PAN_TO_MESSAGE = 'camera to';
 /// url -
 Blockly.Msg.KF_CAMERA_PAN_TO_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_CAMERA_PAN_TO_TOOLTIP = 'Returns true if the statement is true. False if the statement isn\'t.';
 
-/// message - 
+/// message -
 Blockly.Msg.KF_CAMERA_SET_MESSAGE_BEFORE = 'set camera';
-/// message - 
+/// message -
 Blockly.Msg.KF_CAMERA_SET_MESSAGE_AFTER = 'to';
 /// url -
 Blockly.Msg.KF_CAMERA_SET_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_CAMERA_SET_TOOLTIP = 'Sets a selected property on the camera to the value passed.';
 
-/// message - 
+/// message -
 Blockly.Msg.KF_CAMERA_GET_MESSAGE = 'camera';
 /// url -
 Blockly.Msg.KF_CAMERA_GET_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_CAMERA_GET_TOOLTIP = 'Returns a selected property on the camera.';
 
 /// url -
@@ -1680,26 +1682,26 @@ Blockly.Msg.KF_CAMERA_GET_READ_ONLY_MESSAGE = 'camera';
 /// tooltip -
 Blockly.Msg.KF_CAMERA_GET_READ_ONLY_TOOLTIP = 'Returns a selected read only property on the camera.';
 
-/// message - 
+/// message -
 Blockly.Msg.KF_CAMERA_LOCK_ON_MESSAGE = 'lock camera on';
 /// url -
 Blockly.Msg.KF_CAMERA_LOCK_ON_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_CAMERA_LOCK_ON_TOOLTIP = 'Locks the camera to an Instance passed.';
 
-/// message - 
+/// message -
 Blockly.Msg.KF_CAMERA_UNLOCK_MESSAGE = 'unlock camera';
 /// url -
 Blockly.Msg.KF_CAMERA_UNLOCK_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_CAMERA_UNLOCK_TOOLTIP = 'Unlocks the camera.';
 
 
-/// message - 
+/// message -
 Blockly.Msg.KF_CAMERA_STATE_MESSAGE = 'is camera';
 /// url -
 Blockly.Msg.KF_CAMERA_STATE_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_CAMERA_STATE_TOOLTIP = 'Returns true if the statement is correct.';
 
 /// url -
@@ -1708,7 +1710,7 @@ Blockly.Msg.KF_CAMERA_SCALE_HELPURL = '';
 Blockly.Msg.KF_CAMERA_SCALE_MESSAGE = 'camera scale';
 /// tooltip -
 Blockly.Msg.KF_CAMERA_SCALE_TOOLTIP = 'Sets the camera scale on the selected axis to a value passed.';
-/// url - 
+/// url -
 Blockly.Msg.KF_CAMERA_SCALE_GET_HELPURL = '';
 /// message -
 Blockly.Msg.KF_CAMERA_SCALE_GET_MESSAGE = 'camera scale';
@@ -1736,7 +1738,7 @@ Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_MESSAGE = 'center camera on';
 /// tooltip -
 Blockly.Msg.KF_CAMERA_CENTER_ON_INSTANCE_TOOLTIP = 'Centers the cameras to the instances current position.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_MATH_LERP_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_MATH_LERP_MESSAGE_TOOLTIP = '';
@@ -1749,9 +1751,9 @@ Blockly.Msg.KF_MATH_LERP_MESSAGE_THREE = 'by';
 
 /// url -
 Blockly.Msg.KF_MATH_INSTANCE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE = 'from';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER = 'to';
 /// tooltip -
 Blockly.Msg.KF_MATH_INSTANCE_TOOLTIP = 'Returns the selected value between two instances.';
@@ -1760,24 +1762,24 @@ Blockly.Msg.KF_MATH_INSTANCE_TOOLTIP = 'Returns the selected value between two i
 Blockly.Msg.KF_MATH_XY_TO_XY_HELPURL = '';
 /// message -
 Blockly.Msg.KF_MATH_XY_TO_XY_MESSAGE_BEFORE = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_BEFORE;
-/// message 
+/// message
 Blockly.Msg.KF_MATH_XY_TO_XY_MESSAGE_AFTER = Blockly.Msg.KF_MATH_INSTANCE_MESSAGE_AFTER;
 
 /// tooltip -
 Blockly.Msg.KF_MATH_XY_TO_XY_TOOLTIP = 'Returns the selected value between an instance and a location passed.';
-/// url - 
+/// url -
 Blockly.Msg.KF_MATH_UTILS_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_MATH_UTILS_TOOLTIP = '';
 
-/// message - 
+/// message -
 Blockly.Msg.KF_WRITE_MSG = "write";
 /// url -
 Blockly.Msg.KF_WRITE_URL = "";
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_WRITE_TOOLTIP = "Used to log a message in the console and to display it on the debug screen.";
 
-/// Label - 
+/// Label -
 Blockly.Msg.KF_CLASSES_INSTANCE_MESSAGE = 'class of';
 /// url -
 Blockly.Msg.KF_CLASSES_INSTANCE_HELPURL = '';
@@ -1805,20 +1807,20 @@ Blockly.Msg.KF_CLASSES_GET_ALL_INSTANCES_TOOLTIP = 'Returns a list of all the in
 
 /// url -
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_HELPURL = '';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_BEFORE = 'create new instance of';
-/// Label - 
+/// Label -
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_MESSAGE_AFTER = 'at';
 /// tooltip -
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_TOOLTIP = 'Creates a new instance of a class type at the location specified.';
 
 /// url -
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_HELPURL = '';
-/// label - 
+/// label -
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_BEFORE = 'create new';
-/// label - 
+/// label -
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_MESSAGE_AFTER = 'of';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_CLASSES_CREATE_INSTANCE_WITH_VAR_TOOLTIP = 'Creates a new instance of a class and assigns a variable to the instance.';
 
 /// url -
@@ -1841,11 +1843,11 @@ Blockly.Msg.KF_ARCADEPHYSICS_SET_BOOLEAN_TOOLTIP = 'Sets a boolean property sele
 Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_BOOLEAN_TOOLTIP = 'Returns the state of a property selected.';
-/// message - 
+/// message -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_MESSAGE = 'get rotation based on';
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_ROTATION_FROM_TOOLTIP = 'Returns a rotation for the property based on a selected property.';
 
 
@@ -1879,7 +1881,7 @@ Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_HELPURL = '';
 Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_MESSAGE = 'gravity';
 /// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_GET_GRAVITY_TOOLTIP = 'Returns the selected gravity value.';
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_ARCADEPHYSICS_SET_PHYSICS_ENABLED_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_ARCADEPHYSICS_SET_PHYSICS_ENABLED_TOOLTIP = 'Set the state of this objects arcadephysics component.';
@@ -1903,7 +1905,7 @@ Blockly.Msg.KF_MESSAGING_INSTANCE_TOOLTIP = 'Sends a message to a singular insta
 /// url -
 Blockly.Msg.KF_MESSAGING_CLASS_HELPURL = '';
 /// message -
-Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_BEFORE = 'send message'; 
+Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_BEFORE = 'send message';
 /// message -
 Blockly.Msg.KF_MESSAGING_CLASS_MESSAGE_AFTER = 'to all';
 /// tooltip -
@@ -1930,13 +1932,13 @@ Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_MESSAGE_ONE = 'send message to everyone'
 Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_MESSAGE_TWO = 'with a value of';
 /// tooltip -
 Blockly.Msg.KF_MESSAGING_EVERYONE_VALUE_TOOLTIP = 'Sends a message and value defined to every gameobject.';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_TOOLTIP = 'Sends a message and value to an instance.';
 /// helpurl -
 Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_HELPURL = '';
-/// message one - 
+/// message one -
 Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_ONE = 'send message';
-/// message two - 
+/// message two -
 Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_TWO = 'to';
 /// message three -
 Blockly.Msg.KF_MESSAGING_INSTANCE_VALUE_MESSAGE_THREE = 'with a value of';
@@ -1963,48 +1965,50 @@ Blockly.Msg.KF_INSTANCE_MOVE_HELPURL = '';
 /// tooltip -
 Blockly.Msg.KF_INSTANCE_MOVE_TOOLTIP = 'Changes the depth (layer ordering) of an instance passed by the selected dropdown method.';
 
-///block text - Log Text
-Blockly.Msg.LOG_MSG = "log";
-///url - The url for the log information
-Blockly.Msg.LOG_URL = "";
+/// Label -
+Blockly.Msg.LOG_MESSAGE  = 'Log';
+/// url -
+Blockly.Msg.LOG_HELPURL = '';
+/// tooltip -
+Blockly.Msg.LOG_TOOLTIP = 'Log a value to the console';
 
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_MESSAGE_BEFORE = 'create new';
 /// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_MESSAGE_AFTER = 'with a width/height of';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_PRIMITIVES_CREATE_RECTANGLE_TOOLTIP = 'Creates a new rectangle with a width and height that you set.';
 
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_MESSAGE_BEFORE = 'create new';
 /// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_MESSAGE_AFTER = 'with a radius of';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_PRIMITIVES_CREATE_CIRCLE_TOOLTIP = 'Creates a new circle with a radius that you set.';
 
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_MESSAGE_ONE = 'create new';
 /// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_MESSAGE_TWO = 'from origin to';
 /// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_MESSAGE_THREE = 'with a width of';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_PRIMITIVES_CREATE_LINE_TOOLTIP = 'Creates a new line from the transforms origin to a point in space.';
 
 /// helpurl -
 Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_TOOLTIP = 'Creates a new star with a specified number of points.';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_ONE = 'create new';
 /// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_TWO = 'with a radius of';
@@ -2013,217 +2017,217 @@ Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_THREE = 'and';
 /// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_STAR_MESSAGE_FOUR = 'points';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_MESSAGE_ONE = 'set colour of shape';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_MESSAGE_TWO = 'to';
 /// tooltip -
 Blockly.Msg.KF_PRIMITIVES_CHANGE_COLOUR_TOOLTIP = 'Sets the colour a shape will render to a particular value.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_MESSAGE = 'get colour of shape';
 /// tooltip -
 Blockly.Msg.KF_PRIMITIVES_GET_COLOUR_TOOLTIP = 'Returns the colour of a shape passed.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_ONE = 'create new';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_TWO = 'with a radius of';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_THREE = ' and ';
-/// message - 
+/// message -
 Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_MESSAGE_FOUR = ' edges';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_PRIMITIVES_CREATE_POLYGON_TOOLTIP = 'Creates a new polygon.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_CREATE_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_CREATE_MESSAGE_ONE = 'create new';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_CREATE_MESSAGE_TWO = 'with text';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_CREATE_TOOLTIP = 'Creates a new textfield.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_NUMERIC_SET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_NUMERIC_SET_MESSAGE_ONE = 'set';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_NUMERIC_SET_MESSAGE_TWO = 'of';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_NUMERIC_SET_MESSAGE_THREE = 'to';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_NUMERIC_SET_TOOLTIP = 'Sets the numeric value of a textfield to the value passed';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_COLOUR_SET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_COLOUR_SET_MESSAGE_ONE = 'set font colour of';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_COLOUR_SET_MESSAGE_TWO = 'to';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_COLOUR_SET_TOOLTIP = 'Sets the font colour of a passed textfield to a colour passed';
 
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_TEXT_SET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_TEXT_SET_MESSAGE_ONE = 'set text of';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_TEXT_SET_MESSAGE_TWO = 'to';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_TEXT_SET_TOOLTIP = 'Sets the text which a textfield should display textfield to a string passed';
 
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_ALIGNMENT_SET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_ALIGNMENT_SET_MESSAGE_ONE = 'set text alignment of';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_ALIGNMENT_SET_MESSAGE_TWO = 'to';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_ALIGNMENT_SET_TOOLTIP = 'Sets the alignment of a textfield to a selected value in the dropdown';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_WEIGHT_SET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_WEIGHT_SET_MESSAGE_ONE = 'set text weight of';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_WEIGHT_SET_MESSAGE_TWO = 'to';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_WEIGHT_SET_TOOLTIP = 'Sets the font weight of a textfield to a selected value in the dropdown';
 
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_FAMILY_SET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_FAMILY_SET_MESSAGE_ONE = 'set font family of';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_FAMILY_SET_MESSAGE_TWO = 'to';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_FAMILY_SET_TOOLTIP = 'Sets the font family that a textfield should use.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_FONT_PRESETS_HELPURL = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_FONT_PRESETS_TOOLTIP = 'Returns the string which identifies the font family selected';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_NUMERIC_GET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_NUMERIC_GET_MESSAGE_ONE = 'get';
 /// message -
 Blockly.Msg.KF_TEXT_NUMERIC_GET_MESSAGE_TWO = 'of';
 /// tooltip -
 Blockly.Msg.KF_TEXT_NUMERIC_GET_TOOLTIP = 'Returns the current value of the selected property from a textfield';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_COLOUR_GET_HELPURL = '';
 /// message -
 Blockly.Msg.KF_TEXT_COLOUR_GET_MESSAGE = 'get font colour of';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_COLOUR_GET_TOOLTIP = 'Returns the font colour of a textfield';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_TEXT_TEXT_GET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_TEXT_TEXT_GET_MESSAGE = 'get text of';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_TEXT_TEXT_GET_TOOLTIP = 'Returns the text of a textfield';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_COORDINATE_GET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_COORDINATE_GET_MESSAGE_ONE = 'get';
-/// message - 
+/// message -
 Blockly.Msg.KF_COORDINATE_GET_MESSAGE_TWO = 'of';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_COORDINATE_GET_TOOLTIP = 'Returns the numeric value for the passed location';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_COORDINATE_SET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_COORDINATE_SET_MESSAGE_ONE = 'set';
-/// message - 
+/// message -
 Blockly.Msg.KF_COORDINATE_SET_MESSAGE_TWO = 'of';
-/// message - 
+/// message -
 Blockly.Msg.KF_COORDINATE_SET_MESSAGE_THREE = 'to';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_COORDINATE_SET_TOOLTIP = 'Sets the selected axis to a defined value for the passed location';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_COORDINATE_CREATE_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_COORDINATE_CREATE_MESSAGE = 'create new location at';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_COORDINATE_CREATE_TOOLTIP = 'Creates a new location';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_COORDINATE_GET_ANGLE_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_COORDINATE_GET_ANGLE_MESSAGE = 'angle to location';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_COORDINATE_GET_ANGLE_TOOLTIP = 'Get angle from (0, 0) to this location';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_SET_DEBUG_MODE_URL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_SET_DEBUG_MODE_MESSAGE = 'set debug mode';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_SET_DEBUG_MODE_TOOLTIP = 'Sets the debug mode of the game';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_GET_DEBUG_MODE_URL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_GET_DEBUG_MODE_MESSAGE = 'get debug mode';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_GET_DEBUG_MODE_TOOLTIP = 'Returns the boolean indiciating if debug mode is currently on or off';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_CLASSES_GET_BY_TEXT_HELPURL = '';
 /// message -
 Blockly.Msg.KF_CLASSES_GET_BY_TEXT_MESSAGE = 'get class of';
 /// tooltip -
 Blockly.Msg.KF_CLASSES_GET_BY_TEXT_TOOLTIP = 'Returns a class of the text passed.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_MESSAGE = '';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_EVENT_CONSTANTLY_DROPDOWN_TOOLTIP = 'Executes every frame. The order of execution depends on the choosen dropdown item.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_DEVICE_COCOON_URL = '';
 /// message -
 Blockly.Msg.KF_DEVICE_COCOON_MESSAGE = 'targeting cocoon';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_DEVICE_COCOON_TOOLTIP = 'Returns a boolean indicating if the game is currently targeting cocoon.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_HITBOX_POSITION_GET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_HITBOX_POSITION_GET_MESSAGE = 'get hitbox';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_HITBOX_POSITION_GET_TOOLTIP = 'Returns the selected position of the hitbox in world coordinates.';
 
-/// helpurl - 
+/// helpurl -
 Blockly.Msg.KF_HITBOX_DIMENSIONS_GET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_HITBOX_DIMENSIONS_GET_MESSAGE = 'get hitbox';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_HITBOX_DIMENSIONS_GET_TOOLTIP = 'Returns the selected dimensions of the hitbox in world coordinates.';
 
 /// helpurl -
 Blockly.Msg.KF_HITBOX_OFFSET_GET_HELPURL = '';
-/// message - 
+/// message -
 Blockly.Msg.KF_HITBOX_OFFSET_GET_MESSAGE = 'get hitbox offset';
-/// tooltip - 
+/// tooltip -
 Blockly.Msg.KF_HITBOX_OFFSET_GET_TOOLTIP = 'Returns the difference between the hitbox position and the instances position.';

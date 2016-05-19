@@ -91,7 +91,7 @@ Blockly.Blocks['kiwi_sound_background_state'] = {
     this.setColour( Blockly.Variables.COLOUR.SOUND );
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([
-            ["pause", "pauseBackgroundTrack()"], 
+            ["pause", "pauseBackgroundTrack()"],
             ["resume", "resumeBackgroundTrack()"]
         ]), "METHOD")
         .appendField( Blockly.Msg.KF_SOUND_BACKGROUND_STATE_MESSAGE );
@@ -111,7 +111,7 @@ Blockly.Blocks['kiwi_sound_set_mute'] = {
             .setCheck("Boolean")
             .appendField( Blockly.Msg.KF_SOUND_SET_MUTE_MESSAGE )
             .appendField(new Blockly.FieldDropdown([
-                ["music", "muteBackground"], 
+                ["music", "muteBackground"],
                 ["effects", "muteEffects"]
             ]), "PROP");
         this.setInputsInline(true);
@@ -128,7 +128,7 @@ Blockly.Blocks['kiwi_sound_get_mute'] = {
         this.appendDummyInput()
             .appendField( Blockly.Msg.KF_SOUND_GET_MUTE_MESSAGE )
             .appendField(new Blockly.FieldDropdown([
-                ["music", "muteBackground"], 
+                ["music", "muteBackground"],
                 ["effects", "muteEffects"]
             ]), "PROP");
         this.setOutput(true, "Boolean");
@@ -136,6 +136,26 @@ Blockly.Blocks['kiwi_sound_get_mute'] = {
     }
 };
 
+
+Blockly.Blocks['kiwi_get_editor_sounds'] = {
+    init: function() {
+        this.setHelpUrl( Blockly.Msg.KF_SOUND_GET_EDITOR_HELPURL );
+        this.setColour( Blockly.Variables.COLOUR.SOUND );
+        this.appendDummyInput()
+            .appendField( Blockly.Msg.KF_SOUND_GET_EDITOR_MESSAGE )
+            .appendField(new Blockly.FieldDropdown(function(){
+                if ( typeof LevelEditor != "undefined" ){
+                    return LevelEditor.getGameSounds();
+                } else {
+                    return [
+                        ["Select", "none"]
+                    ]
+                }
+            }), "PROP");
+        this.setOutput(true, "Sound");
+        this.setTooltip( Blockly.Msg.KF_SOUND_GET_EDITOR_TOOLTIP  );
+    }
+};
 
 Blockly.Blocks['kiwi_sound_get_volume'] = {
     init: function() {
