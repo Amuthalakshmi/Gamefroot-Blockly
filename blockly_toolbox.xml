@@ -857,6 +857,11 @@
           <block type="math_number"></block>
         </value>
       </block>
+      <block type="text_prompt_number">
+          <value name="TEXT">
+              <block type="text"></block>
+          </value>
+      </block>
 
     <block type="kiwi_block_category" message="Text"></block>
       <block type="text"></block>
@@ -894,11 +899,13 @@
       </block>
       <block type="text_changeCase"></block>
       <block type="text_trim"></block>
-      <block type="text_prompt_ext">
-        <value name="TEXT">
-          <block type="text"></block>
-        </value>
+      <block type="text_prompt_string">
+          <value name="TEXT">
+              <block type="text"></block>
+          </value>
       </block>
+
+
 
     <block type="kiwi_block_category" message="Lists"></block>
       <block type="lists_create_empty"></block>

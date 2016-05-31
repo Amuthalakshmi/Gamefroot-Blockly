@@ -680,6 +680,36 @@ Blockly.Blocks['text_print'] = {
   }
 };
 
+Blockly.Blocks['text_prompt_number'] = {
+    init: function() {
+        this.setHelpUrl(Blockly.Msg.TEXT_PROMPT_HELPURL);
+        this.setColour( Blockly.Variables.COLOUR.OPERATORS);
+
+        this.appendValueInput("TEXT")
+            .setCheck("String")
+            .appendField(Blockly.Msg.TEXT_PROMPT_TYPE_NUMBER);
+
+
+        this.setOutput(true, "Number");
+        this.setTooltip(Blockly.Msg.TEXT_PROMPT_TOOLTIP_NUMBER);
+    }
+}
+
+Blockly.Blocks['text_prompt_string'] = {
+    init: function() {
+        this.setHelpUrl(Blockly.Msg.TEXT_PROMPT_HELPURL);
+        this.setColour( Blockly.Variables.COLOUR.OPERATORS );
+        this.appendValueInput('TEXT')
+            .setCheck("String")
+            .appendField(Blockly.Msg.TEXT_PROMPT_TYPE_TEXT);
+
+
+        this.setOutput(true, "String");
+        this.setTooltip(Blockly.Msg.TEXT_PROMPT_TOOLTIP_TEXT);
+    }
+}
+
+
 Blockly.Blocks['text_prompt'] = {
   /**
    * Block for prompt function (internal message).

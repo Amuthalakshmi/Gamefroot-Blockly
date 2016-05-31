@@ -38,7 +38,7 @@ Blockly.Blocks['kiwi_log'] = {
     this.appendValueInput("LOG")
         .appendField(Blockly.Msg.LOG_MESSAGE );
 
-    this.setInputsInline(true);
+    //this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setTooltip( Blockly.Msg.KF_WRITE_TOOLTIP );
