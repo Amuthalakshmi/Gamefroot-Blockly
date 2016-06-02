@@ -31,7 +31,7 @@ goog.provide('Blockly.Kiwifroot.log');
 goog.require('Blockly.Kiwifroot');
 
 Blockly.Kiwifroot['kiwi_log'] = function(block) {
-    var val = Blockly.Kiwifroot.valueToCode(block, 'LOG', Blockly.Kiwifroot.ORDER_ATOMIC) || "";
+    var val = Blockly.Kiwifroot.valueToCode(block, 'LOG', Blockly.Kiwifroot.ORDER_ATOMIC) || "''";
     return 'this.game.logReadout.record( ' + val + ', "#Script");\n';
 };
 
@@ -47,7 +47,7 @@ Blockly.Kiwifroot['lists_add'] = function(block) {
   code += value_list;
 
   if( dropdown_position === "front" ) {
-  	code += '.unshift( ' + value_input + ' );\n'; 
+  	code += '.unshift( ' + value_input + ' );\n';
   } else {
   	code += '.push( ' + value_input + ' );\n';
   }
